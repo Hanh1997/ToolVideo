@@ -1,0 +1,601 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Dọn Đồ Chơi Sau Khi Chơi – 1",
+    "duration": "auto",
+    "tail": 1.5,
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "environment": {
+    "asset": "env_park",
+    "background": "#bde0fe",
+    "fog": {
+      "color": "#bde0fe",
+      "near": 28,
+      "far": 80
+    }
+  },
+  "characters": [
+    {
+      "id": "an",
+      "name": "An",
+      "asset": "char_q_casual_male",
+      "position": {
+        "x": -5.14,
+        "y": 0,
+        "z": -0.74
+      },
+      "heading": 81.63,
+      "voice": "voice_vi_child"
+    },
+    {
+      "id": "binh",
+      "name": "Bình",
+      "asset": "char_q_casual_female",
+      "position": {
+        "x": 4.85,
+        "y": 0,
+        "z": -0.74
+      },
+      "heading": -80.98,
+      "voice": "voice_vi_child"
+    }
+  ],
+  "props": [
+    {
+      "id": "toy_stick",
+      "asset": "prop_n_wood_log",
+      "position": {
+        "x": -2.37,
+        "y": 0,
+        "z": -1
+      },
+      "heading": 0,
+      "scale": 0.45
+    },
+    {
+      "id": "toy_cup",
+      "asset": "prop_gd_cup",
+      "position": {
+        "x": 2.37,
+        "y": 0,
+        "z": -1
+      },
+      "heading": 25,
+      "scale": 1
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": -1.58,
+      "y": 1.9,
+      "z": -4.5
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 0.59,
+      "z": -0.4
+    },
+    "fov": 50
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": true
+  },
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l1",
+      "voice": "voice_vi_female",
+      "text": "Hôm nay An và Bình ra công viên chơi.",
+      "start": 4
+    },
+    {
+      "id": "l2",
+      "speaker": "an",
+      "text": "Mình sẽ dùng cây gậy này làm đũa thần!",
+      "start": {
+        "after": "l1",
+        "gap": 3.97
+      }
+    },
+    {
+      "id": "l3",
+      "speaker": "binh",
+      "text": "Còn mình sẽ có chiếc cốc kho báu!",
+      "start": {
+        "after": "l2",
+        "gap": 3.95
+      }
+    },
+    {
+      "id": "l4",
+      "voice": "voice_vi_female",
+      "text": "Hai bạn bắt đầu trò chơi phiêu lưu thật vui.",
+      "start": {
+        "after": "l3",
+        "gap": 0.45
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "an_walk",
+      "type": "animation",
+      "target": "an",
+      "start": 0,
+      "duration": 3.4,
+      "clip": "walk"
+    },
+    {
+      "id": "an_in",
+      "type": "moveTo",
+      "target": "an",
+      "start": 0,
+      "duration": 3.4,
+      "to": {
+        "x": -1.06,
+        "z": -0.14
+      }
+    },
+    {
+      "id": "an_face",
+      "type": "turn",
+      "target": "an",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": 169.71
+    },
+    {
+      "id": "binh_walk",
+      "type": "animation",
+      "target": "binh",
+      "start": 0.25,
+      "duration": 3.15,
+      "clip": "walk"
+    },
+    {
+      "id": "binh_in",
+      "type": "moveTo",
+      "target": "binh",
+      "start": 0.25,
+      "duration": 3.15,
+      "to": {
+        "x": 1.07,
+        "z": -0.14
+      }
+    },
+    {
+      "id": "binh_face",
+      "type": "turn",
+      "target": "binh",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": -169.71
+    },
+    {
+      "id": "cam_l2_pickup",
+      "type": "camera",
+      "sync": {
+        "line": "l2",
+        "offset": -3.52,
+        "duration": 3.37
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "an",
+        "offset": {
+          "x": -2.1,
+          "y": 1.8,
+          "z": -4.34
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.52,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "l2_pickup_go_walk",
+      "type": "animation",
+      "target": "an",
+      "clip": "walk",
+      "sync": {
+        "line": "l2",
+        "offset": -3.52,
+        "duration": 0.61
+      }
+    },
+    {
+      "id": "l2_pickup_go_move",
+      "type": "moveTo",
+      "target": "an",
+      "to": {
+        "x": -1.67,
+        "z": -0.54
+      },
+      "sync": {
+        "line": "l2",
+        "offset": -3.52,
+        "duration": 0.61
+      }
+    },
+    {
+      "id": "l2_pickup_face",
+      "type": "turn",
+      "target": "an",
+      "heading": -123.28,
+      "sync": {
+        "line": "l2",
+        "offset": -2.91,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l2_pickup_pick",
+      "type": "animation",
+      "target": "an",
+      "clip": "PickUp",
+      "loop": false,
+      "sync": {
+        "line": "l2",
+        "offset": -2.61,
+        "duration": 1.3
+      }
+    },
+    {
+      "type": "attach",
+      "target": "toy_stick",
+      "to": "an",
+      "id": "l2_pickup_attach",
+      "sync": {
+        "line": "l2",
+        "offset": -2.06,
+        "duration": 0.25
+      }
+    },
+    {
+      "id": "l2_pickup_turn_back",
+      "type": "turn",
+      "target": "an",
+      "heading": 56.72,
+      "sync": {
+        "line": "l2",
+        "offset": -1.31,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l2_pickup_back_walk",
+      "type": "animation",
+      "target": "an",
+      "clip": "walk",
+      "sync": {
+        "line": "l2",
+        "offset": -1.01,
+        "duration": 0.61
+      }
+    },
+    {
+      "id": "l2_pickup_back_move",
+      "type": "moveTo",
+      "target": "an",
+      "to": {
+        "x": -1.06,
+        "z": -0.14
+      },
+      "sync": {
+        "line": "l2",
+        "offset": -1.01,
+        "duration": 0.61
+      }
+    },
+    {
+      "id": "l2_pickup_home",
+      "type": "turn",
+      "target": "an",
+      "heading": 169.71,
+      "sync": {
+        "line": "l2",
+        "offset": -0.4,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "cam_l3_pickup",
+      "type": "camera",
+      "sync": {
+        "line": "l3",
+        "offset": -3.5,
+        "duration": 3.35
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "binh",
+        "offset": {
+          "x": 2.1,
+          "y": 1.8,
+          "z": -4.34
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.52,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "l3_pickup_go_walk",
+      "type": "animation",
+      "target": "binh",
+      "clip": "walk",
+      "sync": {
+        "line": "l3",
+        "offset": -3.5,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l3_pickup_go_move",
+      "type": "moveTo",
+      "target": "binh",
+      "to": {
+        "x": 1.67,
+        "z": -0.54
+      },
+      "sync": {
+        "line": "l3",
+        "offset": -3.5,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l3_pickup_face",
+      "type": "turn",
+      "target": "binh",
+      "heading": 123.49,
+      "sync": {
+        "line": "l3",
+        "offset": -2.9,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l3_pickup_pick",
+      "type": "animation",
+      "target": "binh",
+      "clip": "PickUp",
+      "loop": false,
+      "sync": {
+        "line": "l3",
+        "offset": -2.6,
+        "duration": 1.3
+      }
+    },
+    {
+      "type": "attach",
+      "target": "toy_cup",
+      "to": "binh",
+      "id": "l3_pickup_attach",
+      "sync": {
+        "line": "l3",
+        "offset": -2.05,
+        "duration": 0.25
+      }
+    },
+    {
+      "id": "l3_pickup_turn_back",
+      "type": "turn",
+      "target": "binh",
+      "heading": -56.51,
+      "sync": {
+        "line": "l3",
+        "offset": -1.3,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l3_pickup_back_walk",
+      "type": "animation",
+      "target": "binh",
+      "clip": "walk",
+      "sync": {
+        "line": "l3",
+        "offset": -1,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l3_pickup_back_move",
+      "type": "moveTo",
+      "target": "binh",
+      "to": {
+        "x": 1.07,
+        "z": -0.14
+      },
+      "sync": {
+        "line": "l3",
+        "offset": -1,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l3_pickup_home",
+      "type": "turn",
+      "target": "binh",
+      "heading": -169.71,
+      "sync": {
+        "line": "l3",
+        "offset": -0.4,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "cam_intro",
+      "type": "camera",
+      "start": 0,
+      "duration": 3.85,
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.58,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.59,
+          "z": -0.4
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "cam_l1",
+      "type": "camera",
+      "sync": {
+        "line": "l1",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.59,
+          "z": -0.4
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "g_l2",
+      "type": "animation",
+      "target": "an",
+      "clip": "jump",
+      "loop": false,
+      "sync": {
+        "line": "l2"
+      }
+    },
+    {
+      "id": "cam_l2",
+      "type": "camera",
+      "sync": {
+        "line": "l2",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.28,
+          "y": 1.29,
+          "z": -3.48
+        },
+        "lookAt": {
+          "x": -1,
+          "y": 0.81,
+          "z": -0.46
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l3",
+      "type": "animation",
+      "target": "binh",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l3"
+      }
+    },
+    {
+      "id": "cam_l3",
+      "type": "camera",
+      "sync": {
+        "line": "l3",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 1.29,
+          "y": 1.29,
+          "z": -3.48
+        },
+        "lookAt": {
+          "x": 1.01,
+          "y": 0.81,
+          "z": -0.46
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "cam_end",
+      "type": "camera",
+      "sync": {
+        "line": "l4",
+        "offset": -0.15,
+        "pad": 30
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.59,
+          "z": -0.4
+        },
+        "fov": 50
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "sfx_l2_pickup",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "volume": 0.35,
+      "sync": {
+        "line": "l2",
+        "at": "start",
+        "offset": -2.06
+      }
+    },
+    {
+      "id": "sfx_l3_pickup",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "volume": 0.35,
+      "sync": {
+        "line": "l3",
+        "at": "start",
+        "offset": -2.05
+      }
+    }
+  ]
+}

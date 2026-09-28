@@ -1,0 +1,17 @@
+{
+  "id": "env_autumn_forest",
+  "name": "Rừng mùa thu",
+  "description": "Cây lá vàng, đỏ; thảm cỏ úa, đá, gốc cây.",
+  "seed": 23,
+  "ground": { "size": 140, "color": "#b9a44c" },
+  "path": { "width": 3.2, "from": -35, "to": 45, "color": "#9c7a4b" },
+  "scatter": [
+    { "tags": ["tree"], "pack": "Quaternius · Ultimate Nature", "include": ["autumn"], "count": 110, "area": { "x": [-50, 50], "z": [-40, 55] }, "clearPath": 5, "minDistance": 3.2, "scale": [0.8, 1.25] },
+    { "tags": ["tree"], "pack": "Quaternius · Stylized Nature", "include": ["maple_tree_"], "count": 10, "area": { "x": [-28, 28], "z": [-25, 40] }, "clearPath": 6, "minDistance": 5 },
+    { "tags": ["tree"], "pack": "Quaternius · Ultimate Nature", "include": ["dead_"], "exclude": ["snow"], "count": 8, "area": { "x": [-40, 40], "z": [-30, 50] }, "clearPath": 6, "minDistance": 4 },
+    { "tags": ["bush"], "pack": "Quaternius · Ultimate Nature", "exclude": ["snow"], "count": 35, "area": { "x": [-30, 30], "z": [-30, 45] }, "clearPath": 2.4, "minDistance": 1.6 },
+    { "tags": ["rock"], "pack": "Quaternius · Ultimate Nature", "exclude": ["snow"], "count": 30, "area": { "x": [-35, 35], "z": [-30, 45] }, "clearPath": 2.6, "minDistance": 2 },
+    { "tags": ["grass"], "pack": "Quaternius · Ultimate Nature", "count": 90, "area": { "x": [-25, 25], "z": [-30, 45] }, "clearPath": 1.8, "minDistance": 0.5 },
+    { "tags": ["wood"], "pack": "Quaternius · Ultimate Nature", "exclude": ["snow"], "count": 12, "area": { "x": [-20, 20], "z": [-20, 40] }, "clearPath": 3, "minDistance": 4 }
+  ]
+}

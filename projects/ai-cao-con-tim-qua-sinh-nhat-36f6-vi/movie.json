@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Cáo Con Tìm Quà Sinh Nhật",
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "scenes": [
+    {
+      "id": "nong_trai",
+      "file": "scenes/01-nong_trai.json"
+    },
+    {
+      "id": "rung_thu",
+      "file": "scenes/02-rung_thu.json",
+      "transition": {
+        "type": "fade",
+        "duration": 0.8
+      }
+    },
+    {
+      "id": "dong_hoa",
+      "file": "scenes/03-dong_hoa.json",
+      "transition": {
+        "type": "dissolve",
+        "duration": 0.8
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "loop": true,
+      "volume": 0.3,
+      "fadeIn": 0.5,
+      "fadeOut": 1.8
+    }
+  ],
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  }
+}

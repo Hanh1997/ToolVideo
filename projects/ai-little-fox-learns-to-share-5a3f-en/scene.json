@@ -1,0 +1,1153 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Little Fox Learns to Share",
+    "duration": "auto",
+    "tail": 2.5,
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "environment": {
+    "asset": "env_forest",
+    "background": "#bde0fe",
+    "fog": {
+      "color": "#bde0fe",
+      "near": 28,
+      "far": 80
+    }
+  },
+  "characters": [
+    {
+      "id": "fox",
+      "name": "Little Fox",
+      "asset": "char_k_animal_fox",
+      "position": {
+        "x": -1.58,
+        "y": 0,
+        "z": 3.78
+      },
+      "heading": 180,
+      "voice": "voice_en_squeaky"
+    },
+    {
+      "id": "bunny",
+      "name": "Bunny",
+      "asset": "char_k_animal_bunny",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 3.78
+      },
+      "heading": 180,
+      "voice": "voice_en_child"
+    },
+    {
+      "id": "deer",
+      "name": "Deer",
+      "asset": "char_k_animal_deer",
+      "position": {
+        "x": 1.58,
+        "y": 0,
+        "z": 3.18
+      },
+      "heading": 180,
+      "voice": "voice_en_female"
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": -1.57,
+      "y": 1.9,
+      "z": -4.5
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 0.36,
+      "z": -0.4
+    },
+    "fov": 50
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": true
+  },
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l1",
+      "voice": "voice_en_female",
+      "text": "In a sunny forest, Little Fox found a big basket of sweet berries.",
+      "start": 4
+    },
+    {
+      "id": "l2",
+      "speaker": "fox",
+      "text": "Wow! These berries look delicious!",
+      "start": {
+        "after": "l1",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l3",
+      "speaker": "bunny",
+      "text": "Hello, Fox! May I please have one berry?",
+      "start": {
+        "after": "l2",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l4",
+      "speaker": "fox",
+      "text": "No, these are all mine!",
+      "start": {
+        "after": "l3",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l5",
+      "speaker": "deer",
+      "text": "Sharing a snack is more fun, Fox.",
+      "start": {
+        "after": "l4",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l6",
+      "speaker": "fox",
+      "text": "I said no! Go play somewhere else.",
+      "start": {
+        "after": "l5",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l7",
+      "speaker": "bunny",
+      "text": "That hurts my feelings, Fox.",
+      "start": {
+        "after": "l6",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l8",
+      "speaker": "deer",
+      "text": "Friends are kind to each other.",
+      "start": {
+        "after": "l7",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l9",
+      "speaker": "fox",
+      "text": "But I found the berries first!",
+      "start": {
+        "after": "l8",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l10",
+      "voice": "voice_en_female",
+      "text": "Little Fox sat alone with his basket, but he felt lonely inside.",
+      "start": {
+        "after": "l9",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l11",
+      "speaker": "fox",
+      "text": "Why do I feel sad when I have all the berries?",
+      "start": {
+        "after": "l10",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l12",
+      "speaker": "bunny",
+      "text": "Because being together with friends is the sweetest treat.",
+      "start": {
+        "after": "l11",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l13",
+      "speaker": "deer",
+      "text": "We picked some nuts for you, Fox. Let's share everything!",
+      "start": {
+        "after": "l12",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l14",
+      "speaker": "fox",
+      "text": "You want to share with me, even after I was unkind?",
+      "start": {
+        "after": "l13",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l15",
+      "speaker": "bunny",
+      "text": "Of course! Friends forgive and share.",
+      "start": {
+        "after": "l14",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l16",
+      "speaker": "fox",
+      "text": "I am sorry. Please, let's have a berry and nut picnic together!",
+      "start": {
+        "after": "l15",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l17",
+      "speaker": "deer",
+      "text": "Hooray! Sharing makes the food taste better!",
+      "start": {
+        "after": "l16",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l18",
+      "speaker": "bunny",
+      "text": "This is the best picnic ever!",
+      "start": {
+        "after": "l17",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l19",
+      "speaker": "fox",
+      "text": "Thank you for teaching me about friendship.",
+      "start": {
+        "after": "l18",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l20",
+      "speaker": "deer",
+      "text": "Sharing is caring, Fox.",
+      "start": {
+        "after": "l19",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l21",
+      "speaker": "fox",
+      "text": "Now I know: sharing fills our hearts with joy.",
+      "start": {
+        "after": "l20",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l22",
+      "speaker": "bunny",
+      "text": "And playing together is always better!",
+      "start": {
+        "after": "l21",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l23",
+      "voice": "voice_en_female",
+      "text": "Little Fox learned that sharing is a wonderful way to show love.",
+      "start": {
+        "after": "l22",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l24",
+      "voice": "voice_en_female",
+      "text": "Let's all dance and celebrate being good friends!",
+      "start": {
+        "after": "l23",
+        "gap": 0.45
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "fox_walk",
+      "type": "animation",
+      "target": "fox",
+      "start": 0,
+      "duration": 3.4,
+      "clip": "walk"
+    },
+    {
+      "id": "fox_in",
+      "type": "moveTo",
+      "target": "fox",
+      "start": 0,
+      "duration": 3.4,
+      "to": {
+        "x": -1.58,
+        "z": -0.3
+      }
+    },
+    {
+      "id": "fox_face",
+      "type": "turn",
+      "target": "fox",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": 164.51
+    },
+    {
+      "id": "bunny_walk",
+      "type": "animation",
+      "target": "bunny",
+      "start": 0.25,
+      "duration": 3.15,
+      "clip": "walk"
+    },
+    {
+      "id": "bunny_in",
+      "type": "moveTo",
+      "target": "bunny",
+      "start": 0.25,
+      "duration": 3.15,
+      "to": {
+        "x": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "bunny_face",
+      "type": "turn",
+      "target": "bunny",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": 180
+    },
+    {
+      "id": "deer_walk",
+      "type": "animation",
+      "target": "deer",
+      "start": 0.5,
+      "duration": 2.9,
+      "clip": "walk"
+    },
+    {
+      "id": "deer_in",
+      "type": "moveTo",
+      "target": "deer",
+      "start": 0.5,
+      "duration": 2.9,
+      "to": {
+        "x": 1.58,
+        "z": -0.3
+      }
+    },
+    {
+      "id": "deer_face",
+      "type": "turn",
+      "target": "deer",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": -164.51
+    },
+    {
+      "id": "cam_intro",
+      "type": "camera",
+      "start": 0,
+      "duration": 3.85,
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.57,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.36,
+          "z": -0.4
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "cam_l1",
+      "type": "camera",
+      "sync": {
+        "line": "l1",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.36,
+          "z": -0.4
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "g_l2",
+      "type": "animation",
+      "target": "fox",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l2"
+      }
+    },
+    {
+      "id": "cam_l2",
+      "type": "camera",
+      "sync": {
+        "line": "l2",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.51,
+          "y": 0.89,
+          "z": -2.88
+        },
+        "lookAt": {
+          "x": -1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "cam_l3",
+      "type": "camera",
+      "sync": {
+        "line": "l3",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.63,
+          "y": 0.89,
+          "z": -2.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.5,
+          "z": -0.2
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l4",
+      "type": "animation",
+      "target": "fox",
+      "clip": "no",
+      "sync": {
+        "line": "l4"
+      }
+    },
+    {
+      "id": "cam_l4",
+      "type": "camera",
+      "sync": {
+        "line": "l4",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.51,
+          "y": 0.89,
+          "z": -2.88
+        },
+        "lookAt": {
+          "x": -1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l5",
+      "type": "animation",
+      "target": "deer",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l5"
+      }
+    },
+    {
+      "id": "cam_l5",
+      "type": "camera",
+      "sync": {
+        "line": "l5",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 1.51,
+          "y": 0.89,
+          "z": -2.88
+        },
+        "lookAt": {
+          "x": 1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l6",
+      "type": "animation",
+      "target": "fox",
+      "clip": "no",
+      "sync": {
+        "line": "l6"
+      }
+    },
+    {
+      "id": "cam_l6",
+      "type": "camera",
+      "sync": {
+        "line": "l6",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.51,
+          "y": 0.89,
+          "z": -2.88
+        },
+        "lookAt": {
+          "x": -1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "cam_l7",
+      "type": "camera",
+      "sync": {
+        "line": "l7",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.63,
+          "y": 0.89,
+          "z": -2.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.5,
+          "z": -0.2
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l8",
+      "type": "animation",
+      "target": "deer",
+      "clip": "yes",
+      "sync": {
+        "line": "l8"
+      }
+    },
+    {
+      "id": "cam_l8",
+      "type": "camera",
+      "sync": {
+        "line": "l8",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.31,
+          "y": 0.89,
+          "z": -2.54
+        },
+        "lookAt": {
+          "x": 1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l9",
+      "type": "animation",
+      "target": "fox",
+      "clip": "no",
+      "sync": {
+        "line": "l9"
+      }
+    },
+    {
+      "id": "cam_l9",
+      "type": "camera",
+      "sync": {
+        "line": "l9",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.31,
+          "y": 0.89,
+          "z": -2.54
+        },
+        "lookAt": {
+          "x": -1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "cam_l10",
+      "type": "camera",
+      "sync": {
+        "line": "l10",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 1.58,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.36,
+          "z": -0.4
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "cam_l11",
+      "type": "camera",
+      "sync": {
+        "line": "l11",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.31,
+          "y": 0.89,
+          "z": -2.54
+        },
+        "lookAt": {
+          "x": -1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "cam_l12",
+      "type": "camera",
+      "sync": {
+        "line": "l12",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.62,
+          "y": 0.89,
+          "z": -2.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.5,
+          "z": -0.2
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l13",
+      "type": "animation",
+      "target": "deer",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l13"
+      }
+    },
+    {
+      "id": "cam_l13",
+      "type": "camera",
+      "sync": {
+        "line": "l13",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 1.51,
+          "y": 0.89,
+          "z": -2.88
+        },
+        "lookAt": {
+          "x": 1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l14",
+      "type": "animation",
+      "target": "fox",
+      "clip": "yes",
+      "sync": {
+        "line": "l14"
+      }
+    },
+    {
+      "id": "cam_l14",
+      "type": "camera",
+      "sync": {
+        "line": "l14",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.51,
+          "y": 0.89,
+          "z": -2.88
+        },
+        "lookAt": {
+          "x": -1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l15",
+      "type": "animation",
+      "target": "bunny",
+      "clip": "yes",
+      "sync": {
+        "line": "l15"
+      }
+    },
+    {
+      "id": "cam_l15",
+      "type": "camera",
+      "sync": {
+        "line": "l15",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.63,
+          "y": 0.89,
+          "z": -2.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.5,
+          "z": -0.2
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l16",
+      "type": "animation",
+      "target": "fox",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l16"
+      }
+    },
+    {
+      "id": "cam_l16",
+      "type": "camera",
+      "sync": {
+        "line": "l16",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.51,
+          "y": 0.89,
+          "z": -2.88
+        },
+        "lookAt": {
+          "x": -1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l17",
+      "type": "animation",
+      "target": "deer",
+      "clip": "dance",
+      "sync": {
+        "line": "l17"
+      }
+    },
+    {
+      "id": "cam_l17",
+      "type": "camera",
+      "sync": {
+        "line": "l17",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 1.51,
+          "y": 0.89,
+          "z": -2.88
+        },
+        "lookAt": {
+          "x": 1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l18",
+      "type": "animation",
+      "target": "bunny",
+      "clip": "dance",
+      "sync": {
+        "line": "l18"
+      }
+    },
+    {
+      "id": "cam_l18",
+      "type": "camera",
+      "sync": {
+        "line": "l18",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.62,
+          "y": 0.89,
+          "z": -2.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.5,
+          "z": -0.2
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l19",
+      "type": "animation",
+      "target": "fox",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l19"
+      }
+    },
+    {
+      "id": "cam_l19",
+      "type": "camera",
+      "sync": {
+        "line": "l19",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.31,
+          "y": 0.89,
+          "z": -2.54
+        },
+        "lookAt": {
+          "x": -1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l20",
+      "type": "animation",
+      "target": "deer",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l20"
+      }
+    },
+    {
+      "id": "cam_l20",
+      "type": "camera",
+      "sync": {
+        "line": "l20",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.31,
+          "y": 0.89,
+          "z": -2.54
+        },
+        "lookAt": {
+          "x": 1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l21",
+      "type": "animation",
+      "target": "fox",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l21"
+      }
+    },
+    {
+      "id": "cam_l21",
+      "type": "camera",
+      "sync": {
+        "line": "l21",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.31,
+          "y": 0.89,
+          "z": -2.54
+        },
+        "lookAt": {
+          "x": -1.53,
+          "y": 0.5,
+          "z": -0.49
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l22",
+      "type": "animation",
+      "target": "bunny",
+      "clip": "dance",
+      "sync": {
+        "line": "l22"
+      }
+    },
+    {
+      "id": "cam_l22",
+      "type": "camera",
+      "sync": {
+        "line": "l22",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.62,
+          "y": 0.89,
+          "z": -2.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.5,
+          "z": -0.2
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "cam_l23",
+      "type": "camera",
+      "sync": {
+        "line": "l23",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.36,
+          "z": -0.4
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "cam_end",
+      "type": "camera",
+      "sync": {
+        "line": "l24",
+        "offset": -0.15,
+        "pad": 30
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.36,
+          "z": -0.4
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "end_fox",
+      "type": "animation",
+      "target": "fox",
+      "clip": "dance",
+      "sync": {
+        "line": "l24",
+        "offset": -0.3,
+        "pad": 2
+      }
+    },
+    {
+      "id": "end_bunny",
+      "type": "animation",
+      "target": "bunny",
+      "clip": "dance",
+      "sync": {
+        "line": "l24",
+        "offset": -0.3,
+        "pad": 2
+      }
+    },
+    {
+      "id": "end_deer",
+      "type": "animation",
+      "target": "deer",
+      "clip": "dance",
+      "sync": {
+        "line": "l24",
+        "offset": -0.3,
+        "pad": 2
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "loop": true,
+      "volume": 0.3,
+      "fadeIn": 0.5,
+      "fadeOut": 1.8
+    },
+    {
+      "id": "sfx_end",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "sync": {
+        "line": "l24",
+        "at": "end",
+        "offset": 0.2
+      },
+      "volume": 0.8
+    }
+  ]
+}

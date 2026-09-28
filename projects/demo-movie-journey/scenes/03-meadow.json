@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "meta": { "name": "Đồng hoa", "duration": "auto", "tail": 2 },
+  "environment": { "asset": "env_meadow", "background": "#a8d8f0", "fog": { "color": "#a8d8f0", "near": 28, "far": 80 } },
+  "characters": [
+    { "id": "girl", "asset": "char_q_casual2_female", "position": { "x": -0.5, "y": 0, "z": 0 }, "heading": 20, "voice": "voice_vi_female" },
+    { "id": "pug", "asset": "char_pug", "position": { "x": 0.6, "y": 0, "z": 0.3 }, "heading": -20 }
+  ],
+  "camera": { "mode": "fixed", "position": { "x": 0.4, "y": 1.3, "z": 3.6 }, "lookAt": { "x": 0, "y": 0.7, "z": 0 }, "fov": 45 },
+  "dialogue": [
+    { "id": "l1", "speaker": "girl", "text": "Đồng hoa đẹp quá! Tạm biệt các bạn, hẹn gặp lại nhé!", "start": 0.6 }
+  ],
+  "actions": [
+    { "id": "girl_cheer", "type": "animation", "target": "girl", "start": 0.4, "duration": 3, "clip": "victory", "loop": false },
+    { "id": "girl_wave", "type": "animation", "target": "girl", "start": 3.4, "duration": 3, "clip": "wave" },
+    { "id": "pug_hop", "type": "animation", "target": "pug", "start": 0, "duration": 6, "clip": "jump" }
+  ],
+  "audio": [
+    { "id": "sfx_chime", "kind": "sfx", "asset": "sfx_chime", "start": 0.3, "volume": 0.5 }
+  ]
+}

@@ -1,0 +1,303 @@
+:root {
+  --bg: #16181d;
+  --panel: #1f2229;
+  --panel-2: #262a33;
+  --line: #333845;
+  --text: #e6e8ee;
+  --muted: #8b92a3;
+  --accent: #4f9dff;
+  --anim: #4f9dff;
+  --motion: #3fbf7f;
+  --jump: #f0a33a;
+  --prop: #d9b43a;
+  --camera: #b27cf5;
+  --audio: #e0607e;
+  --error: #ff6b6b;
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+}
+
+button,
+select {
+  font: inherit;
+  color: var(--text);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.brand {
+  font-size: 14px;
+}
+.transport {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+}
+.clock {
+  font-family: ui-monospace, Consolas, monospace;
+  min-width: 150px;
+  padding-left: 6px;
+}
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--muted);
+}
+.toolbar > button.primary {
+  margin-left: auto;
+}
+.badge {
+  color: var(--jump);
+  font-size: 12px;
+}
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 11px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  min-height: 0;
+}
+
+.viewport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0d0e11;
+  min-height: 0;
+  overflow: hidden;
+}
+.viewport canvas {
+  display: block;
+}
+.viewport-stack {
+  position: relative;
+}
+.subtitle-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  min-height: 0;
+}
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.panel-head h2 {
+  font-size: 13px;
+  margin: 0;
+}
+.panel-actions {
+  display: flex;
+  gap: 6px;
+}
+.scene-json {
+  flex: 1;
+  min-height: 0;
+  resize: none;
+  font: 12px/1.45 ui-monospace, Consolas, monospace;
+  color: var(--text);
+  background: #121419;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px;
+  tab-size: 2;
+}
+.issues {
+  margin: 0;
+  padding: 8px 8px 8px 22px;
+  max-height: 160px;
+  overflow: auto;
+  color: var(--error);
+  background: rgba(255, 107, 107, 0.08);
+  border-radius: 6px;
+}
+.issues code {
+  font-weight: 600;
+}
+.issues .path {
+  color: var(--muted);
+}
+.valid {
+  color: var(--motion);
+}
+.assets {
+  max-height: 200px;
+  overflow: auto;
+}
+.asset {
+  padding: 4px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  padding: 6px 12px 10px 0;
+  user-select: none;
+}
+.timeline.empty {
+  display: block;
+  padding: 16px;
+  color: var(--muted);
+}
+.tl-label {
+  height: 26px;
+  line-height: 26px;
+  padding-left: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tl-ruler-label {
+  height: 20px;
+  line-height: 20px;
+  font-size: 11px;
+}
+.tl-area {
+  position: relative;
+  cursor: ew-resize;
+}
+.tl-ruler {
+  position: relative;
+  height: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.tl-tick {
+  position: absolute;
+  top: 2px;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: var(--muted);
+}
+.tl-track {
+  position: relative;
+  height: 26px;
+  border-bottom: 1px solid var(--line);
+}
+.tl-block {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  padding: 0 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  line-height: 20px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+.tl-anim .tl-block {
+  background: var(--anim);
+}
+.tl-motion .tl-block {
+  background: var(--motion);
+}
+.tl-jump .tl-block {
+  background: var(--jump);
+}
+.tl-prop .tl-block {
+  background: var(--prop);
+}
+.tl-camera .tl-block {
+  background: var(--camera);
+}
+.tl-audio .tl-block {
+  background: var(--audio);
+  opacity: 0.9;
+}
+.tl-default {
+  position: absolute;
+  inset: 3px 0;
+  line-height: 20px;
+  padding-left: 6px;
+  font-size: 11px;
+  color: var(--muted);
+  background: repeating-linear-gradient(45deg, transparent 0 6px, rgba(178, 124, 245, 0.08) 6px 12px);
+  border-radius: 4px;
+}
+.tl-playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--error);
+  pointer-events: none;
+}
+
+.status {
+  padding: 4px 12px;
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  min-height: 22px;
+}

@@ -1,0 +1,14 @@
+{
+  "id": "env_desert",
+  "name": "Sa mạc",
+  "description": "Cát vàng, xương rồng có hoa, đá, cây khô, vài cây cọ ốc đảo.",
+  "seed": 17,
+  "ground": { "size": 140, "color": "#e3c27d" },
+  "path": { "width": 3.2, "from": -35, "to": 45, "color": "#c9a060" },
+  "scatter": [
+    { "tags": ["cactus"], "pack": "Quaternius · Ultimate Nature", "count": 70, "area": { "x": [-45, 45], "z": [-35, 55] }, "clearPath": 3.5, "minDistance": 2.5, "scale": [0.7, 1.4] },
+    { "tags": ["rock"], "pack": "Quaternius · Ultimate Nature", "include": ["rock_"], "exclude": ["snow", "moss"], "count": 45, "area": { "x": [-45, 45], "z": [-35, 55] }, "clearPath": 3, "minDistance": 2.5, "scale": [0.8, 2.2] },
+    { "tags": ["tree"], "pack": "Quaternius · Ultimate Nature", "include": ["dead_"], "exclude": ["snow"], "count": 10, "area": { "x": [-45, 45], "z": [-30, 55] }, "clearPath": 6, "minDistance": 6 },
+    { "tags": ["tree"], "pack": "Quaternius · Ultimate Nature", "include": ["palm_tree_"], "count": 9, "area": { "x": [12, 30], "z": [15, 35] }, "minDistance": 3.5 }
+  ]
+}

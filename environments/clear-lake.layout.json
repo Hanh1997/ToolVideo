@@ -1,0 +1,21 @@
+{
+  "id": "env_clear_lake",
+  "name": "Hồ nước trong",
+  "description": "Hồ nước trong xanh giữa rừng, có lá súng và hoa súng, bờ cỏ, đá và cây xanh tốt – hợp cảnh câu cá, ngắm cảnh, sau khi dọn sạch ao.",
+  "seed": 43,
+  "ground": { "size": 140, "color": "#6fb24f" },
+  "ponds": [{ "x": 0, "z": 12, "radius": 6.8, "color": "#3f9fd2", "shore": "#8a7a55" }],
+  "clearings": [{ "x": 0, "z": 1.5, "radius": 7.5 }],
+  "place": [
+    { "asset": "prop_n_rock_moss_2", "position": { "x": -6.3, "z": 9 }, "heading": 30, "scale": 0.8 },
+    { "asset": "prop_n_rock_4", "position": { "x": 6.4, "z": 10 }, "heading": 150, "scale": 0.7 }
+  ],
+  "scatter": [
+    { "tags": ["flower"], "include": ["lily"], "count": 16, "area": { "x": [-5, 5], "z": [7.5, 17] }, "minDistance": 1.2, "allowInBlocked": true },
+    { "tags": ["tree"], "pack": "Quaternius · Ultimate Nature", "include": ["common_tree_", "pine_tree_", "birch_tree_"], "exclude": ["dead", "snow", "autumn"], "count": 110, "area": { "x": [-50, 50], "z": [-30, 60] }, "minDistance": 3.2 },
+    { "tags": ["bush"], "pack": "Quaternius · Ultimate Nature", "count": 40, "area": { "x": [-25, 25], "z": [-20, 40] }, "minDistance": 1.6 },
+    { "tags": ["rock"], "pack": "Quaternius · Ultimate Nature", "count": 18, "area": { "x": [-25, 25], "z": [-20, 40] }, "minDistance": 2 },
+    { "tags": ["grass"], "pack": "Quaternius · Ultimate Nature", "count": 140, "area": { "x": [-20, 20], "z": [-15, 35] }, "minDistance": 0.5 },
+    { "tags": ["flower"], "pack": "Quaternius · Stylized Nature", "count": 40, "area": { "x": [-18, 18], "z": [-15, 5] }, "minDistance": 0.6 }
+  ]
+}

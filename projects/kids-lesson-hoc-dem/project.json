@@ -1,0 +1,19 @@
+{
+  "id": "kids-lesson-hoc-dem",
+  "name": "Bài học thiếu nhi (nhân vật dẫn chuyện): Học đếm đến ba",
+  "template": "kids-lesson",
+  "row": "hoc-dem",
+  "params": {
+    "title": "Học đếm đến ba",
+    "character": "char_robot",
+    "voice": "voice_vi_female",
+    "environment": "env_meadow",
+    "sky": "#a8d8f0",
+    "greeting": "Xin chào các bạn nhỏ! Mình là Rô-bốt Vàng.",
+    "line_2": "Hôm nay chúng mình cùng học đếm đến ba nhé.",
+    "line_3": "Một, hai, ba! Các bạn giỏi quá!",
+    "gesture_2": "yes",
+    "gesture_3": "thumbsup",
+    "music_volume": 0.5
+  }
+}

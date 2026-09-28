@@ -1,0 +1,318 @@
+{
+  "languages": [
+    "vi"
+  ],
+  "title": {
+    "vi": "Dọn Đồ Chơi Sau Khi Chơi"
+  },
+  "summary": {
+    "vi": "An và Bình chơi đồ chơi ở nhiều nơi, cuối cùng nhớ ra phải dọn đồ chơi sau khi chơi."
+  },
+  "music": true,
+  "narratorVoice": "female",
+  "ending": "dance",
+  "characters": [
+    {
+      "id": "an",
+      "asset": "char_q_casual_male",
+      "voice": "child",
+      "name": {
+        "vi": "An"
+      }
+    },
+    {
+      "id": "binh",
+      "asset": "char_q_casual_female",
+      "voice": "child",
+      "name": {
+        "vi": "Bình"
+      }
+    }
+  ],
+  "objects": [
+    {
+      "id": "toy_stick",
+      "kind": "stick",
+      "name": {
+        "vi": "Cây gậy"
+      },
+      "scene": "park",
+      "heldBy": null
+    },
+    {
+      "id": "toy_cup",
+      "kind": "cup",
+      "name": {
+        "vi": "Chiếc cốc"
+      },
+      "scene": "park",
+      "heldBy": null
+    }
+  ],
+  "scenes": [
+    {
+      "id": "park",
+      "environment": "env_park",
+      "cast": [
+        "an",
+        "binh"
+      ],
+      "transition": "cut",
+      "lines": [
+        {
+          "id": "l1",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Hôm nay An và Bình ra công viên chơi."
+          },
+          "action": null
+        },
+        {
+          "id": "l2",
+          "speaker": "an",
+          "gesture": "jump",
+          "text": {
+            "vi": "Mình sẽ dùng cây gậy này làm đũa thần!"
+          },
+          "action": {
+            "type": "pickup",
+            "object": "toy_stick",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l3",
+          "speaker": "binh",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Còn mình sẽ có chiếc cốc kho báu!"
+          },
+          "action": {
+            "type": "pickup",
+            "object": "toy_cup",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l4",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Hai bạn bắt đầu trò chơi phiêu lưu thật vui."
+          },
+          "action": null
+        }
+      ]
+    },
+    {
+      "id": "meadow",
+      "environment": "env_meadow",
+      "cast": [
+        "an",
+        "binh"
+      ],
+      "transition": "dissolve",
+      "lines": [
+        {
+          "id": "l5",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Hai bạn chạy đến đồng hoa để phiêu lưu tiếp."
+          },
+          "action": null
+        },
+        {
+          "id": "l6",
+          "speaker": "an",
+          "gesture": "victory",
+          "text": {
+            "vi": "Mình là phù thủy, cây đũa sẽ tạo phép màu!"
+          },
+          "action": null
+        },
+        {
+          "id": "l7",
+          "speaker": "binh",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Mình là thuyền trưởng, chiếc cốc là kho báu!"
+          },
+          "action": null
+        },
+        {
+          "id": "l8",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Các bạn cười đùa vui vẻ giữa muôn hoa."
+          },
+          "action": null
+        }
+      ]
+    },
+    {
+      "id": "forest",
+      "environment": "env_forest",
+      "cast": [
+        "an",
+        "binh"
+      ],
+      "transition": "dissolve",
+      "lines": [
+        {
+          "id": "l9",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Rồi hai bạn vào rừng xanh để khám phá."
+          },
+          "action": null
+        },
+        {
+          "id": "l10",
+          "speaker": "an",
+          "gesture": "victory",
+          "text": {
+            "vi": "Mình sẽ biến chiếc lá thành ngôi sao!"
+          },
+          "action": null
+        },
+        {
+          "id": "l11",
+          "speaker": "binh",
+          "gesture": "jump",
+          "text": {
+            "vi": "Mình sẽ tìm kho báu dưới gốc cây!"
+          },
+          "action": null
+        },
+        {
+          "id": "l12",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Trời bắt đầu xế chiều, các bạn vẫn còn mải chơi."
+          },
+          "action": null
+        },
+        {
+          "id": "l13",
+          "speaker": "binh",
+          "gesture": "dance",
+          "text": {
+            "vi": "Chúng ta đã chơi rất là vui!"
+          },
+          "action": null
+        }
+      ]
+    },
+    {
+      "id": "autumn_forest",
+      "environment": "env_autumn_forest",
+      "cast": [
+        "an",
+        "binh"
+      ],
+      "transition": "fade",
+      "lines": [
+        {
+          "id": "l14",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Hai bạn dừng chân ở khu rừng mùa thu."
+          },
+          "action": null
+        },
+        {
+          "id": "l15",
+          "speaker": "an",
+          "gesture": "wave",
+          "text": {
+            "vi": "Đã đến lúc chúng ta phải về nhà rồi."
+          },
+          "action": null
+        },
+        {
+          "id": "l16",
+          "speaker": "binh",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Nhưng đồ chơi của chúng ta còn đang ở trên tay."
+          },
+          "action": null
+        },
+        {
+          "id": "l17",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Các bạn nhớ ra bài học: sau khi chơi phải dọn đồ chơi."
+          },
+          "action": null
+        }
+      ]
+    },
+    {
+      "id": "farm",
+      "environment": "env_farm",
+      "cast": [
+        "an",
+        "binh"
+      ],
+      "transition": "fade",
+      "lines": [
+        {
+          "id": "l18",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Về đến nông trại, hai bạn tìm thấy chiếc hộp đồ chơi."
+          },
+          "action": null
+        },
+        {
+          "id": "l19",
+          "speaker": "an",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Mình cất cây đũa thần vào hộp nhé!"
+          },
+          "action": {
+            "type": "drop",
+            "object": "toy_stick",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l20",
+          "speaker": "binh",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Mình cất chiếc cốc kho báu vào hộp nhé!"
+          },
+          "action": {
+            "type": "drop",
+            "object": "toy_cup",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l21",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Dọn đồ chơi xong, nhà cửa gọn gàng và các bạn rất vui!"
+          },
+          "action": null
+        }
+      ]
+    }
+  ]
+}

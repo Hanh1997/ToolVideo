@@ -1,0 +1,392 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Bunzo and Mommy Long Legs – 1",
+    "duration": "auto",
+    "tail": 1.5,
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "environment": {
+    "asset": "env_park",
+    "background": "#bde0fe",
+    "fog": {
+      "color": "#bde0fe",
+      "near": 28,
+      "far": 80
+    },
+    "lighting": {
+      "preset": "day"
+    },
+    "effects": [
+      "petals"
+    ]
+  },
+  "characters": [
+    {
+      "id": "bunzo",
+      "name": "Bunzo",
+      "asset": "char_k_animal_bunny",
+      "position": {
+        "x": -4.08,
+        "y": 0,
+        "z": -0.6
+      },
+      "heading": 81.63,
+      "scale": 0.8,
+      "voice": "voice_en_child"
+    }
+  ],
+  "props": [],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": -1.57,
+      "y": 1.9,
+      "z": -4.5
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 0.29,
+      "z": -0.4
+    },
+    "fov": 50
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": true
+  },
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l1",
+      "voice": "voice_en_female",
+      "text": "Bunzo the little rabbit loved to play in the sunny park.",
+      "start": 4
+    },
+    {
+      "id": "l2",
+      "speaker": "bunzo",
+      "text": "What a beautiful day! I will hop and play!",
+      "emotion": "happy",
+      "start": {
+        "after": "l1",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l3",
+      "voice": "voice_en_female",
+      "text": "But Bunzo had heard stories about a tall, long-legged monster in the forest.",
+      "start": {
+        "after": "l2",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l4",
+      "speaker": "bunzo",
+      "text": "I am a little scared, but I am brave too!",
+      "emotion": "scared",
+      "start": {
+        "after": "l3",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l5",
+      "voice": "voice_en_female",
+      "text": "One day, Bunzo decided to go to the forest to see for himself.",
+      "start": {
+        "after": "l4",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l6",
+      "speaker": "bunzo",
+      "text": "Here I go! Into the forest!",
+      "emotion": "happy",
+      "start": {
+        "after": "l5",
+        "gap": 0.45
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "bunzo_walk",
+      "type": "animation",
+      "target": "bunzo",
+      "start": 0,
+      "duration": 3.4,
+      "clip": "walk"
+    },
+    {
+      "id": "bunzo_in",
+      "type": "moveTo",
+      "target": "bunzo",
+      "start": 0,
+      "duration": 3.4,
+      "to": {
+        "x": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "bunzo_face",
+      "type": "turn",
+      "target": "bunzo",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": 180
+    },
+    {
+      "id": "cam_intro",
+      "type": "camera",
+      "start": 0,
+      "duration": 3.85,
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.57,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.29,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "dolly": 0.12
+      }
+    },
+    {
+      "id": "cam_l1",
+      "type": "camera",
+      "sync": {
+        "line": "l1",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.29,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "pan": 6
+      }
+    },
+    {
+      "id": "g_l2",
+      "type": "animation",
+      "target": "bunzo",
+      "clip": "dance",
+      "sync": {
+        "line": "l2"
+      }
+    },
+    {
+      "id": "cam_l2",
+      "type": "camera",
+      "sync": {
+        "line": "l2",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.57,
+          "y": 0.76,
+          "z": -2.26
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.4,
+          "z": -0.16
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l3",
+      "type": "camera",
+      "sync": {
+        "line": "l3",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.29,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "pan": 6
+      }
+    },
+    {
+      "id": "g_l4",
+      "type": "animation",
+      "target": "bunzo",
+      "clip": "no",
+      "sync": {
+        "line": "l4"
+      }
+    },
+    {
+      "id": "cam_l4",
+      "type": "camera",
+      "sync": {
+        "line": "l4",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.57,
+          "y": 0.76,
+          "z": -2.26
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.4,
+          "z": -0.16
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l5",
+      "type": "camera",
+      "sync": {
+        "line": "l5",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.29,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "pan": 6
+      }
+    },
+    {
+      "id": "g_l6",
+      "type": "animation",
+      "target": "bunzo",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l6"
+      }
+    },
+    {
+      "id": "cam_end",
+      "type": "camera",
+      "sync": {
+        "line": "l6",
+        "offset": -0.15,
+        "pad": 30
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.29,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "blend": 1.2,
+      "move": {
+        "dolly": -0.1,
+        "rise": 0.4
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "bunzo_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "start": 0,
+      "duration": 3.4,
+      "loop": true,
+      "volume": 0.21,
+      "fadeOut": 0.15
+    },
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "loop": true,
+      "volume": 0.3,
+      "fadeIn": 0.8,
+      "fadeOut": 1.2
+    },
+    {
+      "id": "amb",
+      "kind": "sfx",
+      "asset": "amb_park",
+      "start": 0,
+      "loop": true,
+      "volume": 0.35,
+      "fadeIn": 1,
+      "fadeOut": 1
+    }
+  ]
+}

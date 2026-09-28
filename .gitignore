@@ -1,0 +1,14 @@
+node_modules/
+dist/
+projects/*/renders/
+storage/
+*.log
+.venv/
+tools/tts-voices/*.onnx
+public/assets/tts/
+batches/
+tools/quaternius/
+tools/kenney/
+tools/polypizza/
+tools/bin/
+.env

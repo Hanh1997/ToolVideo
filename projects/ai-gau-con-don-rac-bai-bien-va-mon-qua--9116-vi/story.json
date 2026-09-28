@@ -1,0 +1,292 @@
+{
+  "languages": [
+    "vi"
+  ],
+  "title": {
+    "vi": "Gấu Con Dọn Rác Bãi Biển Và Món Quà Cho Mẹ"
+  },
+  "summary": {
+    "vi": "Gấu con cùng bố nhặt rác làm sạch bãi biển. Buổi tối, gấu con tặng mẹ một chậu cây và cả nhà vui vẻ ngắm đom đóm."
+  },
+  "music": true,
+  "mood": "happy",
+  "narratorVoice": "female",
+  "ending": "dance",
+  "characters": [
+    {
+      "id": "gau_con",
+      "asset": "char_m_panda",
+      "voice": "child",
+      "name": {
+        "vi": "Gấu con"
+      },
+      "size": "small"
+    },
+    {
+      "id": "gau_bo",
+      "asset": "char_m_panda",
+      "voice": "deep",
+      "name": {
+        "vi": "Bố Gấu"
+      },
+      "size": "big"
+    },
+    {
+      "id": "gau_me",
+      "asset": "char_m_panda",
+      "voice": "female",
+      "name": {
+        "vi": "Mẹ Gấu"
+      },
+      "size": "big"
+    }
+  ],
+  "objects": [
+    {
+      "id": "chau_cay",
+      "kind": "flower_pot",
+      "name": {
+        "vi": "chậu cây"
+      },
+      "scene": "vuon_nha",
+      "heldBy": null
+    },
+    {
+      "id": "chai_nhua",
+      "kind": "trash_bottle",
+      "name": {
+        "vi": "chai nhựa"
+      },
+      "scene": "bai_bien",
+      "heldBy": null
+    },
+    {
+      "id": "lon",
+      "kind": "trash_can",
+      "name": {
+        "vi": "lon"
+      },
+      "scene": "bai_bien",
+      "heldBy": null
+    }
+  ],
+  "scenes": [
+    {
+      "id": "bai_bien",
+      "environment": "env_beach",
+      "cast": [
+        "gau_con",
+        "gau_bo"
+      ],
+      "transition": "fade",
+      "mood": "sad",
+      "time": "morning",
+      "lines": [
+        {
+          "id": "l1",
+          "speaker": null,
+          "gesture": null,
+          "emotion": "neutral",
+          "text": {
+            "vi": "Buổi sáng, Gấu con cùng bố đi dạo trên bãi biển."
+          },
+          "action": null
+        },
+        {
+          "id": "l2",
+          "speaker": "gau_con",
+          "gesture": "wave",
+          "emotion": "happy",
+          "text": {
+            "vi": "Bố ơi, biển đẹp quá! Con thích tiếng sóng vỗ."
+          },
+          "action": null
+        },
+        {
+          "id": "l3",
+          "speaker": "gau_con",
+          "gesture": "no",
+          "emotion": "sad",
+          "text": {
+            "vi": "Ôi, bãi biển có nhiều rác quá. Con thấy buồn."
+          },
+          "action": null
+        },
+        {
+          "id": "l4",
+          "speaker": "gau_bo",
+          "gesture": "yes",
+          "emotion": "happy",
+          "text": {
+            "vi": "Đừng buồn con. Mình cùng nhặt rác để biển sạch nhé!"
+          },
+          "action": null
+        },
+        {
+          "id": "l5",
+          "speaker": "gau_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Con nhặt chai nhựa này nè!"
+          },
+          "action": {
+            "type": "pickup",
+            "object": "chai_nhua",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l6",
+          "speaker": "gau_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Con bỏ chai vào đây để gom lại nhé!"
+          },
+          "action": {
+            "type": "drop",
+            "object": "chai_nhua",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l7",
+          "speaker": "gau_bo",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Bố cũng nhặt cái lon này!"
+          },
+          "action": {
+            "type": "pickup",
+            "object": "lon",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l8",
+          "speaker": "gau_bo",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Bỏ lon vào cùng chỗ, bãi biển sạch hơn rồi!"
+          },
+          "action": {
+            "type": "drop",
+            "object": "lon",
+            "to": null,
+            "by": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "vuon_nha",
+      "environment": "env_garden",
+      "cast": [
+        "gau_con",
+        "gau_bo",
+        "gau_me"
+      ],
+      "transition": "dissolve",
+      "mood": "magic",
+      "time": "night",
+      "lines": [
+        {
+          "id": "l9",
+          "speaker": null,
+          "gesture": null,
+          "emotion": "neutral",
+          "text": {
+            "vi": "Buổi tối, cả nhà về khu vườn nhỏ."
+          },
+          "action": null
+        },
+        {
+          "id": "l10",
+          "speaker": "gau_con",
+          "gesture": "jump",
+          "emotion": "happy",
+          "text": {
+            "vi": "Mẹ ơi, con có món quà tặng mẹ!"
+          },
+          "action": {
+            "type": "pickup",
+            "object": "chau_cay",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l11",
+          "speaker": "gau_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Con tặng mẹ chậu cây xinh này ạ!"
+          },
+          "action": {
+            "type": "give",
+            "object": "chau_cay",
+            "to": "gau_me",
+            "by": null
+          }
+        },
+        {
+          "id": "l12",
+          "speaker": "gau_me",
+          "gesture": "wave",
+          "emotion": "surprised",
+          "text": {
+            "vi": "Ôi, chậu cây đẹp quá! Cảm ơn con yêu."
+          },
+          "action": null
+        },
+        {
+          "id": "l13",
+          "speaker": "gau_bo",
+          "gesture": "victory",
+          "emotion": "happy",
+          "text": {
+            "vi": "Con của bố mẹ hôm nay đã làm được nhiều việc tốt."
+          },
+          "action": null
+        },
+        {
+          "id": "l14",
+          "speaker": "gau_con",
+          "gesture": "dance",
+          "emotion": "happy",
+          "text": {
+            "vi": "Con thấy vui vì đã giúp biển sạch và tặng quà cho mẹ."
+          },
+          "action": null
+        },
+        {
+          "id": "l15",
+          "speaker": null,
+          "gesture": null,
+          "emotion": "neutral",
+          "text": {
+            "vi": "Đom đóm bay lấp lánh quanh vườn như những vì sao nhỏ."
+          },
+          "action": null
+        },
+        {
+          "id": "l16",
+          "speaker": "gau_me",
+          "gesture": "dance",
+          "emotion": "happy",
+          "text": {
+            "vi": "Cả nhà mình cùng ngắm đom đóm nhé!"
+          },
+          "action": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "id": "env_farm",
+  "name": "Nông trại",
+  "description": "Chuồng trại, cối xay gió, tháp nước, giếng, luống ngô và lúa mì, hàng rào – dùng với nhóm thú nông trại.",
+  "seed": 3,
+  "ground": {
+    "size": 140,
+    "color": "#86b94f"
+  },
+  "path": {
+    "width": 3.4,
+    "from": -35,
+    "to": 45,
+    "color": "#c9a46a"
+  },
+  "place": [
+    {
+      "asset": "prop_farm_big_barn",
+      "position": {
+        "x": -14,
+        "z": 22
+      },
+      "heading": 90
+    },
+    {
+      "asset": "prop_farm_silo",
+      "position": {
+        "x": -21,
+        "z": 30
+      },
+      "heading": 0
+    },
+    {
+      "asset": "prop_farm_windmill",
+      "position": {
+        "x": 15,
+        "z": 30
+      },
+      "heading": -120
+    },
+    {
+      "asset": "prop_farm_water_tower",
+      "position": {
+        "x": 20,
+        "z": 14
+      },
+      "heading": 0
+    },
+    {
+      "asset": "prop_farm_chicken_coop",
+      "position": {
+        "x": -8,
+        "z": 6
+      },
+      "heading": 90
+    },
+    {
+      "asset": "prop_farm_well",
+      "position": {
+        "x": 5.5,
+        "z": 3
+      },
+      "heading": 30
+    },
+    {
+      "asset": "prop_farm_small_barn",
+      "position": {
+        "x": 11,
+        "z": -6
+      },
+      "heading": -90
+    },
+    {
+      "asset": "prop_farm_open_barn",
+      "position": {
+        "x": -12,
+        "z": -12
+      },
+      "heading": 90
+    }
+  ],
+  "grid": [
+    {
+      "assets": [
+        "prop_n_corn_1",
+        "prop_n_corn_2"
+      ],
+      "origin": {
+        "x": 8,
+        "z": 36
+      },
+      "rows": 5,
+      "cols": 12,
+      "spacing": {
+        "x": 1.3,
+        "z": 1.6
+      },
+      "jitter": 0.25,
+      "scale": [
+        0.9,
+        1.1
+      ]
+    },
+    {
+      "assets": [
+        "prop_n_wheat"
+      ],
+      "origin": {
+        "x": -30,
+        "z": 38
+      },
+      "rows": 6,
+      "cols": 14,
+      "spacing": {
+        "x": 1.0,
+        "z": 1.2
+      },
+      "jitter": 0.3,
+      "scale": [
+        0.9,
+        1.1
+      ]
+    },
+    {
+      "assets": [
+        "prop_farm_fence"
+      ],
+      "origin": {
+        "x": 3,
+        "z": -18
+      },
+      "rows": 10,
+      "cols": 1,
+      "spacing": {
+        "x": 0,
+        "z": 5.9
+      },
+      "heading": 90
+    },
+    {
+      "assets": [
+        "prop_farm_fence"
+      ],
+      "origin": {
+        "x": -3,
+        "z": -18
+      },
+      "rows": 10,
+      "cols": 1,
+      "spacing": {
+        "x": 0,
+        "z": 5.9
+      },
+      "heading": 90
+    }
+  ],
+  "scatter": [
+    {
+      "tags": [
+        "tree"
+      ],
+      "pack": "Quaternius · Ultimate Nature",
+      "include": [
+        "common_tree_",
+        "birch_tree_"
+      ],
+      "exclude": [
+        "dead",
+        "snow",
+        "autumn"
+      ],
+      "count": 40,
+      "area": {
+        "x": [
+          -60,
+          60
+        ],
+        "z": [
+          -40,
+          60
+        ]
+      },
+      "clearPath": 32,
+      "minDistance": 5
+    },
+    {
+      "tags": [
+        "bush"
+      ],
+      "pack": "Quaternius · Ultimate Nature",
+      "exclude": [
+        "snow"
+      ],
+      "count": 20,
+      "area": {
+        "x": [
+          -30,
+          30
+        ],
+        "z": [
+          -30,
+          45
+        ]
+      },
+      "clearPath": 4,
+      "minDistance": 4
+    },
+    {
+      "tags": [
+        "grass"
+      ],
+      "pack": "Quaternius · Ultimate Nature",
+      "count": 90,
+      "area": {
+        "x": [
+          -28,
+          28
+        ],
+        "z": [
+          -30,
+          30
+        ]
+      },
+      "clearPath": 3.5,
+      "minDistance": 0.8
+    },
+    {
+      "tags": [
+        "flower"
+      ],
+      "pack": "Quaternius · Stylized Nature",
+      "count": 50,
+      "area": {
+        "x": [
+          -20,
+          20
+        ],
+        "z": [
+          -30,
+          20
+        ]
+      },
+      "clearPath": 3.5,
+      "minDistance": 0.8,
+      "exclude": [
+        "cactus"
+      ]
+    }
+  ]
+}

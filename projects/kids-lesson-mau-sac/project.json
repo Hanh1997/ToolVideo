@@ -1,0 +1,20 @@
+{
+  "id": "kids-lesson-mau-sac",
+  "name": "Bài học thiếu nhi (nhân vật dẫn chuyện): Màu sắc quanh em",
+  "template": "kids-lesson",
+  "row": "mau-sac",
+  "params": {
+    "title": "Màu sắc quanh em",
+    "character": "char_q_casual2_female",
+    "voice": "voice_vi_female",
+    "environment": "env_autumn_forest",
+    "sky": "#ffd6a5",
+    "greeting": "Chào các bạn! Hôm nay mình học về màu sắc nhé.",
+    "line_2": "Bầu trời màu xanh, còn mặt trời màu vàng.",
+    "line_3": "Cỏ cây thì có màu xanh lá.",
+    "line_4": "Các bạn nhớ chưa nào? Giỏi lắm!",
+    "gesture_2": "yes",
+    "gesture_3": "victory",
+    "music_volume": 0.5
+  }
+}

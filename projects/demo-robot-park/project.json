@@ -1,0 +1,6 @@
+{
+  "id": "demo-robot-park",
+  "name": "Robot Park Demo",
+  "description": "Robot đi bộ trong công viên, chạy, nhảy qua khúc gỗ, quay lại vẫy tay chào.",
+  "commercial": false
+}

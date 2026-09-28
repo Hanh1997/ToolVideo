@@ -1,0 +1,1733 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Cáo con hái hoa tặng mẹ",
+    "fps": 30,
+    "width": 1280,
+    "height": 720,
+    "commercial": false
+  },
+  "scenes": [
+    {
+      "id": "farm",
+      "transition": {
+        "type": "cut",
+        "duration": 0.6
+      },
+      "scene": {
+        "version": 1,
+        "meta": {
+          "name": "Cáo con hái hoa tặng mẹ – 1",
+          "duration": 21.7,
+          "fps": 30,
+          "width": 1280,
+          "height": 720,
+          "commercial": false
+        },
+        "environment": {
+          "asset": "env_farm",
+          "background": "#bde0fe",
+          "fog": {
+            "color": "#bde0fe",
+            "near": 28,
+            "far": 80
+          }
+        },
+        "characters": [
+          {
+            "id": "fox",
+            "name": "Cáo con",
+            "asset": "char_k_animal_fox",
+            "position": {
+              "x": -4.79,
+              "y": 0,
+              "z": -23.66
+            },
+            "heading": 81.63,
+            "voice": "voice_vi_squeaky"
+          },
+          {
+            "id": "mom",
+            "name": "Mẹ Cáo",
+            "asset": "char_a_fox",
+            "position": {
+              "x": 4.49,
+              "y": 0,
+              "z": -23.66
+            },
+            "heading": -80.98,
+            "voice": "voice_vi_female"
+          }
+        ],
+        "props": [],
+        "camera": {
+          "mode": "fixed",
+          "position": {
+            "x": -1.57,
+            "y": 1.9,
+            "z": -27.5
+          },
+          "lookAt": {
+            "x": 0,
+            "y": 0.36,
+            "z": -23.4
+          },
+          "fov": 50
+        },
+        "subtitles": {
+          "burnIn": true,
+          "size": 0.05,
+          "position": "bottom",
+          "showSpeaker": true
+        },
+        "mix": {
+          "duckMusic": true,
+          "duckLevel": 0.25,
+          "loudness": -14
+        },
+        "dialogue": [
+          {
+            "id": "l1",
+            "text": "Một buổi sáng đẹp trời, Cáo con ở nông trại nhớ đến sinh nhật mẹ.",
+            "start": 4,
+            "duration": 3.46,
+            "file": "tts/4d233a2146fc2428005e4f82.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l2",
+            "speaker": "fox",
+            "text": "Hôm nay là sinh nhật mẹ, con sẽ ra đồng hoa hái bông hoa đẹp nhất!",
+            "start": 7.91,
+            "duration": 3.088,
+            "file": "tts/f832049b59581aaa28a25776.wav",
+            "voice": "voice_vi_squeaky",
+            "rate": 1,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l3",
+            "speaker": "mom",
+            "text": "Ý tưởng tuyệt vời! Nhưng con đi cẩn thận nhé.",
+            "start": 11.448,
+            "duration": 2.09,
+            "file": "tts/9ef17a4b27c428e981fdbb94.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l4",
+            "speaker": "fox",
+            "text": "Con sẽ về sớm thôi mẹ ạ!",
+            "start": 13.988,
+            "duration": 1.265,
+            "file": "tts/a61b53de245829b9551b7ee6.wav",
+            "voice": "voice_vi_squeaky",
+            "rate": 1,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l5",
+            "text": "Cáo con vui vẻ rời nông trại, đi về phía đồng hoa.",
+            "start": 15.703,
+            "duration": 2.577,
+            "file": "tts/37b047c624eeee614b31d3b8.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l6",
+            "speaker": "mom",
+            "text": "Chúc con tìm được bông hoa đẹp nhất!",
+            "start": 18.73,
+            "duration": 1.463,
+            "file": "tts/2a621ea1a803f866551124bf.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          }
+        ],
+        "actions": [
+          {
+            "id": "fox_walk",
+            "type": "animation",
+            "target": "fox",
+            "start": 0,
+            "duration": 3.4,
+            "clip": "walk"
+          },
+          {
+            "id": "fox_in",
+            "type": "moveTo",
+            "target": "fox",
+            "start": 0,
+            "duration": 3.4,
+            "to": {
+              "x": -0.71,
+              "z": -23.06
+            }
+          },
+          {
+            "id": "fox_face",
+            "type": "turn",
+            "target": "fox",
+            "start": 3.4,
+            "duration": 0.5,
+            "heading": 173.21
+          },
+          {
+            "id": "mom_walk",
+            "type": "animation",
+            "target": "mom",
+            "start": 0.25,
+            "duration": 3.15,
+            "clip": "walk"
+          },
+          {
+            "id": "mom_in",
+            "type": "moveTo",
+            "target": "mom",
+            "start": 0.25,
+            "duration": 3.15,
+            "to": {
+              "x": 0.71,
+              "z": -23.06
+            }
+          },
+          {
+            "id": "mom_face",
+            "type": "turn",
+            "target": "mom",
+            "start": 3.4,
+            "duration": 0.5,
+            "heading": -173.21
+          },
+          {
+            "id": "cam_intro",
+            "type": "camera",
+            "start": 0,
+            "duration": 3.85,
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": -1.57,
+                "y": 1.9,
+                "z": -27.5
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.36,
+                "z": -23.4
+              },
+              "fov": 50
+            }
+          },
+          {
+            "id": "cam_l1",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 0,
+                "y": 1.9,
+                "z": -27.5
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.36,
+                "z": -23.4
+              },
+              "fov": 50
+            },
+            "start": 3.85,
+            "duration": 3.91
+          },
+          {
+            "id": "g_l2",
+            "type": "animation",
+            "target": "fox",
+            "clip": "thumbsup",
+            "start": 7.91,
+            "duration": 3.088
+          },
+          {
+            "id": "cam_l2",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": -1.03,
+                "y": 0.89,
+                "z": -25.62
+              },
+              "lookAt": {
+                "x": -0.69,
+                "y": 0.5,
+                "z": -23.26
+              },
+              "fov": 45
+            },
+            "start": 7.76,
+            "duration": 3.538
+          },
+          {
+            "id": "cam_l3",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 0.98,
+                "y": 0.65,
+                "z": -25.16
+              },
+              "lookAt": {
+                "x": 0.7,
+                "y": 0.31,
+                "z": -23.18
+              },
+              "fov": 45
+            },
+            "start": 11.298,
+            "duration": 2.54
+          },
+          {
+            "id": "g_l4",
+            "type": "animation",
+            "target": "fox",
+            "clip": "thumbsup",
+            "start": 13.988,
+            "duration": 1.265
+          },
+          {
+            "id": "cam_l4",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": -1.03,
+                "y": 0.89,
+                "z": -25.62
+              },
+              "lookAt": {
+                "x": -0.69,
+                "y": 0.5,
+                "z": -23.26
+              },
+              "fov": 45
+            },
+            "start": 13.838,
+            "duration": 1.715
+          },
+          {
+            "id": "cam_l5",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 0,
+                "y": 1.9,
+                "z": -27.5
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.36,
+                "z": -23.4
+              },
+              "fov": 50
+            },
+            "start": 15.553,
+            "duration": 3.027
+          },
+          {
+            "id": "cam_end",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 0,
+                "y": 1.9,
+                "z": -27.5
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.36,
+                "z": -23.4
+              },
+              "fov": 50
+            },
+            "start": 18.58,
+            "duration": 3.12
+          }
+        ],
+        "audio": []
+      }
+    },
+    {
+      "id": "meadow",
+      "transition": {
+        "type": "fade",
+        "duration": 0.8
+      },
+      "scene": {
+        "version": 1,
+        "meta": {
+          "name": "Cáo con hái hoa tặng mẹ – 2",
+          "duration": 25.3,
+          "fps": 30,
+          "width": 1280,
+          "height": 720,
+          "commercial": false
+        },
+        "environment": {
+          "asset": "env_meadow",
+          "background": "#a8d8f0",
+          "fog": {
+            "color": "#a8d8f0",
+            "near": 28,
+            "far": 80
+          }
+        },
+        "characters": [
+          {
+            "id": "fox",
+            "name": "Cáo con",
+            "asset": "char_k_animal_fox",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 4.08
+            },
+            "heading": 180,
+            "voice": "voice_vi_squeaky"
+          }
+        ],
+        "props": [
+          {
+            "id": "flower_red",
+            "asset": "prop_kn_flower_red_a",
+            "position": {
+              "x": 1.3,
+              "y": 0,
+              "z": -1
+            },
+            "heading": 0,
+            "scale": 0.6
+          },
+          {
+            "id": "flower_red_c0",
+            "asset": "prop_kn_flower_yellow_a",
+            "position": {
+              "x": 1.6,
+              "y": 0,
+              "z": -0.79
+            },
+            "heading": 15,
+            "scale": 0.6
+          },
+          {
+            "id": "flower_red_c1",
+            "asset": "prop_kn_flower_purple_a",
+            "position": {
+              "x": 1.03,
+              "y": 0,
+              "z": -0.73
+            },
+            "heading": 75,
+            "scale": 0.6
+          },
+          {
+            "id": "flower_red_c2",
+            "asset": "prop_kn_flower_red_b",
+            "position": {
+              "x": 1.36,
+              "y": 0,
+              "z": -0.58
+            },
+            "heading": 135,
+            "scale": 0.6
+          }
+        ],
+        "camera": {
+          "mode": "fixed",
+          "position": {
+            "x": -1.57,
+            "y": 1.9,
+            "z": -4.5
+          },
+          "lookAt": {
+            "x": 0,
+            "y": 0.36,
+            "z": -0.4
+          },
+          "fov": 50
+        },
+        "subtitles": {
+          "burnIn": true,
+          "size": 0.05,
+          "position": "bottom",
+          "showSpeaker": true
+        },
+        "mix": {
+          "duckMusic": true,
+          "duckLevel": 0.25,
+          "loudness": -14
+        },
+        "dialogue": [
+          {
+            "id": "l7",
+            "text": "Cáo con đến đồng hoa rộng lớn, ngập tràn hoa đủ màu sắc.",
+            "start": 4,
+            "duration": 2.984,
+            "file": "tts/9e44d0fb505ae2de42d41229.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l8",
+            "speaker": "fox",
+            "text": "Ôi, bông hoa đỏ kia đẹp quá!",
+            "start": 11.454,
+            "duration": 1.509,
+            "file": "tts/db514386b1e6473fb90735af.wav",
+            "voice": "voice_vi_squeaky",
+            "rate": 1,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l9",
+            "speaker": "fox",
+            "text": "Mình sẽ mang bông hoa này về tặng mẹ nhân ngày sinh nhật.",
+            "start": 13.413,
+            "duration": 2.485,
+            "file": "tts/701c70993e27cd7bb0aa0b8d.wav",
+            "voice": "voice_vi_squeaky",
+            "rate": 1,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l10",
+            "text": "Cáo con rời đồng hoa, trở về nông trại với bông hoa trên tay.",
+            "start": 16.348,
+            "duration": 2.868,
+            "file": "tts/dfd74fca94724f8bb701f90c.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l11",
+            "speaker": "fox",
+            "text": "Mẹ sẽ rất thích món quà này!",
+            "start": 19.666,
+            "duration": 1.308,
+            "file": "tts/ec000e066d51b02e65e3b559.wav",
+            "voice": "voice_vi_squeaky",
+            "rate": 1,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l12",
+            "text": "Trên đường về, Cáo con vẫn giữ chặt bông hoa đẹp.",
+            "start": 21.424,
+            "duration": 2.287,
+            "file": "tts/692907b90e0dff4ff49a7571.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          }
+        ],
+        "actions": [
+          {
+            "id": "fox_walk",
+            "type": "animation",
+            "target": "fox",
+            "start": 0,
+            "duration": 3.4,
+            "clip": "walk"
+          },
+          {
+            "id": "fox_in",
+            "type": "moveTo",
+            "target": "fox",
+            "start": 0,
+            "duration": 3.4,
+            "to": {
+              "x": 0,
+              "z": 0
+            }
+          },
+          {
+            "id": "fox_face",
+            "type": "turn",
+            "target": "fox",
+            "start": 3.4,
+            "duration": 0.5,
+            "heading": 180
+          },
+          {
+            "id": "cam_l8_pickup",
+            "type": "camera",
+            "shot": {
+              "mode": "follow",
+              "target": "fox",
+              "offset": {
+                "x": 1.6,
+                "y": 1.3,
+                "z": -3.44
+              },
+              "lookAtOffset": {
+                "x": 0,
+                "y": 0.32,
+                "z": 0
+              },
+              "fov": 50
+            },
+            "start": 7.434,
+            "duration": 3.87
+          },
+          {
+            "id": "l8_pickup_go_walk",
+            "type": "animation",
+            "target": "fox",
+            "clip": "walk",
+            "start": 7.434,
+            "duration": 0.86
+          },
+          {
+            "id": "l8_pickup_go_move",
+            "type": "moveTo",
+            "target": "fox",
+            "to": {
+              "x": 0.82,
+              "z": -0.63
+            },
+            "start": 7.434,
+            "duration": 0.86
+          },
+          {
+            "id": "l8_pickup_face",
+            "type": "turn",
+            "target": "fox",
+            "heading": 127.57,
+            "start": 8.294,
+            "duration": 0.3
+          },
+          {
+            "id": "l8_pickup_pick",
+            "type": "animation",
+            "target": "fox",
+            "clip": "eat",
+            "loop": false,
+            "start": 8.594,
+            "duration": 1.3
+          },
+          {
+            "type": "attach",
+            "target": "flower_red",
+            "to": "fox",
+            "id": "l8_pickup_attach",
+            "start": 9.144,
+            "duration": 0.25
+          },
+          {
+            "id": "l8_pickup_turn_back",
+            "type": "turn",
+            "target": "fox",
+            "heading": -52.43,
+            "start": 9.894,
+            "duration": 0.3
+          },
+          {
+            "id": "l8_pickup_back_walk",
+            "type": "animation",
+            "target": "fox",
+            "clip": "walk",
+            "start": 10.194,
+            "duration": 0.86
+          },
+          {
+            "id": "l8_pickup_back_move",
+            "type": "moveTo",
+            "target": "fox",
+            "to": {
+              "x": 0,
+              "z": 0
+            },
+            "start": 10.194,
+            "duration": 0.86
+          },
+          {
+            "id": "l8_pickup_home",
+            "type": "turn",
+            "target": "fox",
+            "heading": 180,
+            "start": 11.054,
+            "duration": 0.4
+          },
+          {
+            "id": "cam_intro",
+            "type": "camera",
+            "start": 0,
+            "duration": 3.85,
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": -1.57,
+                "y": 1.9,
+                "z": -4.5
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.36,
+                "z": -0.4
+              },
+              "fov": 50
+            }
+          },
+          {
+            "id": "cam_l7",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 0,
+                "y": 1.9,
+                "z": -4.5
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.36,
+                "z": -0.4
+              },
+              "fov": 50
+            },
+            "start": 3.85,
+            "duration": 3.434
+          },
+          {
+            "id": "g_l8",
+            "type": "animation",
+            "target": "fox",
+            "clip": "thumbsup",
+            "start": 11.454,
+            "duration": 1.509
+          },
+          {
+            "id": "cam_l8",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": -0.62,
+                "y": 0.89,
+                "z": -2.5
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.5,
+                "z": -0.2
+              },
+              "fov": 45
+            },
+            "start": 11.304,
+            "duration": 1.959
+          },
+          {
+            "id": "g_l9",
+            "type": "animation",
+            "target": "fox",
+            "clip": "thumbsup",
+            "start": 13.413,
+            "duration": 2.485
+          },
+          {
+            "id": "cam_l9",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 0.63,
+                "y": 0.89,
+                "z": -2.5
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.5,
+                "z": -0.2
+              },
+              "fov": 45
+            },
+            "start": 13.263,
+            "duration": 2.935
+          },
+          {
+            "id": "cam_l10",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 1.58,
+                "y": 1.9,
+                "z": -4.5
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.36,
+                "z": -0.4
+              },
+              "fov": 50
+            },
+            "start": 16.198,
+            "duration": 3.318
+          },
+          {
+            "id": "g_l11",
+            "type": "animation",
+            "target": "fox",
+            "clip": "thumbsup",
+            "start": 19.666,
+            "duration": 1.308
+          },
+          {
+            "id": "cam_l11",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 0.63,
+                "y": 0.89,
+                "z": -2.5
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.5,
+                "z": -0.2
+              },
+              "fov": 45
+            },
+            "start": 19.516,
+            "duration": 1.758
+          },
+          {
+            "id": "cam_end",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 0,
+                "y": 1.9,
+                "z": -4.5
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.36,
+                "z": -0.4
+              },
+              "fov": 50
+            },
+            "start": 21.274,
+            "duration": 4.026
+          }
+        ],
+        "audio": [
+          {
+            "id": "sfx_l8_pickup",
+            "kind": "sfx",
+            "asset": "sfx_chime",
+            "volume": 0.35,
+            "start": 9.144
+          }
+        ]
+      }
+    },
+    {
+      "id": "polluted_pond",
+      "transition": {
+        "type": "dissolve",
+        "duration": 0.8
+      },
+      "scene": {
+        "version": 1,
+        "meta": {
+          "name": "Cáo con hái hoa tặng mẹ – 3",
+          "duration": 43.4,
+          "fps": 30,
+          "width": 1280,
+          "height": 720,
+          "commercial": false
+        },
+        "environment": {
+          "asset": "env_polluted_pond",
+          "background": "#b3cad6",
+          "fog": {
+            "color": "#b3cad6",
+            "near": 28,
+            "far": 80
+          }
+        },
+        "characters": [
+          {
+            "id": "fox",
+            "name": "Cáo con",
+            "asset": "char_k_animal_fox",
+            "position": {
+              "x": -5.58,
+              "y": 0,
+              "z": 0.63
+            },
+            "heading": 81.63,
+            "voice": "voice_vi_squeaky"
+          },
+          {
+            "id": "bunny",
+            "name": "Thỏ con",
+            "asset": "char_k_animal_bunny",
+            "position": {
+              "x": 3.86,
+              "y": 0,
+              "z": 0.9
+            },
+            "heading": -80.98,
+            "voice": "voice_vi_child"
+          },
+          {
+            "id": "mom",
+            "name": "Mẹ Cáo",
+            "asset": "char_a_fox",
+            "position": {
+              "x": 4.98,
+              "y": 0,
+              "z": 0.63
+            },
+            "heading": -80.22,
+            "voice": "voice_vi_female"
+          }
+        ],
+        "props": [
+          {
+            "id": "trash_bottle",
+            "asset": "prop_trash_bottle",
+            "position": {
+              "x": 2.8,
+              "y": 0,
+              "z": 0.5
+            },
+            "heading": 0,
+            "scale": 1
+          },
+          {
+            "id": "trash_can",
+            "asset": "prop_trash_can",
+            "position": {
+              "x": -2.8,
+              "y": 0,
+              "z": 0.5
+            },
+            "heading": 25,
+            "scale": 1
+          },
+          {
+            "id": "flower_red",
+            "asset": "prop_kn_flower_red_a",
+            "position": {
+              "x": -1.5,
+              "y": 0,
+              "z": 1.23
+            },
+            "scale": 0.6
+          }
+        ],
+        "camera": {
+          "mode": "fixed",
+          "position": {
+            "x": -1.57,
+            "y": 1.9,
+            "z": -3
+          },
+          "lookAt": {
+            "x": 0,
+            "y": 0.36,
+            "z": 1.1
+          },
+          "fov": 50
+        },
+        "subtitles": {
+          "burnIn": true,
+          "size": 0.05,
+          "position": "bottom",
+          "showSpeaker": true
+        },
+        "mix": {
+          "duckMusic": true,
+          "duckLevel": 0.25,
+          "loudness": -14
+        },
+        "dialogue": [
+          {
+            "id": "l13",
+            "text": "Trên đường về, Cáo con gặp Thỏ con bên ao ô nhiễm. Mẹ Cáo cũng vừa đến tìm con.",
+            "start": 4,
+            "duration": 4.319,
+            "file": "tts/d1809ab0e05693f03686fc59.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l14",
+            "speaker": "bunny",
+            "text": "Cáo ơi, ao có nhiều rác quá, tớ đang nhặt rác đây.",
+            "start": 8.769,
+            "duration": 2.798,
+            "file": "tts/79f1627fac36af7dca50788c.wav",
+            "voice": "voice_vi_child",
+            "rate": 0.95,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l15",
+            "speaker": "bunny",
+            "text": "Tớ nhặt chai nhựa này trước nhé!",
+            "start": 18.137,
+            "duration": 1.683,
+            "file": "tts/cf2e644f691bd72372a887d1.wav",
+            "voice": "voice_vi_child",
+            "rate": 0.95,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l16",
+            "speaker": "fox",
+            "text": "Mẹ ơi, con tặng mẹ bông hoa đẹp nhất!",
+            "start": 26.31,
+            "duration": 1.892,
+            "file": "tts/fffd73ef8e89ac6ae94eaafe.wav",
+            "voice": "voice_vi_squeaky",
+            "rate": 1,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l17",
+            "speaker": "mom",
+            "text": "Cáo con, con làm gì thế?",
+            "start": 28.652,
+            "duration": 1.405,
+            "file": "tts/9612dc17b44886eddb2a0dac.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l18",
+            "speaker": "fox",
+            "text": "Con cũng nhặt rác giúp Thỏ ạ!",
+            "start": 34.267,
+            "duration": 1.382,
+            "file": "tts/d2b92bca491d156a9daaa8ca.wav",
+            "voice": "voice_vi_squeaky",
+            "rate": 1,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l19",
+            "speaker": "bunny",
+            "text": "Bảo vệ môi trường là việc tốt! Cùng nhảy mừng ao sạch nào!",
+            "start": 36.099,
+            "duration": 2.747,
+            "file": "tts/c3bf7dd8b9005be0cc471b34.wav",
+            "voice": "voice_vi_child",
+            "rate": 0.95,
+            "volume": 1,
+            "subtitle": true
+          }
+        ],
+        "actions": [
+          {
+            "id": "fox_walk",
+            "type": "animation",
+            "target": "fox",
+            "start": 0,
+            "duration": 3.4,
+            "clip": "walk"
+          },
+          {
+            "id": "fox_in",
+            "type": "moveTo",
+            "target": "fox",
+            "start": 0,
+            "duration": 3.4,
+            "to": {
+              "x": -1.5,
+              "z": 1.23
+            }
+          },
+          {
+            "id": "fox_face",
+            "type": "turn",
+            "target": "fox",
+            "start": 3.4,
+            "duration": 0.5,
+            "heading": 165.36
+          },
+          {
+            "id": "bunny_walk",
+            "type": "animation",
+            "target": "bunny",
+            "start": 0.25,
+            "duration": 3.15,
+            "clip": "walk"
+          },
+          {
+            "id": "bunny_in",
+            "type": "moveTo",
+            "target": "bunny",
+            "start": 0.25,
+            "duration": 3.15,
+            "to": {
+              "x": 0.08,
+              "z": 1.5
+            }
+          },
+          {
+            "id": "bunny_face",
+            "type": "turn",
+            "target": "bunny",
+            "start": 3.4,
+            "duration": 0.5,
+            "heading": -179.21
+          },
+          {
+            "id": "mom_walk",
+            "type": "animation",
+            "target": "mom",
+            "start": 0.5,
+            "duration": 2.9,
+            "clip": "walk"
+          },
+          {
+            "id": "mom_in",
+            "type": "moveTo",
+            "target": "mom",
+            "start": 0.5,
+            "duration": 2.9,
+            "to": {
+              "x": 1.5,
+              "z": 1.23
+            }
+          },
+          {
+            "id": "mom_face",
+            "type": "turn",
+            "target": "mom",
+            "start": 3.4,
+            "duration": 0.5,
+            "heading": -165.36
+          },
+          {
+            "id": "hold_flower_red",
+            "type": "attach",
+            "target": "flower_red",
+            "to": "fox",
+            "start": 0
+          },
+          {
+            "id": "cam_l15_pickup",
+            "type": "camera",
+            "shot": {
+              "mode": "follow",
+              "target": "bunny",
+              "offset": {
+                "x": 1.6,
+                "y": 1.3,
+                "z": -3.44
+              },
+              "lookAtOffset": {
+                "x": 0,
+                "y": 0.32,
+                "z": 0
+              },
+              "fov": 50
+            },
+            "start": 12.017,
+            "duration": 5.97
+          },
+          {
+            "id": "l15_pickup_go_walk",
+            "type": "animation",
+            "target": "bunny",
+            "clip": "walk",
+            "start": 12.017,
+            "duration": 1.91
+          },
+          {
+            "id": "l15_pickup_go_move",
+            "type": "moveTo",
+            "target": "bunny",
+            "to": {
+              "x": 2.23,
+              "z": 0.71
+            },
+            "start": 12.017,
+            "duration": 1.91
+          },
+          {
+            "id": "l15_pickup_face",
+            "type": "turn",
+            "target": "bunny",
+            "heading": 110.19,
+            "start": 13.927,
+            "duration": 0.3
+          },
+          {
+            "id": "l15_pickup_pick",
+            "type": "animation",
+            "target": "bunny",
+            "clip": "eat",
+            "loop": false,
+            "start": 14.227,
+            "duration": 1.3
+          },
+          {
+            "type": "attach",
+            "target": "trash_bottle",
+            "to": "bunny",
+            "id": "l15_pickup_attach",
+            "start": 14.777,
+            "duration": 0.25
+          },
+          {
+            "id": "l15_pickup_turn_back",
+            "type": "turn",
+            "target": "bunny",
+            "heading": -69.81,
+            "start": 15.527,
+            "duration": 0.3
+          },
+          {
+            "id": "l15_pickup_back_walk",
+            "type": "animation",
+            "target": "bunny",
+            "clip": "walk",
+            "start": 15.827,
+            "duration": 1.91
+          },
+          {
+            "id": "l15_pickup_back_move",
+            "type": "moveTo",
+            "target": "bunny",
+            "to": {
+              "x": 0.08,
+              "z": 1.5
+            },
+            "start": 15.827,
+            "duration": 1.91
+          },
+          {
+            "id": "l15_pickup_home",
+            "type": "turn",
+            "target": "bunny",
+            "heading": -179.21,
+            "start": 17.737,
+            "duration": 0.4
+          },
+          {
+            "id": "cam_l16_give",
+            "type": "camera",
+            "shot": {
+              "mode": "follow",
+              "target": "fox",
+              "offset": {
+                "x": -1.6,
+                "y": 1.3,
+                "z": -3.44
+              },
+              "lookAtOffset": {
+                "x": 0,
+                "y": 0.32,
+                "z": 0
+              },
+              "fov": 50
+            },
+            "start": 20.27,
+            "duration": 5.89
+          },
+          {
+            "id": "l16_give_go_walk",
+            "type": "animation",
+            "target": "fox",
+            "clip": "walk",
+            "start": 20.27,
+            "duration": 1.87
+          },
+          {
+            "id": "l16_give_go_move",
+            "type": "moveTo",
+            "target": "fox",
+            "to": {
+              "x": 0.75,
+              "z": 1.23
+            },
+            "start": 20.27,
+            "duration": 1.87
+          },
+          {
+            "id": "l16_give_face",
+            "type": "turn",
+            "target": "fox",
+            "heading": 90,
+            "start": 22.14,
+            "duration": 0.3
+          },
+          {
+            "id": "l16_give_rface",
+            "type": "turn",
+            "target": "mom",
+            "heading": -90,
+            "start": 21.74,
+            "duration": 0.4
+          },
+          {
+            "id": "l16_give_offer",
+            "type": "animation",
+            "target": "fox",
+            "clip": "eat",
+            "loop": false,
+            "start": 22.44,
+            "duration": 1.3
+          },
+          {
+            "type": "attach",
+            "target": "flower_red",
+            "to": "mom",
+            "id": "l16_give_attach",
+            "start": 22.99,
+            "duration": 0.25
+          },
+          {
+            "id": "l16_give_rback",
+            "type": "turn",
+            "target": "mom",
+            "heading": -165.36,
+            "start": 23.94,
+            "duration": 0.4
+          },
+          {
+            "id": "l16_give_turn_back",
+            "type": "turn",
+            "target": "fox",
+            "heading": -90,
+            "start": 23.74,
+            "duration": 0.3
+          },
+          {
+            "id": "l16_give_back_walk",
+            "type": "animation",
+            "target": "fox",
+            "clip": "walk",
+            "start": 24.04,
+            "duration": 1.87
+          },
+          {
+            "id": "l16_give_back_move",
+            "type": "moveTo",
+            "target": "fox",
+            "to": {
+              "x": -1.5,
+              "z": 1.23
+            },
+            "start": 24.04,
+            "duration": 1.87
+          },
+          {
+            "id": "l16_give_home",
+            "type": "turn",
+            "target": "fox",
+            "heading": 165.36,
+            "start": 25.91,
+            "duration": 0.4
+          },
+          {
+            "id": "cam_l18_pickup",
+            "type": "camera",
+            "shot": {
+              "mode": "follow",
+              "target": "fox",
+              "offset": {
+                "x": -1.6,
+                "y": 1.3,
+                "z": -3.44
+              },
+              "lookAtOffset": {
+                "x": 0,
+                "y": 0.32,
+                "z": 0
+              },
+              "fov": 50
+            },
+            "start": 30.507,
+            "duration": 3.61
+          },
+          {
+            "id": "l18_pickup_go_walk",
+            "type": "animation",
+            "target": "fox",
+            "clip": "walk",
+            "start": 30.507,
+            "duration": 0.73
+          },
+          {
+            "id": "l18_pickup_go_move",
+            "type": "moveTo",
+            "target": "fox",
+            "to": {
+              "x": -2.27,
+              "z": 0.8
+            },
+            "start": 30.507,
+            "duration": 0.73
+          },
+          {
+            "id": "l18_pickup_face",
+            "type": "turn",
+            "target": "fox",
+            "heading": -119.32,
+            "start": 31.237,
+            "duration": 0.3
+          },
+          {
+            "id": "l18_pickup_pick",
+            "type": "animation",
+            "target": "fox",
+            "clip": "eat",
+            "loop": false,
+            "start": 31.537,
+            "duration": 1.3
+          },
+          {
+            "type": "attach",
+            "target": "trash_can",
+            "to": "fox",
+            "id": "l18_pickup_attach",
+            "start": 32.087,
+            "duration": 0.25
+          },
+          {
+            "id": "l18_pickup_turn_back",
+            "type": "turn",
+            "target": "fox",
+            "heading": 60.68,
+            "start": 32.837,
+            "duration": 0.3
+          },
+          {
+            "id": "l18_pickup_back_walk",
+            "type": "animation",
+            "target": "fox",
+            "clip": "walk",
+            "start": 33.137,
+            "duration": 0.73
+          },
+          {
+            "id": "l18_pickup_back_move",
+            "type": "moveTo",
+            "target": "fox",
+            "to": {
+              "x": -1.5,
+              "z": 1.23
+            },
+            "start": 33.137,
+            "duration": 0.73
+          },
+          {
+            "id": "l18_pickup_home",
+            "type": "turn",
+            "target": "fox",
+            "heading": 165.36,
+            "start": 33.867,
+            "duration": 0.4
+          },
+          {
+            "id": "cam_intro",
+            "type": "camera",
+            "start": 0,
+            "duration": 3.85,
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": -1.57,
+                "y": 1.9,
+                "z": -3
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.36,
+                "z": 1.1
+              },
+              "fov": 50
+            }
+          },
+          {
+            "id": "cam_l13",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 0,
+                "y": 1.9,
+                "z": -3
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.36,
+                "z": 1.1
+              },
+              "fov": 50
+            },
+            "start": 3.85,
+            "duration": 4.769
+          },
+          {
+            "id": "g_l14",
+            "type": "animation",
+            "target": "bunny",
+            "clip": "no",
+            "start": 8.769,
+            "duration": 2.798
+          },
+          {
+            "id": "cam_l14",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": -0.58,
+                "y": 0.89,
+                "z": -0.99
+              },
+              "lookAt": {
+                "x": 0.08,
+                "y": 0.5,
+                "z": 1.3
+              },
+              "fov": 45
+            },
+            "start": 8.619,
+            "duration": 3.248
+          },
+          {
+            "id": "g_l15",
+            "type": "animation",
+            "target": "bunny",
+            "clip": "thumbsup",
+            "start": 18.137,
+            "duration": 1.683
+          },
+          {
+            "id": "cam_l15",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 0.67,
+                "y": 0.89,
+                "z": -1.01
+              },
+              "lookAt": {
+                "x": 0.08,
+                "y": 0.5,
+                "z": 1.3
+              },
+              "fov": 45
+            },
+            "start": 17.987,
+            "duration": 2.133
+          },
+          {
+            "id": "g_l16",
+            "type": "animation",
+            "target": "fox",
+            "clip": "thumbsup",
+            "start": 26.31,
+            "duration": 1.892
+          },
+          {
+            "id": "cam_l16",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": -1.47,
+                "y": 0.89,
+                "z": -1.35
+              },
+              "lookAt": {
+                "x": -1.45,
+                "y": 0.5,
+                "z": 1.04
+              },
+              "fov": 45
+            },
+            "start": 26.16,
+            "duration": 2.342
+          },
+          {
+            "id": "cam_l17",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 1.48,
+                "y": 0.65,
+                "z": -0.88
+              },
+              "lookAt": {
+                "x": 1.47,
+                "y": 0.31,
+                "z": 1.11
+              },
+              "fov": 45
+            },
+            "start": 28.502,
+            "duration": 1.855
+          },
+          {
+            "id": "g_l18",
+            "type": "animation",
+            "target": "fox",
+            "clip": "thumbsup",
+            "start": 34.267,
+            "duration": 1.382
+          },
+          {
+            "id": "cam_l18",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": -1.47,
+                "y": 0.89,
+                "z": -1.35
+              },
+              "lookAt": {
+                "x": -1.45,
+                "y": 0.5,
+                "z": 1.04
+              },
+              "fov": 45
+            },
+            "start": 34.117,
+            "duration": 1.832
+          },
+          {
+            "id": "g_l19",
+            "type": "animation",
+            "target": "bunny",
+            "clip": "dance",
+            "start": 36.099,
+            "duration": 2.747
+          },
+          {
+            "id": "cam_end",
+            "type": "camera",
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 0,
+                "y": 1.9,
+                "z": -3
+              },
+              "lookAt": {
+                "x": 0,
+                "y": 0.36,
+                "z": 1.1
+              },
+              "fov": 50
+            },
+            "start": 35.949,
+            "duration": 7.451
+          },
+          {
+            "id": "end_fox",
+            "type": "animation",
+            "target": "fox",
+            "clip": "dance",
+            "start": 35.799,
+            "duration": 5.047
+          }
+        ],
+        "audio": [
+          {
+            "id": "sfx_l15_pickup",
+            "kind": "sfx",
+            "asset": "sfx_chime",
+            "volume": 0.35,
+            "start": 14.777
+          },
+          {
+            "id": "sfx_l16_give",
+            "kind": "sfx",
+            "asset": "sfx_chime",
+            "volume": 0.35,
+            "start": 22.99
+          },
+          {
+            "id": "sfx_l18_pickup",
+            "kind": "sfx",
+            "asset": "sfx_chime",
+            "volume": 0.35,
+            "start": 32.087
+          },
+          {
+            "id": "sfx_end",
+            "kind": "sfx",
+            "asset": "sfx_chime",
+            "volume": 0.8,
+            "start": 39.046
+          }
+        ]
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "trimStart": 0,
+      "volume": 0.3,
+      "loop": true,
+      "fadeIn": 0.5,
+      "fadeOut": 1.8
+    }
+  ],
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "duckRamp": 0.25,
+    "loudness": -14
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "id": "env_meadow",
+  "name": "Đồng hoa",
+  "description": "Đồng cỏ rộng nhiều hoa, vài cây lớn và bụi hoa – hợp cảnh vui chơi, học tập ngoài trời.",
+  "seed": 5,
+  "ground": {
+    "size": 140,
+    "color": "#8cc152"
+  },
+  "path": {
+    "width": 2.6,
+    "from": -35,
+    "to": 45,
+    "color": "#d6b77d"
+  },
+  "scatter": [
+    {
+      "tags": [
+        "tree"
+      ],
+      "pack": "Quaternius · Stylized Nature",
+      "include": [
+        "maple_tree_",
+        "birch_tree_"
+      ],
+      "count": 16,
+      "area": {
+        "x": [
+          -45,
+          45
+        ],
+        "z": [
+          -10,
+          55
+        ]
+      },
+      "clearPath": 9,
+      "minDistance": 8,
+      "scale": [
+        0.9,
+        1.2
+      ]
+    },
+    {
+      "tags": [
+        "tree"
+      ],
+      "pack": "Quaternius · Ultimate Nature",
+      "include": [
+        "common_tree_"
+      ],
+      "exclude": [
+        "dead",
+        "snow",
+        "autumn"
+      ],
+      "count": 18,
+      "area": {
+        "x": [
+          -55,
+          55
+        ],
+        "z": [
+          20,
+          60
+        ]
+      },
+      "clearPath": 10,
+      "minDistance": 6
+    },
+    {
+      "tags": [
+        "bush"
+      ],
+      "pack": "Quaternius · Stylized Nature",
+      "count": 30,
+      "area": {
+        "x": [
+          -25,
+          25
+        ],
+        "z": [
+          -25,
+          45
+        ]
+      },
+      "clearPath": 2.5,
+      "minDistance": 2
+    },
+    {
+      "tags": [
+        "flower"
+      ],
+      "pack": "Quaternius · Stylized Nature",
+      "count": 260,
+      "area": {
+        "x": [
+          -26,
+          26
+        ],
+        "z": [
+          -28,
+          45
+        ]
+      },
+      "clearPath": 1.7,
+      "minDistance": 0.45,
+      "exclude": [
+        "cactus"
+      ]
+    },
+    {
+      "tags": [
+        "flower"
+      ],
+      "pack": "Quaternius · Ultimate Nature",
+      "count": 80,
+      "area": {
+        "x": [
+          -26,
+          26
+        ],
+        "z": [
+          -28,
+          45
+        ]
+      },
+      "clearPath": 1.7,
+      "minDistance": 0.6,
+      "exclude": [
+        "cactus"
+      ]
+    },
+    {
+      "tags": [
+        "grass"
+      ],
+      "pack": "Quaternius · Stylized Nature",
+      "count": 160,
+      "area": {
+        "x": [
+          -30,
+          30
+        ],
+        "z": [
+          -30,
+          45
+        ]
+      },
+      "clearPath": 1.6,
+      "minDistance": 0.45
+    },
+    {
+      "tags": [
+        "rock"
+      ],
+      "pack": "Quaternius · Ultimate Nature",
+      "include": [
+        "rock_moss_"
+      ],
+      "count": 12,
+      "area": {
+        "x": [
+          -30,
+          30
+        ],
+        "z": [
+          -25,
+          45
+        ]
+      },
+      "clearPath": 3,
+      "minDistance": 4
+    }
+  ]
+}

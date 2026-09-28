@@ -1,0 +1,868 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Bunzo and Mommy Long Legs – 3",
+    "duration": "auto",
+    "tail": 1.5,
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "environment": {
+    "asset": "env_meadow",
+    "background": "#f3dcc0",
+    "fog": {
+      "color": "#f3dcc0",
+      "near": 28,
+      "far": 80
+    },
+    "lighting": {
+      "preset": "morning"
+    },
+    "effects": [
+      "butterflies"
+    ]
+  },
+  "characters": [
+    {
+      "id": "bunzo",
+      "name": "Bunzo",
+      "asset": "char_k_animal_bunny",
+      "position": {
+        "x": -0.81,
+        "y": 0,
+        "z": 4
+      },
+      "heading": 180,
+      "scale": 0.8,
+      "voice": "voice_en_child"
+    },
+    {
+      "id": "mommy_long_legs",
+      "name": "Mommy Long Legs",
+      "asset": "char_k_animal_giraffe",
+      "position": {
+        "x": 0.81,
+        "y": 0,
+        "z": 3.7
+      },
+      "heading": 180,
+      "scale": 1.3,
+      "voice": "voice_en_female"
+    }
+  ],
+  "props": [
+    {
+      "id": "flower_red",
+      "asset": "prop_kn_flower_red_a",
+      "position": {
+        "x": -2.11,
+        "y": 0,
+        "z": -1
+      },
+      "heading": 0,
+      "scale": 0.6
+    },
+    {
+      "id": "flower_red_c0",
+      "asset": "prop_kn_flower_yellow_a",
+      "position": {
+        "x": -2.41,
+        "y": 0,
+        "z": -0.79
+      },
+      "heading": 15,
+      "scale": 0.6
+    },
+    {
+      "id": "flower_red_c1",
+      "asset": "prop_kn_flower_purple_a",
+      "position": {
+        "x": -1.84,
+        "y": 0,
+        "z": -0.73
+      },
+      "heading": 75,
+      "scale": 0.6
+    },
+    {
+      "id": "flower_red_c2",
+      "asset": "prop_kn_flower_red_b",
+      "position": {
+        "x": -2.17,
+        "y": 0,
+        "z": -0.58
+      },
+      "heading": 135,
+      "scale": 0.6
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": -1.57,
+      "y": 1.9,
+      "z": -4.5
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 0.47,
+      "z": -0.4
+    },
+    "fov": 50
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": true
+  },
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l13",
+      "voice": "voice_en_female",
+      "text": "Mommy Long Legs and Bunzo walked to a beautiful flower meadow.",
+      "start": 4
+    },
+    {
+      "id": "l14",
+      "speaker": "bunzo",
+      "text": "Wow! So many flowers! I will pick this red one for you!",
+      "emotion": "happy",
+      "start": {
+        "after": "l13",
+        "gap": 4.51
+      }
+    },
+    {
+      "id": "l15",
+      "voice": "voice_en_female",
+      "text": "Bunzo picked the flower and held it out to Mommy Long Legs.",
+      "start": {
+        "after": "l14",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l16",
+      "speaker": "mommy_long_legs",
+      "text": "Oh, it's lovely! But you should keep it, Bunzo. It's your favorite.",
+      "emotion": "happy",
+      "start": {
+        "after": "l15",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l17",
+      "speaker": "bunzo",
+      "text": "No, I want you to have it. Friends share!",
+      "emotion": "happy",
+      "start": {
+        "after": "l16",
+        "gap": 3.97
+      }
+    },
+    {
+      "id": "l18",
+      "speaker": "mommy_long_legs",
+      "text": "Thank you, Bunzo. You are very kind.",
+      "emotion": "happy",
+      "start": {
+        "after": "l17",
+        "gap": 0.45
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "bunzo_walk",
+      "type": "animation",
+      "target": "bunzo",
+      "start": 0,
+      "duration": 3.4,
+      "clip": "walk"
+    },
+    {
+      "id": "bunzo_in",
+      "type": "moveTo",
+      "target": "bunzo",
+      "start": 0,
+      "duration": 3.4,
+      "to": {
+        "x": -0.81,
+        "z": -0.08
+      }
+    },
+    {
+      "id": "bunzo_face",
+      "type": "turn",
+      "target": "bunzo",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": 172.19
+    },
+    {
+      "id": "mommy_long_legs_walk",
+      "type": "animation",
+      "target": "mommy_long_legs",
+      "start": 0.25,
+      "duration": 3.15,
+      "clip": "walk"
+    },
+    {
+      "id": "mommy_long_legs_in",
+      "type": "moveTo",
+      "target": "mommy_long_legs",
+      "start": 0.25,
+      "duration": 3.15,
+      "to": {
+        "x": 0.81,
+        "z": -0.08
+      }
+    },
+    {
+      "id": "mommy_long_legs_face",
+      "type": "turn",
+      "target": "mommy_long_legs",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": -172.19
+    },
+    {
+      "id": "cam_l14_pickup",
+      "type": "camera",
+      "sync": {
+        "line": "l14",
+        "offset": -4.06,
+        "duration": 3.91
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "bunzo",
+        "offset": {
+          "x": 1.44,
+          "y": 1.14,
+          "z": -3.15
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.26,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "l14_pickup_go_walk",
+      "type": "animation",
+      "target": "bunzo",
+      "clip": "walk",
+      "sync": {
+        "line": "l14",
+        "offset": -4.06,
+        "duration": 0.88
+      }
+    },
+    {
+      "id": "l14_pickup_go_move",
+      "type": "moveTo",
+      "target": "bunzo",
+      "to": {
+        "x": -1.67,
+        "z": -0.69
+      },
+      "sync": {
+        "line": "l14",
+        "offset": -4.06,
+        "duration": 0.88
+      }
+    },
+    {
+      "id": "l14_pickup_face",
+      "type": "turn",
+      "target": "bunzo",
+      "heading": -125.29,
+      "sync": {
+        "line": "l14",
+        "offset": -3.18,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l14_pickup_pick",
+      "type": "animation",
+      "target": "bunzo",
+      "clip": "eat",
+      "loop": false,
+      "sync": {
+        "line": "l14",
+        "offset": -2.88,
+        "duration": 1.3
+      }
+    },
+    {
+      "type": "attach",
+      "target": "flower_red",
+      "to": "bunzo",
+      "id": "l14_pickup_attach",
+      "sync": {
+        "line": "l14",
+        "offset": -2.33,
+        "duration": 0.25
+      }
+    },
+    {
+      "id": "l14_pickup_turn_back",
+      "type": "turn",
+      "target": "bunzo",
+      "heading": 54.71,
+      "sync": {
+        "line": "l14",
+        "offset": -1.58,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l14_pickup_back_walk",
+      "type": "animation",
+      "target": "bunzo",
+      "clip": "walk",
+      "sync": {
+        "line": "l14",
+        "offset": -1.28,
+        "duration": 0.88
+      }
+    },
+    {
+      "id": "l14_pickup_back_move",
+      "type": "moveTo",
+      "target": "bunzo",
+      "to": {
+        "x": -0.81,
+        "z": -0.08
+      },
+      "sync": {
+        "line": "l14",
+        "offset": -1.28,
+        "duration": 0.88
+      }
+    },
+    {
+      "id": "l14_pickup_home",
+      "type": "turn",
+      "target": "bunzo",
+      "heading": 172.19,
+      "sync": {
+        "line": "l14",
+        "offset": -0.4,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "cam_l17_give",
+      "type": "camera",
+      "sync": {
+        "line": "l17",
+        "offset": -3.52,
+        "duration": 3.37
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "bunzo",
+        "offset": {
+          "x": 1.44,
+          "y": 1.14,
+          "z": -3.15
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.26,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "l17_give_go_walk",
+      "type": "animation",
+      "target": "bunzo",
+      "clip": "walk",
+      "sync": {
+        "line": "l17",
+        "offset": -3.52,
+        "duration": 0.61
+      }
+    },
+    {
+      "id": "l17_give_go_move",
+      "type": "moveTo",
+      "target": "bunzo",
+      "to": {
+        "x": -0.08,
+        "z": -0.08
+      },
+      "sync": {
+        "line": "l17",
+        "offset": -3.52,
+        "duration": 0.61
+      }
+    },
+    {
+      "id": "l17_give_face",
+      "type": "turn",
+      "target": "bunzo",
+      "heading": 90,
+      "sync": {
+        "line": "l17",
+        "offset": -2.91,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l17_give_rface",
+      "type": "turn",
+      "target": "mommy_long_legs",
+      "heading": -90,
+      "sync": {
+        "line": "l17",
+        "offset": -3.31,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l17_give_offer",
+      "type": "animation",
+      "target": "bunzo",
+      "clip": "eat",
+      "loop": false,
+      "sync": {
+        "line": "l17",
+        "offset": -2.61,
+        "duration": 1.3
+      }
+    },
+    {
+      "type": "attach",
+      "target": "flower_red",
+      "to": "mommy_long_legs",
+      "id": "l17_give_attach",
+      "sync": {
+        "line": "l17",
+        "offset": -2.06,
+        "duration": 0.25
+      }
+    },
+    {
+      "id": "l17_give_rback",
+      "type": "turn",
+      "target": "mommy_long_legs",
+      "heading": -172.19,
+      "sync": {
+        "line": "l17",
+        "offset": -1.11,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l17_give_turn_back",
+      "type": "turn",
+      "target": "bunzo",
+      "heading": -90,
+      "sync": {
+        "line": "l17",
+        "offset": -1.31,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l17_give_back_walk",
+      "type": "animation",
+      "target": "bunzo",
+      "clip": "walk",
+      "sync": {
+        "line": "l17",
+        "offset": -1.01,
+        "duration": 0.61
+      }
+    },
+    {
+      "id": "l17_give_back_move",
+      "type": "moveTo",
+      "target": "bunzo",
+      "to": {
+        "x": -0.81,
+        "z": -0.08
+      },
+      "sync": {
+        "line": "l17",
+        "offset": -1.01,
+        "duration": 0.61
+      }
+    },
+    {
+      "id": "l17_give_home",
+      "type": "turn",
+      "target": "bunzo",
+      "heading": 172.19,
+      "sync": {
+        "line": "l17",
+        "offset": -0.4,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "cam_intro",
+      "type": "camera",
+      "start": 0,
+      "duration": 3.85,
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.57,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.47,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "dolly": 0.12
+      }
+    },
+    {
+      "id": "cam_l13",
+      "type": "camera",
+      "sync": {
+        "line": "l13",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.47,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "pan": 6
+      }
+    },
+    {
+      "id": "g_l14",
+      "type": "animation",
+      "target": "bunzo",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l14"
+      }
+    },
+    {
+      "id": "cam_l14",
+      "type": "camera",
+      "sync": {
+        "line": "l14",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.06,
+          "y": 0.76,
+          "z": -2.4
+        },
+        "lookAt": {
+          "x": -0.79,
+          "y": 0.4,
+          "z": -0.24
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l15",
+      "type": "camera",
+      "sync": {
+        "line": "l15",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.47,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "pan": 6
+      }
+    },
+    {
+      "id": "g_l16",
+      "type": "animation",
+      "target": "mommy_long_legs",
+      "clip": "yes",
+      "sync": {
+        "line": "l16"
+      }
+    },
+    {
+      "id": "cam_l16",
+      "type": "camera",
+      "sync": {
+        "line": "l16",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.29,
+          "y": 1.08,
+          "z": -2.82
+        },
+        "lookAt": {
+          "x": 0.77,
+          "y": 0.64,
+          "z": -0.34
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "g_l17",
+      "type": "animation",
+      "target": "bunzo",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l17"
+      }
+    },
+    {
+      "id": "cam_l17",
+      "type": "camera",
+      "sync": {
+        "line": "l17",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.06,
+          "y": 0.76,
+          "z": -2.24
+        },
+        "lookAt": {
+          "x": -0.79,
+          "y": 0.4,
+          "z": -0.24
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "g_l18",
+      "type": "animation",
+      "target": "mommy_long_legs",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l18"
+      }
+    },
+    {
+      "id": "cam_end",
+      "type": "camera",
+      "sync": {
+        "line": "l18",
+        "offset": -0.15,
+        "pad": 30
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.47,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "blend": 1.2,
+      "move": {
+        "dolly": -0.1,
+        "rise": 0.4
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "bunzo_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "start": 0,
+      "duration": 3.4,
+      "loop": true,
+      "volume": 0.21,
+      "fadeOut": 0.15
+    },
+    {
+      "id": "mommy_long_legs_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "start": 0.25,
+      "duration": 3.15,
+      "loop": true,
+      "volume": 0.29,
+      "fadeOut": 0.15
+    },
+    {
+      "id": "sfx_l14_pickup_0",
+      "kind": "sfx",
+      "asset": "sfx_pluck_0",
+      "volume": 0.55,
+      "sync": {
+        "line": "l14",
+        "at": "start",
+        "offset": -2.33
+      }
+    },
+    {
+      "id": "l14_pickup_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.88,
+      "volume": 0.21,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l14",
+        "at": "start",
+        "offset": -4.06
+      }
+    },
+    {
+      "id": "l14_pickup_back_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.88,
+      "volume": 0.21,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l14",
+        "at": "start",
+        "offset": -1.28
+      }
+    },
+    {
+      "id": "sfx_l17_give_0",
+      "kind": "sfx",
+      "asset": "sfx_cloth_1",
+      "volume": 0.45,
+      "sync": {
+        "line": "l17",
+        "at": "start",
+        "offset": -2.06
+      }
+    },
+    {
+      "id": "sfx_l17_give_1",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "volume": 0.35,
+      "sync": {
+        "line": "l17",
+        "at": "start",
+        "offset": -1.91
+      }
+    },
+    {
+      "id": "l17_give_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.61,
+      "volume": 0.21,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l17",
+        "at": "start",
+        "offset": -3.52
+      }
+    },
+    {
+      "id": "l17_give_back_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.61,
+      "volume": 0.21,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l17",
+        "at": "start",
+        "offset": -1.01
+      }
+    },
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "loop": true,
+      "volume": 0.3,
+      "fadeIn": 0.8,
+      "fadeOut": 1.2
+    },
+    {
+      "id": "amb",
+      "kind": "sfx",
+      "asset": "amb_birds",
+      "start": 0,
+      "loop": true,
+      "volume": 0.35,
+      "fadeIn": 1,
+      "fadeOut": 1
+    }
+  ]
+}

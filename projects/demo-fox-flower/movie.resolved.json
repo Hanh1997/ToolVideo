@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Cáo con hái hoa tặng mẹ",
+    "fps": 30,
+    "width": 1280,
+    "height": 720,
+    "commercial": false
+  },
+  "scenes": [
+    {
+      "id": "meadow",
+      "transition": {
+        "type": "cut",
+        "duration": 0.6
+      },
+      "scene": {
+        "version": 1,
+        "meta": {
+          "name": "Đồng hoa",
+          "duration": 12.4,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "commercial": false
+        },
+        "environment": {
+          "asset": "env_meadow",
+          "background": "#a8d8f0",
+          "fog": {
+            "color": "#a8d8f0",
+            "near": 28,
+            "far": 80
+          }
+        },
+        "characters": [
+          {
+            "id": "cao_con",
+            "name": "Cáo Con",
+            "asset": "char_k_animal_fox",
+            "position": {
+              "x": -0.2,
+              "y": 0,
+              "z": -5.5
+            },
+            "heading": 10,
+            "voice": "voice_vi_child"
+          }
+        ],
+        "props": [
+          {
+            "id": "bui_1",
+            "asset": "prop_kn_flower_red_a",
+            "position": {
+              "x": 1.75,
+              "y": 0,
+              "z": 0.1
+            }
+          },
+          {
+            "id": "bui_2",
+            "asset": "prop_kn_flower_yellow_a",
+            "position": {
+              "x": 2.1,
+              "y": 0,
+              "z": 0.55
+            },
+            "heading": 40
+          },
+          {
+            "id": "bui_3",
+            "asset": "prop_kn_flower_purple_a",
+            "position": {
+              "x": 1.45,
+              "y": 0,
+              "z": 0.65
+            },
+            "heading": 80
+          },
+          {
+            "id": "bui_4",
+            "asset": "prop_kn_flower_yellow_a",
+            "position": {
+              "x": 2.3,
+              "y": 0,
+              "z": -0.2
+            },
+            "heading": 150
+          },
+          {
+            "id": "hoa_ngat",
+            "asset": "prop_kn_flower_red_a",
+            "position": {
+              "x": 1.7,
+              "y": 0,
+              "z": -0.35
+            },
+            "heading": 20
+          },
+          {
+            "id": "hoa",
+            "asset": "prop_kn_flower_red_a",
+            "position": {
+              "x": 1.7,
+              "y": 0,
+              "z": -0.35
+            },
+            "visible": false
+          }
+        ],
+        "camera": {
+          "mode": "follow",
+          "target": "cao_con",
+          "offset": {
+            "x": 2.2,
+            "y": 1.1,
+            "z": 1.8
+          },
+          "lookAtOffset": {
+            "x": 0,
+            "y": 0.35,
+            "z": 0.6
+          },
+          "fov": 50
+        },
+        "dialogue": [
+          {
+            "id": "l1",
+            "speaker": "cao_con",
+            "text": "Mai là sinh nhật mẹ. Mình phải tìm một món quà thật đẹp!",
+            "start": 0.4,
+            "duration": 2.635,
+            "file": "tts/df4a8e6d51f9fb27ca7e943e.wav",
+            "voice": "voice_vi_child",
+            "rate": 0.95,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l2",
+            "speaker": "cao_con",
+            "text": "A, bông hoa đỏ này đẹp quá! Mẹ chắc chắn sẽ thích.",
+            "start": 6.3,
+            "duration": 2.543,
+            "file": "tts/1e9d6ed18368da0e280ece5a.wav",
+            "voice": "voice_vi_child",
+            "rate": 0.95,
+            "volume": 1,
+            "subtitle": true
+          }
+        ],
+        "actions": [
+          {
+            "id": "walk",
+            "type": "animation",
+            "target": "cao_con",
+            "start": 0,
+            "duration": 4.4,
+            "clip": "walk"
+          },
+          {
+            "id": "go",
+            "type": "moveTo",
+            "target": "cao_con",
+            "start": 0,
+            "duration": 4.4,
+            "to": {
+              "x": 1.15,
+              "z": -0.55
+            }
+          },
+          {
+            "id": "face",
+            "type": "turn",
+            "target": "cao_con",
+            "start": 4.4,
+            "duration": 0.4,
+            "heading": 75
+          },
+          {
+            "id": "cam_close",
+            "type": "camera",
+            "start": 4.4,
+            "duration": 8,
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": 3.1,
+                "y": 0.85,
+                "z": -1.35
+              },
+              "lookAt": {
+                "x": 1.4,
+                "y": 0.35,
+                "z": -0.45
+              },
+              "fov": 42
+            }
+          },
+          {
+            "id": "pick",
+            "type": "animation",
+            "target": "cao_con",
+            "start": 4.8,
+            "duration": 1.3,
+            "clip": "eat",
+            "loop": false
+          },
+          {
+            "id": "pluck",
+            "type": "hide",
+            "target": "hoa_ngat",
+            "start": 5.35
+          },
+          {
+            "id": "held_show",
+            "type": "show",
+            "target": "hoa",
+            "start": 5.35
+          },
+          {
+            "id": "held",
+            "type": "attach",
+            "target": "hoa",
+            "to": "cao_con",
+            "point": "mouth",
+            "start": 5.35
+          },
+          {
+            "id": "happy",
+            "type": "animation",
+            "target": "cao_con",
+            "start": 6.2,
+            "duration": 3,
+            "clip": "yes"
+          },
+          {
+            "id": "turn_back",
+            "type": "turn",
+            "target": "cao_con",
+            "start": 9.4,
+            "duration": 0.4,
+            "heading": 200
+          },
+          {
+            "id": "run",
+            "type": "animation",
+            "target": "cao_con",
+            "start": 9.8,
+            "duration": 2,
+            "clip": "run"
+          },
+          {
+            "id": "run_off",
+            "type": "moveTo",
+            "target": "cao_con",
+            "start": 9.8,
+            "duration": 2,
+            "to": {
+              "x": -0.6,
+              "z": -5.8
+            }
+          }
+        ],
+        "audio": [
+          {
+            "id": "sfx_pick",
+            "kind": "sfx",
+            "asset": "sfx_chime",
+            "start": 5.35,
+            "volume": 0.5
+          }
+        ],
+        "subtitles": {
+          "burnIn": true,
+          "size": 0.05,
+          "position": "bottom",
+          "showSpeaker": true
+        }
+      }
+    },
+    {
+      "id": "farm",
+      "transition": {
+        "type": "fade",
+        "duration": 0.8
+      },
+      "scene": {
+        "version": 1,
+        "meta": {
+          "name": "Nông trại",
+          "duration": 13.7,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "commercial": false
+        },
+        "environment": {
+          "asset": "env_farm",
+          "background": "#bde0fe",
+          "fog": {
+            "color": "#bde0fe",
+            "near": 28,
+            "far": 80
+          }
+        },
+        "characters": [
+          {
+            "id": "cao_con",
+            "name": "Cáo Con",
+            "asset": "char_k_animal_fox",
+            "position": {
+              "x": -4.2,
+              "y": 0,
+              "z": -23.4
+            },
+            "heading": 90,
+            "voice": "voice_vi_child"
+          },
+          {
+            "id": "cao_me",
+            "name": "Cáo Mẹ",
+            "asset": "char_k_animal_fox",
+            "scale": 1.35,
+            "position": {
+              "x": 0.8,
+              "y": 0,
+              "z": -23
+            },
+            "heading": -110,
+            "voice": "voice_vi_female"
+          }
+        ],
+        "props": [
+          {
+            "id": "hoa",
+            "asset": "prop_kn_flower_red_a",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "camera": {
+          "mode": "fixed",
+          "position": {
+            "x": -0.8,
+            "y": 1.35,
+            "z": -26.8
+          },
+          "lookAt": {
+            "x": -0.7,
+            "y": 0.5,
+            "z": -23.1
+          },
+          "fov": 48
+        },
+        "dialogue": [
+          {
+            "id": "l1",
+            "speaker": "cao_con",
+            "text": "Mẹ ơi! Con có quà cho mẹ nè!",
+            "start": 0.3,
+            "duration": 1.509,
+            "file": "tts/10cc14dfb0a1c677ff6baddc.wav",
+            "voice": "voice_vi_child",
+            "rate": 0.95,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l2",
+            "speaker": "cao_con",
+            "text": "Con tặng mẹ bông hoa này. Chúc mừng sinh nhật mẹ!",
+            "start": 4.1,
+            "duration": 2.241,
+            "file": "tts/782e324624d420ab75cfa267.wav",
+            "voice": "voice_vi_child",
+            "rate": 0.95,
+            "volume": 1,
+            "subtitle": true
+          },
+          {
+            "id": "l3",
+            "speaker": "cao_me",
+            "text": "Ôi, đẹp quá! Cảm ơn con yêu, mẹ vui lắm.",
+            "start": 7.141,
+            "duration": 2.345,
+            "file": "tts/08151ca8b1052f2f34c18f6f.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          }
+        ],
+        "actions": [
+          {
+            "id": "held",
+            "type": "attach",
+            "target": "hoa",
+            "to": "cao_con",
+            "point": "mouth",
+            "start": 0
+          },
+          {
+            "id": "run",
+            "type": "animation",
+            "target": "cao_con",
+            "start": 0,
+            "duration": 2.6,
+            "clip": "run"
+          },
+          {
+            "id": "come",
+            "type": "moveTo",
+            "target": "cao_con",
+            "start": 0,
+            "duration": 2.6,
+            "to": {
+              "x": -0.25,
+              "z": -23.25
+            }
+          },
+          {
+            "id": "mom_turn",
+            "type": "turn",
+            "target": "cao_me",
+            "start": 1.2,
+            "duration": 0.6,
+            "heading": -95
+          },
+          {
+            "id": "idle",
+            "type": "animation",
+            "target": "cao_con",
+            "start": 2.6,
+            "duration": 1.4,
+            "clip": "idle"
+          },
+          {
+            "id": "offer",
+            "type": "animation",
+            "target": "cao_con",
+            "start": 4,
+            "duration": 1.3,
+            "clip": "eat",
+            "loop": false
+          },
+          {
+            "id": "give",
+            "type": "attach",
+            "target": "hoa",
+            "to": "cao_me",
+            "point": "mouth",
+            "start": 4.6
+          },
+          {
+            "id": "mom_take",
+            "type": "animation",
+            "target": "cao_me",
+            "start": 4.3,
+            "duration": 1.3,
+            "clip": "eat",
+            "loop": false
+          },
+          {
+            "id": "mom_happy",
+            "type": "animation",
+            "target": "cao_me",
+            "clip": "dance",
+            "start": 7.141,
+            "duration": 4.345
+          },
+          {
+            "id": "kid_happy",
+            "type": "animation",
+            "target": "cao_con",
+            "clip": "dance",
+            "start": 7.541,
+            "duration": 3.945
+          },
+          {
+            "id": "cam_give",
+            "type": "camera",
+            "start": 3.8,
+            "duration": 4.6,
+            "shot": {
+              "mode": "fixed",
+              "position": {
+                "x": -0.2,
+                "y": 0.95,
+                "z": -25.2
+              },
+              "lookAt": {
+                "x": 0.1,
+                "y": 0.55,
+                "z": -23.1
+              },
+              "fov": 42
+            }
+          }
+        ],
+        "audio": [
+          {
+            "id": "sfx_give",
+            "kind": "sfx",
+            "asset": "sfx_chime",
+            "start": 4.6,
+            "volume": 0.5
+          }
+        ],
+        "subtitles": {
+          "burnIn": true,
+          "size": 0.05,
+          "position": "bottom",
+          "showSpeaker": true
+        }
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "trimStart": 0,
+      "volume": 0.3,
+      "loop": true,
+      "fadeIn": 0.5,
+      "fadeOut": 1.8
+    }
+  ],
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "duckRamp": 0.25,
+    "loudness": -14
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": true
+  }
+}

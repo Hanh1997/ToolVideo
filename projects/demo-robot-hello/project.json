@@ -1,0 +1,6 @@
+{
+  "id": "demo-robot-hello",
+  "name": "Robot Hello (lời thoại + phụ đề)",
+  "description": "Video giải thích cho thiếu nhi: robot chào, dạy đếm. TTS tiếng Việt, cử chỉ khớp câu thoại, nhạc nền tự giảm khi nói, phụ đề.",
+  "commercial": false
+}

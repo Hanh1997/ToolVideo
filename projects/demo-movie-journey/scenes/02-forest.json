@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "meta": { "name": "Khu rừng", "duration": "auto", "tail": 1.2 },
+  "environment": { "asset": "env_forest", "background": "#bde0fe", "fog": { "color": "#bde0fe", "near": 28, "far": 80 } },
+  "characters": [
+    { "id": "girl", "asset": "char_q_casual2_female", "position": { "x": -0.4, "y": 0, "z": -3 }, "heading": 0, "voice": "voice_vi_female" },
+    { "id": "pug", "asset": "char_pug", "position": { "x": 0.7, "y": 0, "z": -2.4 }, "heading": 0 }
+  ],
+  "camera": { "mode": "fixed", "position": { "x": 2.6, "y": 1.6, "z": 3.4 }, "lookAt": { "x": 0, "y": 0.8, "z": -0.6 }, "fov": 50 },
+  "dialogue": [
+    { "id": "l1", "speaker": "girl", "text": "Oa, khu rừng mát quá! Cún ơi, nhảy lên nào!", "start": 0.4 }
+  ],
+  "actions": [
+    { "id": "girl_walk", "type": "animation", "target": "girl", "start": 0, "duration": 2.6, "clip": "walk" },
+    { "id": "girl_move", "type": "move", "target": "girl", "start": 0, "duration": 2.6, "direction": "forward", "speed": 1 },
+    { "id": "pug_walk", "type": "animation", "target": "pug", "start": 0, "duration": 2.6, "clip": "jump" },
+    { "id": "pug_move", "type": "move", "target": "pug", "start": 0, "duration": 2.6, "direction": "forward", "speed": 1 },
+    { "id": "pug_hop", "type": "animation", "target": "pug", "start": 2.6, "duration": 3, "clip": "jump" },
+    { "id": "pug_jump_1", "type": "jump", "target": "pug", "start": 3, "duration": 0.5, "height": 0.35 },
+    { "id": "pug_jump_2", "type": "jump", "target": "pug", "start": 3.7, "duration": 0.5, "height": 0.35 }
+  ],
+  "audio": [
+    { "id": "sfx_b1", "kind": "sfx", "asset": "sfx_boing", "start": 3, "volume": 0.6 },
+    { "id": "sfx_b2", "kind": "sfx", "asset": "sfx_boing", "start": 3.7, "volume": 0.6 }
+  ]
+}

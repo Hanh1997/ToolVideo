@@ -1,0 +1,428 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Thư viện nhân vật",
+    "duration": 2,
+    "fps": 2,
+    "width": 1920,
+    "height": 1080
+  },
+  "environment": {
+    "asset": "env_park",
+    "background": "#a8d8f0"
+  },
+  "characters": [
+    {
+      "id": "robot",
+      "asset": "char_robot",
+      "position": {
+        "x": -7.700000000000001,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_casual_male",
+      "asset": "char_q_casual_male",
+      "position": {
+        "x": -6.6000000000000005,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_casual_female",
+      "asset": "char_q_casual_female",
+      "position": {
+        "x": -5.5,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_casual2_male",
+      "asset": "char_q_casual2_male",
+      "position": {
+        "x": -4.4,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_casual2_female",
+      "asset": "char_q_casual2_female",
+      "position": {
+        "x": -3.3000000000000003,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_chef_female",
+      "asset": "char_q_chef_female",
+      "position": {
+        "x": -2.2,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_doctor_female_young",
+      "asset": "char_q_doctor_female_young",
+      "position": {
+        "x": -1.1,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_doctor_male_young",
+      "asset": "char_q_doctor_male_young",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_worker_male",
+      "asset": "char_q_worker_male",
+      "position": {
+        "x": 1.1,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_worker_female",
+      "asset": "char_q_worker_female",
+      "position": {
+        "x": 2.2,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_wizard",
+      "asset": "char_q_wizard",
+      "position": {
+        "x": 3.3000000000000003,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_witch",
+      "asset": "char_q_witch",
+      "position": {
+        "x": 4.4,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_pirate_male",
+      "asset": "char_q_pirate_male",
+      "position": {
+        "x": 5.5,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_kimono_female",
+      "asset": "char_q_kimono_female",
+      "position": {
+        "x": 6.6000000000000005,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_cowboy_male",
+      "asset": "char_q_cowboy_male",
+      "position": {
+        "x": 7.700000000000001,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "horse",
+      "asset": "char_horse",
+      "position": {
+        "x": -6.8999999999999995,
+        "y": 0,
+        "z": 3.5
+      },
+      "heading": 180
+    },
+    {
+      "id": "cow",
+      "asset": "char_cow",
+      "position": {
+        "x": -4.6,
+        "y": 0,
+        "z": 3.5
+      },
+      "heading": 180
+    },
+    {
+      "id": "zebra",
+      "asset": "char_zebra",
+      "position": {
+        "x": -2.3,
+        "y": 0,
+        "z": 3.5
+      },
+      "heading": 180
+    },
+    {
+      "id": "llama",
+      "asset": "char_llama",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 3.5
+      },
+      "heading": 180
+    },
+    {
+      "id": "pig",
+      "asset": "char_pig",
+      "position": {
+        "x": 2.3,
+        "y": 0,
+        "z": 3.5
+      },
+      "heading": 180
+    },
+    {
+      "id": "sheep",
+      "asset": "char_sheep",
+      "position": {
+        "x": 4.6,
+        "y": 0,
+        "z": 3.5
+      },
+      "heading": 180
+    },
+    {
+      "id": "pug",
+      "asset": "char_pug",
+      "position": {
+        "x": 6.8999999999999995,
+        "y": 0,
+        "z": 3.5
+      },
+      "heading": 180
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": 0,
+      "y": 3.2,
+      "z": -10.5
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 0.9,
+      "z": 1.5
+    },
+    "fov": 50
+  },
+  "actions": [
+    {
+      "id": "idle_robot",
+      "type": "animation",
+      "target": "robot",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_casual_male",
+      "type": "animation",
+      "target": "q_casual_male",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_casual_female",
+      "type": "animation",
+      "target": "q_casual_female",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_casual2_male",
+      "type": "animation",
+      "target": "q_casual2_male",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_casual2_female",
+      "type": "animation",
+      "target": "q_casual2_female",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_chef_female",
+      "type": "animation",
+      "target": "q_chef_female",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_doctor_female_young",
+      "type": "animation",
+      "target": "q_doctor_female_young",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_doctor_male_young",
+      "type": "animation",
+      "target": "q_doctor_male_young",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_worker_male",
+      "type": "animation",
+      "target": "q_worker_male",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_worker_female",
+      "type": "animation",
+      "target": "q_worker_female",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_wizard",
+      "type": "animation",
+      "target": "q_wizard",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_witch",
+      "type": "animation",
+      "target": "q_witch",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_pirate_male",
+      "type": "animation",
+      "target": "q_pirate_male",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_kimono_female",
+      "type": "animation",
+      "target": "q_kimono_female",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_cowboy_male",
+      "type": "animation",
+      "target": "q_cowboy_male",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_horse",
+      "type": "animation",
+      "target": "horse",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_cow",
+      "type": "animation",
+      "target": "cow",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_zebra",
+      "type": "animation",
+      "target": "zebra",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_llama",
+      "type": "animation",
+      "target": "llama",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_pig",
+      "type": "animation",
+      "target": "pig",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_sheep",
+      "type": "animation",
+      "target": "sheep",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_pug",
+      "type": "animation",
+      "target": "pug",
+      "start": 0,
+      "duration": 2,
+      "clip": "idle"
+    }
+  ]
+}

@@ -1,0 +1,1010 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Gấu Con Dọn Rác Bãi Biển Và Món Quà Cho Mẹ – 2",
+    "duration": "auto",
+    "tail": 2.5,
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "environment": {
+    "asset": "env_garden",
+    "background": "#1d2748",
+    "fog": {
+      "color": "#1d2748",
+      "near": 18,
+      "far": 60
+    },
+    "lighting": {
+      "preset": "night"
+    },
+    "effects": [
+      "fireflies"
+    ]
+  },
+  "characters": [
+    {
+      "id": "gau_con",
+      "name": "Gấu con",
+      "asset": "char_m_panda",
+      "position": {
+        "x": -2.25,
+        "y": 0,
+        "z": 3.47
+      },
+      "heading": 180,
+      "scale": 0.8,
+      "voice": "voice_vi_child"
+    },
+    {
+      "id": "gau_bo",
+      "name": "Bố Gấu",
+      "asset": "char_m_panda",
+      "position": {
+        "x": -0.17,
+        "y": 0,
+        "z": 3.78
+      },
+      "heading": 180,
+      "scale": 1.3,
+      "voice": "voice_vi_deep"
+    },
+    {
+      "id": "gau_me",
+      "name": "Mẹ Gấu",
+      "asset": "char_m_panda",
+      "position": {
+        "x": 2.25,
+        "y": 0,
+        "z": 2.87
+      },
+      "heading": 180,
+      "scale": 1.3,
+      "voice": "voice_vi_female"
+    }
+  ],
+  "props": [
+    {
+      "id": "chau_cay",
+      "asset": "prop_gd_flower_pot",
+      "position": {
+        "x": -3.55,
+        "y": 0,
+        "z": -1
+      },
+      "heading": 0,
+      "scale": 0.35
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": -1.77,
+      "y": 2.01,
+      "z": -5.06
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 0.7,
+      "z": -0.4
+    },
+    "fov": 50
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": true
+  },
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l9",
+      "voice": "voice_vi_female",
+      "text": "Buổi tối, cả nhà về khu vườn nhỏ.",
+      "start": 4
+    },
+    {
+      "id": "l10",
+      "speaker": "gau_con",
+      "text": "Mẹ ơi, con có món quà tặng mẹ!",
+      "emotion": "happy",
+      "start": {
+        "after": "l9",
+        "gap": 3.95
+      }
+    },
+    {
+      "id": "l11",
+      "speaker": "gau_con",
+      "text": "Con tặng mẹ chậu cây xinh này ạ!",
+      "emotion": "happy",
+      "start": {
+        "after": "l10",
+        "gap": 8.29
+      }
+    },
+    {
+      "id": "l12",
+      "speaker": "gau_me",
+      "text": "Ôi, chậu cây đẹp quá! Cảm ơn con yêu.",
+      "emotion": "surprised",
+      "start": {
+        "after": "l11",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l13",
+      "speaker": "gau_bo",
+      "text": "Con của bố mẹ hôm nay đã làm được nhiều việc tốt.",
+      "emotion": "happy",
+      "start": {
+        "after": "l12",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l14",
+      "speaker": "gau_con",
+      "text": "Con thấy vui vì đã giúp biển sạch và tặng quà cho mẹ.",
+      "emotion": "happy",
+      "start": {
+        "after": "l13",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l15",
+      "voice": "voice_vi_female",
+      "text": "Đom đóm bay lấp lánh quanh vườn như những vì sao nhỏ.",
+      "start": {
+        "after": "l14",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l16",
+      "speaker": "gau_me",
+      "text": "Cả nhà mình cùng ngắm đom đóm nhé!",
+      "emotion": "happy",
+      "start": {
+        "after": "l15",
+        "gap": 0.45
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "gau_con_walk",
+      "type": "animation",
+      "target": "gau_con",
+      "start": 0,
+      "duration": 3.4,
+      "clip": "walk"
+    },
+    {
+      "id": "gau_con_in",
+      "type": "moveTo",
+      "target": "gau_con",
+      "start": 0,
+      "duration": 3.4,
+      "to": {
+        "x": -2.25,
+        "z": -0.61
+      }
+    },
+    {
+      "id": "gau_con_face",
+      "type": "turn",
+      "target": "gau_con",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": 157.34
+    },
+    {
+      "id": "gau_bo_walk",
+      "type": "animation",
+      "target": "gau_bo",
+      "start": 0.25,
+      "duration": 3.15,
+      "clip": "walk"
+    },
+    {
+      "id": "gau_bo_in",
+      "type": "moveTo",
+      "target": "gau_bo",
+      "start": 0.25,
+      "duration": 3.15,
+      "to": {
+        "x": -0.17,
+        "z": 0
+      }
+    },
+    {
+      "id": "gau_bo_face",
+      "type": "turn",
+      "target": "gau_bo",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": 178.42
+    },
+    {
+      "id": "gau_me_walk",
+      "type": "animation",
+      "target": "gau_me",
+      "start": 0.5,
+      "duration": 2.9,
+      "clip": "walk"
+    },
+    {
+      "id": "gau_me_in",
+      "type": "moveTo",
+      "target": "gau_me",
+      "start": 0.5,
+      "duration": 2.9,
+      "to": {
+        "x": 2.25,
+        "z": -0.61
+      }
+    },
+    {
+      "id": "gau_me_face",
+      "type": "turn",
+      "target": "gau_me",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": -157.34
+    },
+    {
+      "id": "cam_l10_pickup",
+      "type": "camera",
+      "sync": {
+        "line": "l10",
+        "offset": -3.5,
+        "duration": 3.35
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "gau_con",
+        "offset": {
+          "x": 1.76,
+          "y": 1.46,
+          "z": -3.73
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.38,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "l10_pickup_go_walk",
+      "type": "animation",
+      "target": "gau_con",
+      "clip": "walk",
+      "sync": {
+        "line": "l10",
+        "offset": -3.5,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l10_pickup_go_move",
+      "type": "moveTo",
+      "target": "gau_con",
+      "to": {
+        "x": -2.9,
+        "z": -0.8
+      },
+      "sync": {
+        "line": "l10",
+        "offset": -3.5,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l10_pickup_face",
+      "type": "turn",
+      "target": "gau_con",
+      "heading": -106.7,
+      "sync": {
+        "line": "l10",
+        "offset": -2.9,
+        "duration": 0.3
+      }
+    },
+    {
+      "type": "attach",
+      "target": "chau_cay",
+      "to": "gau_con",
+      "id": "l10_pickup_attach",
+      "sync": {
+        "line": "l10",
+        "offset": -2.05,
+        "duration": 0.25
+      }
+    },
+    {
+      "id": "l10_pickup_turn_back",
+      "type": "turn",
+      "target": "gau_con",
+      "heading": 73.3,
+      "sync": {
+        "line": "l10",
+        "offset": -1.3,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l10_pickup_back_walk",
+      "type": "animation",
+      "target": "gau_con",
+      "clip": "walk",
+      "sync": {
+        "line": "l10",
+        "offset": -1,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l10_pickup_back_move",
+      "type": "moveTo",
+      "target": "gau_con",
+      "to": {
+        "x": -2.25,
+        "z": -0.61
+      },
+      "sync": {
+        "line": "l10",
+        "offset": -1,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l10_pickup_home",
+      "type": "turn",
+      "target": "gau_con",
+      "heading": 157.34,
+      "sync": {
+        "line": "l10",
+        "offset": -0.4,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "cam_l11_give",
+      "type": "camera",
+      "sync": {
+        "line": "l11",
+        "offset": -7.84,
+        "duration": 7.69
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "gau_con",
+        "offset": {
+          "x": 1.76,
+          "y": 1.46,
+          "z": -3.73
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.38,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "l11_give_go_walk",
+      "type": "animation",
+      "target": "gau_con",
+      "clip": "walk",
+      "sync": {
+        "line": "l11",
+        "offset": -7.84,
+        "duration": 2.77
+      }
+    },
+    {
+      "id": "l11_give_go_move",
+      "type": "moveTo",
+      "target": "gau_con",
+      "to": {
+        "x": 1.07,
+        "z": -0.61
+      },
+      "sync": {
+        "line": "l11",
+        "offset": -7.84,
+        "duration": 2.77
+      }
+    },
+    {
+      "id": "l11_give_face",
+      "type": "turn",
+      "target": "gau_con",
+      "heading": 90,
+      "sync": {
+        "line": "l11",
+        "offset": -5.07,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l11_give_rface",
+      "type": "turn",
+      "target": "gau_me",
+      "heading": -90,
+      "sync": {
+        "line": "l11",
+        "offset": -5.47,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l11_give_offer",
+      "type": "animation",
+      "target": "gau_con",
+      "clip": "yes",
+      "loop": false,
+      "sync": {
+        "line": "l11",
+        "offset": -4.77,
+        "duration": 1.3
+      }
+    },
+    {
+      "type": "attach",
+      "target": "chau_cay",
+      "to": "gau_me",
+      "id": "l11_give_attach",
+      "sync": {
+        "line": "l11",
+        "offset": -4.22,
+        "duration": 0.25
+      }
+    },
+    {
+      "id": "l11_give_thanks",
+      "type": "animation",
+      "target": "gau_me",
+      "clip": "yes",
+      "loop": false,
+      "sync": {
+        "line": "l11",
+        "offset": -4.12,
+        "duration": 1.1
+      }
+    },
+    {
+      "id": "l11_give_rback",
+      "type": "turn",
+      "target": "gau_me",
+      "heading": -157.34,
+      "sync": {
+        "line": "l11",
+        "offset": -3.27,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l11_give_turn_back",
+      "type": "turn",
+      "target": "gau_con",
+      "heading": -90,
+      "sync": {
+        "line": "l11",
+        "offset": -3.47,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l11_give_back_walk",
+      "type": "animation",
+      "target": "gau_con",
+      "clip": "walk",
+      "sync": {
+        "line": "l11",
+        "offset": -3.17,
+        "duration": 2.77
+      }
+    },
+    {
+      "id": "l11_give_back_move",
+      "type": "moveTo",
+      "target": "gau_con",
+      "to": {
+        "x": -2.25,
+        "z": -0.61
+      },
+      "sync": {
+        "line": "l11",
+        "offset": -3.17,
+        "duration": 2.77
+      }
+    },
+    {
+      "id": "l11_give_home",
+      "type": "turn",
+      "target": "gau_con",
+      "heading": 157.34,
+      "sync": {
+        "line": "l11",
+        "offset": -0.4,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "cam_intro",
+      "type": "camera",
+      "start": 0,
+      "duration": 3.85,
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.77,
+          "y": 2.01,
+          "z": -5.06
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.7,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "dolly": 0.12
+      }
+    },
+    {
+      "id": "cam_l9",
+      "type": "camera",
+      "sync": {
+        "line": "l9",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 2.01,
+          "z": -5.06
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.7,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "pan": 6
+      }
+    },
+    {
+      "id": "g_l10",
+      "type": "animation",
+      "target": "gau_con",
+      "clip": "jump",
+      "loop": false,
+      "sync": {
+        "line": "l10"
+      }
+    },
+    {
+      "id": "cam_l10",
+      "type": "camera",
+      "sync": {
+        "line": "l10",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.83,
+          "y": 1.02,
+          "z": -3.4
+        },
+        "lookAt": {
+          "x": -2.16,
+          "y": 0.6,
+          "z": -0.83
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "e_l11",
+      "type": "animation",
+      "target": "gau_con",
+      "clip": "yes",
+      "sync": {
+        "line": "l11"
+      }
+    },
+    {
+      "id": "cam_l11",
+      "type": "camera",
+      "sync": {
+        "line": "l11",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.56,
+          "y": 1.02,
+          "z": -2.87
+        },
+        "lookAt": {
+          "x": -2.16,
+          "y": 0.6,
+          "z": -0.83
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "g_l12",
+      "type": "animation",
+      "target": "gau_me",
+      "clip": "wave",
+      "loop": false,
+      "sync": {
+        "line": "l12"
+      }
+    },
+    {
+      "id": "cam_l12",
+      "type": "camera",
+      "sync": {
+        "line": "l12",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.01,
+          "y": 1.5,
+          "z": -3.62
+        },
+        "lookAt": {
+          "x": 2.1,
+          "y": 0.97,
+          "z": -0.97
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "g_l13",
+      "type": "animation",
+      "target": "gau_bo",
+      "clip": "victory",
+      "sync": {
+        "line": "l13"
+      }
+    },
+    {
+      "id": "cam_l13",
+      "type": "camera",
+      "sync": {
+        "line": "l13",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.84,
+          "y": 1.5,
+          "z": -3.61
+        },
+        "lookAt": {
+          "x": -0.16,
+          "y": 0.97,
+          "z": -0.39
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "g_l14",
+      "type": "animation",
+      "target": "gau_con",
+      "clip": "dance",
+      "sync": {
+        "line": "l14"
+      }
+    },
+    {
+      "id": "cam_l14",
+      "type": "camera",
+      "sync": {
+        "line": "l14",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.83,
+          "y": 1.02,
+          "z": -3.4
+        },
+        "lookAt": {
+          "x": -2.16,
+          "y": 0.6,
+          "z": -0.83
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l15",
+      "type": "camera",
+      "sync": {
+        "line": "l15",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 2.01,
+          "z": -5.06
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.7,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "pan": 6
+      }
+    },
+    {
+      "id": "g_l16",
+      "type": "animation",
+      "target": "gau_me",
+      "clip": "dance",
+      "sync": {
+        "line": "l16"
+      }
+    },
+    {
+      "id": "cam_end",
+      "type": "camera",
+      "sync": {
+        "line": "l16",
+        "offset": -0.15,
+        "pad": 30
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 2.01,
+          "z": -5.06
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.7,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "blend": 1.2,
+      "move": {
+        "dolly": -0.1,
+        "rise": 0.4
+      }
+    },
+    {
+      "id": "end_gau_con",
+      "type": "animation",
+      "target": "gau_con",
+      "clip": "dance",
+      "sync": {
+        "line": "l16",
+        "offset": -0.3,
+        "pad": 2
+      }
+    },
+    {
+      "id": "end_gau_bo",
+      "type": "animation",
+      "target": "gau_bo",
+      "clip": "dance",
+      "sync": {
+        "line": "l16",
+        "offset": -0.3,
+        "pad": 2
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "gau_con_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "start": 0,
+      "duration": 3.4,
+      "loop": true,
+      "volume": 0.27,
+      "fadeOut": 0.15
+    },
+    {
+      "id": "gau_bo_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "start": 0.25,
+      "duration": 3.15,
+      "loop": true,
+      "volume": 0.39,
+      "fadeOut": 0.15
+    },
+    {
+      "id": "gau_me_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "start": 0.5,
+      "duration": 2.9,
+      "loop": true,
+      "volume": 0.39,
+      "fadeOut": 0.15
+    },
+    {
+      "id": "sfx_l10_pickup_0",
+      "kind": "sfx",
+      "asset": "sfx_cloth_0",
+      "volume": 0.55,
+      "sync": {
+        "line": "l10",
+        "at": "start",
+        "offset": -2.05
+      }
+    },
+    {
+      "id": "l10_pickup_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.6,
+      "volume": 0.27,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l10",
+        "at": "start",
+        "offset": -3.5
+      }
+    },
+    {
+      "id": "l10_pickup_back_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.6,
+      "volume": 0.27,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l10",
+        "at": "start",
+        "offset": -1
+      }
+    },
+    {
+      "id": "sfx_l11_give_0",
+      "kind": "sfx",
+      "asset": "sfx_cloth_1",
+      "volume": 0.45,
+      "sync": {
+        "line": "l11",
+        "at": "start",
+        "offset": -4.22
+      }
+    },
+    {
+      "id": "sfx_l11_give_1",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "volume": 0.35,
+      "sync": {
+        "line": "l11",
+        "at": "start",
+        "offset": -4.07
+      }
+    },
+    {
+      "id": "l11_give_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 2.77,
+      "volume": 0.27,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l11",
+        "at": "start",
+        "offset": -7.84
+      }
+    },
+    {
+      "id": "l11_give_back_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 2.77,
+      "volume": 0.27,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l11",
+        "at": "start",
+        "offset": -3.17
+      }
+    },
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_magic",
+      "start": 0,
+      "loop": true,
+      "volume": 0.3,
+      "fadeIn": 0.8,
+      "fadeOut": 1.2
+    },
+    {
+      "id": "amb",
+      "kind": "sfx",
+      "asset": "amb_night",
+      "start": 0,
+      "loop": true,
+      "volume": 0.35,
+      "fadeIn": 1,
+      "fadeOut": 1
+    },
+    {
+      "id": "sfx_end",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "sync": {
+        "line": "l16",
+        "at": "end",
+        "offset": 0.2
+      },
+      "volume": 0.8
+    }
+  ]
+}

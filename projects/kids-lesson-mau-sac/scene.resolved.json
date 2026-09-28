@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Màu sắc quanh em",
+    "duration": 12.8,
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "environment": {
+    "asset": "env_autumn_forest",
+    "background": "#ffd6a5",
+    "fog": {
+      "color": "#ffd6a5",
+      "near": 30,
+      "far": 70
+    }
+  },
+  "characters": [
+    {
+      "id": "host",
+      "asset": "char_q_casual2_female",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 2
+      },
+      "heading": 180,
+      "voice": "voice_vi_female"
+    }
+  ],
+  "props": [
+    {
+      "id": "log",
+      "asset": "prop_log",
+      "position": {
+        "x": 1.8,
+        "y": 0,
+        "z": 3
+      },
+      "heading": 30
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": 1.2,
+      "y": 1.7,
+      "z": -3.2
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 1.1,
+      "z": 2
+    },
+    "fov": 45
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.055,
+    "position": "bottom"
+  },
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.3,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l1",
+      "speaker": "host",
+      "text": "Chào các bạn! Hôm nay mình học về màu sắc nhé.",
+      "start": 0.6,
+      "duration": 2.287,
+      "file": "tts/151d2c642d2bf9fcfd444471.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l2",
+      "speaker": "host",
+      "text": "Bầu trời màu xanh, còn mặt trời màu vàng.",
+      "start": 3.387,
+      "duration": 2.218,
+      "file": "tts/b5fa9754140fa1642cea29da.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l3",
+      "speaker": "host",
+      "text": "Cỏ cây thì có màu xanh lá.",
+      "start": 6.105,
+      "duration": 1.358,
+      "file": "tts/f0d2e54005efb7e9e6170a1c.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l4",
+      "speaker": "host",
+      "text": "Các bạn nhớ chưa nào? Giỏi lắm!",
+      "start": 8.063,
+      "duration": 1.486,
+      "file": "tts/d45bcf8fff169a063e800f6b.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    }
+  ],
+  "actions": [
+    {
+      "id": "anim_greet",
+      "type": "animation",
+      "target": "host",
+      "clip": "wave",
+      "loop": false,
+      "start": 0.3,
+      "duration": 2.787
+    },
+    {
+      "id": "anim_2",
+      "type": "animation",
+      "target": "host",
+      "clip": "yes",
+      "start": 3.387,
+      "duration": 2.218
+    },
+    {
+      "id": "anim_3",
+      "type": "animation",
+      "target": "host",
+      "clip": "victory",
+      "loop": false,
+      "start": 6.105,
+      "duration": 1.658
+    },
+    {
+      "id": "anim_4",
+      "type": "animation",
+      "target": "host",
+      "clip": "dance",
+      "start": 8.063,
+      "duration": 2.286
+    },
+    {
+      "id": "cam_close_4",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.7,
+          "y": 1.35,
+          "z": -0.9
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.95,
+          "z": 2
+        },
+        "fov": 42
+      },
+      "start": 7.863,
+      "duration": 4.937
+    }
+  ],
+  "audio": [
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "loop": true,
+      "volume": 0.5,
+      "fadeIn": 0.3,
+      "fadeOut": 1.2
+    },
+    {
+      "id": "sfx_end_4",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "volume": 0.8,
+      "start": 9.649
+    }
+  ]
+}

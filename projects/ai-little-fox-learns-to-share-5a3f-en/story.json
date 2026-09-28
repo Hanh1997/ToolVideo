@@ -1,0 +1,235 @@
+{
+  "languages": [
+    "en"
+  ],
+  "title": {
+    "en": "Little Fox Learns to Share"
+  },
+  "summary": {
+    "en": "In a forest, Little Fox finds berries and refuses to share with Bunny and Deer. He learns that sharing makes friendship and hearts happy."
+  },
+  "environment": "env_forest",
+  "music": true,
+  "narratorVoice": "female",
+  "ending": "dance",
+  "characters": [
+    {
+      "id": "fox",
+      "asset": "char_k_animal_fox",
+      "voice": "squeaky",
+      "name": {
+        "en": "Little Fox"
+      }
+    },
+    {
+      "id": "bunny",
+      "asset": "char_k_animal_bunny",
+      "voice": "child",
+      "name": {
+        "en": "Bunny"
+      }
+    },
+    {
+      "id": "deer",
+      "asset": "char_k_animal_deer",
+      "voice": "female",
+      "name": {
+        "en": "Deer"
+      }
+    }
+  ],
+  "lines": [
+    {
+      "id": "l1",
+      "speaker": null,
+      "gesture": null,
+      "text": {
+        "en": "In a sunny forest, Little Fox found a big basket of sweet berries."
+      }
+    },
+    {
+      "id": "l2",
+      "speaker": "fox",
+      "gesture": "thumbsup",
+      "text": {
+        "en": "Wow! These berries look delicious!"
+      }
+    },
+    {
+      "id": "l3",
+      "speaker": "bunny",
+      "gesture": null,
+      "text": {
+        "en": "Hello, Fox! May I please have one berry?"
+      }
+    },
+    {
+      "id": "l4",
+      "speaker": "fox",
+      "gesture": "no",
+      "text": {
+        "en": "No, these are all mine!"
+      }
+    },
+    {
+      "id": "l5",
+      "speaker": "deer",
+      "gesture": "thumbsup",
+      "text": {
+        "en": "Sharing a snack is more fun, Fox."
+      }
+    },
+    {
+      "id": "l6",
+      "speaker": "fox",
+      "gesture": "no",
+      "text": {
+        "en": "I said no! Go play somewhere else."
+      }
+    },
+    {
+      "id": "l7",
+      "speaker": "bunny",
+      "gesture": null,
+      "text": {
+        "en": "That hurts my feelings, Fox."
+      }
+    },
+    {
+      "id": "l8",
+      "speaker": "deer",
+      "gesture": "yes",
+      "text": {
+        "en": "Friends are kind to each other."
+      }
+    },
+    {
+      "id": "l9",
+      "speaker": "fox",
+      "gesture": "no",
+      "text": {
+        "en": "But I found the berries first!"
+      }
+    },
+    {
+      "id": "l10",
+      "speaker": null,
+      "gesture": null,
+      "text": {
+        "en": "Little Fox sat alone with his basket, but he felt lonely inside."
+      }
+    },
+    {
+      "id": "l11",
+      "speaker": "fox",
+      "gesture": null,
+      "text": {
+        "en": "Why do I feel sad when I have all the berries?"
+      }
+    },
+    {
+      "id": "l12",
+      "speaker": "bunny",
+      "gesture": null,
+      "text": {
+        "en": "Because being together with friends is the sweetest treat."
+      }
+    },
+    {
+      "id": "l13",
+      "speaker": "deer",
+      "gesture": "thumbsup",
+      "text": {
+        "en": "We picked some nuts for you, Fox. Let's share everything!"
+      }
+    },
+    {
+      "id": "l14",
+      "speaker": "fox",
+      "gesture": "yes",
+      "text": {
+        "en": "You want to share with me, even after I was unkind?"
+      }
+    },
+    {
+      "id": "l15",
+      "speaker": "bunny",
+      "gesture": "yes",
+      "text": {
+        "en": "Of course! Friends forgive and share."
+      }
+    },
+    {
+      "id": "l16",
+      "speaker": "fox",
+      "gesture": "thumbsup",
+      "text": {
+        "en": "I am sorry. Please, let's have a berry and nut picnic together!"
+      }
+    },
+    {
+      "id": "l17",
+      "speaker": "deer",
+      "gesture": "dance",
+      "text": {
+        "en": "Hooray! Sharing makes the food taste better!"
+      }
+    },
+    {
+      "id": "l18",
+      "speaker": "bunny",
+      "gesture": "dance",
+      "text": {
+        "en": "This is the best picnic ever!"
+      }
+    },
+    {
+      "id": "l19",
+      "speaker": "fox",
+      "gesture": "thumbsup",
+      "text": {
+        "en": "Thank you for teaching me about friendship."
+      }
+    },
+    {
+      "id": "l20",
+      "speaker": "deer",
+      "gesture": "thumbsup",
+      "text": {
+        "en": "Sharing is caring, Fox."
+      }
+    },
+    {
+      "id": "l21",
+      "speaker": "fox",
+      "gesture": "thumbsup",
+      "text": {
+        "en": "Now I know: sharing fills our hearts with joy."
+      }
+    },
+    {
+      "id": "l22",
+      "speaker": "bunny",
+      "gesture": "dance",
+      "text": {
+        "en": "And playing together is always better!"
+      }
+    },
+    {
+      "id": "l23",
+      "speaker": null,
+      "gesture": null,
+      "text": {
+        "en": "Little Fox learned that sharing is a wonderful way to show love."
+      }
+    },
+    {
+      "id": "l24",
+      "speaker": null,
+      "gesture": null,
+      "text": {
+        "en": "Let's all dance and celebrate being good friends!"
+      }
+    }
+  ]
+}

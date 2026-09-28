@@ -1,0 +1,386 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Bạn nhỏ và nông trại",
+    "duration": 13,
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "environment": {
+    "asset": "env_park",
+    "background": "#bde0fe",
+    "fog": {
+      "color": "#bde0fe",
+      "near": 30,
+      "far": 70
+    }
+  },
+  "characters": [
+    {
+      "id": "girl",
+      "asset": "char_q_casual2_female",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": -7
+      },
+      "heading": 0,
+      "voice": "voice_vi_female"
+    },
+    {
+      "id": "pug",
+      "asset": "char_pug",
+      "position": {
+        "x": 0.9,
+        "y": 0,
+        "z": -6.6
+      },
+      "heading": 0
+    },
+    {
+      "id": "horse",
+      "asset": "char_horse",
+      "position": {
+        "x": 9,
+        "y": 0,
+        "z": 3
+      },
+      "heading": -90
+    },
+    {
+      "id": "cow",
+      "asset": "char_cow",
+      "position": {
+        "x": -7,
+        "y": 0,
+        "z": 6
+      },
+      "heading": 90
+    },
+    {
+      "id": "pig",
+      "asset": "char_pig",
+      "position": {
+        "x": -3.2,
+        "y": 0,
+        "z": 1.5
+      },
+      "heading": 150
+    },
+    {
+      "id": "sheep",
+      "asset": "char_sheep",
+      "position": {
+        "x": 3.4,
+        "y": 0,
+        "z": 5.5
+      },
+      "heading": -140
+    }
+  ],
+  "camera": {
+    "mode": "follow",
+    "target": "girl",
+    "offset": {
+      "x": 2.2,
+      "y": 1.6,
+      "z": -3.4
+    },
+    "lookAtOffset": {
+      "x": 0,
+      "y": 0.8,
+      "z": 2
+    },
+    "fov": 50
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05
+  },
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.3,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l1",
+      "speaker": "girl",
+      "text": "Chào các bạn! Hôm nay mình đi dạo ở nông trại.",
+      "start": 0.5,
+      "duration": 2.171,
+      "file": "tts/cc67c70b32d6013f4232cd9d.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l2",
+      "speaker": "girl",
+      "text": "Nhìn kìa, bác ngựa đang chạy thật nhanh!",
+      "start": 5.2,
+      "duration": 1.904,
+      "file": "tts/5dbd159109e8ae9aae2b7928.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l3",
+      "speaker": "girl",
+      "text": "Còn bạn cún thì nhảy tưng tưng. Vui quá!",
+      "start": 9,
+      "duration": 2.113,
+      "file": "tts/ec5597a7234ecdeaf2a8ef71.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    }
+  ],
+  "actions": [
+    {
+      "id": "girl_walk",
+      "type": "animation",
+      "target": "girl",
+      "start": 0,
+      "duration": 5,
+      "clip": "walk"
+    },
+    {
+      "id": "girl_move",
+      "type": "move",
+      "target": "girl",
+      "start": 0,
+      "duration": 5,
+      "direction": "forward",
+      "speed": 1.2
+    },
+    {
+      "id": "girl_turn",
+      "type": "turn",
+      "target": "girl",
+      "start": 5,
+      "duration": 0.6,
+      "by": -60
+    },
+    {
+      "id": "girl_idle",
+      "type": "animation",
+      "target": "girl",
+      "start": 5,
+      "duration": 3.8,
+      "clip": "idle"
+    },
+    {
+      "id": "girl_turn_back",
+      "type": "turn",
+      "target": "girl",
+      "start": 8.8,
+      "duration": 0.5,
+      "heading": 0
+    },
+    {
+      "id": "girl_cheer",
+      "type": "animation",
+      "target": "girl",
+      "start": 9.2,
+      "duration": 2.4,
+      "clip": "victory",
+      "loop": false
+    },
+    {
+      "id": "pug_walk",
+      "type": "animation",
+      "target": "pug",
+      "start": 0,
+      "duration": 5,
+      "clip": "jump"
+    },
+    {
+      "id": "pug_follow",
+      "type": "move",
+      "target": "pug",
+      "start": 0,
+      "duration": 5,
+      "direction": "forward",
+      "speed": 1.2
+    },
+    {
+      "id": "pug_turn",
+      "type": "turn",
+      "target": "pug",
+      "start": 8.8,
+      "duration": 0.4,
+      "heading": -20
+    },
+    {
+      "id": "pug_hop",
+      "type": "animation",
+      "target": "pug",
+      "start": 8.8,
+      "duration": 4.2,
+      "clip": "jump"
+    },
+    {
+      "id": "pug_jump_1",
+      "type": "jump",
+      "target": "pug",
+      "start": 9.4,
+      "duration": 0.5,
+      "height": 0.35
+    },
+    {
+      "id": "pug_jump_2",
+      "type": "jump",
+      "target": "pug",
+      "start": 10.1,
+      "duration": 0.5,
+      "height": 0.35
+    },
+    {
+      "id": "pug_jump_3",
+      "type": "jump",
+      "target": "pug",
+      "start": 10.8,
+      "duration": 0.5,
+      "height": 0.35
+    },
+    {
+      "id": "horse_walk",
+      "type": "animation",
+      "target": "horse",
+      "start": 0,
+      "duration": 4.5,
+      "clip": "walk"
+    },
+    {
+      "id": "horse_move",
+      "type": "move",
+      "target": "horse",
+      "start": 0,
+      "duration": 4.5,
+      "direction": "forward",
+      "speed": 1
+    },
+    {
+      "id": "horse_run",
+      "type": "animation",
+      "target": "horse",
+      "start": 4.5,
+      "duration": 4,
+      "clip": "run"
+    },
+    {
+      "id": "horse_dash",
+      "type": "move",
+      "target": "horse",
+      "start": 4.5,
+      "duration": 4,
+      "direction": "forward",
+      "speed": 4.5
+    },
+    {
+      "id": "cow_walk",
+      "type": "animation",
+      "target": "cow",
+      "start": 1,
+      "duration": 11,
+      "clip": "walk",
+      "speed": 0.8
+    },
+    {
+      "id": "cow_move",
+      "type": "move",
+      "target": "cow",
+      "start": 1,
+      "duration": 11,
+      "direction": "forward",
+      "speed": 0.7
+    },
+    {
+      "id": "cam_horse",
+      "type": "camera",
+      "start": 5.2,
+      "duration": 3.4,
+      "shot": {
+        "mode": "follow",
+        "target": "horse",
+        "offset": {
+          "x": 0,
+          "y": 2.2,
+          "z": -6.5
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 1.1,
+          "z": 0
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "cam_end",
+      "type": "camera",
+      "start": 8.8,
+      "duration": 4.2,
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 1.2,
+          "y": 1.35,
+          "z": 1.9
+        },
+        "lookAt": {
+          "x": 0.3,
+          "y": 0.6,
+          "z": -1
+        },
+        "fov": 45
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "loop": true,
+      "volume": 0.5,
+      "fadeIn": 0.3,
+      "fadeOut": 1.2
+    },
+    {
+      "id": "sfx_whoosh",
+      "kind": "sfx",
+      "asset": "sfx_whoosh",
+      "start": 4.4,
+      "volume": 0.6
+    },
+    {
+      "id": "sfx_b1",
+      "kind": "sfx",
+      "asset": "sfx_boing",
+      "start": 9.4,
+      "volume": 0.6
+    },
+    {
+      "id": "sfx_b2",
+      "kind": "sfx",
+      "asset": "sfx_boing",
+      "start": 10.1,
+      "volume": 0.6
+    },
+    {
+      "id": "sfx_b3",
+      "kind": "sfx",
+      "asset": "sfx_boing",
+      "start": 10.8,
+      "volume": 0.6
+    }
+  ]
+}

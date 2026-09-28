@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Màu sắc quanh em",
+    "duration": "auto",
+    "tail": 1.5,
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "environment": {
+    "asset": "env_autumn_forest",
+    "background": "#ffd6a5",
+    "fog": {
+      "color": "#ffd6a5",
+      "near": 30,
+      "far": 70
+    }
+  },
+  "characters": [
+    {
+      "id": "host",
+      "asset": "char_q_casual2_female",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 2
+      },
+      "heading": 180,
+      "voice": "voice_vi_female"
+    }
+  ],
+  "props": [
+    {
+      "id": "log",
+      "asset": "prop_log",
+      "position": {
+        "x": 1.8,
+        "y": 0,
+        "z": 3
+      },
+      "heading": 30
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": 1.2,
+      "y": 1.7,
+      "z": -3.2
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 1.1,
+      "z": 2
+    },
+    "fov": 45
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.055,
+    "position": "bottom"
+  },
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.3,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l1",
+      "speaker": "host",
+      "text": "Chào các bạn! Hôm nay mình học về màu sắc nhé.",
+      "start": 0.6
+    },
+    {
+      "id": "l2",
+      "speaker": "host",
+      "text": "Bầu trời màu xanh, còn mặt trời màu vàng.",
+      "start": {
+        "after": "l1",
+        "gap": 0.5
+      }
+    },
+    {
+      "id": "l3",
+      "speaker": "host",
+      "text": "Cỏ cây thì có màu xanh lá.",
+      "start": {
+        "after": "l2",
+        "gap": 0.5
+      }
+    },
+    {
+      "id": "l4",
+      "speaker": "host",
+      "text": "Các bạn nhớ chưa nào? Giỏi lắm!",
+      "start": {
+        "after": "l3",
+        "gap": 0.6
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "anim_greet",
+      "type": "animation",
+      "target": "host",
+      "clip": "wave",
+      "loop": false,
+      "sync": {
+        "line": "l1",
+        "offset": -0.3,
+        "pad": 0.2
+      }
+    },
+    {
+      "id": "anim_2",
+      "type": "animation",
+      "target": "host",
+      "clip": "yes",
+      "sync": {
+        "line": "l2"
+      }
+    },
+    {
+      "id": "anim_3",
+      "type": "animation",
+      "target": "host",
+      "clip": "victory",
+      "loop": false,
+      "sync": {
+        "line": "l3",
+        "pad": 0.3
+      }
+    },
+    {
+      "id": "anim_4",
+      "type": "animation",
+      "target": "host",
+      "clip": "dance",
+      "sync": {
+        "line": "l4",
+        "pad": 0.8
+      }
+    },
+    {
+      "id": "cam_close_4",
+      "type": "camera",
+      "sync": {
+        "line": "l4",
+        "offset": -0.2,
+        "pad": 30
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.7,
+          "y": 1.35,
+          "z": -0.9
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.95,
+          "z": 2
+        },
+        "fov": 42
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "loop": true,
+      "volume": 0.5,
+      "fadeIn": 0.3,
+      "fadeOut": 1.2
+    },
+    {
+      "id": "sfx_end_4",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "sync": {
+        "line": "l4",
+        "at": "end",
+        "offset": 0.1
+      },
+      "volume": 0.8
+    }
+  ]
+}

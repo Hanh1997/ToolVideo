@@ -1,0 +1,295 @@
+{
+  "languages": [
+    "vi"
+  ],
+  "title": {
+    "vi": "Cáo con hái hoa tặng mẹ"
+  },
+  "summary": {
+    "vi": "Cáo con rời nông trại ra đồng hoa hái bông hoa đỏ tặng mẹ. Trên đường về, cậu gặp Thỏ con và cùng nhau nhặt rác bên ao ô nhiễm."
+  },
+  "music": true,
+  "narratorVoice": "female",
+  "ending": "dance",
+  "characters": [
+    {
+      "id": "fox",
+      "asset": "char_k_animal_fox",
+      "voice": "squeaky",
+      "name": {
+        "vi": "Cáo con"
+      }
+    },
+    {
+      "id": "mom",
+      "asset": "char_a_fox",
+      "voice": "female",
+      "name": {
+        "vi": "Mẹ Cáo"
+      }
+    },
+    {
+      "id": "bunny",
+      "asset": "char_k_animal_bunny",
+      "voice": "child",
+      "name": {
+        "vi": "Thỏ con"
+      }
+    }
+  ],
+  "objects": [
+    {
+      "id": "flower_red",
+      "kind": "flower_red",
+      "name": {
+        "vi": "bông hoa đỏ"
+      },
+      "scene": "meadow",
+      "heldBy": null
+    },
+    {
+      "id": "trash_bottle",
+      "kind": "trash_bottle",
+      "name": {
+        "vi": "chai nhựa"
+      },
+      "scene": "polluted_pond",
+      "heldBy": null
+    },
+    {
+      "id": "trash_can",
+      "kind": "trash_can",
+      "name": {
+        "vi": "lon rỗng"
+      },
+      "scene": "polluted_pond",
+      "heldBy": null
+    }
+  ],
+  "scenes": [
+    {
+      "id": "farm",
+      "environment": "env_farm",
+      "cast": [
+        "fox",
+        "mom"
+      ],
+      "transition": "cut",
+      "lines": [
+        {
+          "id": "l1",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Một buổi sáng đẹp trời, Cáo con ở nông trại nhớ đến sinh nhật mẹ."
+          },
+          "action": null
+        },
+        {
+          "id": "l2",
+          "speaker": "fox",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Hôm nay là sinh nhật mẹ, con sẽ ra đồng hoa hái bông hoa đẹp nhất!"
+          },
+          "action": null
+        },
+        {
+          "id": "l3",
+          "speaker": "mom",
+          "gesture": null,
+          "text": {
+            "vi": "Ý tưởng tuyệt vời! Nhưng con đi cẩn thận nhé."
+          },
+          "action": null
+        },
+        {
+          "id": "l4",
+          "speaker": "fox",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Con sẽ về sớm thôi mẹ ạ!"
+          },
+          "action": null
+        },
+        {
+          "id": "l5",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Cáo con vui vẻ rời nông trại, đi về phía đồng hoa."
+          },
+          "action": null
+        },
+        {
+          "id": "l6",
+          "speaker": "mom",
+          "gesture": null,
+          "text": {
+            "vi": "Chúc con tìm được bông hoa đẹp nhất!"
+          },
+          "action": null
+        }
+      ]
+    },
+    {
+      "id": "meadow",
+      "environment": "env_meadow",
+      "cast": [
+        "fox"
+      ],
+      "transition": "fade",
+      "lines": [
+        {
+          "id": "l7",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Cáo con đến đồng hoa rộng lớn, ngập tràn hoa đủ màu sắc."
+          },
+          "action": null
+        },
+        {
+          "id": "l8",
+          "speaker": "fox",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Ôi, bông hoa đỏ kia đẹp quá!"
+          },
+          "action": {
+            "type": "pickup",
+            "object": "flower_red",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l9",
+          "speaker": "fox",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Mình sẽ mang bông hoa này về tặng mẹ nhân ngày sinh nhật."
+          },
+          "action": null
+        },
+        {
+          "id": "l10",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Cáo con rời đồng hoa, trở về nông trại với bông hoa trên tay."
+          },
+          "action": null
+        },
+        {
+          "id": "l11",
+          "speaker": "fox",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Mẹ sẽ rất thích món quà này!"
+          },
+          "action": null
+        },
+        {
+          "id": "l12",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Trên đường về, Cáo con vẫn giữ chặt bông hoa đẹp."
+          },
+          "action": null
+        }
+      ]
+    },
+    {
+      "id": "polluted_pond",
+      "environment": "env_polluted_pond",
+      "cast": [
+        "fox",
+        "bunny",
+        "mom"
+      ],
+      "transition": "dissolve",
+      "lines": [
+        {
+          "id": "l13",
+          "speaker": null,
+          "gesture": null,
+          "text": {
+            "vi": "Trên đường về, Cáo con gặp Thỏ con bên ao ô nhiễm. Mẹ Cáo cũng vừa đến tìm con."
+          },
+          "action": null
+        },
+        {
+          "id": "l14",
+          "speaker": "bunny",
+          "gesture": "no",
+          "text": {
+            "vi": "Cáo ơi, ao có nhiều rác quá, tớ đang nhặt rác đây."
+          },
+          "action": null
+        },
+        {
+          "id": "l15",
+          "speaker": "bunny",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Tớ nhặt chai nhựa này trước nhé!"
+          },
+          "action": {
+            "type": "pickup",
+            "object": "trash_bottle",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l16",
+          "speaker": "fox",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Mẹ ơi, con tặng mẹ bông hoa đẹp nhất!"
+          },
+          "action": {
+            "type": "give",
+            "object": "flower_red",
+            "to": "mom",
+            "by": null
+          }
+        },
+        {
+          "id": "l17",
+          "speaker": "mom",
+          "gesture": null,
+          "text": {
+            "vi": "Cáo con, con làm gì thế?"
+          },
+          "action": null
+        },
+        {
+          "id": "l18",
+          "speaker": "fox",
+          "gesture": "thumbsup",
+          "text": {
+            "vi": "Con cũng nhặt rác giúp Thỏ ạ!"
+          },
+          "action": {
+            "type": "pickup",
+            "object": "trash_can",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l19",
+          "speaker": "bunny",
+          "gesture": "dance",
+          "text": {
+            "vi": "Bảo vệ môi trường là việc tốt! Cùng nhảy mừng ao sạch nào!"
+          },
+          "action": null
+        }
+      ]
+    }
+  ]
+}

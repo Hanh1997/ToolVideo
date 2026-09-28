@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Dọn Đồ Chơi Sau Khi Chơi – 2",
+    "duration": "auto",
+    "tail": 1.5,
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "environment": {
+    "asset": "env_meadow",
+    "background": "#a8d8f0",
+    "fog": {
+      "color": "#a8d8f0",
+      "near": 28,
+      "far": 80
+    }
+  },
+  "characters": [
+    {
+      "id": "an",
+      "name": "An",
+      "asset": "char_q_casual_male",
+      "position": {
+        "x": -1.06,
+        "y": 0,
+        "z": 3.94
+      },
+      "heading": 180,
+      "voice": "voice_vi_child"
+    },
+    {
+      "id": "binh",
+      "name": "Bình",
+      "asset": "char_q_casual_female",
+      "position": {
+        "x": 1.07,
+        "y": 0,
+        "z": 3.64
+      },
+      "heading": 180,
+      "voice": "voice_vi_child"
+    }
+  ],
+  "props": [
+    {
+      "id": "toy_stick",
+      "asset": "prop_n_wood_log",
+      "position": {
+        "x": -1.06,
+        "y": 0,
+        "z": -0.14
+      },
+      "scale": 0.45
+    },
+    {
+      "id": "toy_cup",
+      "asset": "prop_gd_cup",
+      "position": {
+        "x": 1.07,
+        "y": 0,
+        "z": -0.14
+      },
+      "scale": 1
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": -1.58,
+      "y": 1.9,
+      "z": -4.5
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 0.59,
+      "z": -0.4
+    },
+    "fov": 50
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": true
+  },
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l5",
+      "voice": "voice_vi_female",
+      "text": "Hai bạn chạy đến đồng hoa để phiêu lưu tiếp.",
+      "start": 4
+    },
+    {
+      "id": "l6",
+      "speaker": "an",
+      "text": "Mình là phù thủy, cây đũa sẽ tạo phép màu!",
+      "start": {
+        "after": "l5",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l7",
+      "speaker": "binh",
+      "text": "Mình là thuyền trưởng, chiếc cốc là kho báu!",
+      "start": {
+        "after": "l6",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l8",
+      "voice": "voice_vi_female",
+      "text": "Các bạn cười đùa vui vẻ giữa muôn hoa.",
+      "start": {
+        "after": "l7",
+        "gap": 0.45
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "an_walk",
+      "type": "animation",
+      "target": "an",
+      "start": 0,
+      "duration": 3.4,
+      "clip": "walk"
+    },
+    {
+      "id": "an_in",
+      "type": "moveTo",
+      "target": "an",
+      "start": 0,
+      "duration": 3.4,
+      "to": {
+        "x": -1.06,
+        "z": -0.14
+      }
+    },
+    {
+      "id": "an_face",
+      "type": "turn",
+      "target": "an",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": 169.71
+    },
+    {
+      "id": "binh_walk",
+      "type": "animation",
+      "target": "binh",
+      "start": 0.25,
+      "duration": 3.15,
+      "clip": "walk"
+    },
+    {
+      "id": "binh_in",
+      "type": "moveTo",
+      "target": "binh",
+      "start": 0.25,
+      "duration": 3.15,
+      "to": {
+        "x": 1.07,
+        "z": -0.14
+      }
+    },
+    {
+      "id": "binh_face",
+      "type": "turn",
+      "target": "binh",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": -169.71
+    },
+    {
+      "id": "hold_toy_stick",
+      "type": "attach",
+      "target": "toy_stick",
+      "to": "an",
+      "start": 0
+    },
+    {
+      "id": "hold_toy_cup",
+      "type": "attach",
+      "target": "toy_cup",
+      "to": "binh",
+      "start": 0
+    },
+    {
+      "id": "cam_intro",
+      "type": "camera",
+      "start": 0,
+      "duration": 3.85,
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.58,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.59,
+          "z": -0.4
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "cam_l5",
+      "type": "camera",
+      "sync": {
+        "line": "l5",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.59,
+          "z": -0.4
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "g_l6",
+      "type": "animation",
+      "target": "an",
+      "clip": "victory",
+      "sync": {
+        "line": "l6"
+      }
+    },
+    {
+      "id": "cam_l6",
+      "type": "camera",
+      "sync": {
+        "line": "l6",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.28,
+          "y": 1.29,
+          "z": -3.48
+        },
+        "lookAt": {
+          "x": -1,
+          "y": 0.81,
+          "z": -0.46
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "g_l7",
+      "type": "animation",
+      "target": "binh",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l7"
+      }
+    },
+    {
+      "id": "cam_l7",
+      "type": "camera",
+      "sync": {
+        "line": "l7",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 1.29,
+          "y": 1.29,
+          "z": -3.48
+        },
+        "lookAt": {
+          "x": 1.01,
+          "y": 0.81,
+          "z": -0.46
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "cam_end",
+      "type": "camera",
+      "sync": {
+        "line": "l8",
+        "offset": -0.15,
+        "pad": 30
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 1.9,
+          "z": -4.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.59,
+          "z": -0.4
+        },
+        "fov": 50
+      }
+    }
+  ],
+  "audio": []
+}

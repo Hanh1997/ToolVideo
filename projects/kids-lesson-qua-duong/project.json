@@ -1,0 +1,19 @@
+{
+  "id": "kids-lesson-qua-duong",
+  "name": "Bài học thiếu nhi (nhân vật dẫn chuyện): Qua đường an toàn",
+  "template": "kids-lesson",
+  "row": "qua-duong",
+  "params": {
+    "title": "Qua đường an toàn",
+    "character": "char_q_worker_male",
+    "voice": "voice_vi_female",
+    "environment": "env_forest",
+    "sky": "#bde0fe",
+    "greeting": "Xin chào các bạn nhỏ!",
+    "line_2": "Khi qua đường, các bạn nhớ nắm tay người lớn nhé.",
+    "line_3": "Và nhìn trái, nhìn phải thật cẩn thận nha!",
+    "gesture_2": "yes",
+    "gesture_3": "thumbsup",
+    "music_volume": 0.5
+  }
+}

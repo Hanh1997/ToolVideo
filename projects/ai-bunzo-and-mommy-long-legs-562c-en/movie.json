@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Bunzo and Mommy Long Legs",
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "scenes": [
+    {
+      "id": "park",
+      "file": "scenes/01-park.json"
+    },
+    {
+      "id": "forest",
+      "file": "scenes/02-forest.json",
+      "transition": {
+        "type": "dissolve",
+        "duration": 0.8
+      }
+    },
+    {
+      "id": "meadow",
+      "file": "scenes/03-meadow.json",
+      "transition": {
+        "type": "dissolve",
+        "duration": 0.8
+      }
+    },
+    {
+      "id": "garden",
+      "file": "scenes/04-garden.json",
+      "transition": {
+        "type": "dissolve",
+        "duration": 0.8
+      }
+    },
+    {
+      "id": "lake",
+      "file": "scenes/05-lake.json",
+      "transition": {
+        "type": "fade",
+        "duration": 0.8
+      }
+    }
+  ],
+  "audio": [],
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  }
+}

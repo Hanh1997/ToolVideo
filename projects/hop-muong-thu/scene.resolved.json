@@ -1,0 +1,810 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Cuộc họp khẩn của muông thú",
+    "duration": 47.6,
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "environment": {
+    "asset": "env_polluted_pond",
+    "background": "#b3cad6",
+    "fog": {
+      "color": "#b3cad6",
+      "near": 28,
+      "far": 80
+    }
+  },
+  "characters": [
+    {
+      "id": "gau",
+      "name": "Bác Gấu Trúc",
+      "asset": "char_m_panda",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 4.3
+      },
+      "heading": 180,
+      "voice": "voice_vi_deep"
+    },
+    {
+      "id": "huou",
+      "name": "Hươu",
+      "asset": "char_m_deer",
+      "position": {
+        "x": -9,
+        "y": 0,
+        "z": -4
+      },
+      "heading": 50,
+      "voice": "voice_vi_female"
+    },
+    {
+      "id": "cua",
+      "name": "Cua",
+      "asset": "char_m_crab",
+      "position": {
+        "x": -4,
+        "y": 0,
+        "z": 8
+      },
+      "heading": 150,
+      "voice": "voice_vi_squeaky"
+    },
+    {
+      "id": "ga",
+      "name": "Gà",
+      "asset": "char_m_chicken",
+      "position": {
+        "x": 7,
+        "y": 0,
+        "z": -5
+      },
+      "heading": -45,
+      "voice": "voice_vi_child"
+    },
+    {
+      "id": "heo",
+      "name": "Heo",
+      "asset": "char_m_pig",
+      "position": {
+        "x": 9,
+        "y": 0,
+        "z": 1
+      },
+      "heading": -90,
+      "voice": "voice_vi_low"
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": 0,
+      "y": 2.4,
+      "z": -4.2
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 0.7,
+      "z": 3.2
+    },
+    "fov": 50
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": true
+  },
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l1",
+      "speaker": "gau",
+      "text": "Các bạn ơi, hôm nay rừng mình họp khẩn cấp nhé!",
+      "start": 4.6,
+      "duration": 2.612,
+      "file": "tts/53037e48d15dc9ad1d953ab6.wav",
+      "voice": "voice_vi_deep",
+      "rate": 0.85,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l2",
+      "speaker": "huou",
+      "text": "Bác Gấu Trúc ơi, nước ao dạo này đục ngầu và có mùi lạ quá ạ.",
+      "start": 7.662,
+      "duration": 3.587,
+      "file": "tts/7c9831c19e29a91f85cb597b.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l3",
+      "speaker": "cua",
+      "text": "Nhà cháu ở ngay bờ ao, rác trôi về đầy cả hang rồi!",
+      "start": 11.699,
+      "duration": 2.961,
+      "file": "tts/5ac829e386bee9050845f612.wav",
+      "voice": "voice_vi_squeaky",
+      "rate": 1,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l4",
+      "speaker": "ga",
+      "text": "Uống phải nước bẩn, các em gà con bị đau bụng hết cả!",
+      "start": 15.11,
+      "duration": 2.728,
+      "file": "tts/7b5f9055a79782d7c786d182.wav",
+      "voice": "voice_vi_child",
+      "rate": 0.95,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l5",
+      "speaker": "heo",
+      "text": "Cháu thấy có người vứt chai nhựa và túi ni lông xuống ao.",
+      "start": 18.288,
+      "duration": 2.821,
+      "file": "tts/bf473f44aff4ee3eb6147071.wav",
+      "voice": "voice_vi_low",
+      "rate": 0.95,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l6",
+      "speaker": "gau",
+      "text": "Nếu nguồn nước bị ô nhiễm, cây cối và muông thú đều sẽ bị ốm.",
+      "start": 21.559,
+      "duration": 3.32,
+      "file": "tts/dbd2a51901a75c8f01068c87.wav",
+      "voice": "voice_vi_deep",
+      "rate": 0.85,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l7",
+      "speaker": "huou",
+      "text": "Vậy chúng ta phải làm gì bây giờ ạ?",
+      "start": 25.329,
+      "duration": 1.811,
+      "file": "tts/bf0e0314ad0f549a8e179fc1.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l8",
+      "speaker": "gau",
+      "text": "Chúng ta cùng nhặt rác, và nhắc mọi người không xả rác xuống ao.",
+      "start": 27.59,
+      "duration": 3.193,
+      "file": "tts/5067e126c20130e4b622b12f.wav",
+      "voice": "voice_vi_deep",
+      "rate": 0.85,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l9",
+      "speaker": "cua",
+      "text": "Cháu sẽ dọn rác dưới nước!",
+      "start": 31.233,
+      "duration": 1.382,
+      "file": "tts/7daaecc052a21a7fdab742e0.wav",
+      "voice": "voice_vi_squeaky",
+      "rate": 1,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l10",
+      "speaker": "ga",
+      "text": "Còn cháu sẽ đi nhắc cả làng!",
+      "start": 33.065,
+      "duration": 1.312,
+      "file": "tts/43f10afca0b80bd9654fa1a0.wav",
+      "voice": "voice_vi_child",
+      "rate": 0.95,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l11",
+      "speaker": "heo",
+      "text": "Cháu sẽ trồng thêm cây quanh ao!",
+      "start": 34.827,
+      "duration": 1.556,
+      "file": "tts/355f4b64137cdadcb56e3485.wav",
+      "voice": "voice_vi_low",
+      "rate": 0.95,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l12",
+      "speaker": "gau",
+      "text": "Hay lắm! Giữ nước sạch là giữ gìn sự sống. Cả rừng cùng làm nhé!",
+      "start": 36.833,
+      "duration": 3.461,
+      "file": "tts/233814aa15e0894ef5de2fcd.wav",
+      "voice": "voice_vi_deep",
+      "rate": 0.85,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l13",
+      "text": "Các bạn nhỏ ơi, hãy cùng nhau bảo vệ nguồn nước nhé!",
+      "start": 40.894,
+      "duration": 2.67,
+      "file": "tts/4830ad75951a0f3ac9b68115.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    }
+  ],
+  "actions": [
+    {
+      "id": "huou_run",
+      "type": "animation",
+      "target": "huou",
+      "start": 0,
+      "duration": 3.4,
+      "clip": "run"
+    },
+    {
+      "id": "huou_in",
+      "type": "moveTo",
+      "target": "huou",
+      "start": 0,
+      "duration": 3.4,
+      "to": {
+        "x": -3.2,
+        "z": 1.3
+      }
+    },
+    {
+      "id": "huou_turn",
+      "type": "turn",
+      "target": "huou",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": 72.6
+    },
+    {
+      "id": "ga_run",
+      "type": "animation",
+      "target": "ga",
+      "start": 0.4,
+      "duration": 3.5,
+      "clip": "run"
+    },
+    {
+      "id": "ga_in",
+      "type": "moveTo",
+      "target": "ga",
+      "start": 0.4,
+      "duration": 3.5,
+      "to": {
+        "x": 1.3,
+        "z": 0.1
+      }
+    },
+    {
+      "id": "ga_turn",
+      "type": "turn",
+      "target": "ga",
+      "start": 3.9,
+      "duration": 0.4,
+      "heading": -32
+    },
+    {
+      "id": "heo_walk",
+      "type": "animation",
+      "target": "heo",
+      "start": 0.2,
+      "duration": 3.4,
+      "clip": "walk"
+    },
+    {
+      "id": "heo_in",
+      "type": "moveTo",
+      "target": "heo",
+      "start": 0.2,
+      "duration": 3.4,
+      "to": {
+        "x": 3.2,
+        "z": 1.3
+      }
+    },
+    {
+      "id": "heo_turn",
+      "type": "turn",
+      "target": "heo",
+      "start": 3.6,
+      "duration": 0.5,
+      "heading": -72.6
+    },
+    {
+      "id": "cua_run",
+      "type": "animation",
+      "target": "cua",
+      "start": 0.6,
+      "duration": 3.2,
+      "clip": "run"
+    },
+    {
+      "id": "cua_in",
+      "type": "moveTo",
+      "target": "cua",
+      "start": 0.6,
+      "duration": 3.2,
+      "to": {
+        "x": -1.3,
+        "z": 0.1
+      }
+    },
+    {
+      "id": "cua_turn",
+      "type": "turn",
+      "target": "cua",
+      "start": 3.8,
+      "duration": 0.4,
+      "heading": 32
+    },
+    {
+      "id": "g_l1",
+      "type": "animation",
+      "target": "gau",
+      "clip": "wave",
+      "loop": false,
+      "start": 4.4,
+      "duration": 2.812
+    },
+    {
+      "id": "g_l2",
+      "type": "animation",
+      "target": "huou",
+      "clip": "no",
+      "start": 7.662,
+      "duration": 3.587
+    },
+    {
+      "id": "g_l3",
+      "type": "animation",
+      "target": "cua",
+      "clip": "no",
+      "start": 11.699,
+      "duration": 2.961
+    },
+    {
+      "id": "g_l4",
+      "type": "animation",
+      "target": "ga",
+      "clip": "no",
+      "start": 15.11,
+      "duration": 2.728
+    },
+    {
+      "id": "g_l5",
+      "type": "animation",
+      "target": "heo",
+      "clip": "yes",
+      "start": 18.288,
+      "duration": 2.821
+    },
+    {
+      "id": "g_l6",
+      "type": "animation",
+      "target": "gau",
+      "clip": "no",
+      "start": 21.559,
+      "duration": 3.32
+    },
+    {
+      "id": "g_l7",
+      "type": "animation",
+      "target": "huou",
+      "clip": "yes",
+      "start": 25.329,
+      "duration": 1.811
+    },
+    {
+      "id": "g_l8",
+      "type": "animation",
+      "target": "gau",
+      "clip": "yes",
+      "start": 27.59,
+      "duration": 3.193
+    },
+    {
+      "id": "g_l9",
+      "type": "animation",
+      "target": "cua",
+      "clip": "jump",
+      "start": 31.233,
+      "duration": 1.382
+    },
+    {
+      "id": "g_l10",
+      "type": "animation",
+      "target": "ga",
+      "clip": "jump",
+      "start": 33.065,
+      "duration": 1.312
+    },
+    {
+      "id": "g_l11",
+      "type": "animation",
+      "target": "heo",
+      "clip": "yes",
+      "start": 34.827,
+      "duration": 1.556
+    },
+    {
+      "id": "g_l12",
+      "type": "animation",
+      "target": "gau",
+      "clip": "wave",
+      "loop": false,
+      "start": 36.833,
+      "duration": 3.461
+    },
+    {
+      "id": "d_gau",
+      "type": "animation",
+      "target": "gau",
+      "clip": "dance",
+      "start": 40.594,
+      "duration": 4.97
+    },
+    {
+      "id": "d_huou",
+      "type": "animation",
+      "target": "huou",
+      "clip": "dance",
+      "start": 40.594,
+      "duration": 4.97
+    },
+    {
+      "id": "d_cua",
+      "type": "animation",
+      "target": "cua",
+      "clip": "dance",
+      "start": 40.594,
+      "duration": 4.97
+    },
+    {
+      "id": "d_ga",
+      "type": "animation",
+      "target": "ga",
+      "clip": "dance",
+      "start": 40.594,
+      "duration": 4.97
+    },
+    {
+      "id": "d_heo",
+      "type": "animation",
+      "target": "heo",
+      "clip": "dance",
+      "start": 40.594,
+      "duration": 4.97
+    },
+    {
+      "id": "cam_intro",
+      "type": "camera",
+      "start": 0,
+      "duration": 4.45,
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -5.5,
+          "y": 3.4,
+          "z": -5.5
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.6,
+          "z": 4
+        },
+        "fov": 52
+      }
+    },
+    {
+      "id": "cam_l1",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.9,
+          "y": 1.35,
+          "z": 1.7
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.85,
+          "z": 4.3
+        },
+        "fov": 45
+      },
+      "start": 4.45,
+      "duration": 3.057
+    },
+    {
+      "id": "cam_l2",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.93,
+          "y": 1.55,
+          "z": 2.75
+        },
+        "lookAt": {
+          "x": -3.2,
+          "y": 1,
+          "z": 1.3
+        },
+        "fov": 45
+      },
+      "start": 7.512,
+      "duration": 4.032
+    },
+    {
+      "id": "cam_l3",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.86,
+          "y": 0.65,
+          "z": 1.47
+        },
+        "lookAt": {
+          "x": -1.3,
+          "y": 0.3,
+          "z": 0.1
+        },
+        "fov": 45
+      },
+      "start": 11.549,
+      "duration": 3.406
+    },
+    {
+      "id": "cam_l4",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.86,
+          "y": 0.75,
+          "z": 1.47
+        },
+        "lookAt": {
+          "x": 1.3,
+          "y": 0.4,
+          "z": 0.1
+        },
+        "fov": 45
+      },
+      "start": 14.96,
+      "duration": 3.173
+    },
+    {
+      "id": "cam_l5",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 1.38,
+          "y": 1.1,
+          "z": 2.5
+        },
+        "lookAt": {
+          "x": 3.2,
+          "y": 0.55,
+          "z": 1.3
+        },
+        "fov": 45
+      },
+      "start": 18.138,
+      "duration": 3.266
+    },
+    {
+      "id": "cam_l6",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -2.2,
+          "y": 2.2,
+          "z": -3.2
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.8,
+          "z": 4.3
+        },
+        "fov": 42
+      },
+      "start": 21.409,
+      "duration": 3.765
+    },
+    {
+      "id": "cam_l7",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.93,
+          "y": 1.55,
+          "z": 2.75
+        },
+        "lookAt": {
+          "x": -3.2,
+          "y": 1,
+          "z": 1.3
+        },
+        "fov": 45
+      },
+      "start": 25.179,
+      "duration": 2.256
+    },
+    {
+      "id": "cam_l8",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.9,
+          "y": 1.35,
+          "z": 1.7
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.85,
+          "z": 4.3
+        },
+        "fov": 45
+      },
+      "start": 27.44,
+      "duration": 3.638
+    },
+    {
+      "id": "cam_l9",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.86,
+          "y": 0.65,
+          "z": 1.47
+        },
+        "lookAt": {
+          "x": -1.3,
+          "y": 0.3,
+          "z": 0.1
+        },
+        "fov": 45
+      },
+      "start": 31.083,
+      "duration": 1.827
+    },
+    {
+      "id": "cam_l10",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.86,
+          "y": 0.75,
+          "z": 1.47
+        },
+        "lookAt": {
+          "x": 1.3,
+          "y": 0.4,
+          "z": 0.1
+        },
+        "fov": 45
+      },
+      "start": 32.915,
+      "duration": 1.757
+    },
+    {
+      "id": "cam_l11",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 1.38,
+          "y": 1.1,
+          "z": 2.5
+        },
+        "lookAt": {
+          "x": 3.2,
+          "y": 0.55,
+          "z": 1.3
+        },
+        "fov": 45
+      },
+      "start": 34.677,
+      "duration": 2.001
+    },
+    {
+      "id": "cam_l12",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.9,
+          "y": 1.35,
+          "z": 1.7
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.85,
+          "z": 4.3
+        },
+        "fov": 45
+      },
+      "start": 36.683,
+      "duration": 4.056
+    },
+    {
+      "id": "cam_end",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -3.6,
+          "y": 2.3,
+          "z": -3.4
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.6,
+          "z": 3
+        },
+        "fov": 52
+      },
+      "start": 40.744,
+      "duration": 6.856
+    }
+  ],
+  "audio": [
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "loop": true,
+      "volume": 0.32,
+      "fadeIn": 0.5,
+      "fadeOut": 1.8
+    },
+    {
+      "id": "sfx_end",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "volume": 0.8,
+      "start": 43.764
+    }
+  ]
+}

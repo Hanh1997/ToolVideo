@@ -1,0 +1,447 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Chuyến đi ba khung cảnh",
+    "fps": 30,
+    "width": 1280,
+    "height": 720,
+    "commercial": false
+  },
+  "scenes": [
+    {
+      "id": "farm",
+      "transition": {
+        "type": "cut",
+        "duration": 0.6
+      },
+      "scene": {
+        "version": 1,
+        "meta": {
+          "name": "Nông trại",
+          "duration": 7.7,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "commercial": false
+        },
+        "environment": {
+          "asset": "env_farm",
+          "background": "#bde0fe",
+          "fog": {
+            "color": "#bde0fe",
+            "near": 28,
+            "far": 80
+          }
+        },
+        "characters": [
+          {
+            "id": "girl",
+            "asset": "char_q_casual2_female",
+            "position": {
+              "x": -0.4,
+              "y": 0,
+              "z": -26
+            },
+            "heading": 0,
+            "voice": "voice_vi_female"
+          },
+          {
+            "id": "pug",
+            "asset": "char_pug",
+            "position": {
+              "x": 0.6,
+              "y": 0,
+              "z": -25.6
+            },
+            "heading": 0
+          }
+        ],
+        "camera": {
+          "mode": "follow",
+          "target": "girl",
+          "offset": {
+            "x": 1.6,
+            "y": 1.5,
+            "z": 4.2
+          },
+          "lookAtOffset": {
+            "x": 0,
+            "y": 0.8,
+            "z": 0
+          },
+          "fov": 50
+        },
+        "dialogue": [
+          {
+            "id": "l1",
+            "speaker": "girl",
+            "text": "Chào buổi sáng! Hôm nay mình và cún con đi khám phá nhé.",
+            "start": 0.4,
+            "duration": 2.833,
+            "file": "tts/c5490e7be62a373f96cf9b81.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          }
+        ],
+        "actions": [
+          {
+            "id": "girl_walk",
+            "type": "animation",
+            "target": "girl",
+            "start": 0,
+            "duration": 4,
+            "clip": "walk"
+          },
+          {
+            "id": "girl_move",
+            "type": "move",
+            "target": "girl",
+            "start": 0,
+            "duration": 4,
+            "direction": "forward",
+            "speed": 1.1
+          },
+          {
+            "id": "pug_walk",
+            "type": "animation",
+            "target": "pug",
+            "start": 0,
+            "duration": 4,
+            "clip": "jump"
+          },
+          {
+            "id": "pug_move",
+            "type": "move",
+            "target": "pug",
+            "start": 0,
+            "duration": 4,
+            "direction": "forward",
+            "speed": 1.1
+          },
+          {
+            "id": "girl_wave",
+            "type": "animation",
+            "target": "girl",
+            "start": 4,
+            "duration": 2.5,
+            "clip": "wave",
+            "loop": false
+          }
+        ],
+        "subtitles": {
+          "burnIn": true,
+          "size": 0.05,
+          "position": "bottom",
+          "showSpeaker": false
+        }
+      }
+    },
+    {
+      "id": "forest",
+      "transition": {
+        "type": "fade",
+        "duration": 0.8
+      },
+      "scene": {
+        "version": 1,
+        "meta": {
+          "name": "Khu rừng",
+          "duration": 6.8,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "commercial": false
+        },
+        "environment": {
+          "asset": "env_forest",
+          "background": "#bde0fe",
+          "fog": {
+            "color": "#bde0fe",
+            "near": 28,
+            "far": 80
+          }
+        },
+        "characters": [
+          {
+            "id": "girl",
+            "asset": "char_q_casual2_female",
+            "position": {
+              "x": -0.4,
+              "y": 0,
+              "z": -3
+            },
+            "heading": 0,
+            "voice": "voice_vi_female"
+          },
+          {
+            "id": "pug",
+            "asset": "char_pug",
+            "position": {
+              "x": 0.7,
+              "y": 0,
+              "z": -2.4
+            },
+            "heading": 0
+          }
+        ],
+        "camera": {
+          "mode": "fixed",
+          "position": {
+            "x": 2.6,
+            "y": 1.6,
+            "z": 3.4
+          },
+          "lookAt": {
+            "x": 0,
+            "y": 0.8,
+            "z": -0.6
+          },
+          "fov": 50
+        },
+        "dialogue": [
+          {
+            "id": "l1",
+            "speaker": "girl",
+            "text": "Oa, khu rừng mát quá! Cún ơi, nhảy lên nào!",
+            "start": 0.4,
+            "duration": 2.334,
+            "file": "tts/d12c19478ca46cb930ddfa56.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          }
+        ],
+        "actions": [
+          {
+            "id": "girl_walk",
+            "type": "animation",
+            "target": "girl",
+            "start": 0,
+            "duration": 2.6,
+            "clip": "walk"
+          },
+          {
+            "id": "girl_move",
+            "type": "move",
+            "target": "girl",
+            "start": 0,
+            "duration": 2.6,
+            "direction": "forward",
+            "speed": 1
+          },
+          {
+            "id": "pug_walk",
+            "type": "animation",
+            "target": "pug",
+            "start": 0,
+            "duration": 2.6,
+            "clip": "jump"
+          },
+          {
+            "id": "pug_move",
+            "type": "move",
+            "target": "pug",
+            "start": 0,
+            "duration": 2.6,
+            "direction": "forward",
+            "speed": 1
+          },
+          {
+            "id": "pug_hop",
+            "type": "animation",
+            "target": "pug",
+            "start": 2.6,
+            "duration": 3,
+            "clip": "jump"
+          },
+          {
+            "id": "pug_jump_1",
+            "type": "jump",
+            "target": "pug",
+            "start": 3,
+            "duration": 0.5,
+            "height": 0.35
+          },
+          {
+            "id": "pug_jump_2",
+            "type": "jump",
+            "target": "pug",
+            "start": 3.7,
+            "duration": 0.5,
+            "height": 0.35
+          }
+        ],
+        "audio": [
+          {
+            "id": "sfx_b1",
+            "kind": "sfx",
+            "asset": "sfx_boing",
+            "start": 3,
+            "volume": 0.6
+          },
+          {
+            "id": "sfx_b2",
+            "kind": "sfx",
+            "asset": "sfx_boing",
+            "start": 3.7,
+            "volume": 0.6
+          }
+        ],
+        "subtitles": {
+          "burnIn": true,
+          "size": 0.05,
+          "position": "bottom",
+          "showSpeaker": false
+        }
+      }
+    },
+    {
+      "id": "meadow",
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "scene": {
+        "version": 1,
+        "meta": {
+          "name": "Đồng hoa",
+          "duration": 8.4,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "commercial": false
+        },
+        "environment": {
+          "asset": "env_meadow",
+          "background": "#a8d8f0",
+          "fog": {
+            "color": "#a8d8f0",
+            "near": 28,
+            "far": 80
+          }
+        },
+        "characters": [
+          {
+            "id": "girl",
+            "asset": "char_q_casual2_female",
+            "position": {
+              "x": -0.5,
+              "y": 0,
+              "z": 0
+            },
+            "heading": 20,
+            "voice": "voice_vi_female"
+          },
+          {
+            "id": "pug",
+            "asset": "char_pug",
+            "position": {
+              "x": 0.6,
+              "y": 0,
+              "z": 0.3
+            },
+            "heading": -20
+          }
+        ],
+        "camera": {
+          "mode": "fixed",
+          "position": {
+            "x": 0.4,
+            "y": 1.3,
+            "z": 3.6
+          },
+          "lookAt": {
+            "x": 0,
+            "y": 0.7,
+            "z": 0
+          },
+          "fov": 45
+        },
+        "dialogue": [
+          {
+            "id": "l1",
+            "speaker": "girl",
+            "text": "Đồng hoa đẹp quá! Tạm biệt các bạn, hẹn gặp lại nhé!",
+            "start": 0.6,
+            "duration": 2.752,
+            "file": "tts/36da409c552419d912a6017f.wav",
+            "voice": "voice_vi_female",
+            "rate": 0.9,
+            "volume": 1,
+            "subtitle": true
+          }
+        ],
+        "actions": [
+          {
+            "id": "girl_cheer",
+            "type": "animation",
+            "target": "girl",
+            "start": 0.4,
+            "duration": 3,
+            "clip": "victory",
+            "loop": false
+          },
+          {
+            "id": "girl_wave",
+            "type": "animation",
+            "target": "girl",
+            "start": 3.4,
+            "duration": 3,
+            "clip": "wave"
+          },
+          {
+            "id": "pug_hop",
+            "type": "animation",
+            "target": "pug",
+            "start": 0,
+            "duration": 6,
+            "clip": "jump"
+          }
+        ],
+        "audio": [
+          {
+            "id": "sfx_chime",
+            "kind": "sfx",
+            "asset": "sfx_chime",
+            "start": 0.3,
+            "volume": 0.5
+          }
+        ],
+        "subtitles": {
+          "burnIn": true,
+          "size": 0.05,
+          "position": "bottom",
+          "showSpeaker": false
+        }
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "trimStart": 0,
+      "volume": 0.45,
+      "loop": true,
+      "fadeIn": 0.5,
+      "fadeOut": 1.5
+    }
+  ],
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.3,
+    "duckRamp": 0.25,
+    "loudness": -14
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": false
+  }
+}

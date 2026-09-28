@@ -1,0 +1,1753 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Thư viện nhân vật",
+    "duration": 6,
+    "fps": 30,
+    "width": 1920,
+    "height": 1080
+  },
+  "environment": {
+    "asset": "env_meadow",
+    "background": "#bde0fe",
+    "fog": {
+      "color": "#bde0fe",
+      "near": 45,
+      "far": 110
+    }
+  },
+  "characters": [
+    {
+      "id": "robot",
+      "asset": "char_robot",
+      "position": {
+        "x": -9.1,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_casual_male",
+      "asset": "char_q_casual_male",
+      "position": {
+        "x": -7.800000000000001,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_casual_female",
+      "asset": "char_q_casual_female",
+      "position": {
+        "x": -6.5,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_casual2_male",
+      "asset": "char_q_casual2_male",
+      "position": {
+        "x": -5.2,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_casual2_female",
+      "asset": "char_q_casual2_female",
+      "position": {
+        "x": -3.9000000000000004,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_chef_female",
+      "asset": "char_q_chef_female",
+      "position": {
+        "x": -2.6,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_doctor_female_young",
+      "asset": "char_q_doctor_female_young",
+      "position": {
+        "x": -1.3,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_doctor_male_young",
+      "asset": "char_q_doctor_male_young",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_worker_male",
+      "asset": "char_q_worker_male",
+      "position": {
+        "x": 1.3,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_worker_female",
+      "asset": "char_q_worker_female",
+      "position": {
+        "x": 2.6,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_wizard",
+      "asset": "char_q_wizard",
+      "position": {
+        "x": 3.9000000000000004,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_witch",
+      "asset": "char_q_witch",
+      "position": {
+        "x": 5.2,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_pirate_male",
+      "asset": "char_q_pirate_male",
+      "position": {
+        "x": 6.5,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_kimono_female",
+      "asset": "char_q_kimono_female",
+      "position": {
+        "x": 7.800000000000001,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "q_cowboy_male",
+      "asset": "char_q_cowboy_male",
+      "position": {
+        "x": 9.1,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180
+    },
+    {
+      "id": "h_male_casual",
+      "asset": "char_h_male_casual",
+      "position": {
+        "x": -7.2,
+        "y": 0,
+        "z": 6
+      },
+      "heading": 180
+    },
+    {
+      "id": "h_male_longsleeve",
+      "asset": "char_h_male_longsleeve",
+      "position": {
+        "x": -5.6000000000000005,
+        "y": 0,
+        "z": 6
+      },
+      "heading": 180
+    },
+    {
+      "id": "h_male_shirt",
+      "asset": "char_h_male_shirt",
+      "position": {
+        "x": -4,
+        "y": 0,
+        "z": 6
+      },
+      "heading": 180
+    },
+    {
+      "id": "h_male_suit",
+      "asset": "char_h_male_suit",
+      "position": {
+        "x": -2.4000000000000004,
+        "y": 0,
+        "z": 6
+      },
+      "heading": 180
+    },
+    {
+      "id": "h_female_alternative",
+      "asset": "char_h_female_alternative",
+      "position": {
+        "x": -0.8,
+        "y": 0,
+        "z": 6
+      },
+      "heading": 180
+    },
+    {
+      "id": "h_female_casual",
+      "asset": "char_h_female_casual",
+      "position": {
+        "x": 0.8,
+        "y": 0,
+        "z": 6
+      },
+      "heading": 180
+    },
+    {
+      "id": "h_female_dress",
+      "asset": "char_h_female_dress",
+      "position": {
+        "x": 2.4000000000000004,
+        "y": 0,
+        "z": 6
+      },
+      "heading": 180
+    },
+    {
+      "id": "h_female_tanktop",
+      "asset": "char_h_female_tanktop",
+      "position": {
+        "x": 4,
+        "y": 0,
+        "z": 6
+      },
+      "heading": 180
+    },
+    {
+      "id": "alien",
+      "asset": "char_alien",
+      "position": {
+        "x": 5.6000000000000005,
+        "y": 0,
+        "z": 6
+      },
+      "heading": 180
+    },
+    {
+      "id": "alien_helmet",
+      "asset": "char_alien_helmet",
+      "position": {
+        "x": 7.2,
+        "y": 0,
+        "z": 6
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_alien",
+      "asset": "char_m_alien",
+      "position": {
+        "x": -15,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_alien_tall",
+      "asset": "char_m_alien_tall",
+      "position": {
+        "x": -13.5,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_bat",
+      "asset": "char_m_bat",
+      "position": {
+        "x": -12,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_bee",
+      "asset": "char_m_bee",
+      "position": {
+        "x": -10.5,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_cactus",
+      "asset": "char_m_cactus",
+      "position": {
+        "x": -9,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_chicken",
+      "asset": "char_m_chicken",
+      "position": {
+        "x": -7.5,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_crab",
+      "asset": "char_m_crab",
+      "position": {
+        "x": -6,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_cthulhu",
+      "asset": "char_m_cthulhu",
+      "position": {
+        "x": -4.5,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_cyclops",
+      "asset": "char_m_cyclops",
+      "position": {
+        "x": -3,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_deer",
+      "asset": "char_m_deer",
+      "position": {
+        "x": -1.5,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_demon",
+      "asset": "char_m_demon",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_ghost",
+      "asset": "char_m_ghost",
+      "position": {
+        "x": 1.5,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_green_demon",
+      "asset": "char_m_green_demon",
+      "position": {
+        "x": 3,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_mushroom",
+      "asset": "char_m_mushroom",
+      "position": {
+        "x": 4.5,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_panda",
+      "asset": "char_m_panda",
+      "position": {
+        "x": 6,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_penguin",
+      "asset": "char_m_penguin",
+      "position": {
+        "x": 7.5,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_pig",
+      "asset": "char_m_pig",
+      "position": {
+        "x": 9,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_skull",
+      "asset": "char_m_skull",
+      "position": {
+        "x": 10.5,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_tree",
+      "asset": "char_m_tree",
+      "position": {
+        "x": 12,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_yellow_dragon",
+      "asset": "char_m_yellow_dragon",
+      "position": {
+        "x": 13.5,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "m_yeti",
+      "asset": "char_m_yeti",
+      "position": {
+        "x": 15,
+        "y": 0,
+        "z": 12
+      },
+      "heading": 180
+    },
+    {
+      "id": "horse",
+      "asset": "char_horse",
+      "position": {
+        "x": -7.199999999999999,
+        "y": 0,
+        "z": 18
+      },
+      "heading": 180
+    },
+    {
+      "id": "cow",
+      "asset": "char_cow",
+      "position": {
+        "x": -4.8,
+        "y": 0,
+        "z": 18
+      },
+      "heading": 180
+    },
+    {
+      "id": "zebra",
+      "asset": "char_zebra",
+      "position": {
+        "x": -2.4,
+        "y": 0,
+        "z": 18
+      },
+      "heading": 180
+    },
+    {
+      "id": "llama",
+      "asset": "char_llama",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 18
+      },
+      "heading": 180
+    },
+    {
+      "id": "pig",
+      "asset": "char_pig",
+      "position": {
+        "x": 2.4,
+        "y": 0,
+        "z": 18
+      },
+      "heading": 180
+    },
+    {
+      "id": "sheep",
+      "asset": "char_sheep",
+      "position": {
+        "x": 4.8,
+        "y": 0,
+        "z": 18
+      },
+      "heading": 180
+    },
+    {
+      "id": "pug",
+      "asset": "char_pug",
+      "position": {
+        "x": 7.199999999999999,
+        "y": 0,
+        "z": 18
+      },
+      "heading": 180
+    },
+    {
+      "id": "dino_apatosaurus",
+      "asset": "char_dino_apatosaurus",
+      "position": {
+        "x": -15,
+        "y": 0,
+        "z": 24
+      },
+      "heading": 180
+    },
+    {
+      "id": "dino_parasaurolophus",
+      "asset": "char_dino_parasaurolophus",
+      "position": {
+        "x": -9,
+        "y": 0,
+        "z": 24
+      },
+      "heading": 180
+    },
+    {
+      "id": "dino_stegosaurus",
+      "asset": "char_dino_stegosaurus",
+      "position": {
+        "x": -3,
+        "y": 0,
+        "z": 24
+      },
+      "heading": 180
+    },
+    {
+      "id": "dino_trex",
+      "asset": "char_dino_trex",
+      "position": {
+        "x": 3,
+        "y": 0,
+        "z": 24
+      },
+      "heading": 180
+    },
+    {
+      "id": "dino_triceratops",
+      "asset": "char_dino_triceratops",
+      "position": {
+        "x": 9,
+        "y": 0,
+        "z": 24
+      },
+      "heading": 180
+    },
+    {
+      "id": "dino_velociraptor",
+      "asset": "char_dino_velociraptor",
+      "position": {
+        "x": 15,
+        "y": 0,
+        "z": 24
+      },
+      "heading": 180
+    },
+    {
+      "id": "sea_dolphin",
+      "asset": "char_sea_dolphin",
+      "position": {
+        "x": -9,
+        "y": 1,
+        "z": 30
+      },
+      "heading": 180
+    },
+    {
+      "id": "sea_fish_1",
+      "asset": "char_sea_fish_1",
+      "position": {
+        "x": -6,
+        "y": 1,
+        "z": 30
+      },
+      "heading": 180
+    },
+    {
+      "id": "sea_fish_2",
+      "asset": "char_sea_fish_2",
+      "position": {
+        "x": -3,
+        "y": 1,
+        "z": 30
+      },
+      "heading": 180
+    },
+    {
+      "id": "sea_fish_3",
+      "asset": "char_sea_fish_3",
+      "position": {
+        "x": 0,
+        "y": 1,
+        "z": 30
+      },
+      "heading": 180
+    },
+    {
+      "id": "sea_manta_ray",
+      "asset": "char_sea_manta_ray",
+      "position": {
+        "x": 3,
+        "y": 1,
+        "z": 30
+      },
+      "heading": 180
+    },
+    {
+      "id": "sea_shark",
+      "asset": "char_sea_shark",
+      "position": {
+        "x": 6,
+        "y": 1,
+        "z": 30
+      },
+      "heading": 180
+    },
+    {
+      "id": "sea_whale",
+      "asset": "char_sea_whale",
+      "position": {
+        "x": 9,
+        "y": 1,
+        "z": 30
+      },
+      "heading": 180
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": 0,
+      "y": 9,
+      "z": -20
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 1,
+      "z": 12
+    },
+    "fov": 55
+  },
+  "actions": [
+    {
+      "id": "idle_robot",
+      "type": "animation",
+      "target": "robot",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_casual_male",
+      "type": "animation",
+      "target": "q_casual_male",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_casual_female",
+      "type": "animation",
+      "target": "q_casual_female",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_casual2_male",
+      "type": "animation",
+      "target": "q_casual2_male",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_casual2_female",
+      "type": "animation",
+      "target": "q_casual2_female",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_chef_female",
+      "type": "animation",
+      "target": "q_chef_female",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_doctor_female_young",
+      "type": "animation",
+      "target": "q_doctor_female_young",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_doctor_male_young",
+      "type": "animation",
+      "target": "q_doctor_male_young",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_worker_male",
+      "type": "animation",
+      "target": "q_worker_male",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_worker_female",
+      "type": "animation",
+      "target": "q_worker_female",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_wizard",
+      "type": "animation",
+      "target": "q_wizard",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_witch",
+      "type": "animation",
+      "target": "q_witch",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_pirate_male",
+      "type": "animation",
+      "target": "q_pirate_male",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_kimono_female",
+      "type": "animation",
+      "target": "q_kimono_female",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_q_cowboy_male",
+      "type": "animation",
+      "target": "q_cowboy_male",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_h_male_casual",
+      "type": "animation",
+      "target": "h_male_casual",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_h_male_longsleeve",
+      "type": "animation",
+      "target": "h_male_longsleeve",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_h_male_shirt",
+      "type": "animation",
+      "target": "h_male_shirt",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_h_male_suit",
+      "type": "animation",
+      "target": "h_male_suit",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_h_female_alternative",
+      "type": "animation",
+      "target": "h_female_alternative",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_h_female_casual",
+      "type": "animation",
+      "target": "h_female_casual",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_h_female_dress",
+      "type": "animation",
+      "target": "h_female_dress",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_h_female_tanktop",
+      "type": "animation",
+      "target": "h_female_tanktop",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_alien",
+      "type": "animation",
+      "target": "alien",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_alien_helmet",
+      "type": "animation",
+      "target": "alien_helmet",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_alien",
+      "type": "animation",
+      "target": "m_alien",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_alien_tall",
+      "type": "animation",
+      "target": "m_alien_tall",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_bat",
+      "type": "animation",
+      "target": "m_bat",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_bee",
+      "type": "animation",
+      "target": "m_bee",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_cactus",
+      "type": "animation",
+      "target": "m_cactus",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_chicken",
+      "type": "animation",
+      "target": "m_chicken",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_crab",
+      "type": "animation",
+      "target": "m_crab",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_cthulhu",
+      "type": "animation",
+      "target": "m_cthulhu",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_cyclops",
+      "type": "animation",
+      "target": "m_cyclops",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_deer",
+      "type": "animation",
+      "target": "m_deer",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_demon",
+      "type": "animation",
+      "target": "m_demon",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_ghost",
+      "type": "animation",
+      "target": "m_ghost",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_green_demon",
+      "type": "animation",
+      "target": "m_green_demon",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_mushroom",
+      "type": "animation",
+      "target": "m_mushroom",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_panda",
+      "type": "animation",
+      "target": "m_panda",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_penguin",
+      "type": "animation",
+      "target": "m_penguin",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_pig",
+      "type": "animation",
+      "target": "m_pig",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_skull",
+      "type": "animation",
+      "target": "m_skull",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_tree",
+      "type": "animation",
+      "target": "m_tree",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_yellow_dragon",
+      "type": "animation",
+      "target": "m_yellow_dragon",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_m_yeti",
+      "type": "animation",
+      "target": "m_yeti",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_horse",
+      "type": "animation",
+      "target": "horse",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_cow",
+      "type": "animation",
+      "target": "cow",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_zebra",
+      "type": "animation",
+      "target": "zebra",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_llama",
+      "type": "animation",
+      "target": "llama",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_pig",
+      "type": "animation",
+      "target": "pig",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_sheep",
+      "type": "animation",
+      "target": "sheep",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_pug",
+      "type": "animation",
+      "target": "pug",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_dino_apatosaurus",
+      "type": "animation",
+      "target": "dino_apatosaurus",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_dino_parasaurolophus",
+      "type": "animation",
+      "target": "dino_parasaurolophus",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_dino_stegosaurus",
+      "type": "animation",
+      "target": "dino_stegosaurus",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_dino_trex",
+      "type": "animation",
+      "target": "dino_trex",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_dino_triceratops",
+      "type": "animation",
+      "target": "dino_triceratops",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_dino_velociraptor",
+      "type": "animation",
+      "target": "dino_velociraptor",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_sea_dolphin",
+      "type": "animation",
+      "target": "sea_dolphin",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_sea_fish_1",
+      "type": "animation",
+      "target": "sea_fish_1",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_sea_fish_2",
+      "type": "animation",
+      "target": "sea_fish_2",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_sea_fish_3",
+      "type": "animation",
+      "target": "sea_fish_3",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_sea_manta_ray",
+      "type": "animation",
+      "target": "sea_manta_ray",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_sea_shark",
+      "type": "animation",
+      "target": "sea_shark",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "idle_sea_whale",
+      "type": "animation",
+      "target": "sea_whale",
+      "start": 0,
+      "duration": 3,
+      "clip": "idle"
+    },
+    {
+      "id": "move_robot",
+      "type": "animation",
+      "target": "robot",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_casual_male",
+      "type": "animation",
+      "target": "q_casual_male",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_casual_female",
+      "type": "animation",
+      "target": "q_casual_female",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_casual2_male",
+      "type": "animation",
+      "target": "q_casual2_male",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_casual2_female",
+      "type": "animation",
+      "target": "q_casual2_female",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_chef_female",
+      "type": "animation",
+      "target": "q_chef_female",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_doctor_female_young",
+      "type": "animation",
+      "target": "q_doctor_female_young",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_doctor_male_young",
+      "type": "animation",
+      "target": "q_doctor_male_young",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_worker_male",
+      "type": "animation",
+      "target": "q_worker_male",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_worker_female",
+      "type": "animation",
+      "target": "q_worker_female",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_wizard",
+      "type": "animation",
+      "target": "q_wizard",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_witch",
+      "type": "animation",
+      "target": "q_witch",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_pirate_male",
+      "type": "animation",
+      "target": "q_pirate_male",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_kimono_female",
+      "type": "animation",
+      "target": "q_kimono_female",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_q_cowboy_male",
+      "type": "animation",
+      "target": "q_cowboy_male",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_h_male_casual",
+      "type": "animation",
+      "target": "h_male_casual",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_h_male_longsleeve",
+      "type": "animation",
+      "target": "h_male_longsleeve",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_h_male_shirt",
+      "type": "animation",
+      "target": "h_male_shirt",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_h_male_suit",
+      "type": "animation",
+      "target": "h_male_suit",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_h_female_alternative",
+      "type": "animation",
+      "target": "h_female_alternative",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_h_female_casual",
+      "type": "animation",
+      "target": "h_female_casual",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_h_female_dress",
+      "type": "animation",
+      "target": "h_female_dress",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_h_female_tanktop",
+      "type": "animation",
+      "target": "h_female_tanktop",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_alien",
+      "type": "animation",
+      "target": "alien",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_alien_helmet",
+      "type": "animation",
+      "target": "alien_helmet",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_alien",
+      "type": "animation",
+      "target": "m_alien",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_alien_tall",
+      "type": "animation",
+      "target": "m_alien_tall",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_bat",
+      "type": "animation",
+      "target": "m_bat",
+      "start": 3,
+      "duration": 3,
+      "clip": "fly"
+    },
+    {
+      "id": "move_m_bee",
+      "type": "animation",
+      "target": "m_bee",
+      "start": 3,
+      "duration": 3,
+      "clip": "fly"
+    },
+    {
+      "id": "move_m_cactus",
+      "type": "animation",
+      "target": "m_cactus",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_chicken",
+      "type": "animation",
+      "target": "m_chicken",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_crab",
+      "type": "animation",
+      "target": "m_crab",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_cthulhu",
+      "type": "animation",
+      "target": "m_cthulhu",
+      "start": 3,
+      "duration": 3,
+      "clip": "fly"
+    },
+    {
+      "id": "move_m_cyclops",
+      "type": "animation",
+      "target": "m_cyclops",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_deer",
+      "type": "animation",
+      "target": "m_deer",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_demon",
+      "type": "animation",
+      "target": "m_demon",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_ghost",
+      "type": "animation",
+      "target": "m_ghost",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_green_demon",
+      "type": "animation",
+      "target": "m_green_demon",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_mushroom",
+      "type": "animation",
+      "target": "m_mushroom",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_panda",
+      "type": "animation",
+      "target": "m_panda",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_penguin",
+      "type": "animation",
+      "target": "m_penguin",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_pig",
+      "type": "animation",
+      "target": "m_pig",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_skull",
+      "type": "animation",
+      "target": "m_skull",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_tree",
+      "type": "animation",
+      "target": "m_tree",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_m_yellow_dragon",
+      "type": "animation",
+      "target": "m_yellow_dragon",
+      "start": 3,
+      "duration": 3,
+      "clip": "fly"
+    },
+    {
+      "id": "move_m_yeti",
+      "type": "animation",
+      "target": "m_yeti",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_horse",
+      "type": "animation",
+      "target": "horse",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_cow",
+      "type": "animation",
+      "target": "cow",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_zebra",
+      "type": "animation",
+      "target": "zebra",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_llama",
+      "type": "animation",
+      "target": "llama",
+      "start": 3,
+      "duration": 3,
+      "clip": "jump"
+    },
+    {
+      "id": "move_pig",
+      "type": "animation",
+      "target": "pig",
+      "start": 3,
+      "duration": 3,
+      "clip": "jump"
+    },
+    {
+      "id": "move_sheep",
+      "type": "animation",
+      "target": "sheep",
+      "start": 3,
+      "duration": 3,
+      "clip": "jump"
+    },
+    {
+      "id": "move_pug",
+      "type": "animation",
+      "target": "pug",
+      "start": 3,
+      "duration": 3,
+      "clip": "jump"
+    },
+    {
+      "id": "move_dino_apatosaurus",
+      "type": "animation",
+      "target": "dino_apatosaurus",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_dino_parasaurolophus",
+      "type": "animation",
+      "target": "dino_parasaurolophus",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_dino_stegosaurus",
+      "type": "animation",
+      "target": "dino_stegosaurus",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_dino_trex",
+      "type": "animation",
+      "target": "dino_trex",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_dino_triceratops",
+      "type": "animation",
+      "target": "dino_triceratops",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_dino_velociraptor",
+      "type": "animation",
+      "target": "dino_velociraptor",
+      "start": 3,
+      "duration": 3,
+      "clip": "walk"
+    },
+    {
+      "id": "move_sea_dolphin",
+      "type": "animation",
+      "target": "sea_dolphin",
+      "start": 3,
+      "duration": 3,
+      "clip": "swim"
+    },
+    {
+      "id": "move_sea_fish_1",
+      "type": "animation",
+      "target": "sea_fish_1",
+      "start": 3,
+      "duration": 3,
+      "clip": "swim"
+    },
+    {
+      "id": "move_sea_fish_2",
+      "type": "animation",
+      "target": "sea_fish_2",
+      "start": 3,
+      "duration": 3,
+      "clip": "swim"
+    },
+    {
+      "id": "move_sea_fish_3",
+      "type": "animation",
+      "target": "sea_fish_3",
+      "start": 3,
+      "duration": 3,
+      "clip": "swim"
+    },
+    {
+      "id": "move_sea_manta_ray",
+      "type": "animation",
+      "target": "sea_manta_ray",
+      "start": 3,
+      "duration": 3,
+      "clip": "swim"
+    },
+    {
+      "id": "move_sea_shark",
+      "type": "animation",
+      "target": "sea_shark",
+      "start": 3,
+      "duration": 3,
+      "clip": "swim"
+    },
+    {
+      "id": "move_sea_whale",
+      "type": "animation",
+      "target": "sea_whale",
+      "start": 3,
+      "duration": 3,
+      "clip": "swim"
+    }
+  ]
+}

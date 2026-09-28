@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Qua đường an toàn",
+    "duration": 10.6,
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "environment": {
+    "asset": "env_forest",
+    "background": "#bde0fe",
+    "fog": {
+      "color": "#bde0fe",
+      "near": 30,
+      "far": 70
+    }
+  },
+  "characters": [
+    {
+      "id": "host",
+      "asset": "char_q_worker_male",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 2
+      },
+      "heading": 180,
+      "voice": "voice_vi_female"
+    }
+  ],
+  "props": [
+    {
+      "id": "log",
+      "asset": "prop_log",
+      "position": {
+        "x": 1.8,
+        "y": 0,
+        "z": 3
+      },
+      "heading": 30
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": 1.2,
+      "y": 1.7,
+      "z": -3.2
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 1.1,
+      "z": 2
+    },
+    "fov": 45
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.055,
+    "position": "bottom"
+  },
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.3,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l1",
+      "speaker": "host",
+      "text": "Xin chào các bạn nhỏ!",
+      "start": 0.6,
+      "duration": 1.091,
+      "file": "tts/93363342ba912124cc20eb2c.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l2",
+      "speaker": "host",
+      "text": "Khi qua đường, các bạn nhớ nắm tay người lớn nhé.",
+      "start": 2.191,
+      "duration": 2.45,
+      "file": "tts/f86097da5464a6d7a7275c78.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    },
+    {
+      "id": "l3",
+      "speaker": "host",
+      "text": "Và nhìn trái, nhìn phải thật cẩn thận nha!",
+      "start": 5.141,
+      "duration": 2.194,
+      "file": "tts/bc73bf57ada70e347928f91e.wav",
+      "voice": "voice_vi_female",
+      "rate": 0.9,
+      "volume": 1,
+      "subtitle": true
+    }
+  ],
+  "actions": [
+    {
+      "id": "anim_greet",
+      "type": "animation",
+      "target": "host",
+      "clip": "wave",
+      "loop": false,
+      "start": 0.3,
+      "duration": 1.591
+    },
+    {
+      "id": "anim_2",
+      "type": "animation",
+      "target": "host",
+      "clip": "yes",
+      "start": 2.191,
+      "duration": 2.45
+    },
+    {
+      "id": "anim_3",
+      "type": "animation",
+      "target": "host",
+      "clip": "thumbsup",
+      "loop": false,
+      "start": 5.141,
+      "duration": 2.494
+    },
+    {
+      "id": "cam_close",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.7,
+          "y": 1.35,
+          "z": -0.9
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.95,
+          "z": 2
+        },
+        "fov": 42
+      },
+      "start": 4.941,
+      "duration": 5.659
+    }
+  ],
+  "audio": [
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "loop": true,
+      "volume": 0.5,
+      "fadeIn": 0.3,
+      "fadeOut": 1.2
+    },
+    {
+      "id": "sfx_end",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "volume": 0.8,
+      "start": 7.435
+    }
+  ]
+}

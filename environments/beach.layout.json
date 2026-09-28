@@ -1,0 +1,154 @@
+{
+  "id": "env_beach",
+  "name": "Bãi biển",
+  "description": "Bãi cát vàng cạnh biển xanh, hàng dừa hai bên, vài tảng đá – hợp cảnh đi chơi biển, nhặt đồ, dọn rác bãi biển.",
+  "seed": 11,
+  "ground": {
+    "size": 160,
+    "color": "#efd9a0"
+  },
+  "ponds": [
+    {
+      "x": 0,
+      "z": 46,
+      "radius": 34,
+      "color": "#3a9fd8",
+      "shore": "#f4e4b4"
+    },
+    {
+      "x": -38,
+      "z": 52,
+      "radius": 26,
+      "color": "#3a9fd8",
+      "shore": "#f4e4b4"
+    },
+    {
+      "x": 38,
+      "z": 52,
+      "radius": 26,
+      "color": "#3a9fd8",
+      "shore": "#f4e4b4"
+    }
+  ],
+  "clearings": [
+    {
+      "x": 0,
+      "z": 0,
+      "radius": 7
+    },
+    {
+      "x": 0,
+      "z": -9,
+      "radius": 9
+    }
+  ],
+  "place": [
+    {
+      "asset": "prop_n_palm_tree_1",
+      "position": {
+        "x": -7.5,
+        "z": 4
+      },
+      "heading": 30
+    },
+    {
+      "asset": "prop_kn_tree_palm_bend",
+      "position": {
+        "x": 8,
+        "z": 5
+      },
+      "heading": 200
+    },
+    {
+      "asset": "prop_n_palm_tree_3",
+      "position": {
+        "x": -11,
+        "z": -3
+      },
+      "heading": 120
+    },
+    {
+      "asset": "prop_kn_tree_palm_tall",
+      "position": {
+        "x": 11.5,
+        "z": -2
+      },
+      "heading": 80
+    },
+    {
+      "asset": "prop_gd_parasol",
+      "position": {
+        "x": -5.5,
+        "z": 8.5
+      },
+      "heading": 0,
+      "scale": 0.8
+    },
+    {
+      "asset": "prop_n_rock_2",
+      "position": {
+        "x": 5.2,
+        "z": 10
+      },
+      "heading": 40,
+      "scale": 0.9
+    },
+    {
+      "asset": "prop_n_rock_5",
+      "position": {
+        "x": -2.8,
+        "z": 11
+      },
+      "heading": 200,
+      "scale": 0.6
+    }
+  ],
+  "scatter": [
+    {
+      "tags": [
+        "tree"
+      ],
+      "include": [
+        "palm"
+      ],
+      "count": 26,
+      "area": {
+        "x": [
+          -45,
+          45
+        ],
+        "z": [
+          -30,
+          12
+        ]
+      },
+      "minDistance": 5,
+      "scale": [
+        0.85,
+        1.2
+      ]
+    },
+    {
+      "tags": [
+        "rock"
+      ],
+      "pack": "Quaternius · Ultimate Nature",
+      "count": 14,
+      "area": {
+        "x": [
+          -30,
+          30
+        ],
+        "z": [
+          -20,
+          12
+        ]
+      },
+      "minDistance": 3,
+      "scale": [
+        0.4,
+        0.9
+      ]
+    }
+  ]
+}

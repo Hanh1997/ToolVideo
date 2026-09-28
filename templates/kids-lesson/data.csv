@@ -1,0 +1,4 @@
+﻿id,title,character,greeting,line_2,line_3,line_4,gesture_2,gesture_3,sky,environment
+hoc-dem,Học đếm đến ba,char_robot,Xin chào các bạn nhỏ! Mình là Rô-bốt Vàng.,Hôm nay chúng mình cùng học đếm đến ba nhé.,"Một, hai, ba! Các bạn giỏi quá!",,yes,thumbsup,#a8d8f0,env_meadow
+mau-sac,Màu sắc quanh em,char_q_casual2_female,Chào các bạn! Hôm nay mình học về màu sắc nhé.,"Bầu trời màu xanh, còn mặt trời màu vàng.",Cỏ cây thì có màu xanh lá.,Các bạn nhớ chưa nào? Giỏi lắm!,yes,victory,#ffd6a5,env_autumn_forest
+qua-duong,Qua đường an toàn,char_q_worker_male,Xin chào các bạn nhỏ!,"Khi qua đường, các bạn nhớ nắm tay người lớn nhé.","Và nhìn trái, nhìn phải thật cẩn thận nha!",,yes,thumbsup,#bde0fe,env_forest

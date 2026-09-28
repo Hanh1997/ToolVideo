@@ -1,0 +1,280 @@
+{
+  "id": "env_polluted_pond",
+  "name": "Khoảng rừng bên ao ô nhiễm",
+  "description": "Khoảng trống giữa rừng (chỗ họp) cạnh một cái ao nước đục, rác trôi trên mặt và vương trên bờ, cây ven ao khô héo.",
+  "seed": 42,
+  "ground": {
+    "size": 140,
+    "color": "#6aa84f"
+  },
+  "ponds": [
+    {
+      "x": 0,
+      "z": 12,
+      "radius": 6.3,
+      "color": "#4d7f6c",
+      "shore": "#6f5f43"
+    }
+  ],
+  "clearings": [
+    {
+      "x": 0,
+      "z": 1.5,
+      "radius": 7.5
+    }
+  ],
+  "place": [
+    {
+      "asset": "prop_n_common_tree_dead_1",
+      "position": {
+        "x": -7.5,
+        "z": 12
+      },
+      "heading": 20
+    },
+    {
+      "asset": "prop_n_common_tree_dead_3",
+      "position": {
+        "x": 7.2,
+        "z": 15
+      },
+      "heading": 200
+    },
+    {
+      "asset": "prop_n_birch_tree_dead_2",
+      "position": {
+        "x": 4.5,
+        "z": 20
+      },
+      "heading": 90
+    },
+    {
+      "asset": "prop_n_rock_moss_2",
+      "position": {
+        "x": -6.3,
+        "z": 9
+      },
+      "heading": 30,
+      "scale": 0.8
+    },
+    {
+      "asset": "prop_n_rock_moss_5",
+      "position": {
+        "x": 6.5,
+        "z": 10
+      },
+      "heading": 120,
+      "scale": 0.8
+    },
+    {
+      "asset": "prop_n_rock_2",
+      "position": {
+        "x": -3,
+        "z": 19.5
+      },
+      "heading": 0
+    },
+    {
+      "asset": "prop_n_tree_stump_moss",
+      "position": {
+        "x": 0,
+        "z": 5.3
+      },
+      "heading": 0,
+      "scale": 1.3
+    },
+    {
+      "asset": "prop_n_wood_log_moss",
+      "position": {
+        "x": -5.6,
+        "z": 3
+      },
+      "heading": 70
+    },
+    {
+      "asset": "prop_n_wood_log",
+      "position": {
+        "x": 5.8,
+        "z": 2.5
+      },
+      "heading": -60
+    }
+  ],
+  "scatter": [
+    {
+      "tags": [
+        "trash"
+      ],
+      "count": 28,
+      "area": {
+        "x": [
+          -5.5,
+          5.5
+        ],
+        "z": [
+          7.5,
+          17
+        ]
+      },
+      "allowInBlocked": true,
+      "minDistance": 0.7,
+      "scale": [
+        0.9,
+        1.2
+      ]
+    },
+    {
+      "tags": [
+        "trash"
+      ],
+      "count": 10,
+      "area": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          6.5,
+          8.8
+        ]
+      },
+      "allowInBlocked": true,
+      "minDistance": 0.9
+    },
+    {
+      "tags": [
+        "tree"
+      ],
+      "pack": "Quaternius · Ultimate Nature",
+      "include": [
+        "common_tree_",
+        "pine_tree_",
+        "birch_tree_"
+      ],
+      "exclude": [
+        "dead",
+        "snow",
+        "autumn"
+      ],
+      "count": 120,
+      "area": {
+        "x": [
+          -50,
+          50
+        ],
+        "z": [
+          -30,
+          60
+        ]
+      },
+      "minDistance": 3.2,
+      "scale": [
+        0.8,
+        1.25
+      ]
+    },
+    {
+      "tags": [
+        "tree"
+      ],
+      "pack": "Quaternius · Stylized Nature",
+      "include": [
+        "maple_tree_",
+        "birch_tree_"
+      ],
+      "count": 12,
+      "area": {
+        "x": [
+          -25,
+          25
+        ],
+        "z": [
+          -15,
+          35
+        ]
+      },
+      "minDistance": 5
+    },
+    {
+      "tags": [
+        "bush"
+      ],
+      "pack": "Quaternius · Ultimate Nature",
+      "exclude": [
+        "snow"
+      ],
+      "count": 45,
+      "area": {
+        "x": [
+          -25,
+          25
+        ],
+        "z": [
+          -20,
+          40
+        ]
+      },
+      "minDistance": 1.6
+    },
+    {
+      "tags": [
+        "rock"
+      ],
+      "pack": "Quaternius · Ultimate Nature",
+      "exclude": [
+        "snow"
+      ],
+      "count": 22,
+      "area": {
+        "x": [
+          -25,
+          25
+        ],
+        "z": [
+          -20,
+          40
+        ]
+      },
+      "minDistance": 2
+    },
+    {
+      "tags": [
+        "grass"
+      ],
+      "pack": "Quaternius · Ultimate Nature",
+      "count": 140,
+      "area": {
+        "x": [
+          -20,
+          20
+        ],
+        "z": [
+          -15,
+          35
+        ]
+      },
+      "minDistance": 0.5
+    },
+    {
+      "tags": [
+        "flower"
+      ],
+      "pack": "Quaternius · Stylized Nature",
+      "exclude": [
+        "cactus"
+      ],
+      "count": 40,
+      "area": {
+        "x": [
+          -18,
+          18
+        ],
+        "z": [
+          -15,
+          5
+        ]
+      },
+      "minDistance": 0.6
+    }
+  ]
+}
