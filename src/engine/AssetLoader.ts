@@ -30,6 +30,11 @@ export class AssetLoader {
     return entry;
   }
 
+  /** Bỏ bản cache của một file (file vừa được dựng lại) – lần load sau tải lại. */
+  forget(file: string): void {
+    this.cache.delete(file);
+  }
+
   async dispose(): Promise<void> {
     const all = await Promise.allSettled(this.cache.values());
     for (const r of all) if (r.status === "fulfilled") disposeObject(r.value.scene);

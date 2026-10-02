@@ -34,7 +34,7 @@ npm run dev                  # Editor/Preview: http://localhost:5173
 |---|---|
 | ✎ **Editor** | Mở project, xem trước 3D + âm thanh + phụ đề, sửa Scene Script, lưu |
 | 🎞 **Video** | Mọi video đã render (project + batch): lọc, phát ngay, phụ đề, tải MP4/SRT, mở thư mục, mở project để sửa, xóa |
-| 🧍 **Nhân vật** | Ảnh 3D từng nhân vật, trình xem xoay/zoom, bấm thử từng động tác (dự phòng viền đứt), sửa tên / chiều cao / hướng / license, **kéo thả file để thêm nhân vật** |
+| 🧍 **Nhân vật** | Ảnh 3D từng nhân vật, trình xem xoay/zoom, bấm thử từng động tác (dự phòng viền đứt), sửa tên / chiều cao / hướng / license, **kéo thả file để thêm nhân vật**, **✨ tạo nhân vật người bằng mô tả** |
 | ▦ **Batch** | Chọn template, sửa bảng dữ liệu ngay trên trang (nhân vật chọn từ danh sách), Kiểm tra / Render (chọn dòng, định dạng, số luồng), tiến độ + log + kết quả |
 | ♪ **Âm thanh & bối cảnh** | Nghe thử nhạc/hiệu ứng, nghe thử giọng đọc với câu tùy ý, xem & thêm bối cảnh/đạo cụ |
 
@@ -130,6 +130,42 @@ npm run batch -- templates/kids-lesson my.csv --formats 9x16 --concurrency 3 --o
   ```
   Cần `tools/bin/FBX2glTF.exe` cho file FBX: https://github.com/facebookincubator/FBX2glTF/releases
 - Chi tiết: BRD §6.6–6.8.
+
+### Tạo nhân vật người bằng mô tả
+
+Trang **🧍 Nhân vật** → **✨ Tạo bằng mô tả**:
+
+1. Nhập mô tả, ví dụ "cô bé 7 tuổi tóc đuôi ngựa, váy hồng chấm bi, đeo ba lô vàng". Bấm **AI thiết kế**: DeepSeek điền bản thông số gồm tuổi, giới tính, dáng người, màu da, kiểu và màu tóc, áo, hoạ tiết, quần / váy, giày, phụ kiện, râu.
+2. Chỉnh thông số trên form, hoặc gõ yêu cầu sửa bằng lời (ví dụ "áo màu cam, thêm kính râm").
+3. Bấm **Dựng nhân vật 3D**. Blender dựng file GLB đã có sẵn:
+   - khung xương người chuẩn,
+   - khuôn mặt biểu cảm và nhép miệng theo lời thoại,
+   - hoạt ảnh tự sinh, cộng thêm các hoạt ảnh Mixamo nếu có thư viện ở `D:/Mixamo`.
+
+   Nhân vật tự vào thư viện với id `char_ac_gen_<tên>`. Có Mixamo thì mất khoảng 2 phút, không có thì vài giây.
+4. Muốn sửa sau này: mở nhân vật trong thư viện → **✨ Sửa & dựng lại**. Bản mô tả được lưu ở `storage/characters/<id>/`.
+
+Dùng không cần giao diện:
+
+```bash
+npm run character:gen -- "ông cụ hói, ria mép bạc, đeo kính, áo sơ mi trắng thắt cà vạt đỏ"
+npm run character:gen -- "…" --design-only                 # chỉ in bản mô tả JSON
+npm run character:gen -- --spec my.json [--id char_ac_gen_x] # dựng từ file mô tả (ghi đè nếu có --id)
+npm run character:gen -- --spec docs/characters/be-ti-template.md  # dựng từ file mẫu nhân vật (.md – khối ```json đầu tiên)
+```
+
+Cần có:
+- Blender ≥ 4.2: tự tìm trong `D:/Tools/blender-*` và `Program Files/Blender Foundation`, hoặc đặt `BLENDER_PATH` trong `.env`.
+- `DEEPSEEK_API_KEY`: chỉ cần cho bước AI thiết kế; tự chỉnh từ mẫu trống thì không cần.
+- Thư viện Mixamo (`MIXAMO_DIR`, mặc định `D:/Mixamo`): không bắt buộc, tải bằng `scripts/mixamo/download.ts`.
+
+Kiểu có thể dựng:
+- Chỉ nhân vật người, đầu to kiểu hoạt hình, từ em bé đến người già.
+- Tóc: ngắn, vuốt dựng, xoăn, afro, bob, dài, đuôi ngựa, buộc hai bên, búi, hói.
+- Áo: áo phông, sơ mi, dài tay, hoodie, ba lỗ, váy liền. Hoạ tiết: trơn, sọc, chấm bi, caro, hoa.
+- Phụ kiện: kính, kính râm, mũ lưỡi trai, mũ len, mũ rộng vành, ba lô, dây chuyền, khuyên tai, đồng hồ, nơ, cà vạt, khăn quàng.
+
+Nếu mô tả có thứ không dựng được (con vật, cánh, đồ hoá trang…), AI sẽ báo và dựng phiên bản gần nhất.
 
 ## Tạo video mới
 

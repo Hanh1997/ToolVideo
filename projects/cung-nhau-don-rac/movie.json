@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Cùng Nhau Dọn Rác",
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "scenes": [
+    {
+      "id": "cong_vien",
+      "file": "scenes/01-cong_vien.json"
+    },
+    {
+      "id": "bo_ao",
+      "file": "scenes/02-bo_ao.json",
+      "transition": {
+        "type": "fade",
+        "duration": 0.8
+      }
+    },
+    {
+      "id": "ve_nha",
+      "file": "scenes/03-ve_nha.json",
+      "transition": {
+        "type": "dissolve",
+        "duration": 0.8
+      }
+    }
+  ],
+  "audio": [],
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  }
+}

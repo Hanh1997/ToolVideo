@@ -1,0 +1,2092 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Cùng Nhau Dọn Rác – 1",
+    "duration": "auto",
+    "tail": 1.5,
+    "fps": 30,
+    "width": 1280,
+    "height": 720
+  },
+  "environment": {
+    "asset": "env_park",
+    "background": "#bde0fe",
+    "fog": {
+      "color": "#bde0fe",
+      "near": 28,
+      "far": 80
+    },
+    "lighting": {
+      "preset": "day"
+    },
+    "effects": [
+      "petals"
+    ]
+  },
+  "characters": [
+    {
+      "id": "ti",
+      "name": "Bé Tí",
+      "asset": "char_ac_gen_be_ti",
+      "position": {
+        "x": -6.62,
+        "y": 0,
+        "z": -2
+      },
+      "heading": 81.32,
+      "voice": "voice_vi_child"
+    },
+    {
+      "id": "bo",
+      "name": "Bé Bơ",
+      "asset": "char_ac_gen_be_bo",
+      "position": {
+        "x": -4.22,
+        "y": 0,
+        "z": -0.89
+      },
+      "heading": 79.7,
+      "voice": "voice_vi_squeaky"
+    },
+    {
+      "id": "mit",
+      "name": "Bé Mít",
+      "asset": "char_ac_gen_be_mit",
+      "position": {
+        "x": -2.1,
+        "y": 0,
+        "z": -0.4
+      },
+      "heading": 78.69,
+      "voice": "voice_vi_cute"
+    },
+    {
+      "id": "tun",
+      "name": "Bé Tũn",
+      "asset": "char_ac_gen_be_tun",
+      "position": {
+        "x": 4.18,
+        "y": 0,
+        "z": -0.83
+      },
+      "heading": -80.05,
+      "voice": "voice_vi_low"
+    },
+    {
+      "id": "bong",
+      "name": "Bé Bông",
+      "asset": "char_ac_gen_be_bong",
+      "position": {
+        "x": 6.06,
+        "y": 0,
+        "z": -2
+      },
+      "heading": -79.01,
+      "voice": "voice_vi_soft"
+    }
+  ],
+  "props": [
+    {
+      "id": "chai",
+      "asset": "prop_trash_bottle",
+      "position": {
+        "x": -2.02,
+        "y": 0,
+        "z": -0.49
+      },
+      "scale": 1
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": -2.23,
+      "y": 2.27,
+      "z": -6.37
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 0.59,
+      "z": -0.4
+    },
+    "fov": 50
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": true
+  },
+  "titles": [
+    {
+      "kind": "title",
+      "text": "Cùng Nhau Dọn Rác",
+      "start": 0.3,
+      "duration": 3.4
+    }
+  ],
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l1",
+      "voice": "voice_vi_female",
+      "text": "Chiều thứ bảy, nhóm Bé Tí, Bé Bơ, Bé Mít ra công viên chơi thì gặp nhóm Bé Tũn và Bé Bông.",
+      "start": 4
+    },
+    {
+      "id": "l2",
+      "speaker": "ti",
+      "to": "tun",
+      "emotion": "happy",
+      "pan": 0.25,
+      "text": "Chào Tũn, chào Bông! Chơi cùng tụi mình nhé!",
+      "start": {
+        "after": "l1",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l3",
+      "speaker": "tun",
+      "to": "ti",
+      "emotion": "happy",
+      "pan": -0.12,
+      "text": "Hay quá! Mình chơi đuổi bắt đi!",
+      "start": {
+        "after": "l2",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l4_v",
+      "speaker": "bong",
+      "to": "mit",
+      "emotion": "happy",
+      "pan": -0.25,
+      "text": "Hi hi hi!",
+      "subtitle": false,
+      "start": {
+        "after": "l3",
+        "gap": 11.38
+      }
+    },
+    {
+      "id": "l4",
+      "speaker": "bong",
+      "to": "mit",
+      "emotion": "happy",
+      "pan": -0.25,
+      "text": "Bắt được Mít rồi nhé!",
+      "start": {
+        "after": "l4_v",
+        "gap": 0.12
+      }
+    },
+    {
+      "id": "l5_v",
+      "speaker": "bo",
+      "to": "bong",
+      "emotion": "happy",
+      "pan": 0.13,
+      "text": "Haizz…",
+      "subtitle": false,
+      "start": {
+        "after": "l4",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l5",
+      "speaker": "bo",
+      "to": "bong",
+      "emotion": "happy",
+      "pan": 0.13,
+      "text": "Chạy mệt quá! Để mình uống hết chai nước đã.",
+      "start": {
+        "after": "l5_v",
+        "gap": 0.12
+      }
+    },
+    {
+      "id": "l6",
+      "voice": "voice_vi_female",
+      "text": "Uống xong, Bơ tiện tay vứt luôn vỏ chai xuống bãi cỏ.",
+      "start": {
+        "after": "l5",
+        "gap": 1.95
+      }
+    },
+    {
+      "id": "l7_v",
+      "speaker": "bong",
+      "to": "bo",
+      "emotion": "surprised",
+      "pan": -0.25,
+      "text": "Ối!",
+      "subtitle": false,
+      "start": {
+        "after": "l6",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l7",
+      "speaker": "bong",
+      "to": "bo",
+      "emotion": "surprised",
+      "pan": -0.25,
+      "text": "Ơ kìa Bơ, sao cậu lại vứt rác bừa bãi thế?",
+      "start": {
+        "after": "l7_v",
+        "gap": 0.12
+      }
+    },
+    {
+      "id": "l8",
+      "speaker": "bo",
+      "to": "bong",
+      "pan": 0.13,
+      "text": "Có một cái vỏ chai thôi mà, có sao đâu.",
+      "start": {
+        "after": "l7",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l9_v",
+      "speaker": "mit",
+      "to": "ti",
+      "emotion": "sad",
+      "pan": 0.13,
+      "text": "Ui da!",
+      "subtitle": false,
+      "start": {
+        "after": "l8",
+        "gap": 2.13
+      }
+    },
+    {
+      "id": "l9",
+      "speaker": "mit",
+      "to": "ti",
+      "emotion": "sad",
+      "pan": 0.13,
+      "text": "Ui da! Mình vấp phải cái chai rồi!",
+      "start": {
+        "after": "l9_v",
+        "gap": 0.12
+      }
+    },
+    {
+      "id": "l10",
+      "speaker": "ti",
+      "to": "bo",
+      "emotion": "surprised",
+      "pan": 0.25,
+      "text": "Mít có đau không? Đấy Bơ thấy chưa, rác vứt bừa làm bạn bị ngã đấy.",
+      "start": {
+        "after": "l9",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l11",
+      "speaker": "bong",
+      "to": "tun",
+      "pan": 0.05,
+      "text": "Mình nhặt cái chai này lên đã.",
+      "start": {
+        "after": "l10",
+        "gap": 5.05
+      }
+    },
+    {
+      "id": "l12",
+      "speaker": "tun",
+      "to": "bong",
+      "pan": -0.12,
+      "text": "Bơ đi với tụi mình ra ao, xem rác đi về đâu nhé.",
+      "start": {
+        "after": "l11",
+        "gap": 5.35
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "ti_walk",
+      "type": "animation",
+      "target": "ti",
+      "start": 0,
+      "duration": 3.4,
+      "clip": "walk"
+    },
+    {
+      "id": "ti_in",
+      "type": "moveTo",
+      "target": "ti",
+      "start": 0,
+      "duration": 3.4,
+      "to": {
+        "x": -4,
+        "z": -1.6
+      }
+    },
+    {
+      "id": "ti_face",
+      "type": "turn",
+      "target": "ti",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": 102.68
+    },
+    {
+      "id": "bo_walk",
+      "type": "animation",
+      "target": "bo",
+      "start": 0.25,
+      "duration": 3.15,
+      "clip": "walk"
+    },
+    {
+      "id": "bo_in",
+      "type": "moveTo",
+      "target": "bo",
+      "start": 0.25,
+      "duration": 3.15,
+      "to": {
+        "x": -2.02,
+        "z": -0.49
+      }
+    },
+    {
+      "id": "bo_face",
+      "type": "turn",
+      "target": "bo",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": 134.8
+    },
+    {
+      "id": "mit_walk",
+      "type": "animation",
+      "target": "mit",
+      "start": 0.5,
+      "duration": 2.9,
+      "clip": "walk"
+    },
+    {
+      "id": "mit_in",
+      "type": "moveTo",
+      "target": "mit",
+      "start": 0.5,
+      "duration": 2.9,
+      "to": {
+        "x": -0.1,
+        "z": 0
+      }
+    },
+    {
+      "id": "mit_face",
+      "type": "turn",
+      "target": "mit",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": 177.69
+    },
+    {
+      "id": "tun_walk",
+      "type": "animation",
+      "target": "tun",
+      "start": 0.75,
+      "duration": 2.65,
+      "clip": "walk"
+    },
+    {
+      "id": "tun_in",
+      "type": "moveTo",
+      "target": "tun",
+      "start": 0.75,
+      "duration": 2.65,
+      "to": {
+        "x": 1.9,
+        "z": -0.43
+      }
+    },
+    {
+      "id": "tun_face",
+      "type": "turn",
+      "target": "tun",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": -137.34
+    },
+    {
+      "id": "bong_walk",
+      "type": "animation",
+      "target": "bong",
+      "start": 1,
+      "duration": 2.4,
+      "clip": "walk"
+    },
+    {
+      "id": "bong_in",
+      "type": "moveTo",
+      "target": "bong",
+      "start": 1,
+      "duration": 2.4,
+      "to": {
+        "x": 4,
+        "z": -1.6
+      }
+    },
+    {
+      "id": "bong_face",
+      "type": "turn",
+      "target": "bong",
+      "start": 3.4,
+      "duration": 0.5,
+      "heading": -102.68
+    },
+    {
+      "id": "hold_chai",
+      "type": "attach",
+      "target": "chai",
+      "to": "bo",
+      "start": 0
+    },
+    {
+      "id": "cam_l4_play",
+      "type": "camera",
+      "sync": {
+        "line": "l4_v",
+        "offset": -10.93,
+        "duration": 10.78
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "bong",
+        "offset": {
+          "x": -2.07,
+          "y": 1.77,
+          "z": -4.29
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.51,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "l4_play_bong_run",
+      "type": "animation",
+      "target": "bong",
+      "clip": "run",
+      "sync": {
+        "line": "l4_v",
+        "offset": -10.93,
+        "duration": 8.37
+      }
+    },
+    {
+      "id": "l4_play_bong_path",
+      "type": "path",
+      "target": "bong",
+      "points": [
+        {
+          "x": 2.6,
+          "z": -0.9
+        },
+        {
+          "x": 0.91,
+          "z": -2.2
+        },
+        {
+          "x": -0.91,
+          "z": -2.2
+        },
+        {
+          "x": -2.6,
+          "z": -0.9
+        },
+        {
+          "x": -0.52,
+          "z": -1.4
+        },
+        {
+          "x": 4,
+          "z": -1.6
+        }
+      ],
+      "sync": {
+        "line": "l4_v",
+        "offset": -10.93,
+        "duration": 8.37
+      }
+    },
+    {
+      "id": "l4_play_bong_home",
+      "type": "turn",
+      "target": "bong",
+      "heading": -102.68,
+      "sync": {
+        "line": "l4_v",
+        "offset": -2.56,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l4_play_bong_hop0",
+      "type": "jump",
+      "target": "bong",
+      "height": 0.36,
+      "sync": {
+        "line": "l4_v",
+        "offset": -2.21,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l4_play_bong_hop1",
+      "type": "jump",
+      "target": "bong",
+      "height": 0.36,
+      "sync": {
+        "line": "l4_v",
+        "offset": -1.76,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l4_play_mit_run",
+      "type": "animation",
+      "target": "mit",
+      "clip": "run",
+      "sync": {
+        "line": "l4_v",
+        "offset": -10.43,
+        "duration": 9.08
+      }
+    },
+    {
+      "id": "l4_play_mit_path",
+      "type": "path",
+      "target": "mit",
+      "points": [
+        {
+          "x": 2.6,
+          "z": -0.9
+        },
+        {
+          "x": 0.91,
+          "z": -2.2
+        },
+        {
+          "x": -0.91,
+          "z": -2.2
+        },
+        {
+          "x": -2.6,
+          "z": -0.9
+        },
+        {
+          "x": -0.52,
+          "z": -1.4
+        },
+        {
+          "x": -0.1,
+          "z": 0
+        }
+      ],
+      "sync": {
+        "line": "l4_v",
+        "offset": -10.43,
+        "duration": 9.08
+      }
+    },
+    {
+      "id": "l4_play_mit_home",
+      "type": "turn",
+      "target": "mit",
+      "heading": 177.69,
+      "sync": {
+        "line": "l4_v",
+        "offset": -1.35,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l4_play_mit_hop0",
+      "type": "jump",
+      "target": "mit",
+      "height": 0.31,
+      "sync": {
+        "line": "l4_v",
+        "offset": -1,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l4_play_mit_hop1",
+      "type": "jump",
+      "target": "mit",
+      "height": 0.31,
+      "sync": {
+        "line": "l4_v",
+        "offset": -0.55,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "cam_l6_drop",
+      "type": "camera",
+      "sync": {
+        "line": "l6",
+        "offset": -1.5,
+        "duration": 1.35
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "bo",
+        "offset": {
+          "x": 1.95,
+          "y": 1.65,
+          "z": -4.07
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.46,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "l6_drop_put",
+      "type": "animation",
+      "target": "bo",
+      "clip": "PickUp",
+      "loop": false,
+      "sync": {
+        "line": "l6",
+        "offset": -1.5,
+        "duration": 1.3
+      }
+    },
+    {
+      "type": "drop",
+      "target": "chai",
+      "id": "l6_drop_drop",
+      "sync": {
+        "line": "l6",
+        "offset": -0.95,
+        "duration": 0.25
+      }
+    },
+    {
+      "id": "cam_l9_trip",
+      "type": "camera",
+      "sync": {
+        "line": "l9_v",
+        "offset": -1.68,
+        "duration": 1.53
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "mit",
+        "offset": {
+          "x": 0.77,
+          "y": 1.6,
+          "z": -4.15
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.44,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "l9_trip_turn_back",
+      "type": "turn",
+      "target": "mit",
+      "heading": 60.16,
+      "sync": {
+        "line": "l9",
+        "at": "end",
+        "offset": 0.2,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l9_trip_back_walk",
+      "type": "animation",
+      "target": "mit",
+      "clip": "walk_sad",
+      "sync": {
+        "line": "l9",
+        "at": "end",
+        "offset": 0.5,
+        "duration": 0.76
+      }
+    },
+    {
+      "id": "l9_trip_back_move",
+      "type": "moveTo",
+      "target": "mit",
+      "to": {
+        "x": -1.65,
+        "z": -1.13
+      },
+      "sync": {
+        "line": "l9",
+        "at": "end",
+        "offset": 0.5,
+        "duration": 0.76
+      }
+    },
+    {
+      "id": "l9_trip_back1_walk",
+      "type": "animation",
+      "target": "mit",
+      "clip": "walk_sad",
+      "sync": {
+        "line": "l9",
+        "at": "end",
+        "offset": 1.26,
+        "duration": 3.91
+      }
+    },
+    {
+      "id": "l9_trip_back1_move",
+      "type": "moveTo",
+      "target": "mit",
+      "to": {
+        "x": -0.1,
+        "z": 0
+      },
+      "sync": {
+        "line": "l9",
+        "at": "end",
+        "offset": 1.26,
+        "duration": 3.91
+      }
+    },
+    {
+      "id": "l9_trip_home",
+      "type": "turn",
+      "target": "mit",
+      "heading": 177.69,
+      "sync": {
+        "line": "l9",
+        "at": "end",
+        "offset": 5.17,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l9_trip_run",
+      "type": "animation",
+      "target": "mit",
+      "clip": "run",
+      "sync": {
+        "line": "l9_v",
+        "offset": -2.29,
+        "duration": 1.01
+      }
+    },
+    {
+      "id": "l9_trip_go_move",
+      "type": "moveTo",
+      "target": "mit",
+      "to": {
+        "x": -1.31,
+        "z": -0.7
+      },
+      "sync": {
+        "line": "l9_v",
+        "offset": -2.29,
+        "duration": 1.01
+      }
+    },
+    {
+      "id": "l9_trip_lurch",
+      "type": "moveTo",
+      "target": "mit",
+      "to": {
+        "x": -2.02,
+        "z": -1.1
+      },
+      "sync": {
+        "line": "l9_v",
+        "offset": -1.28,
+        "duration": 0.32
+      }
+    },
+    {
+      "id": "l9_trip_bump",
+      "type": "jump",
+      "target": "mit",
+      "height": 0.22,
+      "sync": {
+        "line": "l9_v",
+        "offset": -1.28,
+        "duration": 0.32
+      }
+    },
+    {
+      "id": "l9_trip_wob1",
+      "type": "turn",
+      "target": "mit",
+      "by": 28,
+      "sync": {
+        "line": "l9_v",
+        "offset": -0.96,
+        "duration": 0.14
+      }
+    },
+    {
+      "id": "l9_trip_wob2",
+      "type": "turn",
+      "target": "mit",
+      "by": -42,
+      "sync": {
+        "line": "l9_v",
+        "offset": -0.82,
+        "duration": 0.18
+      }
+    },
+    {
+      "id": "l9_trip_wob3",
+      "type": "turn",
+      "target": "mit",
+      "by": 14,
+      "sync": {
+        "line": "l9_v",
+        "offset": -0.64,
+        "duration": 0.14
+      }
+    },
+    {
+      "id": "l9_trip_fall",
+      "type": "animation",
+      "target": "mit",
+      "clip": "PickUp",
+      "loop": false,
+      "sync": {
+        "line": "l9_v",
+        "offset": -0.88,
+        "duration": 1.1
+      }
+    },
+    {
+      "id": "cam_l11_pickup",
+      "type": "camera",
+      "sync": {
+        "line": "l11",
+        "offset": -4.6,
+        "duration": 3.2
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "bong",
+        "offset": {
+          "x": -2.03,
+          "y": 1.77,
+          "z": -4.06
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.51,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "cam_l11_pickup_insert",
+      "type": "camera",
+      "sync": {
+        "line": "l11",
+        "offset": -1.4,
+        "duration": 1.25
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.84,
+          "y": 1.02,
+          "z": -2.64
+        },
+        "lookAt": {
+          "x": -1.63,
+          "y": 0.4,
+          "z": -0.88
+        },
+        "fov": 38
+      },
+      "move": {
+        "dolly": 0.08
+      }
+    },
+    {
+      "id": "l11_pickup_turn_back",
+      "type": "turn",
+      "target": "bong",
+      "heading": 97.31,
+      "sync": {
+        "line": "l11",
+        "at": "end",
+        "offset": 0.2,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l11_pickup_back_walk",
+      "type": "animation",
+      "target": "bong",
+      "clip": "walk",
+      "sync": {
+        "line": "l11",
+        "at": "end",
+        "offset": 0.5,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l11_pickup_back_move",
+      "type": "moveTo",
+      "target": "bong",
+      "to": {
+        "x": 4,
+        "z": -1.6
+      },
+      "sync": {
+        "line": "l11",
+        "at": "end",
+        "offset": 0.5,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l11_pickup_home",
+      "type": "turn",
+      "target": "bong",
+      "heading": -102.68,
+      "sync": {
+        "line": "l11",
+        "at": "end",
+        "offset": 4.5,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l11_pickup_go_walk",
+      "type": "animation",
+      "target": "bong",
+      "clip": "walk",
+      "sync": {
+        "line": "l11",
+        "offset": -5.6,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l11_pickup_go_move",
+      "type": "moveTo",
+      "target": "bong",
+      "to": {
+        "x": -0.81,
+        "z": -0.98
+      },
+      "sync": {
+        "line": "l11",
+        "offset": -5.6,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l11_pickup_face",
+      "type": "turn",
+      "target": "bong",
+      "heading": -82.69,
+      "sync": {
+        "line": "l11",
+        "offset": -1.6,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l11_pickup_pick",
+      "type": "animation",
+      "target": "bong",
+      "clip": "PickUp",
+      "loop": false,
+      "sync": {
+        "line": "l11",
+        "offset": -1.3,
+        "duration": 1.3
+      }
+    },
+    {
+      "type": "attach",
+      "target": "chai",
+      "to": "bong",
+      "id": "l11_pickup_attach",
+      "sync": {
+        "line": "l11",
+        "offset": -0.75,
+        "duration": 0.25
+      }
+    },
+    {
+      "id": "l12_leave_bong_move",
+      "type": "moveTo",
+      "target": "bong",
+      "to": {
+        "x": 7,
+        "z": -1.6
+      },
+      "sync": {
+        "line": "l12",
+        "offset": 0.4,
+        "duration": 3.49
+      }
+    },
+    {
+      "id": "l12_leave_bong_walk",
+      "type": "animation",
+      "target": "bong",
+      "clip": "walk",
+      "sync": {
+        "line": "l12",
+        "offset": 0.4,
+        "duration": 3.49
+      }
+    },
+    {
+      "id": "l12_leave_tun_move",
+      "type": "moveTo",
+      "target": "tun",
+      "to": {
+        "x": 7,
+        "z": -0.7
+      },
+      "sync": {
+        "line": "l12",
+        "offset": 0.75,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l12_leave_tun_walk",
+      "type": "animation",
+      "target": "tun",
+      "clip": "walk",
+      "sync": {
+        "line": "l12",
+        "offset": 0.75,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l12_leave_mit_move",
+      "type": "moveTo",
+      "target": "mit",
+      "to": {
+        "x": 7,
+        "z": 0.2
+      },
+      "sync": {
+        "line": "l12",
+        "offset": 1.1,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l12_leave_mit_walk",
+      "type": "animation",
+      "target": "mit",
+      "clip": "walk",
+      "sync": {
+        "line": "l12",
+        "offset": 1.1,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l12_leave_bo_move",
+      "type": "moveTo",
+      "target": "bo",
+      "to": {
+        "x": 7,
+        "z": 1.1
+      },
+      "sync": {
+        "line": "l12",
+        "offset": 1.45,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l12_leave_bo_walk",
+      "type": "animation",
+      "target": "bo",
+      "clip": "walk",
+      "sync": {
+        "line": "l12",
+        "offset": 1.45,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l12_leave_ti_move",
+      "type": "moveTo",
+      "target": "ti",
+      "to": {
+        "x": 7,
+        "z": 2
+      },
+      "sync": {
+        "line": "l12",
+        "offset": 1.8,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l12_leave_ti_walk",
+      "type": "animation",
+      "target": "ti",
+      "clip": "walk",
+      "sync": {
+        "line": "l12",
+        "offset": 1.8,
+        "duration": 4
+      }
+    },
+    {
+      "id": "cam_intro",
+      "type": "camera",
+      "start": 0,
+      "duration": 3.85,
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -2.23,
+          "y": 2.27,
+          "z": -6.37
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.59,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "dolly": 0.12
+      }
+    },
+    {
+      "id": "cam_l1",
+      "type": "camera",
+      "sync": {
+        "line": "l1",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 2.27,
+          "z": -6.37
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.59,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "pan": 6
+      }
+    },
+    {
+      "id": "g_l2",
+      "type": "animation",
+      "target": "ti",
+      "clip": "wave",
+      "loop": false,
+      "sync": {
+        "line": "l2"
+      }
+    },
+    {
+      "id": "cam_l2",
+      "type": "camera",
+      "sync": {
+        "line": "l2",
+        "offset": -0.15,
+        "pad": -0.9
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.81,
+          "y": 1.21,
+          "z": -1.52
+        },
+        "lookAt": {
+          "x": -3.71,
+          "y": 0.74,
+          "z": -1.67
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l2_react",
+      "type": "camera",
+      "sync": {
+        "line": "l2",
+        "at": "end",
+        "offset": -0.9,
+        "duration": 1.2
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.9,
+          "y": 1.29,
+          "z": -2.27
+        },
+        "lookAt": {
+          "x": 1.68,
+          "y": 0.81,
+          "z": -0.67
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.05
+      }
+    },
+    {
+      "id": "g_l3",
+      "type": "animation",
+      "target": "tun",
+      "clip": "thumbsup",
+      "sync": {
+        "line": "l3"
+      }
+    },
+    {
+      "id": "cam_l3",
+      "type": "camera",
+      "sync": {
+        "line": "l3",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.9,
+          "y": 1.29,
+          "z": -2.27
+        },
+        "lookAt": {
+          "x": 1.68,
+          "y": 0.81,
+          "z": -0.67
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "e_l4",
+      "type": "animation",
+      "target": "bong",
+      "clip": "talk",
+      "sync": {
+        "line": "l4"
+      }
+    },
+    {
+      "id": "cam_l4_v",
+      "type": "camera",
+      "sync": {
+        "line": "l4_v",
+        "offset": -0.15,
+        "pad": -0.03
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.66,
+          "y": 1.8,
+          "z": -0.67
+        },
+        "lookAt": {
+          "x": 4,
+          "y": 0.79,
+          "z": -1.6
+        },
+        "fov": 42
+      }
+    },
+    {
+      "id": "cam_l4",
+      "type": "camera",
+      "sync": {
+        "line": "l4",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.66,
+          "y": 1.8,
+          "z": -0.67
+        },
+        "lookAt": {
+          "x": 4,
+          "y": 0.79,
+          "z": -1.6
+        },
+        "fov": 42
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "e_l5",
+      "type": "animation",
+      "target": "bo",
+      "clip": "talk",
+      "sync": {
+        "line": "l5"
+      }
+    },
+    {
+      "id": "cam_l5_v",
+      "type": "camera",
+      "sync": {
+        "line": "l5_v",
+        "offset": -0.15,
+        "pad": -0.03
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.66,
+          "y": 1.17,
+          "z": -2.09
+        },
+        "lookAt": {
+          "x": -1.82,
+          "y": 0.71,
+          "z": -0.69
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "cam_l5",
+      "type": "camera",
+      "sync": {
+        "line": "l5",
+        "offset": -0.15,
+        "pad": -0.9
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.66,
+          "y": 1.17,
+          "z": -2.09
+        },
+        "lookAt": {
+          "x": -1.82,
+          "y": 0.71,
+          "z": -0.69
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l5_react",
+      "type": "camera",
+      "sync": {
+        "line": "l5",
+        "at": "end",
+        "offset": -0.9,
+        "duration": 1.2
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.7,
+          "y": 1.27,
+          "z": -1.52
+        },
+        "lookAt": {
+          "x": 3.69,
+          "y": 0.79,
+          "z": -1.67
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.05
+      }
+    },
+    {
+      "id": "cam_l6",
+      "type": "camera",
+      "sync": {
+        "line": "l6",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 2.23,
+          "y": 2.27,
+          "z": -6.37
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.59,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "pan": -6
+      }
+    },
+    {
+      "id": "g_l7",
+      "type": "animation",
+      "target": "bong",
+      "clip": "no",
+      "sync": {
+        "line": "l7"
+      }
+    },
+    {
+      "id": "cam_l7_v",
+      "type": "camera",
+      "sync": {
+        "line": "l7_v",
+        "offset": -0.15,
+        "pad": -0.03
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.7,
+          "y": 1.27,
+          "z": -1.52
+        },
+        "lookAt": {
+          "x": 3.69,
+          "y": 0.79,
+          "z": -1.67
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "cam_l7",
+      "type": "camera",
+      "sync": {
+        "line": "l7",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.7,
+          "y": 1.27,
+          "z": -1.52
+        },
+        "lookAt": {
+          "x": 3.69,
+          "y": 0.79,
+          "z": -1.67
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "g_l8",
+      "type": "animation",
+      "target": "bo",
+      "clip": "shrug",
+      "sync": {
+        "line": "l8"
+      }
+    },
+    {
+      "id": "cam_l8",
+      "type": "camera",
+      "sync": {
+        "line": "l8",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.66,
+          "y": 1.17,
+          "z": -2.09
+        },
+        "lookAt": {
+          "x": -1.82,
+          "y": 0.71,
+          "z": -0.69
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "e_l9",
+      "type": "animation",
+      "target": "mit",
+      "clip": "idle_sad",
+      "sync": {
+        "line": "l9"
+      }
+    },
+    {
+      "id": "cam_l9_v",
+      "type": "camera",
+      "sync": {
+        "line": "l9_v",
+        "offset": -0.15,
+        "pad": -0.03
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.83,
+          "y": 1.54,
+          "z": -4.29
+        },
+        "lookAt": {
+          "x": -1.82,
+          "y": 0.55,
+          "z": -0.99
+        },
+        "fov": 46
+      }
+    },
+    {
+      "id": "cam_l9",
+      "type": "camera",
+      "sync": {
+        "line": "l9",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.83,
+          "y": 1.54,
+          "z": -4.29
+        },
+        "lookAt": {
+          "x": -1.82,
+          "y": 0.55,
+          "z": -0.99
+        },
+        "fov": 46
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "e_l10",
+      "type": "animation",
+      "target": "ti",
+      "clip": "surprised",
+      "sync": {
+        "line": "l10"
+      }
+    },
+    {
+      "id": "cam_l10",
+      "type": "camera",
+      "sync": {
+        "line": "l10",
+        "offset": -0.15,
+        "pad": -0.9
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 3.1,
+          "y": 1.57,
+          "z": -0.61
+        },
+        "lookAt": {
+          "x": -4,
+          "y": 0.74,
+          "z": -1.6
+        },
+        "fov": 42
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l10_react",
+      "type": "camera",
+      "sync": {
+        "line": "l10",
+        "at": "end",
+        "offset": -0.9,
+        "duration": 1.2
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.41,
+          "y": 1.17,
+          "z": -3.16
+        },
+        "lookAt": {
+          "x": -1.82,
+          "y": 0.71,
+          "z": -0.69
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.05
+      }
+    },
+    {
+      "id": "e_l11",
+      "type": "animation",
+      "target": "bong",
+      "clip": "talk",
+      "sync": {
+        "line": "l11"
+      }
+    },
+    {
+      "id": "cam_l11",
+      "type": "camera",
+      "sync": {
+        "line": "l11",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.02,
+          "y": 1.69,
+          "z": -4.93
+        },
+        "lookAt": {
+          "x": -1.22,
+          "y": 0.64,
+          "z": -0.93
+        },
+        "fov": 46
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_end",
+      "type": "camera",
+      "sync": {
+        "line": "l12",
+        "offset": -0.15,
+        "pad": 30
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 2.27,
+          "z": -6.37
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.59,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "blend": 1.2,
+      "move": {
+        "dolly": -0.1,
+        "rise": 0.4
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "ti_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "start": 0,
+      "duration": 3.4,
+      "loop": true,
+      "volume": 0.32,
+      "fadeOut": 0.15
+    },
+    {
+      "id": "bo_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "start": 0.25,
+      "duration": 3.15,
+      "loop": true,
+      "volume": 0.31,
+      "fadeOut": 0.15
+    },
+    {
+      "id": "mit_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "start": 0.5,
+      "duration": 2.9,
+      "loop": true,
+      "volume": 0.3,
+      "fadeOut": 0.15
+    },
+    {
+      "id": "tun_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "start": 0.75,
+      "duration": 2.65,
+      "loop": true,
+      "volume": 0.34,
+      "fadeOut": 0.15
+    },
+    {
+      "id": "bong_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "start": 1,
+      "duration": 2.4,
+      "loop": true,
+      "volume": 0.33,
+      "fadeOut": 0.15
+    },
+    {
+      "id": "sfx_l4_play_0",
+      "kind": "sfx",
+      "asset": "sfx_boing",
+      "volume": 0.3,
+      "sync": {
+        "line": "l4_v",
+        "at": "start",
+        "offset": -1
+      }
+    },
+    {
+      "id": "sfx_l4_play_1",
+      "kind": "sfx",
+      "asset": "sfx_swish",
+      "volume": 0.35,
+      "sync": {
+        "line": "l4_v",
+        "at": "start",
+        "offset": -10.88
+      }
+    },
+    {
+      "id": "l4_play_bong_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 8.37,
+      "volume": 0.33,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l4_v",
+        "at": "start",
+        "offset": -10.93
+      }
+    },
+    {
+      "id": "sfx_l6_drop_0",
+      "kind": "sfx",
+      "asset": "sfx_thud_1",
+      "volume": 0.5,
+      "sync": {
+        "line": "l6",
+        "at": "start",
+        "offset": -0.85
+      }
+    },
+    {
+      "id": "l9_trip_back_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.76,
+      "volume": 0.3,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l9",
+        "at": "end",
+        "offset": 0.5
+      }
+    },
+    {
+      "id": "l9_trip_back1_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 3.91,
+      "volume": 0.3,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l9",
+        "at": "end",
+        "offset": 1.26
+      }
+    },
+    {
+      "id": "sfx_l9_trip_0",
+      "kind": "sfx",
+      "asset": "sfx_slide_down",
+      "volume": 0.3,
+      "sync": {
+        "line": "l9_v",
+        "at": "start",
+        "offset": -1.28
+      }
+    },
+    {
+      "id": "sfx_l9_trip_1",
+      "kind": "sfx",
+      "asset": "sfx_thud_2",
+      "volume": 0.6,
+      "sync": {
+        "line": "l9_v",
+        "at": "start",
+        "offset": -0.94
+      }
+    },
+    {
+      "id": "sfx_l9_trip_2",
+      "kind": "sfx",
+      "asset": "sfx_oops",
+      "volume": 0.7,
+      "sync": {
+        "line": "l9_v",
+        "at": "start",
+        "offset": -0.83
+      }
+    },
+    {
+      "id": "l9_trip_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 1.01,
+      "volume": 0.3,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l9_v",
+        "at": "start",
+        "offset": -2.29
+      }
+    },
+    {
+      "id": "l11_pickup_back_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 4,
+      "volume": 0.33,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l11",
+        "at": "end",
+        "offset": 0.5
+      }
+    },
+    {
+      "id": "sfx_l11_pickup_0",
+      "kind": "sfx",
+      "asset": "sfx_cloth_3",
+      "volume": 0.55,
+      "sync": {
+        "line": "l11",
+        "at": "start",
+        "offset": -0.75
+      }
+    },
+    {
+      "id": "sfx_l11_pickup_1",
+      "kind": "sfx",
+      "asset": "sfx_pop",
+      "volume": 0.3,
+      "sync": {
+        "line": "l11",
+        "at": "start",
+        "offset": -0.7
+      }
+    },
+    {
+      "id": "l11_pickup_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 4,
+      "volume": 0.33,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l11",
+        "at": "start",
+        "offset": -5.6
+      }
+    },
+    {
+      "id": "l12_leave_bong_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 3.49,
+      "volume": 0.33,
+      "fadeOut": 0.3,
+      "sync": {
+        "line": "l12",
+        "at": "start",
+        "offset": 0.4
+      }
+    },
+    {
+      "id": "l12_leave_tun_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 4,
+      "volume": 0.34,
+      "fadeOut": 0.3,
+      "sync": {
+        "line": "l12",
+        "at": "start",
+        "offset": 0.75
+      }
+    },
+    {
+      "id": "l12_leave_mit_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 4,
+      "volume": 0.3,
+      "fadeOut": 0.3,
+      "sync": {
+        "line": "l12",
+        "at": "start",
+        "offset": 1.1
+      }
+    },
+    {
+      "id": "l12_leave_bo_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 4,
+      "volume": 0.31,
+      "fadeOut": 0.3,
+      "sync": {
+        "line": "l12",
+        "at": "start",
+        "offset": 1.45
+      }
+    },
+    {
+      "id": "l12_leave_ti_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 4,
+      "volume": 0.32,
+      "fadeOut": 0.3,
+      "sync": {
+        "line": "l12",
+        "at": "start",
+        "offset": 1.8
+      }
+    },
+    {
+      "id": "sfx_spark_l7",
+      "kind": "sfx",
+      "asset": "sfx_sparkle",
+      "volume": 0.28,
+      "sync": {
+        "line": "l7_v",
+        "at": "start",
+        "offset": -0.05
+      }
+    },
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_playful",
+      "start": 0,
+      "loop": true,
+      "volume": 0.3,
+      "fadeIn": 0.8,
+      "fadeOut": 1.2
+    },
+    {
+      "id": "amb",
+      "kind": "sfx",
+      "asset": "amb_park",
+      "start": 0,
+      "loop": true,
+      "volume": 0.35,
+      "fadeIn": 1,
+      "fadeOut": 1
+    }
+  ]
+}

@@ -1,0 +1,1579 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Bông Hoa Tặng Mẹ",
+    "duration": "auto",
+    "tail": 5.3,
+    "fps": 25,
+    "width": 1920,
+    "height": 1080
+  },
+  "environment": {
+    "asset": "env_park",
+    "background": "#f3dcc0",
+    "fog": {
+      "color": "#f3dcc0",
+      "near": 28,
+      "far": 80
+    },
+    "lighting": {
+      "preset": "morning"
+    },
+    "effects": [
+      "petals"
+    ]
+  },
+  "characters": [
+    {
+      "id": "lan",
+      "name": "Lan",
+      "asset": "char_q_casual_female",
+      "position": {
+        "x": -2.32,
+        "y": 0,
+        "z": -0.65
+      },
+      "heading": 128.58,
+      "voice": "voice_vi_cute"
+    },
+    {
+      "id": "me",
+      "name": "Mẹ",
+      "asset": "char_h_female_casual",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "heading": 180,
+      "voice": "voice_vi_soft"
+    },
+    {
+      "id": "minh",
+      "name": "Minh",
+      "asset": "char_q_casual_male",
+      "position": {
+        "x": 2.32,
+        "y": 0,
+        "z": -0.65
+      },
+      "heading": -128.58,
+      "voice": "voice_vi_child"
+    }
+  ],
+  "props": [
+    {
+      "id": "hoa",
+      "asset": "prop_kn_flower_red_a",
+      "position": {
+        "x": -3.62,
+        "y": 0,
+        "z": -1
+      },
+      "heading": 0,
+      "scale": 0.6
+    },
+    {
+      "id": "hoa_c0",
+      "asset": "prop_kn_flower_yellow_a",
+      "position": {
+        "x": -3.92,
+        "y": 0,
+        "z": -0.79
+      },
+      "heading": 15,
+      "scale": 0.6
+    },
+    {
+      "id": "hoa_c1",
+      "asset": "prop_kn_flower_purple_a",
+      "position": {
+        "x": -3.35,
+        "y": 0,
+        "z": -0.73
+      },
+      "heading": 75,
+      "scale": 0.6
+    },
+    {
+      "id": "hoa_c2",
+      "asset": "prop_kn_flower_red_b",
+      "position": {
+        "x": -3.68,
+        "y": 0,
+        "z": -0.58
+      },
+      "heading": 135,
+      "scale": 0.6
+    }
+  ],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": -1.84,
+      "y": 2.05,
+      "z": -5.25
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 0.74,
+      "z": -0.4
+    },
+    "fov": 50
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": true
+  },
+  "titles": [
+    {
+      "kind": "title",
+      "text": "Bông Hoa Tặng Mẹ",
+      "start": 0.3,
+      "duration": 3
+    },
+    {
+      "kind": "credits",
+      "text": "Hết",
+      "lines": [
+        "Bông Hoa Tặng Mẹ",
+        "Nhân vật:",
+        "Lan · Minh · Mẹ",
+        "Thực hiện bằng AutoCartoon"
+      ],
+      "at": "end",
+      "duration": 4.5
+    }
+  ],
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l1",
+      "voice": "voice_vi_soft",
+      "text": "Sáng nay, Lan và Minh cùng mẹ ra công viên chơi.",
+      "start": 3.6
+    },
+    {
+      "id": "l2_v",
+      "speaker": "lan",
+      "to": "minh",
+      "emotion": "surprised",
+      "pan": 0.18,
+      "text": "Oa!",
+      "subtitle": false,
+      "start": {
+        "after": "l1",
+        "gap": 2.29
+      }
+    },
+    {
+      "id": "l2",
+      "speaker": "lan",
+      "to": "minh",
+      "emotion": "surprised",
+      "pan": 0.18,
+      "text": "Bông hoa đỏ kia đẹp quá, mình hái tặng mẹ nhé!",
+      "start": {
+        "after": "l2_v",
+        "gap": 0.12
+      }
+    },
+    {
+      "id": "l3",
+      "speaker": "minh",
+      "to": "lan",
+      "emotion": "happy",
+      "pan": 0.1,
+      "text": "Ý hay đấy, mẹ chắc chắn sẽ vui lắm cho mà xem!",
+      "start": {
+        "after": "l2",
+        "gap": 1.5
+      }
+    },
+    {
+      "id": "l4_v",
+      "speaker": "lan",
+      "to": "minh",
+      "emotion": "happy",
+      "pan": 0.15,
+      "text": "Yeah!",
+      "subtitle": false,
+      "start": {
+        "after": "l3",
+        "gap": 2.95
+      }
+    },
+    {
+      "id": "l4",
+      "speaker": "lan",
+      "to": "minh",
+      "emotion": "happy",
+      "pan": 0.15,
+      "text": "Đập tay nào!",
+      "start": {
+        "after": "l4_v",
+        "gap": 0.12
+      }
+    },
+    {
+      "id": "l5",
+      "speaker": "lan",
+      "to": "me",
+      "emotion": "happy",
+      "pan": 0.04,
+      "text": "Mẹ ơi, con tặng mẹ bông hoa này ạ!",
+      "start": {
+        "after": "l4",
+        "gap": 4.02
+      }
+    },
+    {
+      "id": "l6_v",
+      "speaker": "me",
+      "to": "lan",
+      "emotion": "happy",
+      "pan": 0.01,
+      "text": "Hi hi hi!",
+      "subtitle": false,
+      "start": {
+        "after": "l5",
+        "gap": 3.25
+      }
+    },
+    {
+      "id": "l6",
+      "speaker": "me",
+      "to": "lan",
+      "emotion": "happy",
+      "pan": 0.01,
+      "text": "Cảm ơn con yêu, mẹ vui lắm!",
+      "start": {
+        "after": "l6_v",
+        "gap": 0.12
+      }
+    },
+    {
+      "id": "l7",
+      "voice": "voice_vi_soft",
+      "text": "Món quà nhỏ làm cả nhà thật hạnh phúc.",
+      "start": {
+        "after": "l6",
+        "gap": 1.05
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "cam_l2_pickup_insert",
+      "type": "camera",
+      "sync": {
+        "line": "l2_v",
+        "offset": -1.84,
+        "duration": 1.69
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -2.82,
+          "y": 1.03,
+          "z": -2.78
+        },
+        "lookAt": {
+          "x": -3.62,
+          "y": 0.41,
+          "z": -1
+        },
+        "fov": 38
+      },
+      "move": {
+        "dolly": 0.08
+      }
+    },
+    {
+      "id": "l2_pickup_settle",
+      "type": "turn",
+      "target": "lan",
+      "heading": 121.39,
+      "sync": {
+        "line": "l2",
+        "at": "end",
+        "offset": 0.2,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l2_pickup_go_walk",
+      "type": "animation",
+      "target": "lan",
+      "clip": "walk",
+      "sync": {
+        "line": "l2_v",
+        "offset": -2.2,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l2_pickup_go_move",
+      "type": "moveTo",
+      "target": "lan",
+      "to": {
+        "x": -2.81,
+        "z": -0.78
+      },
+      "sync": {
+        "line": "l2_v",
+        "offset": -2.2,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l2_pickup_face",
+      "type": "turn",
+      "target": "lan",
+      "heading": -105.07,
+      "sync": {
+        "line": "l2_v",
+        "offset": -1.6,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l2_pickup_pick",
+      "type": "animation",
+      "target": "lan",
+      "clip": "PickUp",
+      "loop": false,
+      "sync": {
+        "line": "l2_v",
+        "offset": -1.3,
+        "duration": 1.3
+      }
+    },
+    {
+      "type": "attach",
+      "target": "hoa",
+      "to": "lan",
+      "id": "l2_pickup_attach",
+      "sync": {
+        "line": "l2_v",
+        "offset": -0.75,
+        "duration": 0.25
+      }
+    },
+    {
+      "id": "l3_walk_rback",
+      "type": "turn",
+      "target": "lan",
+      "heading": 121.39,
+      "sync": {
+        "line": "l3",
+        "at": "end",
+        "offset": 0.2,
+        "duration": 0.35
+      }
+    },
+    {
+      "id": "l3_walk_settle",
+      "type": "turn",
+      "target": "minh",
+      "heading": 137.24,
+      "sync": {
+        "line": "l3",
+        "at": "end",
+        "offset": 0.2,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l3_walk_go_walk",
+      "type": "animation",
+      "target": "minh",
+      "clip": "walk",
+      "sync": {
+        "line": "l3",
+        "offset": -1.45,
+        "duration": 1.93
+      }
+    },
+    {
+      "id": "l3_walk_go_move",
+      "type": "moveTo",
+      "target": "minh",
+      "to": {
+        "x": 0.03,
+        "z": -1.02
+      },
+      "sync": {
+        "line": "l3",
+        "offset": -1.45,
+        "duration": 1.93
+      }
+    },
+    {
+      "id": "l3_walk_go1_walk",
+      "type": "animation",
+      "target": "minh",
+      "clip": "walk",
+      "sync": {
+        "line": "l3",
+        "offset": 0.48,
+        "duration": 1.39
+      }
+    },
+    {
+      "id": "l3_walk_go1_move",
+      "type": "moveTo",
+      "target": "minh",
+      "to": {
+        "x": -1.62,
+        "z": -0.75
+      },
+      "sync": {
+        "line": "l3",
+        "offset": 0.48,
+        "duration": 1.39
+      }
+    },
+    {
+      "id": "l3_walk_face",
+      "type": "turn",
+      "target": "minh",
+      "heading": -91.45,
+      "sync": {
+        "line": "l3",
+        "offset": 1.87,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l3_walk_rface",
+      "type": "turn",
+      "target": "lan",
+      "heading": 88.55,
+      "sync": {
+        "line": "l3",
+        "offset": 1.47,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "cam_l4_highfive",
+      "type": "camera",
+      "sync": {
+        "line": "l4_v",
+        "offset": -1.9,
+        "duration": 0.6
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "lan",
+        "offset": {
+          "x": 1.63,
+          "y": 1.8,
+          "z": -4.3
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.52,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "cam_l4_highfive_two",
+      "type": "camera",
+      "sync": {
+        "line": "l4_v",
+        "offset": -1.3,
+        "duration": 1.15
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.94,
+          "y": 1.43,
+          "z": -4.34
+        },
+        "lookAt": {
+          "x": -2.03,
+          "y": 0.65,
+          "z": -0.76
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.05
+      }
+    },
+    {
+      "id": "l4_highfive_rback",
+      "type": "turn",
+      "target": "minh",
+      "heading": 137.24,
+      "sync": {
+        "line": "l4",
+        "at": "end",
+        "offset": 0.2,
+        "duration": 0.35
+      }
+    },
+    {
+      "id": "l4_highfive_go_walk",
+      "type": "animation",
+      "target": "lan",
+      "clip": "walk",
+      "sync": {
+        "line": "l4_v",
+        "offset": -1.9,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l4_highfive_go_move",
+      "type": "moveTo",
+      "target": "lan",
+      "to": {
+        "x": -2.43,
+        "z": -0.77
+      },
+      "sync": {
+        "line": "l4_v",
+        "offset": -1.9,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l4_highfive_face",
+      "type": "turn",
+      "target": "lan",
+      "heading": 88.56,
+      "sync": {
+        "line": "l4_v",
+        "offset": -1.3,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l4_highfive_rface",
+      "type": "turn",
+      "target": "minh",
+      "heading": -91.44,
+      "sync": {
+        "line": "l4_v",
+        "offset": -1.7,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l4_highfive_arms",
+      "type": "pose",
+      "target": "lan",
+      "pose": "highfive",
+      "sync": {
+        "line": "l4_v",
+        "offset": -1.2,
+        "duration": 1.3
+      }
+    },
+    {
+      "id": "l4_highfive_rarms",
+      "type": "pose",
+      "target": "minh",
+      "pose": "highfive",
+      "sync": {
+        "line": "l4_v",
+        "offset": -1.2,
+        "duration": 1.3
+      }
+    },
+    {
+      "id": "l4_highfive_hi5",
+      "type": "jump",
+      "target": "lan",
+      "height": 0.29,
+      "sync": {
+        "line": "l4_v",
+        "offset": -0.9,
+        "duration": 0.5
+      }
+    },
+    {
+      "id": "l4_highfive_rhi5",
+      "type": "jump",
+      "target": "minh",
+      "height": 0.29,
+      "sync": {
+        "line": "l4_v",
+        "offset": -0.9,
+        "duration": 0.5
+      }
+    },
+    {
+      "id": "cam_l5_give",
+      "type": "camera",
+      "sync": {
+        "line": "l5",
+        "offset": -3.57,
+        "duration": 1.97
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "lan",
+        "offset": {
+          "x": 2.76,
+          "y": 1.8,
+          "z": -3.68
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.52,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "cam_l5_give_insert",
+      "type": "camera",
+      "sync": {
+        "line": "l5",
+        "offset": -1.6,
+        "duration": 1.45
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.35,
+          "y": 1.09,
+          "z": -2.24
+        },
+        "lookAt": {
+          "x": -0.33,
+          "y": 0.66,
+          "z": -0.1
+        },
+        "fov": 40
+      },
+      "move": {
+        "dolly": 0.08
+      }
+    },
+    {
+      "id": "l5_give_rback",
+      "type": "turn",
+      "target": "me",
+      "heading": 180,
+      "sync": {
+        "line": "l5",
+        "at": "end",
+        "offset": 0.2,
+        "duration": 0.35
+      }
+    },
+    {
+      "id": "l5_give_settle",
+      "type": "turn",
+      "target": "lan",
+      "heading": 164.13,
+      "sync": {
+        "line": "l5",
+        "at": "end",
+        "offset": 0.2,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l5_give_go_walk",
+      "type": "animation",
+      "target": "lan",
+      "clip": "walk",
+      "sync": {
+        "line": "l5",
+        "offset": -3.57,
+        "duration": 0.87
+      }
+    },
+    {
+      "id": "l5_give_go_move",
+      "type": "moveTo",
+      "target": "lan",
+      "to": {
+        "x": -1.9,
+        "z": 0.13
+      },
+      "sync": {
+        "line": "l5",
+        "offset": -3.57,
+        "duration": 0.87
+      }
+    },
+    {
+      "id": "l5_give_go1_walk",
+      "type": "animation",
+      "target": "lan",
+      "clip": "walk",
+      "sync": {
+        "line": "l5",
+        "offset": -2.7,
+        "duration": 0.43
+      }
+    },
+    {
+      "id": "l5_give_go1_move",
+      "type": "moveTo",
+      "target": "lan",
+      "to": {
+        "x": -1.38,
+        "z": 0.14
+      },
+      "sync": {
+        "line": "l5",
+        "offset": -2.7,
+        "duration": 0.43
+      }
+    },
+    {
+      "id": "l5_give_go2_walk",
+      "type": "animation",
+      "target": "lan",
+      "clip": "walk",
+      "sync": {
+        "line": "l5",
+        "offset": -2.27,
+        "duration": 0.67
+      }
+    },
+    {
+      "id": "l5_give_go2_move",
+      "type": "moveTo",
+      "target": "lan",
+      "to": {
+        "x": -0.65,
+        "z": -0.21
+      },
+      "sync": {
+        "line": "l5",
+        "offset": -2.27,
+        "duration": 0.67
+      }
+    },
+    {
+      "id": "l5_give_face",
+      "type": "turn",
+      "target": "lan",
+      "heading": 72.42,
+      "sync": {
+        "line": "l5",
+        "offset": -1.6,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l5_give_rface",
+      "type": "turn",
+      "target": "me",
+      "heading": -107.58,
+      "sync": {
+        "line": "l5",
+        "offset": -2,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l5_give_offer",
+      "type": "animation",
+      "target": "lan",
+      "clip": "thumbsup",
+      "loop": false,
+      "sync": {
+        "line": "l5",
+        "offset": -1.3,
+        "duration": 1.3
+      }
+    },
+    {
+      "id": "l5_give_arms",
+      "type": "pose",
+      "target": "lan",
+      "pose": "reach",
+      "sync": {
+        "line": "l5",
+        "offset": -1.5,
+        "duration": 1.25
+      }
+    },
+    {
+      "id": "l5_give_rarms",
+      "type": "pose",
+      "target": "me",
+      "pose": "reach",
+      "sync": {
+        "line": "l5",
+        "offset": -1.2,
+        "duration": 0.95
+      }
+    },
+    {
+      "type": "attach",
+      "target": "hoa",
+      "to": "me",
+      "id": "l5_give_attach",
+      "sync": {
+        "line": "l5",
+        "offset": -0.75,
+        "duration": 0.25
+      }
+    },
+    {
+      "id": "l5_give_thanks",
+      "type": "animation",
+      "target": "me",
+      "clip": "thumbsup",
+      "loop": false,
+      "sync": {
+        "line": "l5",
+        "offset": -0.65,
+        "duration": 1.1
+      }
+    },
+    {
+      "id": "cam_l6_hug",
+      "type": "camera",
+      "sync": {
+        "line": "l6_v",
+        "offset": -2.2,
+        "duration": 0.6
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "me",
+        "offset": {
+          "x": -2.45,
+          "y": 2.15,
+          "z": -4.97
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.66,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "cam_l6_hug_two",
+      "type": "camera",
+      "sync": {
+        "line": "l6_v",
+        "offset": -1.6,
+        "duration": 1.45
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.81,
+          "y": 1.69,
+          "z": -3.82
+        },
+        "lookAt": {
+          "x": -0.38,
+          "y": 0.83,
+          "z": -0.12
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.05
+      }
+    },
+    {
+      "id": "l6_hug_rback",
+      "type": "turn",
+      "target": "lan",
+      "heading": 164.13,
+      "sync": {
+        "line": "l6",
+        "at": "end",
+        "offset": 0.2,
+        "duration": 0.35
+      }
+    },
+    {
+      "id": "l6_hug_settle",
+      "type": "turn",
+      "target": "me",
+      "heading": 177.37,
+      "sync": {
+        "line": "l6",
+        "at": "end",
+        "offset": 0.2,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l6_hug_go_walk",
+      "type": "animation",
+      "target": "me",
+      "clip": "walk",
+      "sync": {
+        "line": "l6_v",
+        "offset": -2.2,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l6_hug_go_move",
+      "type": "moveTo",
+      "target": "me",
+      "to": {
+        "x": -0.11,
+        "z": -0.04
+      },
+      "sync": {
+        "line": "l6_v",
+        "offset": -2.2,
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "l6_hug_face",
+      "type": "turn",
+      "target": "me",
+      "heading": -107.9,
+      "sync": {
+        "line": "l6_v",
+        "offset": -1.6,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l6_hug_rface",
+      "type": "turn",
+      "target": "lan",
+      "heading": 72.1,
+      "sync": {
+        "line": "l6_v",
+        "offset": -2,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l6_hug_arms",
+      "type": "pose",
+      "target": "me",
+      "pose": "hug",
+      "sync": {
+        "line": "l6_v",
+        "offset": -1.55,
+        "duration": 1.75
+      }
+    },
+    {
+      "id": "l6_hug_rarms",
+      "type": "pose",
+      "target": "lan",
+      "pose": "hug",
+      "sync": {
+        "line": "l6_v",
+        "offset": -1.45,
+        "duration": 1.65
+      }
+    },
+    {
+      "id": "l6_hug_hug0",
+      "type": "jump",
+      "target": "me",
+      "height": 0.12,
+      "sync": {
+        "line": "l6_v",
+        "offset": -1.15,
+        "duration": 0.38
+      }
+    },
+    {
+      "id": "l6_hug_rhug0",
+      "type": "jump",
+      "target": "lan",
+      "height": 0.09,
+      "sync": {
+        "line": "l6_v",
+        "offset": -1.1,
+        "duration": 0.38
+      }
+    },
+    {
+      "id": "l6_hug_hug1",
+      "type": "jump",
+      "target": "me",
+      "height": 0.12,
+      "sync": {
+        "line": "l6_v",
+        "offset": -0.7,
+        "duration": 0.38
+      }
+    },
+    {
+      "id": "l6_hug_rhug1",
+      "type": "jump",
+      "target": "lan",
+      "height": 0.09,
+      "sync": {
+        "line": "l6_v",
+        "offset": -0.65,
+        "duration": 0.38
+      }
+    },
+    {
+      "id": "cam_intro",
+      "type": "camera",
+      "start": 0,
+      "duration": 3.45,
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.84,
+          "y": 2.05,
+          "z": -5.25
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.74,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "dolly": 0.12
+      }
+    },
+    {
+      "id": "cam_l1",
+      "type": "camera",
+      "sync": {
+        "line": "l1",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 2.05,
+          "z": -5.25
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.74,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "pan": 6
+      }
+    },
+    {
+      "id": "cam_l2_v",
+      "type": "camera",
+      "sync": {
+        "line": "l2_v",
+        "offset": -0.15,
+        "pad": -0.03
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -2,
+          "y": 1.72,
+          "z": -4.94
+        },
+        "lookAt": {
+          "x": -3.21,
+          "y": 0.65,
+          "z": -0.89
+        },
+        "fov": 46
+      }
+    },
+    {
+      "id": "cam_l2",
+      "type": "camera",
+      "sync": {
+        "line": "l2",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -2,
+          "y": 1.72,
+          "z": -4.94
+        },
+        "lookAt": {
+          "x": -3.21,
+          "y": 0.65,
+          "z": -0.89
+        },
+        "fov": 46
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l3",
+      "type": "camera",
+      "sync": {
+        "line": "l3",
+        "offset": -0.45,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.86,
+          "y": 1.72,
+          "z": -5.27
+        },
+        "lookAt": {
+          "x": -2.21,
+          "y": 0.65,
+          "z": -0.76
+        },
+        "fov": 46
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l4_v",
+      "type": "camera",
+      "sync": {
+        "line": "l4_v",
+        "offset": -0.15,
+        "pad": -0.03
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.82,
+          "y": 1.72,
+          "z": -4.77
+        },
+        "lookAt": {
+          "x": -2.03,
+          "y": 0.65,
+          "z": -0.76
+        },
+        "fov": 46
+      }
+    },
+    {
+      "id": "cam_l4",
+      "type": "camera",
+      "sync": {
+        "line": "l4",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.82,
+          "y": 1.72,
+          "z": -4.77
+        },
+        "lookAt": {
+          "x": -2.03,
+          "y": 0.65,
+          "z": -0.76
+        },
+        "fov": 46
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l5",
+      "type": "camera",
+      "sync": {
+        "line": "l5",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.83,
+          "y": 1.72,
+          "z": -3.95
+        },
+        "lookAt": {
+          "x": -0.32,
+          "y": 0.65,
+          "z": -0.1
+        },
+        "fov": 46
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l6_v",
+      "type": "camera",
+      "sync": {
+        "line": "l6_v",
+        "offset": -0.15,
+        "pad": -0.03
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.61,
+          "y": 2.04,
+          "z": -4.24
+        },
+        "lookAt": {
+          "x": -0.38,
+          "y": 0.83,
+          "z": -0.12
+        },
+        "fov": 46
+      }
+    },
+    {
+      "id": "cam_l6",
+      "type": "camera",
+      "sync": {
+        "line": "l6",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.61,
+          "y": 2.04,
+          "z": -4.24
+        },
+        "lookAt": {
+          "x": -0.38,
+          "y": 0.83,
+          "z": -0.12
+        },
+        "fov": 46
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_end",
+      "type": "camera",
+      "sync": {
+        "line": "l7",
+        "offset": -0.15,
+        "pad": 30
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 2.05,
+          "z": -5.25
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.74,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "blend": 1.2,
+      "move": {
+        "dolly": -0.1,
+        "rise": 0.4
+      }
+    },
+    {
+      "id": "end_lan",
+      "type": "animation",
+      "target": "lan",
+      "clip": "wave",
+      "loop": false,
+      "sync": {
+        "line": "l7",
+        "offset": -0.3,
+        "pad": 2
+      }
+    },
+    {
+      "id": "end_me",
+      "type": "animation",
+      "target": "me",
+      "clip": "wave",
+      "loop": false,
+      "sync": {
+        "line": "l7",
+        "offset": -0.3,
+        "pad": 2
+      }
+    },
+    {
+      "id": "end_minh",
+      "type": "animation",
+      "target": "minh",
+      "clip": "wave",
+      "loop": false,
+      "sync": {
+        "line": "l7",
+        "offset": -0.3,
+        "pad": 2
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "sfx_l2_pickup_0",
+      "kind": "sfx",
+      "asset": "sfx_pluck_0",
+      "volume": 0.55,
+      "sync": {
+        "line": "l2_v",
+        "at": "start",
+        "offset": -0.75
+      }
+    },
+    {
+      "id": "sfx_l2_pickup_1",
+      "kind": "sfx",
+      "asset": "sfx_pop",
+      "volume": 0.3,
+      "sync": {
+        "line": "l2_v",
+        "at": "start",
+        "offset": -0.7
+      }
+    },
+    {
+      "id": "l2_pickup_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.6,
+      "volume": 0.34,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l2_v",
+        "at": "start",
+        "offset": -2.2
+      }
+    },
+    {
+      "id": "l3_walk_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 1.93,
+      "volume": 0.34,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l3",
+        "at": "start",
+        "offset": -1.45
+      }
+    },
+    {
+      "id": "l3_walk_go1_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 1.39,
+      "volume": 0.34,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l3",
+        "at": "start",
+        "offset": 0.48
+      }
+    },
+    {
+      "id": "sfx_l4_highfive_0",
+      "kind": "sfx",
+      "asset": "sfx_confirm",
+      "volume": 0.5,
+      "sync": {
+        "line": "l4_v",
+        "at": "start",
+        "offset": -0.65
+      }
+    },
+    {
+      "id": "l4_highfive_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.6,
+      "volume": 0.34,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l4_v",
+        "at": "start",
+        "offset": -1.9
+      }
+    },
+    {
+      "id": "sfx_l5_give_0",
+      "kind": "sfx",
+      "asset": "sfx_cloth_3",
+      "volume": 0.45,
+      "sync": {
+        "line": "l5",
+        "at": "start",
+        "offset": -0.75
+      }
+    },
+    {
+      "id": "sfx_l5_give_1",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "volume": 0.35,
+      "sync": {
+        "line": "l5",
+        "at": "start",
+        "offset": -0.6
+      }
+    },
+    {
+      "id": "l5_give_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.87,
+      "volume": 0.34,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l5",
+        "at": "start",
+        "offset": -3.57
+      }
+    },
+    {
+      "id": "l5_give_go1_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.43,
+      "volume": 0.34,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l5",
+        "at": "start",
+        "offset": -2.7
+      }
+    },
+    {
+      "id": "l5_give_go2_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.67,
+      "volume": 0.34,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l5",
+        "at": "start",
+        "offset": -2.27
+      }
+    },
+    {
+      "id": "sfx_l6_hug_0",
+      "kind": "sfx",
+      "asset": "sfx_cloth_0",
+      "volume": 0.5,
+      "sync": {
+        "line": "l6_v",
+        "at": "start",
+        "offset": -1.1
+      }
+    },
+    {
+      "id": "sfx_l6_hug_1",
+      "kind": "sfx",
+      "asset": "sfx_twinkle",
+      "volume": 0.3,
+      "sync": {
+        "line": "l6_v",
+        "at": "start",
+        "offset": -0.95
+      }
+    },
+    {
+      "id": "l6_hug_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 0.6,
+      "volume": 0.41,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l6_v",
+        "at": "start",
+        "offset": -2.2
+      }
+    },
+    {
+      "id": "sfx_spark_l2",
+      "kind": "sfx",
+      "asset": "sfx_sparkle",
+      "volume": 0.28,
+      "sync": {
+        "line": "l2_v",
+        "at": "start",
+        "offset": -0.05
+      }
+    },
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_happy",
+      "start": 0,
+      "loop": true,
+      "volume": 0.3,
+      "fadeIn": 0.5,
+      "fadeOut": 1.8
+    },
+    {
+      "id": "amb",
+      "kind": "sfx",
+      "asset": "amb_park",
+      "start": 0,
+      "loop": true,
+      "volume": 0.35,
+      "fadeIn": 1,
+      "fadeOut": 1
+    },
+    {
+      "id": "sfx_end",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "sync": {
+        "line": "l7",
+        "at": "end",
+        "offset": 0.2
+      },
+      "volume": 0.8
+    }
+  ]
+}

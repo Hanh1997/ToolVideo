@@ -2,11 +2,11 @@
  * API "AI kịch bản" (Vite dev server, chỉ localhost):
  *
  *   GET  /api/ai/status                      đã cấu hình key chưa, model, ngôn ngữ có giọng đọc
- *   POST /api/ai/story   {prompt, languages, seconds, scenes?} → bản nháp kịch bản (chưa dựng gì; scenes bỏ trống = AI tự chọn số cảnh)
+ *   POST /api/ai/story   {prompt, languages, seconds, scenes?, detail?} → bản nháp kịch bản (chưa dựng gì; scenes bỏ trống = AI tự chọn số cảnh)
  *   POST /api/ai/revise  {draftId, story, instruction, languages} → bản nháp mới theo góp ý
  *   PUT  /api/ai/drafts/:id {story}           lưu chỉnh sửa tay của người duyệt
  *   GET  /api/ai/drafts                       các bản nháp gần đây
- *   POST /api/ai/approve {draftId, story, languages, format}   → DUYỆT: tạo project + TTS + kiểm tra + render
+ *   POST /api/ai/approve {draftId, story, languages, format, resolution?, fps?, loudness?, titles?}   → DUYỆT: tạo project + TTS + kiểm tra + render
  *   GET  /api/ai/job                          tiến độ job duyệt gần nhất
  *   POST /api/ai/job/cancel
  *
@@ -19,14 +19,14 @@ import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { isAbsolute, join, relative, resolve } from "node:path";
 import type { Plugin } from "vite";
-import { buildStory } from "../src/ai/buildScene";
-import { castable, characterStyle, checkStory, FORMATS, LANG_CODES, LANGUAGES, RequestedCharacterSchema, type Format, type Lang, type RequestedCharacter, type Story } from "../src/ai/story";
+import { buildStory, type BuildOptions } from "../src/ai/buildScene";
+import { castable, characterStyle, checkStory, FORMATS, FPS_OPTIONS, LANG_CODES, LOUDNESS, RESOLUTIONS, LANGUAGES, RequestedCharacterSchema, type Format, type Lang, type RequestedCharacter, type Story } from "../src/ai/story";
 import { findAsset, type Registry } from "../src/schemas/asset.schema";
 import { MovieSchema, movieTimeline } from "../src/movie/movie";
 import { resolveScene } from "../src/tts/resolveScene";
 import { validateScene } from "../src/validation/validateScene";
 import { aiConfigured, AiError } from "./ai/deepseek";
-import { generateStory, reviseStory } from "./ai/storyGenerator";
+import { generateStory, reviseStory, STORY_DETAILS } from "./ai/storyGenerator";
 import { readRegistry } from "./assets/importAsset";
 import { createPiperTts } from "./tts/piperTts";
 
@@ -133,6 +133,8 @@ interface AiJob {
   draftId: string;
   title: string;
   format: Format;
+  /** Tùy chọn xuất (độ phân giải, fps, độ to, tên phim / danh sách cuối). */
+  output: Omit<BuildOptions, "format">;
   status: "running" | "completed" | "failed" | "cancelled";
   items: JobItem[];
   log: string[];
@@ -214,7 +216,7 @@ async function runJob(j: AiJob, story: Story): Promise<void> {
       // 1. Dựng scene + giọng đọc + kiểm tra (trước khi tốn thời gian render).
       item.status = "preparing";
       log(`[${item.lang}] Dựng scene, tạo giọng đọc ${LANGUAGES[item.lang].label}…`);
-      const built = buildStory(story, item.lang, registry, { format: j.format });
+      const built = buildStory(story, item.lang, registry, { format: j.format, ...j.output });
       const drafts = built.kind === "scene" ? [{ id: "", raw: built.scene }] : built.scenes.map((sc) => ({ id: sc.id, raw: sc.scene }));
       const durations: number[] = [];
       for (const d of drafts) {
@@ -285,13 +287,13 @@ export function aiApi(): Plugin {
             return send(res, 200, { configured: aiConfigured(), model: process.env.DEEPSEEK_MODEL ?? "deepseek-v4-pro", languages: await voicedLanguages(), formats: Object.keys(FORMATS) });
           }
           if (p === "/story" && req.method === "POST") {
-            const body = await readJson<{ prompt?: string; languages?: unknown; seconds?: number; scenes?: number; cast?: unknown }>(req);
+            const body = await readJson<{ prompt?: string; languages?: unknown; seconds?: number; scenes?: number; detail?: string; cast?: unknown }>(req);
             const prompt = (body.prompt ?? "").trim();
             if (prompt.length < 5) return send(res, 400, { error: "Prompt quá ngắn" });
             const languages = parseLanguages(body.languages);
             const registry = await readRegistry();
             const cast = parseCast(body.cast, registry);
-            const r = await generateStory(registry, { prompt, languages, seconds: Math.min(180, Math.max(15, Number(body.seconds) || 45)), scenes: Number(body.scenes) || undefined, cast });
+            const r = await generateStory(registry, { prompt, languages, seconds: Math.min(180, Math.max(15, Number(body.seconds) || 45)), scenes: Number(body.scenes) || undefined, detail: STORY_DETAILS.find((d) => d === body.detail), cast });
             const now = new Date().toISOString();
             const draft: Draft = { id: newDraftId(), prompt, createdAt: now, updatedAt: now, model: r.model, tokens: r.tokens, story: r.story, revisions: [], ...(cast ? { cast } : {}) };
             await saveDraft(draft);
@@ -336,7 +338,7 @@ export function aiApi(): Plugin {
           }
           if (p === "/approve" && req.method === "POST") {
             if (job?.status === "running") return send(res, 409, { error: "Đang dựng video khác – chờ xong hoặc hủy" });
-            const body = await readJson<{ draftId?: string; story?: unknown; languages?: unknown; format?: string }>(req);
+            const body = await readJson<{ draftId?: string; story?: unknown; languages?: unknown; format?: string; resolution?: string; fps?: number; loudness?: string; titles?: boolean }>(req);
             const draft = await loadDraft(body.draftId ?? "");
             if (!draft) return send(res, 404, { error: "Không có bản nháp" });
             const { story, issues } = checkStory(body.story ?? draft.story, await readRegistry());
@@ -344,9 +346,15 @@ export function aiApi(): Plugin {
             const languages = parseLanguages(body.languages).filter((l) => story.languages.includes(l));
             if (!languages.length) return send(res, 400, { error: "Ngôn ngữ đã chọn không có trong kịch bản" });
             const format: Format = body.format === "9x16" ? "9x16" : "16x9";
+            const output: Omit<BuildOptions, "format"> = {
+              resolution: body.resolution && body.resolution in RESOLUTIONS ? (body.resolution as keyof typeof RESOLUTIONS) : "720p",
+              fps: FPS_OPTIONS.find((f) => f === Number(body.fps)) ?? 30,
+              loudness: body.loudness && body.loudness in LOUDNESS ? (body.loudness as keyof typeof LOUDNESS) : "web",
+              titles: body.titles !== false,
+            };
             const base = `ai-${slugify(story.title.en ?? story.title[story.languages[0]!]!)}-${draft.id.slice(-4)}`;
             const items: JobItem[] = languages.map((lang) => ({ lang, project: `${base}-${lang}${format === "9x16" ? "-9x16" : ""}`, status: "pending", progress: 0 }));
-            job = { id: randomUUID().slice(0, 8), draftId: draft.id, title: story.title[languages[0]!]!, format, status: "running", items, log: [], startedAt: new Date().toISOString() };
+            job = { id: randomUUID().slice(0, 8), draftId: draft.id, title: story.title[languages[0]!]!, format, output, status: "running", items, log: [], startedAt: new Date().toISOString() };
             Object.assign(draft, { story, updatedAt: new Date().toISOString(), approved: { at: new Date().toISOString(), projects: items.map((i) => i.project) } });
             await saveDraft(draft);
             void runJob(job, story);

@@ -1,0 +1,33 @@
+{
+  "languages": ["vi"],
+  "title": { "vi": "Quán Kem Mới" },
+  "summary": { "vi": "Tùng rủ Minh đi ăn kem nhưng quên ví, Minh mời anh." },
+  "music": true,
+  "mood": "playful",
+  "narratorVoice": "soft",
+  "ending": "none",
+  "characters": [
+    { "id": "tung", "asset": "char_ac_danchoi", "voice": "low", "name": { "vi": "Tùng" }, "size": "normal" },
+    { "id": "minh", "asset": "char_q_casual_male", "voice": "child", "name": { "vi": "Minh" }, "size": "normal" }
+  ],
+  "objects": [],
+  "scenes": [
+    {
+      "id": "cong_vien",
+      "environment": "env_park",
+      "cast": ["tung", "minh"],
+      "transition": "cut",
+      "mood": null,
+      "time": "sunset",
+      "entrance": "none",
+      "lines": [
+        { "id": "l1", "speaker": "tung", "gesture": "point", "emotion": "happy", "text": { "vi": "Nhìn kìa, bên kia có quán kem mới mở đấy!" }, "action": null },
+        { "id": "l2", "speaker": "minh", "gesture": null, "emotion": "surprised", "vocal": "wow", "text": { "vi": "Thật à? Mình đi ăn thử luôn đi anh!" }, "action": null },
+        { "id": "l3", "speaker": "tung", "gesture": null, "emotion": "sad", "vocal": "sigh", "text": { "vi": "Nhưng mà anh quên ví ở nhà mất rồi." }, "action": null, "interaction": { "type": "walk", "with": "minh", "by": null } },
+        { "id": "l4", "speaker": "minh", "gesture": null, "emotion": "happy", "text": { "vi": "Không sao đâu, hôm nay em mời anh nhé!" }, "action": null },
+        { "id": "l5", "speaker": "tung", "gesture": "bow", "emotion": "happy", "text": { "vi": "Cảm ơn em, em đúng là bạn tốt!" }, "action": null },
+        { "id": "l6", "speaker": "tung", "gesture": null, "emotion": "happy", "vocal": "laugh", "text": { "vi": "Đi thôi nào!" }, "action": null, "interaction": { "type": "leave", "with": "minh", "by": null } }
+      ]
+    }
+  ]
+}

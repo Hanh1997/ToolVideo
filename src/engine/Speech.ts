@@ -4,7 +4,9 @@ import { clamp, smoothstep } from "./math";
 /**
  * "Diễn" khi nói, tính tất định từ lời thoại tại thời điểm t:
  *   speechLevel – độ mở miệng / nhún theo độ to giọng (envelope từ file TTS, 25 mẫu/giây)
- *   attention   – người nghe nhìn về người đang nói (giữ hướng nhìn tới câu kế tiếp, chuyển mượt)
+ *   attention   – người nghe nhìn về người đang nói (giữ hướng nhìn tới câu kế tiếp, chuyển mượt),
+ *                 người nói quay ~3/4 về người mình nói với (vẫn thấy mặt trên camera)
+ *   reaction    – người nghe gật đầu theo nhịp câu và "lây" cảm xúc của người nói (nhẹ hơn, trễ một nhịp)
  */
 
 /** Số mẫu envelope mỗi giây (dialogue[].lipsync). */
@@ -60,9 +62,64 @@ export interface Performance {
   emotion?: { kind: Exclude<Emotion, "neutral">; weight: number; since: number };
   /** Nhân vật đang được nhìn + độ đậm (0..1). */
   lookAt?: { character: string; weight: number };
+  /** Gật đầu (độ, > 0 = cúi) – người nghe đáp lại người nói. */
+  nod?: number;
 }
 
 const LOOK_IN = 0.35;
+/** Người nói chỉ quay một phần về người nghe để camera vẫn thấy mặt. */
+const SPEAKER_TURN = 0.6;
+/** Người nghe phản ứng cảm xúc: trễ bấy lâu, đậm bằng bấy nhiêu so với người nói. */
+const REACT_DELAY = 0.35;
+const REACT_WEIGHT = 0.55;
+/** Cảm xúc người nói → phản ứng của người nghe (giận → người nghe sợ nhẹ). */
+const REACTION: Partial<Record<Exclude<Emotion, "neutral">, Exclude<Emotion, "neutral">>> = {
+  happy: "happy",
+  sad: "sad",
+  surprised: "surprised",
+  scared: "scared",
+  angry: "scared",
+};
+/** Gật đầu: mỗi người nghe gật theo chu kỳ riêng (lệch pha theo id) trong lúc người kia nói. */
+const NOD_PERIOD = 1.8;
+const NOD_LEN = 0.5;
+const NOD_DEG = 9;
+
+/** Số 0..1 cố định theo id (lệch pha tất định giữa các nhân vật). */
+export function idPhase(id: string): number {
+  return [...id].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) % 997, 7) / 997;
+}
+
+/** Người mà câu thoại nói với: `to`, hoặc người đáp lời kế tiếp, hoặc người vừa nói trước, hoặc người đứng gần nhất. */
+export function addresseeOf(scene: SceneScript, line: DialogueLine): string | undefined {
+  const speaker = line.speaker;
+  if (!speaker) return undefined;
+  const present = new Set(scene.characters.map((c) => c.id));
+  if (line.to && present.has(line.to) && line.to !== speaker) return line.to;
+  const spoken = scene.dialogue.filter((l) => l.speaker && present.has(l.speaker)).sort((a, b) => a.start - b.start);
+  const at = spoken.findIndex((l) => l.id === line.id);
+  const next = spoken.slice(at + 1).find((l) => l.speaker !== speaker);
+  if (next) return next.speaker;
+  const prev = spoken.slice(0, Math.max(0, at)).reverse().find((l) => l.speaker !== speaker);
+  if (prev) return prev.speaker;
+  const me = scene.characters.find((c) => c.id === speaker)!;
+  let best: string | undefined;
+  let bestD = Infinity;
+  for (const c of scene.characters) {
+    if (c.id === speaker) continue;
+    const d = Math.hypot(c.position.x - me.position.x, c.position.z - me.position.z);
+    if (d < bestD) [best, bestD] = [c.id, d];
+  }
+  return best;
+}
+
+/** Nhịp gật đầu 0..1 của người nghe tại thời điểm `since` trong câu. */
+function nodPulse(id: string, since: number): number {
+  const local = since - 0.4 - idPhase(id) * NOD_PERIOD;
+  if (local < 0) return 0;
+  const k = local % NOD_PERIOD;
+  return k < NOD_LEN ? Math.sin((k / NOD_LEN) * Math.PI) ** 2 : 0;
+}
 const EMOTE_IN = 0.3;
 const EMOTE_OUT = 0.5;
 
@@ -110,7 +167,22 @@ export function evaluatePerformance(scene: SceneScript, t: number): Map<string, 
   const fadeIn = smoothstep(since / LOOK_IN);
   const fadeOut = after <= 0 ? 1 : 1 - smoothstep((after - LOOK_HOLD) / LOOK_IN);
   const weight = Math.min(fadeIn, fadeOut);
-  if (weight <= 0) return out;
-  for (const [id, p] of out) if (id !== speaker && scene.characters.some((c) => c.id === speaker)) p.lookAt = { character: speaker, weight };
+  if (weight <= 0 || !scene.characters.some((c) => c.id === speaker)) return out;
+  const to = addresseeOf(scene, current);
+  if (me && to) me.lookAt = { character: to, weight: weight * SPEAKER_TURN };
+
+  // Người nghe: nhìn người nói, gật đầu trong lúc nghe (thưa dần khi câu hết), phản ứng cảm xúc.
+  const reactKind = current.emotion !== "neutral" ? REACTION[current.emotion] : undefined;
+  const rs = since - REACT_DELAY;
+  const reactW = reactKind && rs > 0 ? Math.min(smoothstep(rs / EMOTE_IN), after <= 0 ? 1 : 1 - smoothstep((after - REACT_DELAY) / EMOTE_OUT)) * REACT_WEIGHT : 0;
+  const listening = after <= 0 ? 1 : 1 - smoothstep(after / 0.4);
+  for (const [id, p] of out) {
+    if (id === speaker) continue;
+    p.lookAt = { character: speaker, weight };
+    // Người được nói với gật rõ hơn người đứng bên.
+    const nod = nodPulse(id, since) * listening * NOD_DEG * (id === to ? 1 : 0.6);
+    if (nod > 0.01) p.nod = nod;
+    if (reactKind && reactW > 0) p.emotion = { kind: reactKind, weight: reactW, since: rs };
+  }
   return out;
 }

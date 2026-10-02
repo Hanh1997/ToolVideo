@@ -1,0 +1,1220 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Quán Kem Mới",
+    "duration": 35.4,
+    "fps": 25,
+    "width": 1920,
+    "height": 1080
+  },
+  "environment": {
+    "asset": "env_park",
+    "background": "#f2a878",
+    "fog": {
+      "color": "#f2a878",
+      "near": 28,
+      "far": 80
+    },
+    "lighting": {
+      "preset": "sunset"
+    },
+    "effects": [
+      "petals"
+    ]
+  },
+  "characters": [
+    {
+      "id": "tung",
+      "name": "Tùng",
+      "asset": "char_ac_danchoi",
+      "position": {
+        "x": -1.2,
+        "y": 0,
+        "z": -0.17
+      },
+      "heading": 135.57,
+      "voice": "voice_vi_low"
+    },
+    {
+      "id": "minh",
+      "name": "Minh",
+      "asset": "char_q_casual_male",
+      "position": {
+        "x": 1.2,
+        "y": 0,
+        "z": -0.17
+      },
+      "heading": -135.57,
+      "voice": "voice_vi_child"
+    }
+  ],
+  "props": [],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": -1.95,
+      "y": 2.12,
+      "z": -5.58
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 0.81,
+      "z": -0.4
+    },
+    "fov": 50
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": true
+  },
+  "titles": [
+    {
+      "kind": "title",
+      "text": "Quán Kem Mới",
+      "start": 0.3,
+      "duration": 3
+    },
+    {
+      "kind": "credits",
+      "text": "Hết",
+      "lines": [
+        "Quán Kem Mới",
+        "Nhân vật:",
+        "Tùng · Minh",
+        "Thực hiện bằng AutoCartoon"
+      ],
+      "at": "end",
+      "duration": 4.5
+    }
+  ],
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l1",
+      "speaker": "tung",
+      "to": "minh",
+      "text": "Nhìn kìa, bên kia có quán kem mới mở đấy!",
+      "start": 3.6,
+      "duration": 3.124,
+      "file": "tts/fd10fe8912c97aeb206ba7f8.wav",
+      "voice": "voice_vi_low",
+      "rate": 1.05,
+      "emotion": "happy",
+      "volume": 1.05,
+      "pan": 0.08,
+      "subtitle": true,
+      "lipsync": [
+        0,
+        0,
+        0,
+        0.98,
+        0.93,
+        0.94,
+        0.75,
+        0.42,
+        0.29,
+        0,
+        0.27,
+        0.84,
+        0.76,
+        0.53,
+        0.43,
+        0.28,
+        0.09,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.34,
+        1,
+        1,
+        1,
+        0.45,
+        0,
+        0.57,
+        1,
+        0.92,
+        0.68,
+        0.64,
+        0.09,
+        0,
+        0.29,
+        0.71,
+        0.08,
+        0,
+        0.14,
+        0.72,
+        0.53,
+        0.62,
+        0.17,
+        0,
+        0.09,
+        0.78,
+        0.64,
+        0.5,
+        0.5,
+        0.49,
+        0.47,
+        0.38,
+        0.41,
+        0.59,
+        0.38,
+        0.9,
+        0.97,
+        1,
+        0.55,
+        0.24,
+        0.03,
+        0,
+        0.04,
+        0.15,
+        0.22,
+        0.18,
+        0.12,
+        0.25,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "l2_v",
+      "speaker": "minh",
+      "to": "tung",
+      "text": "Oa!",
+      "start": 7.174,
+      "duration": 0.679,
+      "file": "tts/cc722979be7564e0c8d5c7c0.wav",
+      "voice": "voice_vi_child",
+      "rate": 1.06,
+      "emotion": "surprised",
+      "volume": 1.1,
+      "pan": -0.08,
+      "subtitle": false,
+      "lipsync": [
+        0,
+        0,
+        0.67,
+        0.92,
+        1,
+        0.94,
+        0.94,
+        0.95,
+        0.74,
+        0.38,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "l2",
+      "speaker": "minh",
+      "to": "tung",
+      "text": "Thật à? Mình đi ăn thử luôn đi anh!",
+      "start": 7.973,
+      "duration": 2.944,
+      "file": "tts/32c5f0efb2a96b054190ebac.wav",
+      "voice": "voice_vi_child",
+      "rate": 1.06,
+      "emotion": "surprised",
+      "volume": 1.1,
+      "pan": -0.08,
+      "subtitle": true,
+      "lipsync": [
+        0,
+        0.05,
+        0.39,
+        0.67,
+        0.08,
+        0,
+        0.33,
+        0.74,
+        0.86,
+        0.99,
+        0.72,
+        0.54,
+        0.15,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.44,
+        1,
+        1,
+        0.83,
+        0.5,
+        0.28,
+        0.19,
+        0.73,
+        0.59,
+        0.42,
+        0.44,
+        0.66,
+        0.37,
+        0.09,
+        0.02,
+        0,
+        0,
+        0.23,
+        0.47,
+        0.4,
+        0.48,
+        0.11,
+        0.32,
+        0.42,
+        0.33,
+        0.97,
+        1,
+        1,
+        0.35,
+        0.41,
+        0.22,
+        0.44,
+        0.72,
+        0.49,
+        0.12,
+        0,
+        0.64,
+        0.54,
+        0.42,
+        0.14,
+        0.15,
+        0.07,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "l3_v",
+      "speaker": "tung",
+      "to": "minh",
+      "text": "Haizz…",
+      "start": 12.297,
+      "duration": 1.182,
+      "file": "tts/7a2c56d445f2c59e0f5a450e.wav",
+      "voice": "voice_vi_low",
+      "rate": 0.88,
+      "emotion": "sad",
+      "volume": 0.85,
+      "pan": -0.01,
+      "subtitle": false,
+      "lipsync": [
+        0,
+        0,
+        0.19,
+        0.51,
+        1,
+        1,
+        0.85,
+        0.43,
+        0.03,
+        0,
+        0.31,
+        0.65,
+        0.77,
+        0.48,
+        0.41,
+        0.23,
+        0.22,
+        0.15,
+        0.09,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "l3",
+      "speaker": "tung",
+      "to": "minh",
+      "text": "Nhưng mà anh quên ví ở nhà mất rồi.",
+      "start": 13.599,
+      "duration": 2.82,
+      "file": "tts/82ad11cb908332e31b452e2f.wav",
+      "voice": "voice_vi_low",
+      "rate": 0.88,
+      "emotion": "sad",
+      "volume": 0.85,
+      "pan": -0.01,
+      "subtitle": true,
+      "lipsync": [
+        0,
+        0,
+        0,
+        0.14,
+        0.65,
+        1,
+        1,
+        1,
+        1,
+        0.74,
+        0.68,
+        0.57,
+        0.36,
+        0.28,
+        0.17,
+        0,
+        0,
+        0,
+        0.23,
+        0.64,
+        0.74,
+        0.28,
+        0,
+        0,
+        0.67,
+        0.9,
+        0.7,
+        0.61,
+        0.55,
+        0.19,
+        0.14,
+        0.13,
+        0.49,
+        0.65,
+        0.57,
+        0.66,
+        0.62,
+        0.23,
+        0,
+        0,
+        0.2,
+        0.28,
+        0.19,
+        0.16,
+        0.13,
+        0.26,
+        0.32,
+        0.26,
+        0.19,
+        0.13,
+        0.14,
+        0.21,
+        0.54,
+        0.8,
+        0.38,
+        0,
+        0,
+        0,
+        0,
+        0.01,
+        0.11,
+        0.21,
+        0.14,
+        0.09,
+        0.08,
+        0.05,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "l4",
+      "speaker": "minh",
+      "to": "tung",
+      "text": "Không sao đâu, hôm nay em mời anh nhé!",
+      "start": 17.469,
+      "duration": 2.971,
+      "file": "tts/a5b9497fea6960a3aa0ea32b.wav",
+      "voice": "voice_vi_child",
+      "rate": 1.05,
+      "emotion": "happy",
+      "volume": 1.05,
+      "pan": -0.08,
+      "subtitle": true,
+      "lipsync": [
+        0,
+        0,
+        0,
+        1,
+        0.94,
+        0.13,
+        0.55,
+        0.3,
+        0.21,
+        0.23,
+        0.49,
+        0.53,
+        0.6,
+        0.55,
+        0.52,
+        0.24,
+        1,
+        0.99,
+        1,
+        0.92,
+        0.79,
+        0.55,
+        0.14,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.2,
+        0.74,
+        0.66,
+        0.51,
+        0.57,
+        0.5,
+        0.75,
+        0.88,
+        0.86,
+        0.88,
+        0.22,
+        0,
+        0.61,
+        0.99,
+        0.69,
+        0.41,
+        0.51,
+        0.82,
+        1,
+        0.66,
+        0.59,
+        0.87,
+        0.13,
+        0,
+        0.52,
+        0.71,
+        0.42,
+        0.29,
+        0.26,
+        0.16,
+        0.56,
+        0.65,
+        1,
+        0.79,
+        0.07,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "l5",
+      "speaker": "tung",
+      "to": "minh",
+      "text": "Cảm ơn em, em đúng là bạn tốt!",
+      "start": 20.89,
+      "duration": 2.514,
+      "file": "tts/d361ff24b7759ebab6b71fa6.wav",
+      "voice": "voice_vi_low",
+      "rate": 1.05,
+      "emotion": "happy",
+      "volume": 1.05,
+      "pan": -0.01,
+      "subtitle": true,
+      "lipsync": [
+        0,
+        0,
+        0.86,
+        0.76,
+        0.45,
+        0.35,
+        0.23,
+        0.77,
+        1,
+        1,
+        0.93,
+        0.07,
+        0.23,
+        0.64,
+        0.84,
+        0.88,
+        0.87,
+        0.82,
+        0.58,
+        0.15,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.49,
+        0.85,
+        0.88,
+        0.85,
+        0.87,
+        0.57,
+        0.38,
+        0.84,
+        0.86,
+        0.87,
+        0.73,
+        0.28,
+        0.57,
+        0.93,
+        0.75,
+        0.48,
+        0.48,
+        0.21,
+        0.39,
+        0.55,
+        0.06,
+        0.07,
+        0,
+        0,
+        0.74,
+        1,
+        1,
+        0.45,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "l6_v",
+      "speaker": "tung",
+      "to": "minh",
+      "text": "Hi hi hi!",
+      "start": 23.854,
+      "duration": 1.295,
+      "file": "tts/7297c7671206891d4a279d3c.wav",
+      "voice": "voice_vi_low",
+      "rate": 1.05,
+      "emotion": "happy",
+      "volume": 1.05,
+      "pan": -0.01,
+      "subtitle": false,
+      "lipsync": [
+        0,
+        0.01,
+        0.76,
+        1,
+        1,
+        0.79,
+        0.59,
+        0.54,
+        0.34,
+        0.45,
+        0.37,
+        0,
+        0,
+        0,
+        0.34,
+        0.88,
+        0.76,
+        0.39,
+        0,
+        0.14,
+        0.84,
+        0.86,
+        0.62,
+        0.22,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "l6",
+      "speaker": "tung",
+      "to": "minh",
+      "text": "Đi thôi nào!",
+      "start": 25.269,
+      "duration": 1.067,
+      "file": "tts/f797c83631c3dde35cff46c1.wav",
+      "voice": "voice_vi_low",
+      "rate": 1.05,
+      "emotion": "happy",
+      "volume": 1.05,
+      "pan": -0.01,
+      "subtitle": true,
+      "lipsync": [
+        0,
+        0,
+        0.13,
+        0.49,
+        1,
+        1,
+        0.9,
+        0.58,
+        0.09,
+        0,
+        0.06,
+        0.51,
+        0.39,
+        0.32,
+        0.26,
+        0.32,
+        0.27,
+        0.19,
+        0.1,
+        0.04,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "cam_l3_walk",
+      "type": "camera",
+      "shot": {
+        "mode": "follow",
+        "target": "tung",
+        "offset": {
+          "x": 1.83,
+          "y": 2.3,
+          "z": -5.24
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.72,
+          "z": 0
+        },
+        "fov": 50
+      },
+      "start": 11.367,
+      "duration": 0.78
+    },
+    {
+      "id": "l3_walk_rback",
+      "type": "turn",
+      "target": "minh",
+      "heading": -135.57,
+      "start": 16.619,
+      "duration": 0.35
+    },
+    {
+      "id": "l3_walk_settle",
+      "type": "turn",
+      "target": "tung",
+      "heading": -172.86,
+      "start": 16.619,
+      "duration": 0.4
+    },
+    {
+      "id": "l3_walk_go_walk",
+      "type": "animation",
+      "target": "tung",
+      "clip": "walk_sad",
+      "start": 11.367,
+      "duration": 1.59
+    },
+    {
+      "id": "l3_walk_go_move",
+      "type": "moveTo",
+      "target": "tung",
+      "to": {
+        "x": 0.15,
+        "z": -0.17
+      },
+      "start": 11.367,
+      "duration": 1.59
+    },
+    {
+      "id": "l3_walk_face",
+      "type": "turn",
+      "target": "tung",
+      "heading": 90,
+      "start": 12.957,
+      "duration": 0.3
+    },
+    {
+      "id": "l3_walk_rface",
+      "type": "turn",
+      "target": "minh",
+      "heading": -90,
+      "start": 12.557,
+      "duration": 0.4
+    },
+    {
+      "id": "l6_leave_minh_move",
+      "type": "moveTo",
+      "target": "minh",
+      "to": {
+        "x": 7,
+        "z": -0.17
+      },
+      "start": 25.669,
+      "duration": 4
+    },
+    {
+      "id": "l6_leave_minh_walk",
+      "type": "animation",
+      "target": "minh",
+      "clip": "walk",
+      "start": 25.669,
+      "duration": 4
+    },
+    {
+      "id": "l6_leave_tung_move",
+      "type": "moveTo",
+      "target": "tung",
+      "to": {
+        "x": 7,
+        "z": 0.73
+      },
+      "start": 26.019,
+      "duration": 4
+    },
+    {
+      "id": "l6_leave_tung_walk",
+      "type": "animation",
+      "target": "tung",
+      "clip": "walk",
+      "start": 26.019,
+      "duration": 4
+    },
+    {
+      "id": "cam_intro",
+      "type": "camera",
+      "start": 0,
+      "duration": 3.45,
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.95,
+          "y": 2.12,
+          "z": -5.58
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.81,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "dolly": 0.12
+      }
+    },
+    {
+      "id": "g_l1",
+      "type": "animation",
+      "target": "tung",
+      "clip": "point",
+      "start": 3.6,
+      "duration": 3.124
+    },
+    {
+      "id": "cam_l1",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 2.31,
+          "y": 1.69,
+          "z": -2.33
+        },
+        "lookAt": {
+          "x": -0.89,
+          "y": 1.12,
+          "z": -0.49
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      },
+      "start": 3.45,
+      "duration": 3.574
+    },
+    {
+      "id": "cam_l2_v",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.65,
+          "y": 1.29,
+          "z": -1.93
+        },
+        "lookAt": {
+          "x": 0.97,
+          "y": 0.81,
+          "z": -0.4
+        },
+        "fov": 45
+      },
+      "start": 7.024,
+      "duration": 0.799
+    },
+    {
+      "id": "cam_l2",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.65,
+          "y": 1.29,
+          "z": -1.93
+        },
+        "lookAt": {
+          "x": 0.97,
+          "y": 0.81,
+          "z": -0.4
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      },
+      "start": 7.823,
+      "duration": 2.194
+    },
+    {
+      "id": "cam_l2_react",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 2.31,
+          "y": 1.69,
+          "z": -2.33
+        },
+        "lookAt": {
+          "x": -0.89,
+          "y": 1.12,
+          "z": -0.49
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.05
+      },
+      "start": 10.017,
+      "duration": 1.2
+    },
+    {
+      "id": "cam_l3_v",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.8,
+          "y": 2.17,
+          "z": -5.1
+        },
+        "lookAt": {
+          "x": 0.68,
+          "y": 0.9,
+          "z": -0.17
+        },
+        "fov": 46
+      },
+      "start": 12.147,
+      "duration": 1.302
+    },
+    {
+      "id": "cam_l3",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.8,
+          "y": 2.17,
+          "z": -5.1
+        },
+        "lookAt": {
+          "x": 0.68,
+          "y": 0.9,
+          "z": -0.17
+        },
+        "fov": 46
+      },
+      "move": {
+        "dolly": 0.07
+      },
+      "start": 13.449,
+      "duration": 3.27
+    },
+    {
+      "id": "cam_l4",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.65,
+          "y": 1.29,
+          "z": -1.93
+        },
+        "lookAt": {
+          "x": 0.97,
+          "y": 0.81,
+          "z": -0.4
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      },
+      "start": 17.319,
+      "duration": 3.421
+    },
+    {
+      "id": "g_l5",
+      "type": "animation",
+      "target": "tung",
+      "clip": "bow",
+      "loop": false,
+      "start": 20.89,
+      "duration": 2.514
+    },
+    {
+      "id": "cam_l5",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.66,
+          "y": 1.69,
+          "z": -4.26
+        },
+        "lookAt": {
+          "x": 0.1,
+          "y": 1.12,
+          "z": -0.62
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      },
+      "start": 20.74,
+      "duration": 1.764
+    },
+    {
+      "id": "cam_l5_react",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.65,
+          "y": 1.29,
+          "z": -1.93
+        },
+        "lookAt": {
+          "x": 0.97,
+          "y": 0.81,
+          "z": -0.4
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.05
+      },
+      "start": 22.504,
+      "duration": 1.2
+    },
+    {
+      "id": "cam_end",
+      "type": "camera",
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 2.12,
+          "z": -5.58
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.81,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "blend": 1.2,
+      "move": {
+        "dolly": -0.1,
+        "rise": 0.4
+      },
+      "start": 23.704,
+      "duration": 11.696
+    },
+    {
+      "id": "ap_l4_walk",
+      "type": "animation",
+      "target": "minh",
+      "clip": "walk",
+      "start": 17.469,
+      "duration": 0.55
+    },
+    {
+      "id": "ap_l4_in",
+      "type": "moveTo",
+      "target": "minh",
+      "to": {
+        "x": 0.95,
+        "z": -0.17
+      },
+      "start": 17.469,
+      "duration": 0.55
+    },
+    {
+      "id": "ap_l4_turn",
+      "type": "turn",
+      "target": "minh",
+      "heading": -108.23,
+      "start": 18.019,
+      "duration": 0.3
+    },
+    {
+      "id": "ap_l4_bwalk",
+      "type": "animation",
+      "target": "minh",
+      "clip": "walk",
+      "start": 20.49,
+      "duration": 0.5
+    },
+    {
+      "id": "ap_l4_back",
+      "type": "moveTo",
+      "target": "minh",
+      "to": {
+        "x": 1.2,
+        "z": -0.17
+      },
+      "face": false,
+      "start": 20.49,
+      "duration": 0.5
+    },
+    {
+      "id": "ap_l4_home",
+      "type": "turn",
+      "target": "minh",
+      "heading": -135.57,
+      "start": 20.99,
+      "duration": 0.3
+    }
+  ],
+  "audio": [
+    {
+      "id": "l3_walk_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 1.59,
+      "volume": 0.44,
+      "fadeOut": 0.15,
+      "start": 11.367
+    },
+    {
+      "id": "l6_leave_minh_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 4,
+      "volume": 0.34,
+      "fadeOut": 0.3,
+      "start": 25.669
+    },
+    {
+      "id": "l6_leave_tung_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 4,
+      "volume": 0.44,
+      "fadeOut": 0.3,
+      "start": 26.019
+    },
+    {
+      "id": "sfx_spark_l2",
+      "kind": "sfx",
+      "asset": "sfx_sparkle",
+      "volume": 0.28,
+      "start": 7.124
+    },
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_playful",
+      "start": 0,
+      "loop": true,
+      "volume": 0.3,
+      "fadeIn": 0.5,
+      "fadeOut": 1.8
+    },
+    {
+      "id": "amb",
+      "kind": "sfx",
+      "asset": "amb_park",
+      "start": 0,
+      "loop": true,
+      "volume": 0.35,
+      "fadeIn": 1,
+      "fadeOut": 1
+    },
+    {
+      "id": "sfx_end",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "volume": 0.8,
+      "start": 26.536
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 /**
- * Thư viện âm thanh tự tổng hợp (CC0): nhạc nền theo cảm xúc + âm thanh môi trường, lặp liền mạch.
+ * Thư viện âm thanh tự tổng hợp (CC0): nhạc nền theo cảm xúc + âm thanh môi trường, lặp liền mạch
+ * + hiệu ứng hoạt hình ngắn (còi trượt, lấp lánh, bụp, vút…).
  * Tất định: cùng seed → cùng file. Ghi vào public/assets/audio/gen/ và Registry.
  *
  *   npx tsx scripts/generate-audio-library.ts
@@ -249,6 +250,72 @@ function crowdPark(): Buffer32 {
   return loopSeam(buf, 2).normalize(0.35);
 }
 
+// ---------------------------------------------------------------- hiệu ứng hoạt hình (không lặp)
+
+/** Quét tần mũ (còi trượt): f0 → f1 trong `len` giây, có vibrato. */
+function glide(buf: Buffer32, start: number, len: number, f0: number, f1: number, amp: number, vibrato = 0): void {
+  const s0 = Math.round(start * RATE);
+  const n = Math.round(len * RATE);
+  let phase = 0;
+  for (let i = 0; i < n; i++) {
+    const t = i / RATE;
+    const f = f0 * (f1 / f0) ** (t / len) * (1 + vibrato * Math.sin(2 * Math.PI * 6 * t));
+    phase += (2 * Math.PI * f) / RATE;
+    const env = Math.min(1, t / 0.02, (len - t) / 0.08);
+    buf.add(s0 + i, amp * env * (Math.sin(phase) + 0.15 * Math.sin(2 * phase)));
+  }
+}
+
+/** Còi trượt xuống: ngã, hụt hẫng. */
+const slideDown = () => {
+  const b = new Buffer32(0.8);
+  glide(b, 0, 0.7, 1400, 260, 0.5, 0.025);
+  return b.normalize(0.7);
+};
+/** Còi trượt lên: bật dậy, hào hứng. */
+const slideUp = () => {
+  const b = new Buffer32(0.5);
+  glide(b, 0, 0.42, 320, 1300, 0.5, 0.02);
+  return b.normalize(0.65);
+};
+/** Lấp lánh: chuỗi chuông cao đi lên (phát hiện, bất ngờ, phép màu). */
+const sparkle = () => {
+  const b = new Buffer32(1.4);
+  [84, 88, 91, 96, 100, 103].forEach((m, k) => bell(b, 0.06 * k, midi(m), 0.35 - 0.035 * k, 0.7));
+  return b.normalize(0.55);
+};
+/** Bụp: bong bóng / nhặt lên gọn. */
+const pop = () => {
+  const b = new Buffer32(0.18);
+  let phase = 0;
+  for (let i = 0; i < b.data.length; i++) {
+    const t = i / RATE;
+    phase += (2 * Math.PI * (180 + 1000 * Math.exp(-t * 45))) / RATE;
+    b.add(i, Math.exp(-t * 32) * Math.sin(phase));
+  }
+  return b.normalize(0.6);
+};
+/** Leng keng nhẹ: ôm, tình cảm. */
+const twinkle = () => {
+  const b = new Buffer32(1.1);
+  bell(b, 0, midi(84), 0.3, 0.8);
+  bell(b, 0.13, midi(88), 0.25, 0.8);
+  return b.normalize(0.45);
+};
+/** Gõ nhẹ (vỗ vai). */
+const tap = () => {
+  const b = new Buffer32(0.25);
+  note(b, 0, 0.03, 620, 0.5, tri, 45);
+  noiseHit(b, 0, 0.05, 0.25, 60, false, rng(7));
+  return b.normalize(0.5);
+};
+/** Vút: gió lướt qua (chạy vụt, xoay người). */
+const swish = () => {
+  const b = new Buffer32(0.45);
+  filteredNoise(b, 1, (t) => 600 + 5200 * Math.sin((Math.PI * t) / 0.45), (t) => Math.sin((Math.PI * t) / 0.45) ** 2, 11);
+  return b.normalize(0.5);
+};
+
 interface Item {
   id: string;
   name: string;
@@ -267,6 +334,13 @@ const ITEMS: Item[] = [
   { id: "amb_water", name: "Nước chảy", tags: ["ambience", "water", "pond"], build: water },
   { id: "amb_night", name: "Dế kêu đêm", tags: ["ambience", "night", "crickets"], build: night },
   { id: "amb_park", name: "Công viên", tags: ["ambience", "park", "farm"], build: crowdPark },
+  { id: "sfx_slide_down", name: "Còi trượt xuống", tags: ["sfx", "cartoon", "fall"], build: slideDown },
+  { id: "sfx_slide_up", name: "Còi trượt lên", tags: ["sfx", "cartoon", "jump"], build: slideUp },
+  { id: "sfx_sparkle", name: "Lấp lánh", tags: ["sfx", "cartoon", "magic", "surprise"], build: sparkle },
+  { id: "sfx_pop", name: "Bụp", tags: ["sfx", "cartoon", "pop"], build: pop },
+  { id: "sfx_twinkle", name: "Leng keng nhẹ", tags: ["sfx", "cartoon", "love"], build: twinkle },
+  { id: "sfx_tap", name: "Gõ nhẹ", tags: ["sfx", "cartoon", "tap"], build: tap },
+  { id: "sfx_swish", name: "Vút", tags: ["sfx", "cartoon", "whoosh"], build: swish },
 ];
 
 await mkdir(OUT, { recursive: true });

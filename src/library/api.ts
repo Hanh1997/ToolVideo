@@ -1,3 +1,4 @@
+import type { CharacterSpec } from "../ai/characterSpec";
 import type { AssetEntry } from "../schemas/asset.schema";
 import type { TemplateParam } from "../template/template";
 
@@ -70,6 +71,27 @@ export interface BatchJob {
   report?: BatchReport;
 }
 
+export interface CharGenStatus {
+  ai: boolean;
+  blender: string | null;
+  mixamoClips: number;
+}
+
+export interface CharGenJob {
+  id: string;
+  assetId: string;
+  name: string;
+  status: "running" | "completed" | "failed" | "cancelled";
+  step: string;
+  progress: number;
+  mixamoClips: number;
+  clips?: number;
+  log: string[];
+  startedAt: string;
+  finishedAt?: string;
+  error?: string;
+}
+
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
   const res = await fetch(url, init);
   const text = await res.text();
@@ -107,6 +129,19 @@ export const api = {
     request<{ id: string }>("/api/batch", json("POST", body)),
   currentBatch: () => request<BatchJob | null>("/api/batch/current"),
   cancelBatch: () => request<{ ok: true }>("/api/batch/cancel", json("POST", {})),
+
+  chargen: {
+    status: () => request<CharGenStatus>("/api/chargen/status"),
+    design: (prompt: string) => request<{ spec: CharacterSpec; note?: string }>("/api/chargen/design", json("POST", { prompt })),
+    revise: (base: CharacterSpec, instruction: string) => request<{ spec: CharacterSpec; note?: string }>("/api/chargen/design", json("POST", { base, instruction })),
+    build: (spec: CharacterSpec, prompt?: string, id?: string) => request<CharGenJob>("/api/chargen/build", json("POST", { spec, prompt, id })),
+    job: () => request<CharGenJob | null>("/api/chargen/job"),
+    cancel: () => request<{ ok: true }>("/api/chargen/job/cancel", json("POST", {})),
+    savedList: () => request<{ assetId: string; name: string; spec: CharacterSpec }[]>("/api/chargen/saved"),
+    fromBase: (base: CharacterSpec, prompt: string) => request<{ spec: CharacterSpec; note?: string }>("/api/chargen/design", json("POST", { base, instruction: prompt, fromBase: true })),
+    saved: (id: string) => request<{ assetId: string; prompt?: string; spec: CharacterSpec }>(`/api/chargen/saved/${encodeURIComponent(id)}`),
+    previewUrl: (id: string, face = false, v = "") => `/api/chargen/preview/${encodeURIComponent(id)}/preview${face ? "_face" : ""}.png?v=${encodeURIComponent(v)}`,
+  },
 };
 
 export function formatBytes(n?: number): string {

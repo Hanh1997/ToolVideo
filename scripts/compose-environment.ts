@@ -9,6 +9,8 @@
  *   "ground": { "size": 120, "color": "#6fb05a" },
  *   "path":   { "width": 3.2, "from": -30, "to": 40, "color": "#d8b77a" },      // lối đi dọc trục Z tại x = 0
  *   "place":  [ { "asset": "prop_n_common_tree_1", "position": { "x": 5, "z": 3 }, "heading": 30, "scale": 1.2 } ],
+ *             // anchor "center": position = tâm đáy của món (xoay quanh tâm) – hợp đồ nội thất có gốc ở góc; y = đặt lên bàn / kệ
+ *   "floors": [ { "x": 0, "z": 0, "w": 10, "d": 8, "color": "#c8955f" } ],        // sàn trong nhà (trên nền)
  *   "scatter":[ { "tags": ["tree"], "pack": "…", "count": 80, "area": { "x": [-40, 40], "z": [-35, 45] },
  *                 "clearPath": 4.5, "minDistance": 2.5, "scale": [0.8, 1.3] } ]
  * }
@@ -42,8 +44,21 @@ const LayoutSchema = z.object({
   /** Vùng trống (không rải đạo cụ) – chỗ nhân vật đứng, họp… */
   clearings: z.array(z.object({ x: z.number(), z: z.number(), radius: z.number().positive() })).default([]),
   place: z
-    .array(z.object({ asset: z.string(), position: Vec, heading: z.number().default(0), scale: z.number().positive().default(1) }))
+    .array(
+      z.object({
+        asset: z.string(),
+        position: Vec,
+        heading: z.number().default(0),
+        scale: z.number().positive().default(1),
+        /** "corner" = gốc toạ độ của model (mặc định), "center" = tâm hình chiếu đáy. */
+        anchor: z.enum(["corner", "center"]).default("corner"),
+        /** Nâng lên (m) – đặt đồ lên bàn, kệ, tủ. */
+        y: z.number().default(0),
+      }),
+    )
     .default([]),
+  /** Sàn (hình chữ nhật phẳng, nằm trên nền) – phòng trong nhà. */
+  floors: z.array(z.object({ x: z.number(), z: z.number(), w: z.number().positive(), d: z.number().positive(), color: z.string() })).default([]),
   scatter: z
     .array(
       z.object({
@@ -129,6 +144,7 @@ function flatQuad(name: string, cx: number, cz: number, w: number, d: number, y:
 }
 
 scene.addChild(flatQuad("ground", 0, 0, layout.ground.size, layout.ground.size, 0, layout.ground.color));
+layout.floors.forEach((f, i) => scene.addChild(flatQuad(`floor_${i}`, f.x, f.z, f.w, f.d, 0.004, f.color)));
 if (layout.path) {
   const len = layout.path.to - layout.path.from;
   scene.addChild(flatQuad("path", 0, (layout.path.from + layout.path.to) / 2, layout.path.width, len, 0.01, layout.path.color));
@@ -183,6 +199,9 @@ interface Template {
   scale: number;
   yOffset: number;
   radius: number;
+  /** Tâm hình chiếu đáy (đã nhân tỷ lệ) trong hệ của model. */
+  cx: number;
+  cz: number;
 }
 const templates = new Map<string, Template>();
 
@@ -204,7 +223,7 @@ async function template(asset: AssetEntry): Promise<Template> {
   // Buffer của tài liệu nguồn → dùng buffer chung.
   for (const acc of doc.getRoot().listAccessors()) acc.setBuffer(buffer);
   const radius = (Math.max(box.max[0] - box.min[0], box.max[2] - box.min[2]) * s) / 2;
-  const t: Template = { asset, roots, scale: s, yOffset: -box.min[1] * s, radius };
+  const t: Template = { asset, roots, scale: s, yOffset: -box.min[1] * s, radius, cx: ((box.min[0] + box.max[0]) / 2) * s, cz: ((box.min[2] + box.max[2]) / 2) * s };
   templates.set(asset.id, t);
   return t;
 }
@@ -219,12 +238,19 @@ function cloneTree(n: Node): Node {
 }
 
 let placed = 0;
-function put(t: Template, x: number, zPos: number, headingDeg: number, extraScale: number): void {
+function put(t: Template, x: number, zPos: number, headingDeg: number, extraScale: number, anchor: "corner" | "center" = "corner", lift = 0): void {
   const s = t.scale * extraScale;
   const h = (headingDeg + t.asset.headingOffset) * (Math.PI / 180);
+  if (anchor === "center") {
+    // Dời gốc để tâm đáy (đã xoay) rơi đúng vào (x, z).
+    const ox = t.cx * extraScale;
+    const oz = t.cz * extraScale;
+    x -= ox * Math.cos(h) + oz * Math.sin(h);
+    zPos -= -ox * Math.sin(h) + oz * Math.cos(h);
+  }
   const holder = doc
     .createNode(`${t.asset.id}_${placed++}`)
-    .setTranslation([x, t.yOffset * extraScale, zPos])
+    .setTranslation([x, t.yOffset * extraScale + lift, zPos])
     .setRotation([0, Math.sin(h / 2), 0, Math.cos(h / 2)])
     .setScale([s, s, s]);
   for (const r of t.roots) holder.addChild(cloneTree(r));
@@ -245,7 +271,7 @@ function propsFor(rule: z.infer<typeof LayoutSchema>["scatter"][number]): AssetE
 for (const p of layout.place) {
   const asset = registry.assets.find((a) => a.id === p.asset);
   if (!asset) throw new Error(`place: không có asset "${p.asset}"`);
-  put(await template(asset), p.position.x, p.position.z, p.heading, p.scale);
+  put(await template(asset), p.position.x, p.position.z, p.heading, p.scale, p.anchor, p.y);
 }
 
 for (const g of layout.grid) {

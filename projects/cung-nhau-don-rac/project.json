@@ -1,0 +1,10 @@
+{
+  "id": "cung-nhau-don-rac",
+  "name": "Cùng Nhau Dọn Rác",
+  "description": "Hai nhóm bạn gặp nhau chơi ở công viên. Bé Bơ vứt vỏ chai bừa bãi làm Bé Mít vấp ngã. Các bạn đưa Bơ ra ao để thấy rác gây hại cho môi trường và mọi người thế nào, rồi cùng nhau dọn sạch và vui vẻ đi về nhà.",
+  "commercial": false,
+  "source": {
+    "kind": "story",
+    "lang": "vi"
+  }
+}

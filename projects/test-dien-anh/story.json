@@ -1,0 +1,37 @@
+{
+  "languages": ["vi"],
+  "title": { "vi": "Bông Hoa Tặng Mẹ" },
+  "summary": { "vi": "Lan hái bông hoa đỏ tặng mẹ, Minh cùng giúp bạn." },
+  "music": true,
+  "mood": "happy",
+  "narratorVoice": "soft",
+  "ending": "wave",
+  "characters": [
+    { "id": "lan", "asset": "char_q_casual_female", "voice": "cute", "name": { "vi": "Lan" }, "size": "normal" },
+    { "id": "minh", "asset": "char_q_casual_male", "voice": "child", "name": { "vi": "Minh" }, "size": "normal" },
+    { "id": "me", "asset": "char_h_female_casual", "voice": "soft", "name": { "vi": "Mẹ" }, "size": "normal" }
+  ],
+  "objects": [
+    { "id": "hoa", "kind": "flower_red", "name": { "vi": "Bông hoa đỏ" }, "scene": "cong_vien", "heldBy": null }
+  ],
+  "scenes": [
+    {
+      "id": "cong_vien",
+      "environment": "env_park",
+      "cast": ["lan", "me", "minh"],
+      "transition": "cut",
+      "mood": null,
+      "time": "morning",
+      "entrance": "none",
+      "lines": [
+        { "id": "l1", "speaker": null, "gesture": null, "emotion": "neutral", "text": { "vi": "Sáng nay, Lan và Minh cùng mẹ ra công viên chơi." }, "action": null },
+        { "id": "l2", "speaker": "lan", "gesture": null, "emotion": "surprised", "vocal": "wow", "text": { "vi": "Bông hoa đỏ kia đẹp quá, mình hái tặng mẹ nhé!" }, "action": { "type": "pickup", "object": "hoa", "to": null, "by": null }, "then": "stay" },
+        { "id": "l3", "speaker": "minh", "gesture": null, "emotion": "happy", "to": "lan", "text": { "vi": "Ý hay đấy, mẹ chắc chắn sẽ vui lắm cho mà xem!" }, "action": null, "interaction": { "type": "walk", "with": "lan", "by": null } },
+        { "id": "l4", "speaker": "lan", "gesture": null, "emotion": "happy", "vocal": "yay", "text": { "vi": "Đập tay nào!" }, "action": null, "interaction": { "type": "highfive", "with": "minh", "by": null }, "then": "stay" },
+        { "id": "l5", "speaker": "lan", "gesture": null, "emotion": "happy", "text": { "vi": "Mẹ ơi, con tặng mẹ bông hoa này ạ!" }, "action": { "type": "give", "object": "hoa", "to": "me", "by": null }, "then": "stay" },
+        { "id": "l6", "speaker": "me", "gesture": null, "emotion": "happy", "vocal": "laugh", "text": { "vi": "Cảm ơn con yêu, mẹ vui lắm!" }, "action": null, "interaction": { "type": "hug", "with": "lan", "by": null }, "then": "stay" },
+        { "id": "l7", "speaker": null, "gesture": null, "emotion": "neutral", "text": { "vi": "Món quà nhỏ làm cả nhà thật hạnh phúc." }, "action": null }
+      ]
+    }
+  ]
+}

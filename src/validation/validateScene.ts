@@ -115,6 +115,9 @@ function checkDialogue(scene: SceneScript, issues: SceneIssue[]): void {
     if (line.speaker && !characters.has(line.speaker)) {
       issues.push({ code: "TargetNotFound", message: `Câu thoại "${line.id}" của nhân vật "${line.speaker}" không tồn tại`, path: `${path}.speaker` });
     }
+    if (line.to && !characters.has(line.to)) {
+      issues.push({ code: "TargetNotFound", message: `Câu thoại "${line.id}" nói với nhân vật "${line.to}" không tồn tại`, path: `${path}.to` });
+    }
     if (line.start + line.duration > scene.meta.duration + EPS) {
       issues.push({
         code: "DialogueOutOfRange",
@@ -171,7 +174,7 @@ function checkShotTarget(scene: SceneScript, shot: CameraShot, path: string, iss
   }
 }
 
-type OverlapGroup = "motion" | "animation" | "jump" | "camera";
+type OverlapGroup = "motion" | "animation" | "jump" | "pose" | "camera";
 
 /** Sự kiện đồ vật là tức thời → không kiểm tra chồng thời gian. */
 function overlapGroup(action: Action): OverlapGroup | undefined {

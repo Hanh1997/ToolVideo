@@ -2,6 +2,7 @@ import type { Registry } from "../schemas/asset.schema";
 import type { SceneScript } from "../schemas/scene.schema";
 import {
   computeAudioSegments,
+  panGains,
   computeDucking,
   duckBreakpoints,
   duckGainAt,
@@ -65,7 +66,21 @@ export class AudioEngine {
       source.loop = seg.loop;
       const gain = ctx.createGain();
       this.scheduleGain(gain.gain, seg, from, when);
-      source.connect(gain).connect(seg.kind === "music" ? this.musicBus! : this.master!);
+      const bus = seg.kind === "music" ? this.musicBus! : this.master!;
+      if (seg.pan) {
+        // Cùng hệ số trái / phải với FFmpeg (panGains).
+        const [l, r] = panGains(seg.pan);
+        const split = ctx.createChannelSplitter(2);
+        const merge = ctx.createChannelMerger(2);
+        const gl = ctx.createGain();
+        const gr = ctx.createGain();
+        gl.gain.value = l;
+        gr.gain.value = r;
+        source.connect(gain).connect(split);
+        split.connect(gl, 0).connect(merge, 0, 0);
+        split.connect(gr, 1).connect(merge, 0, 1);
+        merge.connect(bus);
+      } else source.connect(gain).connect(bus);
       source.start(when, segmentFileTime(seg, from), seg.loop ? remaining : Math.min(remaining, buffer.duration));
       this.playing.push({ source, gain });
     });

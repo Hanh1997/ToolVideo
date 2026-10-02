@@ -1,6 +1,8 @@
 import { spawn } from "node:child_process";
+import { rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
-import type { AudioSegment, Ducking } from "../src/engine/AudioTimeline";
+import { panGains, type AudioSegment, type Ducking } from "../src/engine/AudioTimeline";
 
 export const FRAME_PATTERN = "frame_%06d.png";
 const AUDIO_RATE = 48000;
@@ -79,6 +81,10 @@ export function buildAudioFilter(audio: Omit<EncodeAudio, "assetsDir">, firstInp
       `aformat=sample_fmts=fltp:sample_rates=${AUDIO_RATE}:channel_layouts=stereo`,
       `volume=${num(seg.volume)}`,
     ];
+    if (seg.pan) {
+      const [l, r] = panGains(seg.pan);
+      chain.push(`pan=stereo|c0=${num(l)}*c0|c1=${num(r)}*c1`);
+    }
     if (seg.fadeIn > 0) chain.push(`afade=t=in:st=0:d=${num(Math.min(seg.fadeIn, len))}`);
     if (seg.fadeOut > 0) {
       const d = Math.min(seg.fadeOut, len);
@@ -230,10 +236,29 @@ export function ffmpegPath(): string {
   return process.env.FFMPEG_PATH ?? "ffmpeg";
 }
 
+/** Dòng lệnh dài hơn mức này → filter_complex ghi ra file (Windows giới hạn ~32 767 ký tự cho cả dòng lệnh). */
+const MAX_CMDLINE = 24000;
+
+/**
+ * Phim dài / nhiều câu thoại: filter_complex (mỗi đoạn audio một chuỗi lọc + biểu thức ducking) vượt giới hạn dòng
+ * lệnh của Windows (spawn ENAMETOOLONG) → ghi filter ra file tạm, FFmpeg đọc bằng `-/filter_complex <file>` (FFmpeg ≥ 7).
+ */
+function shortenArgs(args: readonly string[]): { args: string[]; cleanup?: () => void } {
+  const len = args.reduce((n, a) => n + a.length + 3, 0);
+  const at = args.indexOf("-filter_complex");
+  if (len <= MAX_CMDLINE || at < 0 || at + 1 >= args.length) return { args: [...args] };
+  const file = join(tmpdir(), `ac-filter-${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.txt`);
+  writeFileSync(file, args[at + 1]!, "utf8");
+  const out = [...args];
+  out.splice(at, 2, "-/filter_complex", file);
+  return { args: out, cleanup: () => rmSync(file, { force: true }) };
+}
+
 /** Chạy FFmpeg; trả về stderr (cần cho pass đo loudnorm). */
 export function runFfmpeg(args: readonly string[], bin = ffmpegPath()): Promise<string> {
-  return new Promise((resolveRun, reject) => {
-    const child = spawn(bin, args, { stdio: ["ignore", "ignore", "pipe"], windowsHide: true });
+  const short = shortenArgs(args);
+  return new Promise<string>((resolveRun, reject) => {
+    const child = spawn(bin, short.args, { stdio: ["ignore", "ignore", "pipe"], windowsHide: true });
     let stderr = "";
     child.stderr.on("data", (d: Buffer) => {
       stderr = (stderr + d.toString()).slice(-20000);
@@ -243,5 +268,5 @@ export function runFfmpeg(args: readonly string[], bin = ffmpegPath()): Promise<
       if (code === 0) resolveRun(stderr);
       else reject(new FFmpegError(`FFmpeg thoát với mã ${String(code)}: ${stderr.trim().slice(-4000)}`));
     });
-  });
+  }).finally(() => short.cleanup?.());
 }

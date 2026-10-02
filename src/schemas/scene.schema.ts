@@ -106,6 +106,17 @@ export const CameraMoveSchema = z.object({
 });
 export type CameraMove = z.infer<typeof CameraMoveSchema>;
 
+/** Động tác tay (nhân vật có xương tay), cộng lên hoạt ảnh đang chạy – xem engine/ArmPose. */
+export const ARM_POSES = ["hug", "reach", "highfive", "pat"] as const;
+export type ArmPose = (typeof ARM_POSES)[number];
+export const PoseActionSchema = z.object({
+  ...timing,
+  type: z.literal("pose"),
+  target: id,
+  pose: z.enum(ARM_POSES),
+});
+export type PoseAction = z.infer<typeof PoseActionSchema>;
+
 export const CameraActionSchema = z.object({
   ...timing,
   type: z.literal("camera"),
@@ -157,6 +168,7 @@ export const ActionSchema = z.discriminatedUnion("type", [
   PathActionSchema,
   TurnActionSchema,
   JumpActionSchema,
+  PoseActionSchema,
   CameraActionSchema,
   AttachActionSchema,
   DropActionSchema,
@@ -250,6 +262,8 @@ export const DialogueLineSchema = z.object({
   id,
   /** Nhân vật nói (id trong characters). Bỏ trống = người dẫn chuyện. */
   speaker: id.optional(),
+  /** Người được nói với (id nhân vật) – người nói quay về phía họ. Bỏ trống = tự đoán (người đáp lời / người vừa nói). */
+  to: id.optional(),
   text: z.string().min(1).max(1000),
   start: z.number().min(0),
   duration: z.number().positive(),
@@ -258,6 +272,8 @@ export const DialogueLineSchema = z.object({
   voice: z.string().min(1),
   rate: z.number().min(0.5).max(2).default(1),
   volume: z.number().min(0).max(4).default(1),
+  /** Lệch trái (-1) / phải (1); bỏ trống = giữa. */
+  pan: z.number().min(-1).max(1).optional(),
   subtitle: z.boolean().default(true),
   emotion: EmotionSchema.default("neutral"),
   /** Độ to giọng theo thời gian (0..1, 25 mẫu/giây) – nhép miệng / nhún khi nói. Do resolver điền từ file TTS. */
@@ -287,7 +303,23 @@ export const MixSchema = z.object({
 });
 export type MixSettings = z.infer<typeof MixSchema>;
 
-export const LIGHTING_PRESETS = ["day", "morning", "sunset", "overcast", "snow", "night"] as const;
+/**
+ * Chữ lớn phủ lên hình: "title" = tên phim lúc mở đầu, "credits" = danh sách cuối phim (nền tối dần).
+ * `at: "end"` → hiện `duration` giây cuối cùng của scene (không cần biết trước độ dài khi soạn).
+ */
+export const TitleCardSchema = z.object({
+  kind: z.enum(["title", "credits"]),
+  text: z.string().min(1).max(200),
+  /** Dòng phụ (title) / các dòng danh sách (credits). */
+  lines: z.array(z.string().min(1).max(200)).max(12).default([]),
+  at: z.enum(["start", "end"]).default("start"),
+  /** Giây, tính từ đầu scene (at "start") – bỏ qua khi at "end". */
+  start: z.number().min(0).default(0),
+  duration: z.number().positive().max(30),
+});
+export type TitleCard = z.infer<typeof TitleCardSchema>;
+
+export const LIGHTING_PRESETS = ["day", "morning", "sunset", "overcast", "snow", "night", "indoor", "indoor_night"] as const;
 export type LightingPreset = (typeof LIGHTING_PRESETS)[number];
 
 export const LightingSchema = z.object({
@@ -330,6 +362,7 @@ export const SceneScriptSchema = z.object({
   audio: z.array(AudioTrackSchema).default([]),
   dialogue: z.array(DialogueLineSchema).default([]),
   subtitles: SubtitleStyleSchema.default({ burnIn: false, size: 0.05, position: "bottom", showSpeaker: false }),
+  titles: z.array(TitleCardSchema).max(4).default([]),
   mix: MixSchema.default({ duckMusic: true, duckLevel: 0.3, duckRamp: 0.25, loudness: -14 }),
 });
 

@@ -3,7 +3,8 @@ import type { AssetEntry, AssetType } from "../schemas/asset.schema";
 import { useEditor } from "../store/editorStore";
 import { api, type ImportResult } from "./api";
 import { AssetThumb } from "./AssetThumb";
-import { aliasKind, ModelViewer } from "./CharacterViewer";
+import { aliasKind, ModelViewer, type FacePreview } from "./CharacterViewer";
+import { CharacterGenDialog } from "./CharacterGenDialog";
 
 const LICENSES = ["CC0-1.0", "CC-BY-4.0", "MIT", "Proprietary-Owned"];
 
@@ -15,6 +16,8 @@ export function ModelsTab({ types, title }: { types: AssetType[]; title: string 
   const [selectedId, setSelectedId] = useState<string>();
   const [importing, setImporting] = useState(false);
   const [tag, setTag] = useState<string>();
+  /** Hộp thoại tạo nhân vật bằng mô tả: "" = tạo mới, id = sửa & dựng lại. */
+  const [gen, setGen] = useState<string>();
 
   const assets = useMemo(() => (registry?.assets ?? []).filter((a) => types.includes(a.type)), [registry, types]);
   const tagCounts = useMemo(() => {
@@ -46,6 +49,11 @@ export function ModelsTab({ types, title }: { types: AssetType[]; title: string 
         )}
         <span className="muted">{shown.length} mục</span>
         <span className="spacer" />
+        {types.includes("character") && (
+          <button className="primary" onClick={() => setGen("")}>
+            ✨ Tạo bằng mô tả
+          </button>
+        )}
         <button className="primary" onClick={() => setImporting(true)}>
           ＋ Thêm {title.toLowerCase()}
         </button>
@@ -78,7 +86,32 @@ export function ModelsTab({ types, title }: { types: AssetType[]; title: string 
           </button>
         ))}
       </div>
-      {selected && <AssetDetail key={selected.id} asset={selected} onClose={() => setSelectedId(undefined)} onSaved={() => void reloadRegistry()} />}
+      {selected && (
+        <AssetDetail
+          key={selected.id}
+          asset={selected}
+          onClose={() => setSelectedId(undefined)}
+          onSaved={() => void reloadRegistry()}
+          onRegenerate={
+            selected.id.startsWith("char_ac_gen_")
+              ? () => {
+                  setSelectedId(undefined);
+                  setGen(selected.id);
+                }
+              : undefined
+          }
+        />
+      )}
+      {gen !== undefined && (
+        <CharacterGenDialog
+          editId={gen || undefined}
+          onClose={() => setGen(undefined)}
+          onDone={(id) => {
+            setGen(undefined);
+            setSelectedId(id);
+          }}
+        />
+      )}
       {importing && (
         <ImportDialog
           defaultType={types[0] === "character" ? "character" : "prop"}
@@ -93,8 +126,43 @@ export function ModelsTab({ types, title }: { types: AssetType[]; title: string 
   );
 }
 
-function AssetDetail({ asset, onClose, onSaved }: { asset: AssetEntry; onClose: () => void; onSaved: () => void }) {
+/** Nhãn tiếng Việt cho shape key khuôn mặt (make_character.py KEYS). */
+const FACE_LABELS: Record<string, string> = {
+  blink: "chớp mắt",
+  happy: "vui",
+  sad: "buồn",
+  angry: "tức giận",
+  surprised: "ngạc nhiên",
+  scared: "sợ",
+  aa: "A",
+  ee: "E",
+  ih: "I",
+  oh: "O",
+  ou: "U",
+  lookLeft: "liếc trái",
+  lookRight: "liếc phải",
+  lookUp: "nhìn lên",
+  lookDown: "nhìn xuống",
+  browUp: "nhướng mày",
+  browDown: "hạ mày",
+  browAngry: "chau mày",
+  browSad: "mày buồn",
+  browWorried: "lo lắng",
+  smile: "cười",
+  frown: "mếu",
+  mouthOpen: "há miệng",
+};
+const FACE_ORDER = Object.keys(FACE_LABELS);
+
+function sortFaceKeys(names: string[]): string[] {
+  const rank = (n: string) => (FACE_ORDER.includes(n) ? FACE_ORDER.indexOf(n) : FACE_ORDER.length);
+  return [...names].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
+}
+
+function AssetDetail({ asset, onClose, onSaved, onRegenerate }: { asset: AssetEntry; onClose: () => void; onSaved: () => void; onRegenerate?: () => void }) {
   const [clip, setClip] = useState<string>();
+  const [faceNames, setFaceNames] = useState<string[]>([]);
+  const [face, setFace] = useState<FacePreview>({ key: null, talk: false, closeUp: 0 });
   const [editing, setEditing] = useState(false);
   const [copied, setCopied] = useState(false);
   const aliases = Object.entries(asset.clipAliases);
@@ -107,7 +175,7 @@ function AssetDetail({ asset, onClose, onSaved }: { asset: AssetEntry; onClose: 
           <button onClick={onClose}>✕</button>
         </div>
         <div className="asset-modal-body">
-          <ModelViewer asset={asset} clip={clip} />
+          <ModelViewer asset={asset} clip={clip} face={face} onFaceNames={setFaceNames} />
           <div className="asset-side">
             <div className="id-row">
               <code>{asset.id}</code>
@@ -142,6 +210,28 @@ function AssetDetail({ asset, onClose, onSaved }: { asset: AssetEntry; onClose: 
                     </button>
                   ))}
                 </div>
+                {faceNames.length > 0 && (
+                  <>
+                    <h3>Khuôn mặt (shape key)</h3>
+                    <p className="muted small">Mắt tự chớp như trong video. Bấm để xem thử từng biểu cảm / khẩu hình.</p>
+                    <div className="clip-list">
+                      <button className="clip exact" onClick={() => setFace((f) => ({ ...f, closeUp: f.closeUp + 1 }))}>
+                        🔍 Cận mặt
+                      </button>
+                      <button className={`clip exact ${face.talk ? "active" : ""}`} onClick={() => setFace((f) => ({ ...f, talk: !f.talk }))}>
+                        🗣 Nói thử
+                      </button>
+                      <button className={`clip raw ${face.key === null ? "active" : ""}`} onClick={() => setFace((f) => ({ ...f, key: null }))}>
+                        mặt thường
+                      </button>
+                      {sortFaceKeys(faceNames).map((n) => (
+                        <button key={n} className={`clip raw ${face.key === n ? "active" : ""}`} title={n} onClick={() => setFace((f) => ({ ...f, key: f.key === n ? null : n }))}>
+                          {FACE_LABELS[n] ?? n}
+                        </button>
+                      ))}
+                    </div>
+                  </>
+                )}
                 <h3>Clip gốc trong file</h3>
                 <div className="clip-list">
                   {asset.clips.map((c) => (
@@ -204,7 +294,10 @@ function AssetDetail({ asset, onClose, onSaved }: { asset: AssetEntry; onClose: 
                     )}
                   </dd>
                 </dl>
-                <button onClick={() => setEditing(true)}>✎ Sửa thông tin</button>
+                <div className="row">
+                  <button onClick={() => setEditing(true)}>✎ Sửa thông tin</button>
+                  {onRegenerate && <button onClick={onRegenerate}>✨ Sửa & dựng lại</button>}
+                </div>
               </>
             )}
           </div>

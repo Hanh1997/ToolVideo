@@ -1,0 +1,817 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Quán Kem Mới",
+    "duration": "auto",
+    "tail": 5.3,
+    "fps": 25,
+    "width": 1920,
+    "height": 1080
+  },
+  "environment": {
+    "asset": "env_park",
+    "background": "#f2a878",
+    "fog": {
+      "color": "#f2a878",
+      "near": 28,
+      "far": 80
+    },
+    "lighting": {
+      "preset": "sunset"
+    },
+    "effects": [
+      "petals"
+    ]
+  },
+  "characters": [
+    {
+      "id": "tung",
+      "name": "Tùng",
+      "asset": "char_ac_danchoi",
+      "position": {
+        "x": -1.2,
+        "y": 0,
+        "z": -0.17
+      },
+      "heading": 135.57,
+      "voice": "voice_vi_low"
+    },
+    {
+      "id": "minh",
+      "name": "Minh",
+      "asset": "char_q_casual_male",
+      "position": {
+        "x": 1.2,
+        "y": 0,
+        "z": -0.17
+      },
+      "heading": -135.57,
+      "voice": "voice_vi_child"
+    }
+  ],
+  "props": [],
+  "camera": {
+    "mode": "fixed",
+    "position": {
+      "x": -1.95,
+      "y": 2.12,
+      "z": -5.58
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 0.81,
+      "z": -0.4
+    },
+    "fov": 50
+  },
+  "subtitles": {
+    "burnIn": true,
+    "size": 0.05,
+    "position": "bottom",
+    "showSpeaker": true
+  },
+  "titles": [
+    {
+      "kind": "title",
+      "text": "Quán Kem Mới",
+      "start": 0.3,
+      "duration": 3
+    },
+    {
+      "kind": "credits",
+      "text": "Hết",
+      "lines": [
+        "Quán Kem Mới",
+        "Nhân vật:",
+        "Tùng · Minh",
+        "Thực hiện bằng AutoCartoon"
+      ],
+      "at": "end",
+      "duration": 4.5
+    }
+  ],
+  "mix": {
+    "duckMusic": true,
+    "duckLevel": 0.25,
+    "loudness": -14
+  },
+  "dialogue": [
+    {
+      "id": "l1",
+      "speaker": "tung",
+      "to": "minh",
+      "emotion": "happy",
+      "pan": 0.08,
+      "text": "Nhìn kìa, bên kia có quán kem mới mở đấy!",
+      "start": 3.6
+    },
+    {
+      "id": "l2_v",
+      "speaker": "minh",
+      "to": "tung",
+      "emotion": "surprised",
+      "pan": -0.08,
+      "text": "Oa!",
+      "subtitle": false,
+      "start": {
+        "after": "l1",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l2",
+      "speaker": "minh",
+      "to": "tung",
+      "emotion": "surprised",
+      "pan": -0.08,
+      "text": "Thật à? Mình đi ăn thử luôn đi anh!",
+      "start": {
+        "after": "l2_v",
+        "gap": 0.12
+      }
+    },
+    {
+      "id": "l3_v",
+      "speaker": "tung",
+      "to": "minh",
+      "emotion": "sad",
+      "pan": -0.01,
+      "text": "Haizz…",
+      "subtitle": false,
+      "start": {
+        "after": "l2",
+        "gap": 1.38
+      }
+    },
+    {
+      "id": "l3",
+      "speaker": "tung",
+      "to": "minh",
+      "emotion": "sad",
+      "pan": -0.01,
+      "text": "Nhưng mà anh quên ví ở nhà mất rồi.",
+      "start": {
+        "after": "l3_v",
+        "gap": 0.12
+      }
+    },
+    {
+      "id": "l4",
+      "speaker": "minh",
+      "to": "tung",
+      "emotion": "happy",
+      "pan": -0.08,
+      "text": "Không sao đâu, hôm nay em mời anh nhé!",
+      "start": {
+        "after": "l3",
+        "gap": 1.05
+      }
+    },
+    {
+      "id": "l5",
+      "speaker": "tung",
+      "to": "minh",
+      "emotion": "happy",
+      "pan": -0.01,
+      "text": "Cảm ơn em, em đúng là bạn tốt!",
+      "start": {
+        "after": "l4",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l6_v",
+      "speaker": "tung",
+      "to": "minh",
+      "emotion": "happy",
+      "pan": -0.01,
+      "text": "Hi hi hi!",
+      "subtitle": false,
+      "start": {
+        "after": "l5",
+        "gap": 0.45
+      }
+    },
+    {
+      "id": "l6",
+      "speaker": "tung",
+      "to": "minh",
+      "emotion": "happy",
+      "pan": -0.01,
+      "text": "Đi thôi nào!",
+      "start": {
+        "after": "l6_v",
+        "gap": 0.12
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "cam_l3_walk",
+      "type": "camera",
+      "sync": {
+        "line": "l3_v",
+        "offset": -0.93,
+        "duration": 0.78
+      },
+      "shot": {
+        "mode": "follow",
+        "target": "tung",
+        "offset": {
+          "x": 1.83,
+          "y": 2.3,
+          "z": -5.24
+        },
+        "lookAtOffset": {
+          "x": 0,
+          "y": 0.72,
+          "z": 0
+        },
+        "fov": 50
+      }
+    },
+    {
+      "id": "l3_walk_rback",
+      "type": "turn",
+      "target": "minh",
+      "heading": -135.57,
+      "sync": {
+        "line": "l3",
+        "at": "end",
+        "offset": 0.2,
+        "duration": 0.35
+      }
+    },
+    {
+      "id": "l3_walk_settle",
+      "type": "turn",
+      "target": "tung",
+      "heading": -172.86,
+      "sync": {
+        "line": "l3",
+        "at": "end",
+        "offset": 0.2,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l3_walk_go_walk",
+      "type": "animation",
+      "target": "tung",
+      "clip": "walk_sad",
+      "sync": {
+        "line": "l3_v",
+        "offset": -0.93,
+        "duration": 1.59
+      }
+    },
+    {
+      "id": "l3_walk_go_move",
+      "type": "moveTo",
+      "target": "tung",
+      "to": {
+        "x": 0.15,
+        "z": -0.17
+      },
+      "sync": {
+        "line": "l3_v",
+        "offset": -0.93,
+        "duration": 1.59
+      }
+    },
+    {
+      "id": "l3_walk_face",
+      "type": "turn",
+      "target": "tung",
+      "heading": 90,
+      "sync": {
+        "line": "l3_v",
+        "offset": 0.66,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "l3_walk_rface",
+      "type": "turn",
+      "target": "minh",
+      "heading": -90,
+      "sync": {
+        "line": "l3_v",
+        "offset": 0.26,
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "l6_leave_minh_move",
+      "type": "moveTo",
+      "target": "minh",
+      "to": {
+        "x": 7,
+        "z": -0.17
+      },
+      "sync": {
+        "line": "l6",
+        "offset": 0.4,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l6_leave_minh_walk",
+      "type": "animation",
+      "target": "minh",
+      "clip": "walk",
+      "sync": {
+        "line": "l6",
+        "offset": 0.4,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l6_leave_tung_move",
+      "type": "moveTo",
+      "target": "tung",
+      "to": {
+        "x": 7,
+        "z": 0.73
+      },
+      "sync": {
+        "line": "l6",
+        "offset": 0.75,
+        "duration": 4
+      }
+    },
+    {
+      "id": "l6_leave_tung_walk",
+      "type": "animation",
+      "target": "tung",
+      "clip": "walk",
+      "sync": {
+        "line": "l6",
+        "offset": 0.75,
+        "duration": 4
+      }
+    },
+    {
+      "id": "cam_intro",
+      "type": "camera",
+      "start": 0,
+      "duration": 3.45,
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.95,
+          "y": 2.12,
+          "z": -5.58
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.81,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "move": {
+        "dolly": 0.12
+      }
+    },
+    {
+      "id": "g_l1",
+      "type": "animation",
+      "target": "tung",
+      "clip": "point",
+      "sync": {
+        "line": "l1"
+      }
+    },
+    {
+      "id": "cam_l1",
+      "type": "camera",
+      "sync": {
+        "line": "l1",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 2.31,
+          "y": 1.69,
+          "z": -2.33
+        },
+        "lookAt": {
+          "x": -0.89,
+          "y": 1.12,
+          "z": -0.49
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l2_v",
+      "type": "camera",
+      "sync": {
+        "line": "l2_v",
+        "offset": -0.15,
+        "pad": -0.03
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.65,
+          "y": 1.29,
+          "z": -1.93
+        },
+        "lookAt": {
+          "x": 0.97,
+          "y": 0.81,
+          "z": -0.4
+        },
+        "fov": 45
+      }
+    },
+    {
+      "id": "cam_l2",
+      "type": "camera",
+      "sync": {
+        "line": "l2",
+        "offset": -0.15,
+        "pad": -0.9
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.65,
+          "y": 1.29,
+          "z": -1.93
+        },
+        "lookAt": {
+          "x": 0.97,
+          "y": 0.81,
+          "z": -0.4
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l2_react",
+      "type": "camera",
+      "sync": {
+        "line": "l2",
+        "at": "end",
+        "offset": -0.9,
+        "duration": 1.2
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 2.31,
+          "y": 1.69,
+          "z": -2.33
+        },
+        "lookAt": {
+          "x": -0.89,
+          "y": 1.12,
+          "z": -0.49
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.05
+      }
+    },
+    {
+      "id": "cam_l3_v",
+      "type": "camera",
+      "sync": {
+        "line": "l3_v",
+        "offset": -0.15,
+        "pad": -0.03
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.8,
+          "y": 2.17,
+          "z": -5.1
+        },
+        "lookAt": {
+          "x": 0.68,
+          "y": 0.9,
+          "z": -0.17
+        },
+        "fov": 46
+      }
+    },
+    {
+      "id": "cam_l3",
+      "type": "camera",
+      "sync": {
+        "line": "l3",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -0.8,
+          "y": 2.17,
+          "z": -5.1
+        },
+        "lookAt": {
+          "x": 0.68,
+          "y": 0.9,
+          "z": -0.17
+        },
+        "fov": 46
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l4",
+      "type": "camera",
+      "sync": {
+        "line": "l4",
+        "offset": -0.15,
+        "pad": 0.3
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.65,
+          "y": 1.29,
+          "z": -1.93
+        },
+        "lookAt": {
+          "x": 0.97,
+          "y": 0.81,
+          "z": -0.4
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "g_l5",
+      "type": "animation",
+      "target": "tung",
+      "clip": "bow",
+      "loop": false,
+      "sync": {
+        "line": "l5"
+      }
+    },
+    {
+      "id": "cam_l5",
+      "type": "camera",
+      "sync": {
+        "line": "l5",
+        "offset": -0.15,
+        "pad": -0.9
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0.66,
+          "y": 1.69,
+          "z": -4.26
+        },
+        "lookAt": {
+          "x": 0.1,
+          "y": 1.12,
+          "z": -0.62
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.07
+      }
+    },
+    {
+      "id": "cam_l5_react",
+      "type": "camera",
+      "sync": {
+        "line": "l5",
+        "at": "end",
+        "offset": -0.9,
+        "duration": 1.2
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": -1.65,
+          "y": 1.29,
+          "z": -1.93
+        },
+        "lookAt": {
+          "x": 0.97,
+          "y": 0.81,
+          "z": -0.4
+        },
+        "fov": 45
+      },
+      "move": {
+        "dolly": 0.05
+      }
+    },
+    {
+      "id": "cam_end",
+      "type": "camera",
+      "sync": {
+        "line": "l6_v",
+        "offset": -0.15,
+        "pad": 30
+      },
+      "shot": {
+        "mode": "fixed",
+        "position": {
+          "x": 0,
+          "y": 2.12,
+          "z": -5.58
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0.81,
+          "z": -0.4
+        },
+        "fov": 50
+      },
+      "blend": 1.2,
+      "move": {
+        "dolly": -0.1,
+        "rise": 0.4
+      }
+    },
+    {
+      "id": "ap_l4_walk",
+      "type": "animation",
+      "target": "minh",
+      "clip": "walk",
+      "sync": {
+        "line": "l4",
+        "offset": 0,
+        "duration": 0.55
+      }
+    },
+    {
+      "id": "ap_l4_in",
+      "type": "moveTo",
+      "target": "minh",
+      "to": {
+        "x": 0.95,
+        "z": -0.17
+      },
+      "sync": {
+        "line": "l4",
+        "offset": 0,
+        "duration": 0.55
+      }
+    },
+    {
+      "id": "ap_l4_turn",
+      "type": "turn",
+      "target": "minh",
+      "heading": -108.23,
+      "sync": {
+        "line": "l4",
+        "offset": 0.55,
+        "duration": 0.3
+      }
+    },
+    {
+      "id": "ap_l4_bwalk",
+      "type": "animation",
+      "target": "minh",
+      "clip": "walk",
+      "sync": {
+        "line": "l4",
+        "at": "end",
+        "offset": 0.05,
+        "duration": 0.5
+      }
+    },
+    {
+      "id": "ap_l4_back",
+      "type": "moveTo",
+      "target": "minh",
+      "to": {
+        "x": 1.2,
+        "z": -0.17
+      },
+      "face": false,
+      "sync": {
+        "line": "l4",
+        "at": "end",
+        "offset": 0.05,
+        "duration": 0.5
+      }
+    },
+    {
+      "id": "ap_l4_home",
+      "type": "turn",
+      "target": "minh",
+      "heading": -135.57,
+      "sync": {
+        "line": "l4",
+        "at": "end",
+        "offset": 0.55,
+        "duration": 0.3
+      }
+    }
+  ],
+  "audio": [
+    {
+      "id": "l3_walk_go_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 1.59,
+      "volume": 0.44,
+      "fadeOut": 0.15,
+      "sync": {
+        "line": "l3_v",
+        "at": "start",
+        "offset": -0.93
+      }
+    },
+    {
+      "id": "l6_leave_minh_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 4,
+      "volume": 0.34,
+      "fadeOut": 0.3,
+      "sync": {
+        "line": "l6",
+        "at": "start",
+        "offset": 0.4
+      }
+    },
+    {
+      "id": "l6_leave_tung_steps",
+      "kind": "sfx",
+      "asset": "sfx_steps_grass_loop",
+      "loop": true,
+      "duration": 4,
+      "volume": 0.44,
+      "fadeOut": 0.3,
+      "sync": {
+        "line": "l6",
+        "at": "start",
+        "offset": 0.75
+      }
+    },
+    {
+      "id": "sfx_spark_l2",
+      "kind": "sfx",
+      "asset": "sfx_sparkle",
+      "volume": 0.28,
+      "sync": {
+        "line": "l2_v",
+        "at": "start",
+        "offset": -0.05
+      }
+    },
+    {
+      "id": "bgm",
+      "kind": "music",
+      "asset": "music_playful",
+      "start": 0,
+      "loop": true,
+      "volume": 0.3,
+      "fadeIn": 0.5,
+      "fadeOut": 1.8
+    },
+    {
+      "id": "amb",
+      "kind": "sfx",
+      "asset": "amb_park",
+      "start": 0,
+      "loop": true,
+      "volume": 0.35,
+      "fadeIn": 1,
+      "fadeOut": 1
+    },
+    {
+      "id": "sfx_end",
+      "kind": "sfx",
+      "asset": "sfx_chime",
+      "sync": {
+        "line": "l6",
+        "at": "end",
+        "offset": 0.2
+      },
+      "volume": 0.8
+    }
+  ]
+}

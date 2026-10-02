@@ -1,0 +1,342 @@
+{
+  "languages": [
+    "vi"
+  ],
+  "title": {
+    "vi": "Thỏ Con Dọn Đồ Chơi"
+  },
+  "summary": {
+    "vi": "Thỏ Con và Cáo Con chơi đuổi bắt, bày đồ chơi khắp phòng và không nghe mẹ dặn cất đi. Thỏ Con vấp ngã, bị mẹ la, biết lỗi rồi cùng bạn dọn dẹp gọn gàng."
+  },
+  "music": true,
+  "mood": "playful",
+  "narratorVoice": "low",
+  "ending": "dance",
+  "characters": [
+    {
+      "id": "tho_con",
+      "asset": "char_k_animal_bunny",
+      "voice": "child",
+      "name": {
+        "vi": "Thỏ Con"
+      },
+      "size": "normal"
+    },
+    {
+      "id": "cao_con",
+      "asset": "char_k_animal_fox",
+      "voice": "squeaky",
+      "name": {
+        "vi": "Cáo Con"
+      },
+      "size": "normal"
+    },
+    {
+      "id": "me_tho",
+      "asset": "char_k_animal_bunny",
+      "voice": "female",
+      "name": {
+        "vi": "Mẹ Thỏ"
+      },
+      "size": "big"
+    }
+  ],
+  "objects": [
+    {
+      "id": "gau_bong",
+      "kind": "teddy_bear",
+      "name": {
+        "vi": "Gấu bông"
+      },
+      "scene": "phong_khach",
+      "heldBy": null
+    },
+    {
+      "id": "sach",
+      "kind": "book",
+      "name": {
+        "vi": "Chồng sách"
+      },
+      "scene": "phong_khach",
+      "heldBy": null
+    },
+    {
+      "id": "goi",
+      "kind": "pillow",
+      "name": {
+        "vi": "Cái gối"
+      },
+      "scene": "phong_khach",
+      "heldBy": null
+    }
+  ],
+  "scenes": [
+    {
+      "id": "phong_khach",
+      "environment": "env_living_room",
+      "cast": [
+        "tho_con",
+        "cao_con",
+        "me_tho"
+      ],
+      "transition": "fade",
+      "mood": null,
+      "time": null,
+      "entrance": "none",
+      "lines": [
+        {
+          "id": "l1",
+          "speaker": null,
+          "gesture": null,
+          "emotion": "neutral",
+          "text": {
+            "vi": "Chủ nhật, Cáo Con sang nhà Thỏ Con chơi. Gấu bông, sách, gối bày khắp phòng khách."
+          },
+          "action": null
+        },
+        {
+          "id": "l2",
+          "speaker": "tho_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Đuổi bắt nào! Cáo Con không bắt được mình đâu!"
+          },
+          "action": null,
+          "interaction": {
+            "type": "play",
+            "with": "cao_con",
+            "by": null
+          }
+        },
+        {
+          "id": "l3",
+          "speaker": "cao_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Bắt được rồi nhé! Vui quá đi!"
+          },
+          "action": null,
+          "interaction": {
+            "type": "highfive",
+            "with": "tho_con",
+            "by": null
+          }
+        },
+        {
+          "id": "l4",
+          "speaker": "me_tho",
+          "gesture": null,
+          "emotion": "neutral",
+          "text": {
+            "vi": "Hai con chơi xong thì cất đồ chơi vào hộp nhé, kẻo vấp ngã đấy."
+          },
+          "action": null,
+          "to": "tho_con"
+        },
+        {
+          "id": "l5",
+          "speaker": "tho_con",
+          "gesture": "no",
+          "emotion": "neutral",
+          "text": {
+            "vi": "Lát nữa con cất ạ! Tụi con chơi tiếp đây!"
+          },
+          "action": null
+        },
+        {
+          "id": "l6",
+          "speaker": "tho_con",
+          "gesture": null,
+          "emotion": "scared",
+          "text": {
+            "vi": "Oái! Đau quá!"
+          },
+          "action": {
+            "type": "trip",
+            "object": "gau_bong",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l7",
+          "speaker": "cao_con",
+          "gesture": null,
+          "emotion": "surprised",
+          "text": {
+            "vi": "Thỏ Con ơi, bạn có sao không?"
+          },
+          "action": null,
+          "interaction": {
+            "type": "pat",
+            "with": "tho_con",
+            "by": null
+          }
+        },
+        {
+          "id": "l8",
+          "speaker": "me_tho",
+          "gesture": null,
+          "emotion": "angry",
+          "text": {
+            "vi": "Mẹ đã dặn rồi mà! Đồ chơi bày bừa là dễ vấp ngã lắm!"
+          },
+          "action": null,
+          "to": "tho_con"
+        },
+        {
+          "id": "l9",
+          "speaker": "tho_con",
+          "gesture": null,
+          "emotion": "sad",
+          "text": {
+            "vi": "Con xin lỗi mẹ... Con đã không nghe lời mẹ."
+          },
+          "action": null
+        },
+        {
+          "id": "l10",
+          "speaker": "me_tho",
+          "gesture": null,
+          "emotion": "neutral",
+          "text": {
+            "vi": "Biết lỗi là ngoan rồi. Giờ con phải làm gì nào?"
+          },
+          "action": null,
+          "interaction": {
+            "type": "hug",
+            "with": "tho_con",
+            "by": null
+          }
+        },
+        {
+          "id": "l11",
+          "speaker": "tho_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Con sẽ tự dọn! Bạn gấu ơi, về hộp nào."
+          },
+          "action": {
+            "type": "pickup",
+            "object": "gau_bong",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l12",
+          "speaker": "tho_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Vào hộp rồi nhé!"
+          },
+          "action": {
+            "type": "stow",
+            "object": "gau_bong",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l13",
+          "speaker": "cao_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Mình giúp bạn cất chồng sách này nhé!"
+          },
+          "action": {
+            "type": "pickup",
+            "object": "sach",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l14",
+          "speaker": "cao_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Xong phần của mình rồi!"
+          },
+          "action": {
+            "type": "stow",
+            "object": "sach",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l15",
+          "speaker": "tho_con",
+          "gesture": null,
+          "emotion": "neutral",
+          "text": {
+            "vi": "Còn cái gối này nữa là xong."
+          },
+          "action": {
+            "type": "pickup",
+            "object": "goi",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l16",
+          "speaker": "tho_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Phòng gọn gàng quá!"
+          },
+          "action": {
+            "type": "stow",
+            "object": "goi",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l17",
+          "speaker": "tho_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Cảm ơn Cáo Con đã giúp mình nhé!"
+          },
+          "action": null,
+          "interaction": {
+            "type": "highfive",
+            "with": "cao_con",
+            "by": null
+          }
+        },
+        {
+          "id": "l18",
+          "speaker": "me_tho",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Các con giỏi lắm! Chơi xong tự dọn thì cả nhà đều vui."
+          },
+          "action": null
+        },
+        {
+          "id": "l19",
+          "speaker": null,
+          "gesture": null,
+          "emotion": "neutral",
+          "text": {
+            "vi": "Từ hôm đó, chơi xong Thỏ Con luôn tự cất đồ chơi vào hộp thật gọn gàng."
+          },
+          "action": null
+        }
+      ]
+    }
+  ]
+}

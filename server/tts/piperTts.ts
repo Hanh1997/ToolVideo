@@ -6,6 +6,7 @@ import { join, resolve } from "node:path";
 import type { Synthesize, TtsRequest, TtsResult } from "../../src/tts/resolveScene";
 import { runFfmpeg } from "../../cli/ffmpeg";
 import { envelopeFromPcm } from "../../src/engine/Speech";
+import { VieneuWorker } from "./vieneuWorker";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 /** Tăng khi đổi cách sinh để vô hiệu cache cũ. */
@@ -91,7 +92,12 @@ function cacheKey(req: TtsRequest): string {
     provider: req.voice.provider,
     model: req.voice.file,
     speaker: req.voice.speaker ?? 0,
+    preset: req.voice.preset,
     pitch: req.voice.pitch ?? 0,
+    formant: req.voice.formant ?? "shifted",
+    noiseScale: req.voice.noiseScale,
+    noiseW: req.voice.noiseW,
+    filter: req.voice.filter ?? "",
     rate: req.rate,
     text: req.text.normalize("NFC").trim(),
   });
@@ -133,6 +139,9 @@ export function createPiperTts(options: PiperOptions = {}): Synthesize {
   const prefix = options.assetPrefix ?? "tts/";
   const timeoutMs = options.timeoutMs ?? 120_000;
   const inflight = new Map<string, Promise<TtsResult>>();
+  // VieNeu: một tiến trình nền cho cả phiên (nạp model một lần), đọc tuần tự.
+  let vieneu: VieneuWorker | undefined;
+  let vieneuChain: Promise<unknown> = Promise.resolve();
   let running = 0;
   const queue: (() => void)[] = [];
   const limit = Math.max(1, options.concurrency ?? 2);
@@ -149,7 +158,8 @@ export function createPiperTts(options: PiperOptions = {}): Synthesize {
   };
 
   return (req) => {
-    if (req.voice.provider !== "piper") return Promise.reject(new Error(`Provider "${String(req.voice.provider)}" chưa hỗ trợ`));
+    if (req.voice.provider !== "piper" && req.voice.provider !== "vieneu") return Promise.reject(new Error(`Provider "${String(req.voice.provider)}" chưa hỗ trợ`));
+    const isVieneu = req.voice.provider === "vieneu";
     const key = cacheKey(req);
     const existing = inflight.get(key);
     if (existing) return existing;
@@ -160,25 +170,45 @@ export function createPiperTts(options: PiperOptions = {}): Synthesize {
       if (existsSync(out)) return { file: prefix + name, duration: await wavDuration(out), envelope: await wavEnvelope(out), cached: true };
 
       const model = join(voicesDir, req.voice.file);
-      if (!existsSync(model)) throw new Error(`Không có model giọng ${model}`);
+      if (!isVieneu && !existsSync(model)) throw new Error(`Không có model giọng ${model}`);
       await mkdir(cacheDir, { recursive: true });
       const textFile = join(cacheDir, `${key}.txt`);
       const tmp = join(cacheDir, `${key}.tmp.wav`);
       await writeFile(textFile, req.text.normalize("NFC").trim(), "utf8");
       try {
-        const args = ["-m", model, "-i", textFile, "-f", tmp, "--length-scale", String(Math.round((1 / req.rate) * 1000) / 1000)];
-        if (req.voice.speaker !== undefined) args.push("-s", String(req.voice.speaker));
-        await acquire();
-        try {
-          await run(bin, args, timeoutMs);
-        } finally {
-          release();
+        if (isVieneu) {
+          // VieNeu không có tham số tốc độ → chỉnh tốc độ ở hậu kỳ (rubberband tempo).
+          const preset = req.voice.preset;
+          if (!preset) throw new Error(`Giọng ${req.voice.id} (vieneu) thiếu "preset"`);
+          vieneu ??= new VieneuWorker();
+          const seed = parseInt(key.slice(0, 8), 16);
+          const job = vieneuChain.then(() => vieneu!.synthesize(req.text.normalize("NFC").trim(), preset, tmp, seed, timeoutMs));
+          vieneuChain = job.catch(() => undefined);
+          await job;
+        } else {
+          const args = ["-m", model, "-i", textFile, "-f", tmp, "--length-scale", String(Math.round((1 / req.rate) * 1000) / 1000)];
+          if (req.voice.speaker !== undefined) args.push("-s", String(req.voice.speaker));
+          if (req.voice.noiseScale !== undefined) args.push("--noise-scale", String(req.voice.noiseScale));
+          if (req.voice.noiseW !== undefined) args.push("--noise-w-scale", String(req.voice.noiseW));
+          await acquire();
+          try {
+            await run(bin, args, timeoutMs);
+          } finally {
+            release();
+          }
         }
         const pitch = req.voice.pitch ?? 0;
-        if (pitch !== 0) {
-          // Đổi cao độ, giữ nguyên tốc độ nói (rubberband). Formant dịch theo → giọng hoạt hình.
+        const filters: string[] = [];
+        const tempo = isVieneu && Math.abs(req.rate - 1) > 0.005 ? Math.round(req.rate * 1000) / 1000 : 1;
+        if (pitch !== 0 || tempo !== 1) {
+          // Đổi cao độ / tốc độ độc lập (rubberband). Formant dịch theo → giọng hoạt hình; "preserved" → giữ âm sắc.
           const factor = Math.round(2 ** (pitch / 12) * 10000) / 10000;
-          await runFfmpeg(["-y", "-hide_banner", "-loglevel", "error", "-i", tmp, "-af", `rubberband=pitch=${factor}:pitchq=quality`, "-c:a", "pcm_s16le", out]);
+          filters.push(`rubberband=pitch=${factor}:tempo=${tempo}:pitchq=quality${req.voice.formant === "preserved" ? ":formant=preserved" : ""}`);
+        }
+        if (req.voice.filter) filters.push(req.voice.filter);
+        // VieNeu: chuẩn hoá về PCM 16-bit (wavDuration / envelope đọc được).
+        if (filters.length || isVieneu) {
+          await runFfmpeg(["-y", "-hide_banner", "-loglevel", "error", "-i", tmp, ...(filters.length ? ["-af", filters.join(",")] : []), "-c:a", "pcm_s16le", out]);
         } else {
           await rename(tmp, out);
         }

@@ -1,6 +1,6 @@
 import { loadRegistry } from "../engine/AssetLoader";
 import { SceneEngine } from "../engine/SceneEngine";
-import { drawSubtitle, loadSubtitleFont } from "../engine/Subtitles";
+import { drawSubtitle, drawTitles, hasOverlay, loadSubtitleFont } from "../engine/Subtitles";
 import { frameTime, totalFrames } from "../engine/time";
 import type { Registry } from "../schemas/asset.schema";
 import type { SceneScript } from "../schemas/scene.schema";
@@ -34,7 +34,7 @@ const api: RenderApi = {
       fps = meta.fps;
       current = result.scene;
       composite = undefined;
-      if (current.subtitles.burnIn && current.dialogue.some((l) => l.subtitle)) {
+      if (hasOverlay(current)) {
         await loadSubtitleFont();
         const c = document.createElement("canvas");
         c.width = meta.width;
@@ -62,7 +62,8 @@ const api: RenderApi = {
       const { width, height } = composite.canvas;
       composite.clearRect(0, 0, width, height);
       composite.drawImage(engine.canvas, 0, 0, width, height);
-      drawSubtitle(composite, current, t, width, height);
+      if (current.subtitles.burnIn) drawSubtitle(composite, current, t, width, height);
+      drawTitles(composite, current, t, width, height);
       url = composite.canvas.toDataURL("image/png");
     } else {
       url = engine.canvas.toDataURL("image/png");

@@ -37,6 +37,10 @@ export const LIGHTING: Record<LightingPreset, PresetDef> = {
   sunset: { sun: ["#ffab66", 2.0], elevation: 13, sky: "#ffd2b3", ground: "#5b4a3c", hemi: 0.85, fill: ["#ffe2cc", 0.65], rim: ["#ff9147", 1.5], exposure: 1.02, saturation: 1.12, contrast: 1.06, vignette: 0.28 },
   overcast: { sun: ["#ffffff", 1.0], elevation: 62, sky: "#dfe6ee", ground: "#7a8570", hemi: 1.8, fill: ["#ffffff", 0.8], rim: ["#ffffff", 0.35], exposure: 1.02, saturation: 0.96, contrast: 1.02, vignette: 0.15 },
   night: { sun: ["#a9c0ff", 0.9], elevation: 40, sky: "#3a4f86", ground: "#2a3d2a", hemi: 1.05, fill: ["#d0dcff", 1.05], rim: ["#9cbcff", 1.1], exposure: 1.15, saturation: 0.9, contrast: 1.05, vignette: 0.35 },
+  // Trong nhà (không trần): nắng cao, dịu → bóng tường ngắn; trời / sàn ấm như ánh sáng dội trong phòng.
+  indoor: { sun: ["#fff0dc", 1.35], elevation: 70, sky: "#fff4e6", ground: "#a07850", hemi: 1.7, fill: ["#fff3e2", 0.9], rim: ["#ffe6c0", 0.55], exposure: 1.02, saturation: 1.05, contrast: 1.03, vignette: 0.22 },
+  // Tối trong nhà: đèn vàng từ trên xuống, ngoài cửa sổ tối.
+  indoor_night: { sun: ["#ffd9a0", 1.0], elevation: 78, sky: "#3a3550", ground: "#6a4a30", hemi: 1.25, fill: ["#ffe2b8", 1.0], rim: ["#ffcf8a", 0.7], exposure: 1.08, saturation: 1.02, contrast: 1.05, vignette: 0.32 },
   snow: { sun: ["#f3f7ff", 1.7], elevation: 34, sky: "#eaf2ff", ground: "#c8d5e6", hemi: 1.55, fill: ["#eef4ff", 0.7], rim: ["#ffffff", 0.6], exposure: 0.98, saturation: 1.0, contrast: 1.03, vignette: 0.16 },
 };
 

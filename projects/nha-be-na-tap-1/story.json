@@ -1,0 +1,238 @@
+{
+  "languages": [
+    "vi"
+  ],
+  "title": {
+    "vi": "Nhà Bé Na – Tập 1: Chơi xong phải dọn"
+  },
+  "summary": {
+    "vi": "Bé Na mải chơi với Cún, không cất đồ chơi nên vấp ngã. Bố mẹ an ủi, Na biết lỗi và tự dọn dẹp."
+  },
+  "music": true,
+  "mood": "playful",
+  "narratorVoice": "soft",
+  "ending": "dance",
+  "characters": [
+    {
+      "id": "na",
+      "asset": "char_km_girl_blonde",
+      "voice": "cute",
+      "name": {
+        "vi": "Bé Na"
+      },
+      "size": "normal"
+    },
+    {
+      "id": "me",
+      "asset": "char_km_mom",
+      "voice": "soft",
+      "name": {
+        "vi": "Mẹ"
+      },
+      "size": "normal"
+    },
+    {
+      "id": "bo",
+      "asset": "char_km_dad",
+      "voice": "warm",
+      "name": {
+        "vi": "Bố"
+      },
+      "size": "normal"
+    },
+    {
+      "id": "cun",
+      "asset": "char_k_animal_dog",
+      "voice": "squeaky",
+      "name": {
+        "vi": "Cún"
+      },
+      "size": "small"
+    }
+  ],
+  "objects": [
+    {
+      "id": "gau",
+      "kind": "teddy_bear",
+      "name": {
+        "vi": "Gấu bông"
+      },
+      "scene": "nha",
+      "heldBy": null
+    }
+  ],
+  "scenes": [
+    {
+      "id": "nha",
+      "environment": "env_living_room",
+      "cast": [
+        "na",
+        "cun",
+        "me",
+        "bo"
+      ],
+      "transition": "fade",
+      "mood": null,
+      "time": null,
+      "entrance": "none",
+      "lines": [
+        {
+          "id": "l1",
+          "speaker": null,
+          "gesture": null,
+          "emotion": "neutral",
+          "text": {
+            "vi": "Đây là nhà của bé Na. Bé Na rất thích chơi đồ chơi cùng bạn Cún."
+          },
+          "action": null
+        },
+        {
+          "id": "l2",
+          "speaker": "na",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Cún ơi, đuổi theo tớ nào!"
+          },
+          "action": null,
+          "interaction": {
+            "type": "play",
+            "with": "cun",
+            "by": null
+          }
+        },
+        {
+          "id": "l3",
+          "speaker": "cun",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Gâu gâu! Bắt được Na rồi nhé!"
+          },
+          "action": null,
+          "interaction": {
+            "type": "highfive",
+            "with": "na",
+            "by": null
+          }
+        },
+        {
+          "id": "l4",
+          "speaker": "me",
+          "gesture": null,
+          "emotion": "neutral",
+          "text": {
+            "vi": "Na ơi, chơi xong con nhớ cất đồ chơi vào hộp nhé."
+          },
+          "action": null,
+          "to": "na"
+        },
+        {
+          "id": "l5",
+          "speaker": "na",
+          "gesture": "no",
+          "emotion": "neutral",
+          "text": {
+            "vi": "Dạ, lát nữa con cất ạ!"
+          },
+          "action": null
+        },
+        {
+          "id": "l6",
+          "speaker": "na",
+          "gesture": null,
+          "emotion": "scared",
+          "text": {
+            "vi": "Ối! Đau quá!"
+          },
+          "action": {
+            "type": "trip",
+            "object": "gau",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l7",
+          "speaker": "bo",
+          "gesture": null,
+          "emotion": "surprised",
+          "text": {
+            "vi": "Con gái có sao không? Để bố xem nào."
+          },
+          "action": null,
+          "interaction": {
+            "type": "pat",
+            "with": "na",
+            "by": null
+          }
+        },
+        {
+          "id": "l8",
+          "speaker": "na",
+          "gesture": null,
+          "emotion": "sad",
+          "text": {
+            "vi": "Tại con không nghe lời mẹ... Con xin lỗi ạ."
+          },
+          "action": null
+        },
+        {
+          "id": "l9",
+          "speaker": "me",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Không sao đâu con. Mình cùng dọn nhé!"
+          },
+          "action": null,
+          "interaction": {
+            "type": "hug",
+            "with": "na",
+            "by": null
+          }
+        },
+        {
+          "id": "l10",
+          "speaker": "na",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Bạn gấu ơi, về nhà thôi!"
+          },
+          "action": {
+            "type": "pickup",
+            "object": "gau",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l11",
+          "speaker": "na",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Xong rồi! Phòng gọn gàng quá!"
+          },
+          "action": {
+            "type": "stow",
+            "object": "gau",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l12",
+          "speaker": null,
+          "gesture": null,
+          "emotion": "neutral",
+          "text": {
+            "vi": "Chơi xong tự cất đồ chơi, nhà mình luôn gọn gàng và an toàn."
+          },
+          "action": null
+        }
+      ]
+    }
+  ]
+}

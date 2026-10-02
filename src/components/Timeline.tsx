@@ -58,6 +58,8 @@ function labelOf(a: Action): string {
       return a.by !== undefined ? `quay ${a.by}°` : `hướng ${a.heading}°`;
     case "jump":
       return `nhảy ${a.height}m`;
+    case "pose":
+      return `tay: ${a.pose}`;
     case "camera":
       return a.shot.mode === "follow" ? `follow ${a.shot.target}` : "fixed";
     case "attach":

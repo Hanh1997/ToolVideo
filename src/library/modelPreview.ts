@@ -39,10 +39,14 @@ export async function prepareModel(asset: AssetEntry): Promise<PreparedModel> {
 }
 
 export function addLights(scene: THREE.Scene): void {
-  const hemi = new THREE.HemisphereLight("#e6f2ff", "#6d8a4a", 1.5);
-  const sun = new THREE.DirectionalLight("#ffffff", 2.2);
+  // Ánh nền dưới trung tính ấm (xanh lá hắt lên làm da mặt dưới vành mũ ngả olive, lệch tông với tay chân)
+  // + đèn phụ chính diện như engine (Lighting.ts) – mặt không bị tối hơn thân.
+  const hemi = new THREE.HemisphereLight("#e6f2ff", "#b8a58c", 1.4);
+  const sun = new THREE.DirectionalLight("#ffffff", 2.0);
   sun.position.set(3, 6, 4);
-  scene.add(hemi, sun);
+  const fill = new THREE.DirectionalLight("#fff6ec", 0.7);
+  fill.position.set(-1, 2, 6);
+  scene.add(hemi, sun, fill);
 }
 
 /** Đặt camera nhìn chéo 3/4 từ phía trước (model nhìn về +Z). */
@@ -77,6 +81,12 @@ function snapshotRenderer(): THREE.WebGLRenderer {
     renderer.toneMapping = THREE.NeutralToneMapping;
   }
   return renderer;
+}
+
+/** Quên GLB + ảnh thu nhỏ đã cache của một asset (vừa dựng lại cùng file). */
+export function forgetModel(asset: Pick<AssetEntry, "id" | "file">): void {
+  previewLoader.forget(asset.file);
+  for (const k of cache.keys()) if (k.startsWith(`${asset.id}|${asset.file}|`)) cache.delete(k);
 }
 
 /** Ảnh PNG (data URL) của asset ở tư thế Idle. Chạy tuần tự trên 1 WebGL context dùng chung. */

@@ -21,6 +21,14 @@ export interface AudioSegment {
   volume: number;
   fadeIn: number;
   fadeOut: number;
+  /** Lệch trái (-1) / phải (1); bỏ trống = giữa. */
+  pan?: number;
+}
+
+/** Hệ số kênh trái / phải cho `pan` (-1..1): kênh phía đối diện nhỏ đi, không bao giờ to hơn gốc. */
+export function panGains(pan: number | undefined): [number, number] {
+  const p = Math.max(-1, Math.min(1, pan ?? 0));
+  return [p > 0 ? 1 - 0.75 * p : 1, p < 0 ? 1 + 0.75 * p : 1];
 }
 
 /** Scene phải đã validate (asset audio tồn tại). Đoạn rỗng bị bỏ qua. */
@@ -44,6 +52,7 @@ export function computeAudioSegments(scene: SceneScript, registry: Registry): Au
       volume: line.volume,
       fadeIn: 0,
       fadeOut: 0,
+      ...(line.pan ? { pan: line.pan } : {}),
     });
   }
   return segments;

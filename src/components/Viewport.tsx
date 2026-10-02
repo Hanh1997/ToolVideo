@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { SceneEngine, SceneLoadError } from "../engine/SceneEngine";
-import { drawSubtitle, loadSubtitleFont } from "../engine/Subtitles";
+import { drawSubtitle, drawTitles, loadSubtitleFont } from "../engine/Subtitles";
 import { useEditor } from "../store/editorStore";
 
 /** Khung nhìn 3D: giữ đúng tỷ lệ khung hình của scene (letterbox). */
@@ -80,6 +80,7 @@ export function Viewport() {
         const s = useEditor.getState().scene;
         // Chỉ vẽ khi burnIn → preview khớp đúng video.
         if (s?.subtitles.burnIn) drawSubtitle(overlayCtx, s, useEditor.getState().time, overlay.width, overlay.height);
+        if (s) drawTitles(overlayCtx, s, useEditor.getState().time, overlay.width, overlay.height);
       }
 
       frames++;

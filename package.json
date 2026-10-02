@@ -14,7 +14,9 @@
     "asset:add": "tsx scripts/asset-add.ts",
     "asset:set": "tsx scripts/asset-set.ts",
     "env:compose": "tsx scripts/compose-environment.ts",
-    "audio:add": "tsx scripts/audio-add.ts"
+    "audio:add": "tsx scripts/audio-add.ts",
+    "character:gen": "tsx scripts/character-gen.ts",
+    "story:build": "tsx scripts/story-build.ts"
   },
   "dependencies": {
     "react": "^19.3.0",

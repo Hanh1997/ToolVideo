@@ -12,3 +12,11 @@ tools/kenney/
 tools/polypizza/
 tools/bin/
 .env
+tools/tts-voices/vieneu/
+# Nhân vật tự dựng có hoạt ảnh Adobe Mixamo: chỉ dùng nội bộ để render, KHÔNG phát tán file gốc
+# (dựng lại: blender -b -P scripts/blender/make_character.py -- --mixamo D:/Mixamo --out …)
+public/assets/characters/char_ac_*.glb
+scripts/blender/out/
+__pycache__/
+*.pyc
+tools/.tmp/

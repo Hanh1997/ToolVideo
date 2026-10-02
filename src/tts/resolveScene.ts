@@ -54,17 +54,29 @@ const AfterSchema = z.object({ after: z.string().min(1), gap: z.number().min(-5)
 const DialogueInputSchema = z.object({
   id: z.string().min(1),
   speaker: z.string().min(1).optional(),
+  to: z.string().min(1).optional(),
   text: z.string().min(1).max(1000),
   start: z.union([z.number().min(0), AfterSchema]),
   voice: z.string().min(1).optional(),
   rate: z.number().min(0.5).max(2).optional(),
   volume: z.number().min(0).max(4).default(1),
+  /** Lệch trái (-1) / phải (1) theo chỗ người nói trên khung hình. */
+  pan: z.number().min(-1).max(1).default(0),
   subtitle: z.boolean().default(true),
   emotion: EmotionSchema.default("neutral"),
 });
 
 /** Tốc độ đọc theo cảm xúc khi câu không đặt `rate` (nhân với tốc độ mặc định của giọng). */
 const EMOTION_RATE: Record<Emotion, number> = { neutral: 1, happy: 1.05, sad: 0.88, surprised: 1.06, angry: 1.03, scared: 1.1 };
+/**
+ * Ngữ điệu theo cảm xúc (TTS không có điều khiển cảm xúc): lệch cao độ (bán cung, cộng vào cao độ của giọng) và
+ * độ to – vui / ngạc nhiên / sợ cao giọng hơn, buồn trầm và nhỏ hơn, giận to và hơi trầm.
+ */
+const EMOTION_PITCH: Record<Emotion, number> = { neutral: 0, happy: 0.7, sad: -0.9, surprised: 1.4, angry: -0.4, scared: 1 };
+const EMOTION_VOLUME: Record<Emotion, number> = { neutral: 1, happy: 1.05, sad: 0.85, surprised: 1.1, angry: 1.15, scared: 0.9 };
+const emotionVoice = (voice: AssetEntry, emotion: Emotion): AssetEntry =>
+  EMOTION_PITCH[emotion] ? { ...voice, pitch: Math.round(((voice.pitch ?? 0) + EMOTION_PITCH[emotion]) * 100) / 100 } : voice;
+
 const lineRate = (input: { rate?: number; emotion: Emotion }, voice: AssetEntry) =>
   input.rate ?? Math.round((voice.defaultRate ?? 1) * EMOTION_RATE[input.emotion] * 100) / 100;
 
@@ -74,6 +86,8 @@ const SyncSchema = z.object({
   pad: z.number().default(0),
   /** Độ dài cố định (giây) thay cho "theo câu thoại" – vd. động tác diễn ra ngay trước câu (offset âm). */
   duration: z.number().positive().optional(),
+  /** Mốc của offset: đầu câu (mặc định) hoặc cuối câu – vd. lùi về chỗ sau khi nói xong. */
+  at: z.enum(["start", "end"]).default("start"),
 });
 
 const AudioSyncSchema = z.object({
@@ -140,7 +154,7 @@ export async function resolveScene(raw: unknown, registry: Registry, synthesize:
     lines.map(async ({ input, voice, path }) => {
       if (!voice) return undefined;
       try {
-        const r = await synthesize({ text: input.text, voice, rate: lineRate(input, voice) });
+        const r = await synthesize({ text: input.text, voice: emotionVoice(voice, input.emotion), rate: lineRate(input, voice) });
         if (!r.cached) synthesized++;
         return r;
       } catch (err) {
@@ -175,6 +189,7 @@ export async function resolveScene(raw: unknown, registry: Registry, synthesize:
     resolvedLines.push({
       id: input.id,
       ...(input.speaker ? { speaker: input.speaker } : {}),
+      ...(input.to ? { to: input.to } : {}),
       text: input.text,
       start,
       duration: audio.duration,
@@ -182,7 +197,8 @@ export async function resolveScene(raw: unknown, registry: Registry, synthesize:
       voice: voice.id,
       rate: lineRate(input, voice),
       ...(input.emotion !== "neutral" ? { emotion: input.emotion } : {}),
-      volume: input.volume,
+      volume: Math.round(input.volume * EMOTION_VOLUME[input.emotion] * 100) / 100,
+      ...(input.pan ? { pan: input.pan } : {}),
       subtitle: input.subtitle,
       ...(audio.envelope ? { lipsync: audio.envelope } : {}),
     });
@@ -204,8 +220,9 @@ export async function resolveScene(raw: unknown, registry: Registry, synthesize:
         issues.push({ code: "TargetNotFound", message: `Action "${String(a.id)}" sync với câu thoại "${sync.data.line}" không tồn tại`, path });
         return;
       }
-      a.start = Math.max(0, Math.round((line.start + sync.data.offset) * 1000) / 1000);
-      a.duration = Math.max(0.05, Math.round((sync.data.duration ?? line.duration + sync.data.pad - sync.data.offset) * 1000) / 1000);
+      const anchor = sync.data.at === "end" ? line.start + line.duration : line.start;
+      a.start = Math.max(0, Math.round((anchor + sync.data.offset) * 1000) / 1000);
+      a.duration = Math.max(0.05, Math.round((sync.data.duration ?? line.start + line.duration + sync.data.pad - anchor - sync.data.offset) * 1000) / 1000);
       delete a.sync;
     });
   }

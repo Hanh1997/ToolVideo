@@ -40,7 +40,8 @@ describe("diễn khi nói", () => {
   it("người nói có mức nói, người nghe nhìn về người nói (chuyển mượt)", () => {
     const p = evaluatePerformance(scene, 1.5);
     expect(p.get("a")!.talk).toBeGreaterThan(0);
-    expect(p.get("a")!.lookAt).toBeUndefined();
+    // Người nói quay một phần về người đáp lời kế tiếp (c).
+    expect(p.get("a")!.lookAt).toEqual({ character: "c", weight: 0.6 });
     expect(p.get("b")!.lookAt).toEqual({ character: "a", weight: 1 });
     expect(evaluatePerformance(scene, 1.05).get("b")!.lookAt!.weight).toBeLessThan(1);
   });
@@ -51,5 +52,21 @@ describe("diễn khi nói", () => {
     expect(evaluatePerformance(scene, 2.6).get("b")!.lookAt?.character).toBe("a");
     expect(evaluatePerformance(scene, 5).get("b")!.lookAt).toBeUndefined();
     expect(evaluatePerformance(scene, 6.5).get("a")!.lookAt?.character).toBe("c");
+  });
+
+  it("người nói quay về người được nói với (to), người nghe gật đầu và lây cảm xúc", () => {
+    const sc = SceneScriptSchema.parse({
+      ...scene,
+      dialogue: [
+        { id: "l1", speaker: "a", to: "b", text: "vui quá", emotion: "happy", start: 1, duration: 3, file: "f.wav", voice: "v" },
+        { id: "l2", speaker: "c", text: "ừ", start: 5, duration: 1, file: "g.wav", voice: "v" },
+      ],
+    });
+    expect(evaluatePerformance(sc, 2).get("a")!.lookAt?.character).toBe("b");
+    const nods = Array.from({ length: 60 }, (_, i) => evaluatePerformance(sc, 1 + i * 0.05).get("b")!.nod ?? 0);
+    expect(Math.max(...nods)).toBeGreaterThan(3);
+    expect(evaluatePerformance(sc, 1.1).get("b")!.emotion).toBeUndefined(); // phản ứng trễ một nhịp
+    expect(evaluatePerformance(sc, 2.5).get("b")!.emotion).toMatchObject({ kind: "happy" });
+    expect(evaluatePerformance(sc, 2.5).get("b")!.emotion!.weight).toBeLessThan(0.6);
   });
 });

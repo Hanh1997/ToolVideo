@@ -1,0 +1,141 @@
+{
+  "languages": [
+    "vi"
+  ],
+  "title": {
+    "vi": "Thử phòng khách"
+  },
+  "summary": {
+    "vi": "Video thử tương tác giữa nhân vật."
+  },
+  "music": true,
+  "mood": "happy",
+  "narratorVoice": "female",
+  "ending": "wave",
+  "characters": [
+    {
+      "id": "fox_con",
+      "asset": "char_k_animal_fox",
+      "voice": "child",
+      "name": {
+        "vi": "Cáo Con"
+      },
+      "size": "normal"
+    },
+    {
+      "id": "tho_con",
+      "asset": "char_k_animal_bunny",
+      "voice": "squeaky",
+      "name": {
+        "vi": "Thỏ Con"
+      },
+      "size": "normal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "gau_bong",
+      "kind": "teddy_bear",
+      "name": {
+        "vi": "Gấu bông"
+      },
+      "scene": "phong_khach",
+      "heldBy": null
+    }
+  ],
+  "scenes": [
+    {
+      "id": "phong_khach",
+      "environment": "env_living_room",
+      "cast": [
+        "fox_con",
+        "tho_con"
+      ],
+      "transition": "fade",
+      "mood": null,
+      "time": null,
+      "lines": [
+        {
+          "id": "l1",
+          "speaker": null,
+          "gesture": null,
+          "emotion": "neutral",
+          "text": {
+            "vi": "Chiều nay, Cáo Con sang nhà Thỏ Con chơi."
+          },
+          "action": null
+        },
+        {
+          "id": "l2",
+          "speaker": "fox_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Nhà bạn đẹp quá, Thỏ Con ơi!"
+          },
+          "action": null
+        },
+        {
+          "id": "l3",
+          "speaker": "tho_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Đây là bạn gấu bông của mình."
+          },
+          "action": {
+            "type": "pickup",
+            "object": "gau_bong",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l4",
+          "speaker": "tho_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Mình tặng bạn nhé!"
+          },
+          "action": {
+            "type": "give",
+            "object": "gau_bong",
+            "to": "fox_con",
+            "by": null
+          }
+        },
+        {
+          "id": "l5",
+          "speaker": "fox_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Cảm ơn bạn nhiều lắm!"
+          },
+          "action": null,
+          "interaction": {
+            "type": "hug",
+            "with": "tho_con",
+            "by": null
+          }
+        },
+        {
+          "id": "l6",
+          "speaker": "tho_con",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Mình cùng ra vườn chơi đi!"
+          },
+          "action": null,
+          "interaction": {
+            "type": "leave",
+            "with": null,
+            "by": null
+          }
+        }
+      ]
+    }
+  ]
+}

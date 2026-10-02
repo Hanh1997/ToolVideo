@@ -1,4 +1,4 @@
-import type { DialogueLine, SceneScript } from "../schemas/scene.schema";
+import type { DialogueLine, SceneScript, TitleCard } from "../schemas/scene.schema";
 
 export const SUBTITLE_FONT_FAMILY = "AC Subtitle";
 const FONT_URL = "/assets/fonts/Nunito.ttf";
@@ -110,4 +110,85 @@ export function drawSubtitle(ctx: CanvasRenderingContext2D, scene: SceneScript, 
     ctx.fillText(l, width / 2, y);
   });
   ctx.restore();
+}
+
+/** Thời điểm bắt đầu của thẻ chữ trong scene. */
+export function titleStart(scene: SceneScript, card: TitleCard): number {
+  return card.at === "end" ? Math.max(0, scene.meta.duration - card.duration) : card.start;
+}
+
+/** Có vẽ lớp chữ nào không (phụ đề chèn vào hình hoặc thẻ tên phim / danh sách cuối). */
+export function hasOverlay(scene: SceneScript): boolean {
+  return (scene.subtitles.burnIn && scene.dialogue.some((l) => l.subtitle)) || scene.titles.length > 0;
+}
+
+/**
+ * Vẽ thẻ tên phim / danh sách cuối phim (hiện dần 0.6 s, tắt dần 0.6 s). Tên phim: chữ lớn giữa khung, dải tối mờ phía
+ * sau; danh sách: nền tối dần rồi các dòng chữ căn giữa.
+ */
+export function drawTitles(ctx: CanvasRenderingContext2D, scene: SceneScript, t: number, width: number, height: number): void {
+  for (const card of scene.titles) {
+    const t0 = titleStart(scene, card);
+    const local = t - t0;
+    if (local < 0 || local > card.duration) continue;
+    const fade = card.kind === "credits" && card.at === "end" ? Math.min(1, local / 0.8) : Math.min(1, local / 0.6, (card.duration - local) / 0.6);
+    const a = Math.max(0, Math.min(1, fade));
+    ctx.save();
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.lineJoin = "round";
+    const unit = Math.min(width, height * 16 / 9) / 1280;
+    if (card.kind === "title") {
+      const size = Math.round(78 * unit);
+      const sub = Math.round(34 * unit);
+      const y = height * 0.42;
+      const band = ctx.createLinearGradient(0, y - size * 1.6, 0, y + size * 1.9);
+      band.addColorStop(0, "rgba(0,0,0,0)");
+      band.addColorStop(0.5, `rgba(10,12,30,${0.45 * a})`);
+      band.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = band;
+      ctx.fillRect(0, y - size * 1.6, width, size * 3.5);
+      ctx.font = `900 ${size}px "${SUBTITLE_FONT_FAMILY}", "Segoe UI", sans-serif`;
+      ctx.globalAlpha = a;
+      const rise = (1 - a) * size * 0.3;
+      const lines = wrapText(ctx, card.text, width * 0.86);
+      lines.forEach((l, i) => {
+        const ly = y - ((lines.length - 1) / 2 - i) * size * 1.1 + rise;
+        ctx.lineWidth = Math.max(3, size * 0.12);
+        ctx.strokeStyle = "rgba(20,20,40,0.9)";
+        ctx.strokeText(l, width / 2, ly);
+        ctx.fillStyle = "#fff6d8";
+        ctx.fillText(l, width / 2, ly);
+      });
+      if (card.lines.length) {
+        ctx.font = `700 ${sub}px "${SUBTITLE_FONT_FAMILY}", "Segoe UI", sans-serif`;
+        ctx.fillStyle = "#ffffff";
+        ctx.lineWidth = Math.max(2, sub * 0.14);
+        card.lines.forEach((l, i) => {
+          const ly = y + size * (0.55 + (lines.length - 1) * 0.55) + sub * (1.2 + i * 1.3) + rise;
+          ctx.strokeText(l, width / 2, ly);
+          ctx.fillText(l, width / 2, ly);
+        });
+      }
+    } else {
+      ctx.fillStyle = `rgba(8,10,24,${0.62 * a})`;
+      ctx.fillRect(0, 0, width, height);
+      ctx.globalAlpha = a;
+      const head = Math.round(54 * unit);
+      const body = Math.round(30 * unit);
+      const total = head * 1.6 + card.lines.length * body * 1.45;
+      let y = height / 2 - total / 2 + head / 2;
+      ctx.font = `900 ${head}px "${SUBTITLE_FONT_FAMILY}", "Segoe UI", sans-serif`;
+      ctx.fillStyle = "#fff6d8";
+      ctx.fillText(card.text, width / 2, y);
+      y += head * 1.1 + body;
+      ctx.font = `700 ${body}px "${SUBTITLE_FONT_FAMILY}", "Segoe UI", sans-serif`;
+      for (const l of card.lines) {
+        ctx.fillStyle = l.endsWith(":") ? "#9fd3ff" : "#ffffff";
+        ctx.fillText(l, width / 2, y);
+        y += body * 1.45;
+      }
+    }
+    ctx.restore();
+  }
 }

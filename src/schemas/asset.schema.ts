@@ -40,10 +40,17 @@ export const AssetEntrySchema = z.object({
     .optional(),
   /** Đồ vật: chiều cao (mét) khi được cầm – mặc định bằng kích thước khi đặt trong cảnh. */
   holdHeight: z.number().positive().optional(),
+  /**
+   * Nhân vật: kích thước chiếm chỗ (mét, ở chiều cao chuẩn hóa, theo hướng mặt): mũi → tâm (front),
+   * tâm → đuôi (back), nửa bề ngang (side). Dùng để đứng sát mà không lồng vào nhau (ôm, đập tay, trao đồ).
+   */
+  footprint: z.object({ front: z.number().min(0), back: z.number().min(0), side: z.number().min(0) }).optional(),
   /** Độ dài file audio (giây) – bắt buộc với asset audio. */
   duration: z.number().positive().optional(),
   /** Voice: engine TTS. `file` là model, tương đối với tools/tts-voices/. */
-  provider: z.enum(["piper"]).optional(),
+  provider: z.enum(["piper", "vieneu"]).optional(),
+  /** Voice (vieneu): tên giọng mẫu có sẵn của VieNeu-TTS (vd. "Kim Thanh"). */
+  preset: z.string().optional(),
   language: z.string().optional(),
   /** Voice: tốc độ đọc mặc định (1 = gốc, < 1 chậm hơn). */
   defaultRate: z.number().min(0.5).max(2).optional(),
@@ -51,6 +58,13 @@ export const AssetEntrySchema = z.object({
   pitch: z.number().min(-12).max(12).optional(),
   /** Voice: speaker id trong model nhiều giọng. */
   speaker: z.number().int().min(0).optional(),
+  /** Voice: khi đổi cao độ – "preserved" giữ âm sắc tự nhiên (không "chíp chíp"), "shifted" (mặc định) đổi theo. */
+  formant: z.enum(["shifted", "preserved"]).optional(),
+  /** Voice (Piper): độ biểu cảm ngữ điệu (mặc định model ~0.667) và độ co giãn độ dài âm (~0.8). */
+  noiseScale: z.number().min(0).max(2).optional(),
+  noiseW: z.number().min(0).max(2).optional(),
+  /** Voice: chuỗi bộ lọc âm thanh ffmpeg thêm sau cùng (EQ ấm, bớt chói, nén nhẹ…). */
+  filter: z.string().optional(),
   license: z.string().min(1),
   author: z.string().min(1),
   source: z.string().min(1),
@@ -79,7 +93,11 @@ export const COMMERCIAL_LICENSES: ReadonlySet<string> = new Set([
   "CC-BY-3.0",
   "CC-BY-4.0",
   "MIT",
+  "Apache-2.0",
   "Proprietary-Owned",
+  // Nhân vật / hoạt ảnh Adobe Mixamo: miễn phí bản quyền, dùng thương mại trong sản phẩm hoàn chỉnh (video);
+  // KHÔNG phát tán lại file gốc (FBX / GLB) dưới dạng asset.
+  "Adobe-Mixamo",
 ]);
 
 /** Tên clip chuẩn dùng chung mọi nhân vật (xem clipAliases). */
@@ -87,6 +105,10 @@ export const STANDARD_CLIPS = [
   "idle", "walk", "run", "jump", "wave", "yes", "no", "thumbsup", "dance", "victory",
   "defeat", "sit", "stand", "punch", "hit", "death", "pickup", "roll",
   "clap", "fly", "swim", "attack",
+  // cử chỉ / cảm xúc / biến thể (bộ Mixamo – xem scripts/mixamo/download.ts)
+  "talk", "laugh", "cry", "angry", "surprised", "scared", "shrug", "think", "point", "bow", "cheer", "excited",
+  "blow_kiss", "salute", "kneel", "sleep", "yawn", "trip", "getup", "sit_idle", "sit_talk",
+  "idle_happy", "idle_sad", "idle_bored", "walk_happy", "walk_sad", "sneak", "swagger",
 ] as const;
 
 /** Tên clip thật của asset cho một tên (thật hoặc chuẩn); undefined nếu không có. */

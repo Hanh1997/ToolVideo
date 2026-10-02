@@ -5,12 +5,16 @@ import type { HoldPoint, SceneCharacter, SceneProp, SceneScript } from "../schem
 import { applyAnimation, evaluateAnimation } from "./AnimationEngine";
 import { AssetLoader, findRootBone, stripRootMotion } from "./AssetLoader";
 import { evaluateCamera } from "./CameraEngine";
-import { clamp, DEG, shortestAngleDelta } from "./math";
+import { clamp, DEG, shortestAngleDelta, smoothstep } from "./math";
 import { evaluateTransform, type CharacterTransform } from "./MovementEngine";
 import { LightRig, PostFx } from "./Lighting";
 import { ParticleSystems } from "./Particles";
 import { evaluateProp } from "./PropEngine";
 import { emotionPose, evaluatePerformance, type Performance } from "./Speech";
+import { eyeClosure, Eyelids, findEyes } from "./Blink";
+import { applyArmPose, evaluatePose, findArms, type ArmBones } from "./ArmPose";
+import { CorrectiveMorphs } from "./CorrectiveMorphs";
+import { FaceMorphs, visemesAt } from "./FaceMorphs";
 
 export class SceneLoadError extends Error {
   constructor(
@@ -32,9 +36,17 @@ interface CharacterRuntime {
   /** Điểm cầm đồ vật: vị trí cục bộ trong một xương/node → đi theo hoạt ảnh. */
   hold: Partial<Record<Exclude<HoldPoint, "auto">, HoldAnchor>>;
   /** Xương/node dùng cho "diễn" khi nói + tư thế gốc để khôi phục mỗi frame (tránh cộng dồn). */
-  rig: { head?: THREE.Object3D; jaw?: THREE.Object3D; body?: THREE.Object3D; base: Map<THREE.Object3D, NodePose> };
+  rig: { head?: THREE.Object3D; jaw?: THREE.Object3D; body?: THREE.Object3D; arms: ArmBones[]; base: Map<THREE.Object3D, NodePose> };
   /** Lệch pha lắc đầu riêng cho từng nhân vật (tất định theo id). */
   phase: number;
+  /** 1 = đang đứng yên, 0 = đang đi / xoay (cập nhật mỗi frame). */
+  still: number;
+  /** Mí mắt (chớp mắt) – chỉ khi dò được hai mắt trên model. */
+  eyes?: Eyelids;
+  /** Khuôn mặt morph (chớp mắt, cảm xúc, khẩu hình) – thay cho mí giả + nhún miệng. */
+  face?: FaceMorphs;
+  /** Shape key chỉnh vai khi giơ tay cao (nhân vật gốc đúc liền lớp da). */
+  correctives?: CorrectiveMorphs;
 }
 
 interface NodePose {
@@ -194,9 +206,16 @@ export class SceneEngine {
       rt.root.position.set(tr.position.x, tr.position.y, tr.position.z);
       rt.root.rotation.set(0, tr.heading * DEG, 0);
       transforms.set(rt.def.id, tr);
+      // Đứng yên (không đi / xoay trong 0.15 giây qua) → được "thở", dồn trọng tâm, liếc nhìn.
+      const before = evaluateTransform(rt.def, script.actions, Math.max(0, time - 0.15));
+      const moved = Math.hypot(tr.position.x - before.position.x, tr.position.z - before.position.z) + Math.abs(shortestAngleDelta(before.heading, tr.heading)) / 90;
+      rt.still = 1 - clamp(moved / 0.04, 0, 1);
       const states = evaluateAnimation(script.actions, rt.def.id, time, rt.asset.defaultClip, rt.durations);
       // Tên chuẩn ("walk") → clip thật của nhân vật ("Walking").
       applyAnimation(rt.mixer, rt.actions, states.map((s) => ({ ...s, clip: resolveClip(rt.asset, s.clip) ?? s.clip })));
+      // Động tác tay (ôm, đập tay, vỗ vai, trao đồ) cộng lên hoạt ảnh.
+      const pose = rt.rig.arms.length ? evaluatePose(script.actions, rt.def.id, time) : undefined;
+      if (pose) applyArmPose(rt.root, rt.rig.arms, pose.pose, pose.weight, pose.local, tr.heading);
     }
 
     // Diễn khi nói: người nói nhún/gật/mở miệng theo giọng, người nghe quay đầu về người nói.
@@ -204,6 +223,18 @@ export class SceneEngine {
     for (const rt of this.characters.values()) {
       const p = perf.get(rt.def.id);
       if (p) applyPerformance(rt, p, transforms, time);
+      const emotion = p?.emotion ? { kind: p.emotion.kind, weight: p.emotion.weight } : undefined;
+      const blink = eyeClosure(rt.def.id, time, emotion);
+      rt.eyes?.set(blink);
+      if (rt.face) {
+        // Câu đang nói của nhân vật → khẩu hình theo nguyên âm, đậm theo độ to giọng.
+        const line = p && p.talk > 0 ? script.dialogue.find((l) => l.speaker === rt.def.id && time >= l.start && time < l.start + l.duration) : undefined;
+        rt.face.apply({ blink, emotion, visemes: line ? visemesAt(line, time, p!.talk) : {} });
+      }
+      if (rt.correctives) {
+        rt.root.updateMatrixWorld(true);
+        rt.correctives.update();
+      }
     }
 
     // Đồ vật: ẩn/hiện, nằm trên đất hoặc đi theo điểm cầm của nhân vật (sau khi đã áp hoạt ảnh).
@@ -358,9 +389,17 @@ export class SceneEngine {
     const jaw = findNode(model, [norm("Jaw"), norm("Mouth")]);
     const body = head ? undefined : findNode(model, ["body"]);
     const base = new Map<THREE.Object3D, NodePose>();
-    for (const n of [head, jaw, body]) if (n) base.set(n, { q: n.quaternion.clone(), p: n.position.clone(), s: n.scale.clone() });
+    const arms = findArms(model);
+    for (const n of [head, jaw, body, ...arms.flatMap((a) => [a.upper, a.lower])]) if (n) base.set(n, { q: n.quaternion.clone(), p: n.position.clone(), s: n.scale.clone() });
     const phase = [...def.id].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) % 997, 7) / 997;
-    return { def, asset, root, mixer, actions, durations, hold: findHoldPoints(root, model, asset), rig: { head, jaw, body, base }, phase };
+    // Chớp mắt: dò mắt ở tư thế nghỉ (trước khi chạy hoạt ảnh); mắt trên mesh có xương → gắn mí vào xương đầu.
+    // Mặt có morph (chớp mắt, khẩu hình) → dùng morph; không thì dò mắt vẽ trên bề mặt để làm mí giả.
+    const face = FaceMorphs.find(model);
+    const correctives = CorrectiveMorphs.find(model);
+    const spots = face ? [] : findEyes(model);
+    const eyes = spots.length === 2 ? new Eyelids(spots) : undefined;
+    if (eyes && head) eyes.frames.forEach((f, i) => (spots[i]!.mesh as THREE.SkinnedMesh).isSkinnedMesh && head.attach(f));
+    return { def, asset, root, mixer, actions, durations, hold: findHoldPoints(root, model, asset), rig: { head, jaw, body, arms, base }, phase, still: 1, eyes, face, correctives };
   }
 }
 
@@ -383,15 +422,35 @@ function rotateWorld(node: THREE.Object3D, yawDeg: number, pitchDeg: number, hea
 function applyPerformance(rt: CharacterRuntime, p: Performance, transforms: ReadonlyMap<string, CharacterTransform>, t: number): void {
   const tr = transforms.get(rt.def.id);
   if (!tr) return;
+  const limit = rt.rig.head ? 55 : 45;
+  const yawTo = (id: string) => {
+    const other = transforms.get(id);
+    if (!other) return 0;
+    const want = Math.atan2(other.position.x - tr.position.x, other.position.z - tr.position.z) / DEG;
+    return clamp(shortestAngleDelta(tr.heading, want), -limit, limit);
+  };
   let yaw = 0;
-  if (p.lookAt) {
-    const other = transforms.get(p.lookAt.character);
-    if (other) {
-      const want = Math.atan2(other.position.x - tr.position.x, other.position.z - tr.position.z) / DEG;
-      const limit = rt.rig.head ? 55 : 25;
-      yaw = clamp(shortestAngleDelta(tr.heading, want), -limit, limit) * p.lookAt.weight;
+  if (p.lookAt) yaw = yawTo(p.lookAt.character) * p.lookAt.weight;
+  // Đứng yên: dồn trọng tâm (xoay nhẹ), thở; không ai nói thì thỉnh thoảng liếc sang bạn gần nhất.
+  const still = rt.still;
+  const shift = Math.sin(t * 0.55 + rt.phase * 17) * 3 * still;
+  const breath = Math.sin(t * 2.1 + rt.phase * 11) * still;
+  if (!p.lookAt && still > 0) {
+    const g = (t + rt.phase * 5) % 5.5;
+    const glance = g < 1.4 ? smoothstep(Math.min(g, 1.4 - g) / 0.35) : 0;
+    if (glance > 0) {
+      let near: string | undefined;
+      let nd = Infinity;
+      for (const [id, o] of transforms) {
+        if (id === rt.def.id) continue;
+        const d = Math.hypot(o.position.x - tr.position.x, o.position.z - tr.position.z);
+        if (d < nd) [near, nd] = [id, d];
+      }
+      if (near && nd < 6) yaw += yawTo(near) * 0.7 * glance * still;
     }
   }
+  yaw += shift;
+  const nod = p.nod ?? 0;
   const talk = p.talk;
   // Lắc đầu nhẹ khi nói (biên độ theo độ to), gật theo nhịp.
   const sway = talk > 0 ? Math.sin((t + rt.phase * 3) * 2.3) * 4 * Math.min(1, talk * 3) : 0;
@@ -407,18 +466,19 @@ function applyPerformance(rt: CharacterRuntime, p: Performance, transforms: Read
   if (!rt.rig.head) {
     // Model không xương (Kenney): xoay cả người về người nói, thân nhún co giãn theo giọng.
     rt.root.rotateOnWorldAxis(UP, (yaw + sway * 0.5 + (pose?.shake ?? 0) * w) * DEG);
-    const squash = 0.07 * talk + (pose?.squash ?? 0) * w;
+    const squash = 0.07 * talk + (pose?.squash ?? 0) * w + 0.012 * breath;
     if (rt.rig.body && squash !== 0) {
       rt.rig.body.scale.y *= 1 + squash;
       rt.rig.body.scale.x *= 1 - squash * 0.45;
       rt.rig.body.scale.z *= 1 - squash * 0.45;
     }
-    if (rt.rig.body && pose && w > 0) rt.rig.body.rotateX((pose.pitch * w * DEG) / 2);
+    const pitch = (pose && w > 0 ? pose.pitch * w : 0) + nod;
+    if (rt.rig.body && pitch !== 0) rt.rig.body.rotateX((pitch * DEG) / 2);
     rt.root.updateMatrixWorld(true);
     return;
   }
   rt.root.updateMatrixWorld(true);
-  rotateWorld(rt.rig.head, yaw + sway + (pose?.shake ?? 0) * w, talk * 7 + (pose?.pitch ?? 0) * w, tr.heading + yaw);
+  rotateWorld(rt.rig.head, yaw + sway + (pose?.shake ?? 0) * w, talk * (rt.face ? 3 : 7) + (pose?.pitch ?? 0) * w + nod + breath * 1.2, tr.heading + yaw);
   if (rt.rig.jaw && rt.rig.jaw !== rt.rig.head && talk > 0) rotateWorld(rt.rig.jaw, 0, talk * 18, tr.heading + yaw);
 }
 

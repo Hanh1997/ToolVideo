@@ -31,6 +31,11 @@ export const OBJECT_KINDS: Record<string, ObjectKind> = {
   trash_bottle: { asset: "prop_trash_bottle", label: "a plastic bottle thrown on the ground (litter)", groundScale: 1 },
   trash_can: { asset: "prop_trash_can", label: "an empty can thrown on the ground (litter)", groundScale: 1 },
   trash_bag: { asset: "prop_trash_bag", label: "a trash bag left on the ground (litter)", groundScale: 1 },
+  // Trong nhà (Kenney Furniture Kit).
+  teddy_bear: { asset: "prop_fk_bear", label: "a teddy bear (toy)", groundScale: 0.38 },
+  book: { asset: "prop_fk_books", label: "a stack of books", groundScale: 1 },
+  pillow: { asset: "prop_fk_pillow_blue", label: "a pillow", groundScale: 1 },
+  gift_box: { asset: "prop_fk_cardboard_box_closed", label: "a closed box (a present / a box of toys)", groundScale: 0.45 },
 };
 
 /** Loại đồ vật có asset trong Registry. */

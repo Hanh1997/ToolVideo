@@ -1,0 +1,117 @@
+{
+  "languages": [
+    "vi"
+  ],
+  "title": {
+    "vi": "Thử nhân vật người"
+  },
+  "summary": {
+    "vi": "Thử nhân vật Kenney Mini."
+  },
+  "music": true,
+  "mood": "playful",
+  "narratorVoice": "low",
+  "ending": "dance",
+  "characters": [
+    {
+      "id": "be_an",
+      "asset": "char_km_boy",
+      "voice": "child",
+      "name": {
+        "vi": "Bé An"
+      },
+      "size": "normal"
+    },
+    {
+      "id": "me",
+      "asset": "char_km_mom",
+      "voice": "female",
+      "name": {
+        "vi": "Mẹ"
+      },
+      "size": "normal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "gau",
+      "kind": "teddy_bear",
+      "name": {
+        "vi": "Gấu bông"
+      },
+      "scene": "nha",
+      "heldBy": null
+    }
+  ],
+  "scenes": [
+    {
+      "id": "nha",
+      "environment": "env_living_room",
+      "cast": [
+        "be_an",
+        "me"
+      ],
+      "transition": "fade",
+      "mood": null,
+      "time": null,
+      "entrance": "none",
+      "lines": [
+        {
+          "id": "l1",
+          "speaker": "me",
+          "gesture": "yes",
+          "emotion": "neutral",
+          "text": {
+            "vi": "An ơi, con cất gấu bông vào hộp giúp mẹ nhé?"
+          },
+          "action": null
+        },
+        {
+          "id": "l2",
+          "speaker": "be_an",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Dạ vâng ạ! Con làm ngay đây!"
+          },
+          "action": {
+            "type": "pickup",
+            "object": "gau",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l3",
+          "speaker": "be_an",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Vào hộp rồi mẹ ơi!"
+          },
+          "action": {
+            "type": "stow",
+            "object": "gau",
+            "to": null,
+            "by": null
+          }
+        },
+        {
+          "id": "l4",
+          "speaker": "me",
+          "gesture": null,
+          "emotion": "happy",
+          "text": {
+            "vi": "Con giỏi quá! Đập tay nào!"
+          },
+          "action": null,
+          "interaction": {
+            "type": "highfive",
+            "with": "be_an",
+            "by": null
+          }
+        }
+      ]
+    }
+  ]
+}

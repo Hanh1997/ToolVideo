@@ -24,15 +24,37 @@ export const LANG_CODES = Object.keys(LANGUAGES) as Lang[];
 export const LangSchema = z.enum(LANG_CODES as [Lang, ...Lang[]]);
 
 /** Vai giọng → asset voice_<lang>_<vai>. */
-export const VOICE_ROLES = ["female", "deep", "low", "child", "squeaky"] as const;
+export const VOICE_ROLES = ["female", "deep", "low", "child", "squeaky", "soft", "cute", "warm"] as const;
 export const VoiceRoleSchema = z.enum(VOICE_ROLES);
 
 /** Cử chỉ khi nói (tên clip chuẩn – xem clipAliases). */
-export const GESTURES = ["wave", "yes", "no", "thumbsup", "dance", "victory", "defeat", "jump", "clap"] as const;
+export const GESTURES = [
+  "wave", "yes", "no", "thumbsup", "dance", "victory", "defeat", "jump", "clap",
+  // chỉ nhân vật có clip thật mới dùng được (xem supportedGestures)
+  "laugh", "cry", "shrug", "think", "point", "bow", "cheer", "blow_kiss", "salute",
+] as const;
+/** Cử chỉ diễn một lần (không lặp suốt câu). */
+export const ONCE_GESTURES: readonly string[] = ["wave", "jump", "bow", "salute", "blow_kiss"];
 export const GestureSchema = z.enum(GESTURES);
 
 export const FORMATS = { "16x9": { width: 1280, height: 720 }, "9x16": { width: 720, height: 1280 } } as const;
 export type Format = keyof typeof FORMATS;
+
+/** Độ phân giải xuất: 720p (nhanh) / 1080p (chuẩn phim, YouTube HD). */
+export const RESOLUTIONS = { "720p": 1, "1080p": 1.5 } as const;
+export type Resolution = keyof typeof RESOLUTIONS;
+/** Số khung hình / giây: 24 (điện ảnh), 25 (truyền hình PAL, Việt Nam), 30 (web). */
+export const FPS_OPTIONS = [24, 25, 30] as const;
+/** Độ to chuẩn: web (YouTube / mạng xã hội, -14 LUFS) / tv (phát sóng EBU R128, -23 LUFS). */
+export const LOUDNESS = { web: -14, tv: -23 } as const;
+export type Loudness = keyof typeof LOUDNESS;
+
+/** Kích thước khung hình theo hướng + độ phân giải. */
+export function frameSize(format: Format = "16x9", resolution: Resolution = "720p"): { width: number; height: number } {
+  const k = RESOLUTIONS[resolution];
+  const { width, height } = FORMATS[format];
+  return { width: Math.round((width * k) / 2) * 2, height: Math.round((height * k) / 2) * 2 };
+}
 
 const slug = z.string().regex(/^[a-z][a-z0-9_]{0,23}$/, "id: chữ thường, số, '_' (≤ 24 ký tự)");
 const Localized = z.record(z.string(), z.string().min(1).max(300));
@@ -54,11 +76,12 @@ export function characterStyle(asset: { pack?: string } | undefined): "cube" | "
   return asset?.pack?.startsWith("Kenney") ? "cube" : "lowpoly";
 }
 
-export const OBJECT_ACTIONS = ["pickup", "give", "drop"] as const;
+export const OBJECT_ACTIONS = ["pickup", "give", "drop", "stow", "trip"] as const;
 
 /**
  * Tương tác với đồ vật, diễn ra NGAY TRƯỚC câu thoại: pickup = đi tới, nhặt, mang về chỗ đứng;
- * give = đi tới người nhận, trao; drop = đặt xuống trước mặt.
+ * give = đi tới người nhận, trao; drop = đặt xuống trước mặt; stow = mang món đang cầm bỏ vào hộp đồ chơi
+ * (hộp tự đặt vào cảnh); trip = chạy ngang, vấp phải món đang nằm dưới đất, ngã chúi rồi đứng dậy về chỗ.
  */
 export const LineActionSchema = z.object({
   type: z.enum(OBJECT_ACTIONS),
@@ -70,6 +93,26 @@ export const LineActionSchema = z.object({
 });
 export type LineAction = z.infer<typeof LineActionSchema>;
 
+export const INTERACTIONS = ["hug", "highfive", "pat", "leave", "play", "walk"] as const;
+/** Tương tác cần người thứ hai ("with"). */
+export const INTERACTIONS_WITH: readonly InteractionType[] = ["hug", "highfive", "pat", "walk"];
+export type InteractionType = (typeof INTERACTIONS)[number];
+
+/**
+ * Tương tác giữa hai nhân vật. hug / highfive / pat diễn ra NGAY TRƯỚC câu thoại (người làm đi tới, chạm, quay về);
+ * leave = người nói (+ `with`, hoặc cả nhóm khi bỏ trống) cùng đi ra khỏi khung hình trong lúc nói – chỉ ở câu cuối cảnh;
+ * play = chạy một vòng vui đùa rồi nhảy cẫng (có `with` → hai người đuổi nhau), trước câu thoại;
+ * walk = đi tới đứng cạnh `with` (đổi chỗ đứng) rồi nói.
+ */
+export const LineInteractionSchema = z.object({
+  type: z.enum(INTERACTIONS),
+  /** Người cùng tương tác. */
+  with: slug.nullable().default(null),
+  /** Người làm; bỏ trống = người nói câu này. */
+  by: slug.nullable().default(null),
+});
+export type LineInteraction = z.infer<typeof LineInteractionSchema>;
+
 export const StoryLineSchema = z.object({
   id: slug,
   /** null = người dẫn chuyện */
@@ -79,7 +122,45 @@ export const StoryLineSchema = z.object({
   emotion: EmotionSchema.default("neutral"),
   text: Localized,
   action: LineActionSchema.nullable().default(null),
+  /** Nói với ai (id nhân vật); null = tự đoán (người đáp lời kế tiếp). */
+  to: slug.nullish(),
+  interaction: LineInteractionSchema.nullish(),
+  /** Người làm action / interaction làm gì SAU câu (xem AFTER_MOVES); null = tự chọn (walk: ở lại, còn lại: về chỗ cũ). */
+  then: z.enum(["return", "stay", "leave"]).nullish(),
+  /** Âm thanh không lời người nói phát ra ngay trước câu (cười, thốt lên…); xem VOCALS. */
+  vocal: z.enum(["laugh", "gasp", "sigh", "hmm", "wow", "ouch", "yay"]).nullish(),
 });
+
+/** Âm thanh không lời → lời đọc ngắn theo ngôn ngữ (đọc bằng giọng nhân vật, không hiện phụ đề). */
+export const VOCALS = {
+  laugh: { vi: "Hi hi hi!", en: "Hee hee hee!", zh: "嘻嘻嘻！", fr: "Hi hi hi !", es: "¡Ji ji ji!" },
+  gasp: { vi: "Ối!", en: "Oh!", zh: "哎呀！", fr: "Oh !", es: "¡Oh!" },
+  sigh: { vi: "Haizz…", en: "Haah…", zh: "唉……", fr: "Pff…", es: "Ay…" },
+  hmm: { vi: "Hừm…", en: "Hmm…", zh: "嗯……", fr: "Hum…", es: "Mmm…" },
+  wow: { vi: "Oa!", en: "Wow!", zh: "哇！", fr: "Waouh !", es: "¡Guau!" },
+  ouch: { vi: "Ui da!", en: "Ouch!", zh: "哎哟！", fr: "Aïe !", es: "¡Ay!" },
+  yay: { vi: "Yeah!", en: "Yay!", zh: "耶！", fr: "Youpi !", es: "¡Bien!" },
+} as const satisfies Record<string, Record<Lang, string>>;
+export type Vocal = keyof typeof VOCALS;
+
+/**
+ * Sau tương tác: return = đi về chỗ cũ, stay = đứng lại chỗ vừa tới (chỗ đứng mới cho các câu sau),
+ * leave = đi ra khỏi cảnh ngay sau câu (không xuất hiện lại trong cảnh này).
+ */
+export const AFTER_MOVES = ["return", "stay", "leave"] as const;
+export type AfterMove = (typeof AFTER_MOVES)[number];
+
+/** Người làm action / interaction của câu (null = không có hoặc người dẫn chuyện). */
+export function lineActor(l: { speaker: string | null; action?: { by: string | null } | null; interaction?: { by: string | null } | null }): string | null {
+  if (l.action) return l.action.by ?? l.speaker;
+  if (l.interaction) return l.interaction.by ?? l.speaker;
+  return null;
+}
+
+/** Sau câu này người làm đi đâu: theo `then`, mặc định walk → ở lại, còn lại → về chỗ. */
+export function afterMove(l: StoryLine): AfterMove {
+  return l.then ?? (l.interaction?.type === "walk" ? "stay" : "return");
+}
 
 /** Đồ vật trong truyện: lúc đầu nằm ở một cảnh (`scene`) hoặc đang được ai đó cầm (`heldBy`). */
 export const StoryObjectSchema = z.object({
@@ -93,6 +174,13 @@ export const StoryObjectSchema = z.object({
 export type StoryObject = z.infer<typeof StoryObjectSchema>;
 
 export const STORY_TRANSITIONS = ["cut", "fade", "dissolve"] as const;
+
+/**
+ * Cách nhân vật có mặt khi cảnh mở: "walk" = cả nhóm đi vào, "speaker" = chỉ người nói đầu tiên đi vào
+ * (người khác đứng sẵn), "none" = mọi người đứng sẵn. null = tự chọn (cảnh đầu "speaker", cảnh sau "none").
+ */
+export const STORY_ENTRANCES = ["walk", "speaker", "none"] as const;
+export type StoryEntrance = (typeof STORY_ENTRANCES)[number];
 
 /** Cảm xúc → nhạc nền (xem MUSIC_BY_MOOD trong buildScene). */
 export const MOODS = ["happy", "calm", "adventure", "sad", "magic", "playful"] as const;
@@ -111,11 +199,13 @@ export const StorySceneSchema = z.object({
   mood: MoodSchema.nullable().default(null),
   /** Thời điểm trong ngày → ánh sáng, bầu trời, hiệu ứng (đêm: đom đóm); null = mặc định của bối cảnh. */
   time: z.enum(["day", "morning", "sunset", "night"]).nullable().default(null),
+  /** Ai đi vào khi cảnh mở (xem STORY_ENTRANCES); null = tự chọn. */
+  entrance: z.enum(STORY_ENTRANCES).nullish(),
   lines: z.array(StoryLineSchema).min(1).max(20),
 });
 
 export const MAX_SCENES = 6;
-export const MAX_LINES = 40;
+export const MAX_LINES = 50;
 
 /**
  * Kịch bản cũ (một bối cảnh: `environment` + `lines` ở cấp gốc) → một cảnh duy nhất.
@@ -214,6 +304,14 @@ export function simulateObjects(story: Story): { states: SceneObjectState[]; iss
             location.set(a.object, scene.id);
           }
           break;
+        case "stow":
+          // Cất vào hộp: không nằm trên đất nữa (không nhặt lại được).
+          if (holder.get(a.object) !== actor) issues.push({ path, message: `"${actor}" is not holding "${a.object}" – pick it up before "stow"` });
+          else holder.delete(a.object);
+          break;
+        case "trip":
+          if (location.get(a.object) !== scene.id) issues.push({ path, message: `"${a.object}" is not lying in scene "${scene.id}" – you can only trip over an object on the ground` });
+          break;
       }
     });
   });
@@ -304,6 +402,25 @@ export function checkStory(input: unknown, registry: Registry, opts: CheckOption
       if (line.speaker !== null && !ids.has(line.speaker)) issues.push({ path: `${lp}.speaker`, message: `speaker "${line.speaker}" is not a character id (use null for narrator)` });
       else if (line.speaker !== null && !present.has(line.speaker)) issues.push({ path: `${lp}.speaker`, message: `speaker "${line.speaker}" is not in this scene's "cast"` });
       for (const l of story.languages) if (!line.text[l]) issues.push({ path: `${lp}.text.${l}`, message: `missing ${LANGUAGES[l].english} text` });
+      if (line.to && (!present.has(line.to) || line.to === line.speaker)) issues.push({ path: `${lp}.to`, message: `"to" must be another character in this scene's cast` });
+      const it = line.interaction;
+      if (it) {
+        const ip = `${lp}.interaction`;
+        const actor = it.by ?? line.speaker;
+        if (line.action) issues.push({ path: ip, message: `a line has either "action" or "interaction", not both` });
+        if (!actor) issues.push({ path: ip, message: `narrator lines cannot interact – set "by" to a character` });
+        else if (!present.has(actor)) issues.push({ path: ip, message: `"${actor}" is not in this scene's cast` });
+        if (it.with !== null && (!present.has(it.with) || it.with === actor)) issues.push({ path: `${ip}.with`, message: `"with" must be another character in this scene's cast` });
+        if (INTERACTIONS_WITH.includes(it.type) && it.with === null) issues.push({ path: `${ip}.with`, message: `"${it.type}" needs "with": the other character` });
+        if (it.type === "leave" && i !== scene.lines.length - 1) issues.push({ path: ip, message: `"leave" is only allowed on the last line of a scene` });
+      }
+      if (line.then && !line.action && !line.interaction) issues.push({ path: `${lp}.then`, message: `"then" only applies to a line with an "action" or "interaction" – use null` });
+      if (line.then === "leave") {
+        // Đã ra khỏi cảnh → không được nói / làm / được nhắc tới ở các câu sau của cảnh này.
+        const gone = lineActor(line);
+        const later = gone ? scene.lines.slice(i + 1).findIndex((l) => l.speaker === gone || lineActor(l) === gone || l.to === gone || l.action?.to === gone || l.interaction?.with === gone) : -1;
+        if (later >= 0) issues.push({ path: `${lp}.then`, message: `"${gone}" leaves the scene after this line but appears again in line ${i + 1 + later + 1} of this scene – use "stay"/"return", or remove them from the later lines` });
+      }
     });
   });
   const total = allLines(story).length;

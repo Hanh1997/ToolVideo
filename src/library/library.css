@@ -661,3 +661,114 @@ tr.r-Completed td:nth-child(3) {
   border-radius: 6px;
   background: #000;
 }
+
+/* ---------------------------------------------------------------- tạo nhân vật bằng mô tả */
+.chargen-modal {
+  width: min(1120px, 100%);
+}
+.chargen-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  align-items: start;
+}
+.chargen-body > .form {
+  border-right: 1px solid var(--line);
+}
+.chargen-side {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+}
+.chargen-side .job-panel {
+  margin-top: 0;
+}
+.chargen-previews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.chargen-previews img {
+  width: 100%;
+  border-radius: 8px;
+  background: var(--panel-2);
+}
+.chargen-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  border: 2px dashed var(--line);
+  border-radius: 10px;
+  text-align: center;
+  padding: 16px;
+}
+.chargen-example {
+  display: block;
+  margin-top: 4px;
+  text-align: left;
+  font-size: 12px;
+}
+.chargen-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px 10px;
+}
+.chargen-form h3 {
+  grid-column: 1 / -1;
+  margin: 6px 0 0;
+  font-size: 13px;
+}
+.chargen-form .wide,
+.chargen-form .chargen-colors {
+  grid-column: 1 / -1;
+}
+.chargen-check {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 6px;
+}
+.chargen-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.chargen-color {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 6px !important;
+}
+.chargen-color input {
+  width: 34px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: none;
+  cursor: pointer;
+}
+.chargen-acc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chargen-acc button {
+  font-size: 12px;
+  padding: 3px 9px;
+  border-radius: 12px;
+}
+.chargen-acc button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+@media (max-width: 860px) {
+  .chargen-body {
+    grid-template-columns: 1fr;
+  }
+  .chargen-body > .form {
+    border-right: none;
+  }
+  .chargen-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

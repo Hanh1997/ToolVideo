@@ -1,0 +1,91 @@
+{
+  "languages": ["vi"],
+  "title": { "vi": "Cùng Nhau Dọn Rác" },
+  "summary": {
+    "vi": "Hai nhóm bạn gặp nhau chơi ở công viên. Bé Bơ vứt vỏ chai bừa bãi làm Bé Mít vấp ngã. Các bạn đưa Bơ ra ao để thấy rác gây hại cho môi trường và mọi người thế nào, rồi cùng nhau dọn sạch và vui vẻ đi về nhà."
+  },
+  "music": true,
+  "mood": "playful",
+  "narratorVoice": "female",
+  "ending": "wave",
+  "characters": [
+    { "id": "ti", "asset": "char_ac_gen_be_ti", "voice": "child", "name": { "vi": "Bé Tí" }, "size": "normal" },
+    { "id": "bo", "asset": "char_ac_gen_be_bo", "voice": "squeaky", "name": { "vi": "Bé Bơ" }, "size": "normal" },
+    { "id": "mit", "asset": "char_ac_gen_be_mit", "voice": "cute", "name": { "vi": "Bé Mít" }, "size": "normal" },
+    { "id": "tun", "asset": "char_ac_gen_be_tun", "voice": "low", "name": { "vi": "Bé Tũn" }, "size": "normal" },
+    { "id": "bong", "asset": "char_ac_gen_be_bong", "voice": "soft", "name": { "vi": "Bé Bông" }, "size": "normal" }
+  ],
+  "objects": [
+    { "id": "chai", "kind": "trash_bottle", "name": { "vi": "Vỏ chai nhựa" }, "scene": null, "heldBy": "bo" },
+    { "id": "lon", "kind": "trash_can", "name": { "vi": "Vỏ lon nước" }, "scene": "bo_ao", "heldBy": null },
+    { "id": "tui", "kind": "trash_bag", "name": { "vi": "Túi ni lông" }, "scene": "bo_ao", "heldBy": null }
+  ],
+  "scenes": [
+    {
+      "id": "cong_vien",
+      "environment": "env_park",
+      "cast": ["ti", "bo", "mit", "tun", "bong"],
+      "transition": "fade",
+      "mood": "playful",
+      "time": "day",
+      "entrance": "walk",
+      "lines": [
+        { "id": "l1", "speaker": null, "emotion": "neutral", "text": { "vi": "Chiều thứ bảy, nhóm Bé Tí, Bé Bơ, Bé Mít ra công viên chơi thì gặp nhóm Bé Tũn và Bé Bông." } },
+        { "id": "l2", "speaker": "ti", "gesture": "wave", "emotion": "happy", "to": "tun", "text": { "vi": "Chào Tũn, chào Bông! Chơi cùng tụi mình nhé!" } },
+        { "id": "l3", "speaker": "tun", "gesture": "thumbsup", "emotion": "happy", "to": "ti", "text": { "vi": "Hay quá! Mình chơi đuổi bắt đi!" } },
+        { "id": "l4", "speaker": "bong", "emotion": "happy", "vocal": "laugh", "interaction": { "type": "play", "with": "mit" }, "text": { "vi": "Bắt được Mít rồi nhé!" } },
+        { "id": "l5", "speaker": "bo", "emotion": "happy", "vocal": "sigh", "text": { "vi": "Chạy mệt quá! Để mình uống hết chai nước đã." } },
+        { "id": "l6", "speaker": null, "emotion": "neutral", "action": { "type": "drop", "object": "chai", "by": "bo" }, "text": { "vi": "Uống xong, Bơ tiện tay vứt luôn vỏ chai xuống bãi cỏ." } },
+        { "id": "l7", "speaker": "bong", "gesture": "no", "emotion": "surprised", "to": "bo", "vocal": "gasp", "text": { "vi": "Ơ kìa Bơ, sao cậu lại vứt rác bừa bãi thế?" } },
+        { "id": "l8", "speaker": "bo", "gesture": "shrug", "emotion": "neutral", "to": "bong", "text": { "vi": "Có một cái vỏ chai thôi mà, có sao đâu." } },
+        { "id": "l9", "speaker": "mit", "emotion": "sad", "vocal": "ouch", "action": { "type": "trip", "object": "chai" }, "text": { "vi": "Ui da! Mình vấp phải cái chai rồi!" } },
+        { "id": "l10", "speaker": "ti", "emotion": "surprised", "to": "bo", "text": { "vi": "Mít có đau không? Đấy Bơ thấy chưa, rác vứt bừa làm bạn bị ngã đấy." } },
+        { "id": "l11", "speaker": "bong", "emotion": "neutral", "action": { "type": "pickup", "object": "chai" }, "text": { "vi": "Mình nhặt cái chai này lên đã." } },
+        { "id": "l12", "speaker": "tun", "emotion": "neutral", "interaction": { "type": "leave", "with": null }, "text": { "vi": "Bơ đi với tụi mình ra ao, xem rác đi về đâu nhé." } }
+      ]
+    },
+    {
+      "id": "bo_ao",
+      "environment": "env_polluted_pond",
+      "cast": ["ti", "bo", "mit", "tun", "bong"],
+      "transition": "fade",
+      "mood": "sad",
+      "time": "day",
+      "entrance": "walk",
+      "lines": [
+        { "id": "l13", "speaker": null, "emotion": "neutral", "text": { "vi": "Cạnh công viên có một cái ao. Mặt nước đầy rác và bốc mùi hôi khó chịu." } },
+        { "id": "l14", "speaker": "bo", "emotion": "surprised", "vocal": "gasp", "text": { "vi": "Ối, sao ở đây lại nhiều rác thế này?" } },
+        { "id": "l15", "speaker": "bong", "gesture": "point", "emotion": "sad", "to": "bo", "text": { "vi": "Rác mọi người vứt bừa, gió thổi, mưa cuốn trôi, cuối cùng đều chảy xuống ao đấy." } },
+        { "id": "l16", "speaker": "tun", "emotion": "sad", "to": "bo", "text": { "vi": "Cá tôm ăn phải túi ni lông sẽ bị chết. Nước bẩn còn sinh ra ruồi muỗi, làm mọi người bị ốm." } },
+        { "id": "l17", "speaker": "mit", "emotion": "sad", "to": "bo", "text": { "vi": "Rác còn làm công viên xấu đi, lại làm các bạn vấp ngã như mình lúc nãy nữa." } },
+        { "id": "l18", "speaker": "ti", "gesture": "think", "emotion": "neutral", "to": "bo", "text": { "vi": "Một cái chai thì nhỏ thôi, nhưng ai cũng vứt một cái thì sẽ thành cả núi rác đấy." } },
+        { "id": "l19", "speaker": "bo", "emotion": "sad", "text": { "vi": "Mình xin lỗi. Mình không biết vứt rác bừa lại có hại nhiều như vậy." } },
+        { "id": "l20", "speaker": "bong", "emotion": "happy", "interaction": { "type": "pat", "with": "bo" }, "text": { "vi": "Biết lỗi là tốt rồi. Mình cùng nhau dọn sạch chỗ này nhé!" } },
+        { "id": "l21", "speaker": "bong", "emotion": "happy", "action": { "type": "give", "object": "chai", "to": "bo" }, "text": { "vi": "Đây, cái chai của cậu này." } },
+        { "id": "l22", "speaker": "bo", "emotion": "happy", "action": { "type": "stow", "object": "chai" }, "text": { "vi": "Rác phải bỏ vào thùng rác mới đúng!" } },
+        { "id": "l23", "speaker": "tun", "emotion": "happy", "action": { "type": "pickup", "object": "lon" }, "text": { "vi": "Mình nhặt vỏ lon nước này." } },
+        { "id": "l24", "speaker": "tun", "emotion": "happy", "action": { "type": "stow", "object": "lon" }, "text": { "vi": "Bỏ vào thùng nào!" } },
+        { "id": "l25", "speaker": "mit", "emotion": "happy", "action": { "type": "pickup", "object": "tui" }, "text": { "vi": "Còn cái túi ni lông này nữa." } },
+        { "id": "l26", "speaker": "mit", "emotion": "happy", "vocal": "yay", "action": { "type": "stow", "object": "tui" }, "text": { "vi": "Xong rồi! Sạch sẽ quá!" } },
+        { "id": "l27", "speaker": "ti", "gesture": "cheer", "emotion": "happy", "text": { "vi": "Tụi mình giỏi quá! Từ nay không ai vứt rác bừa bãi nữa nhé!" } },
+        { "id": "l28", "speaker": "bo", "gesture": "thumbsup", "emotion": "happy", "text": { "vi": "Mình hứa! Thấy rác là mình sẽ nhặt bỏ vào thùng." } }
+      ]
+    },
+    {
+      "id": "ve_nha",
+      "environment": "env_meadow",
+      "cast": ["ti", "bo", "mit", "tun", "bong"],
+      "transition": "dissolve",
+      "mood": "happy",
+      "time": "sunset",
+      "entrance": "walk",
+      "lines": [
+        { "id": "l29", "speaker": null, "emotion": "neutral", "text": { "vi": "Mặt trời dần lặn. Các bạn vui vẻ cùng nhau đi về nhà." } },
+        { "id": "l30", "speaker": "bong", "emotion": "happy", "text": { "vi": "Hôm nay vui quá! Mai tụi mình lại ra công viên chơi tiếp nhé!" } },
+        { "id": "l31", "speaker": "bo", "emotion": "happy", "interaction": { "type": "hug", "with": "bong" }, "text": { "vi": "Cảm ơn các bạn đã nhắc mình nhé!" } },
+        { "id": "l32", "speaker": null, "emotion": "neutral", "text": { "vi": "Các bé ơi, hãy luôn bỏ rác đúng nơi quy định để giữ môi trường xanh, sạch, đẹp nhé!" } },
+        { "id": "l33", "speaker": "ti", "emotion": "happy", "interaction": { "type": "leave", "with": null }, "text": { "vi": "Tạm biệt! Mình về nhà thôi!" } }
+      ]
+    }
+  ]
+}

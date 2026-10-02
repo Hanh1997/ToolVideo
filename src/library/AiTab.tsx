@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { castable, characterStyle, GESTURES, LANGUAGES, normalizeStory, STORY_TRANSITIONS, VOICE_ROLES, type Format, type Lang, type RequestedCharacter, type Story, type StoryLine } from "../ai/story";
+import { AFTER_MOVES, afterMove, VOCALS, castable, characterStyle, GESTURES, LANGUAGES, INTERACTIONS, normalizeStory, STORY_ENTRANCES, STORY_TRANSITIONS, VOICE_ROLES, type Format, type Lang, type RequestedCharacter, type Story, type StoryLine } from "../ai/story";
 import type { AssetEntry } from "../schemas/asset.schema";
 import { AssetThumb } from "./AssetThumb";
 import { EMOTIONS } from "../schemas/scene.schema";
@@ -78,6 +78,37 @@ const TRANSITION_LABEL: Record<(typeof STORY_TRANSITIONS)[number], string> = {
   fade: "Tối dần (fade)",
   dissolve: "Hòa cảnh (dissolve)",
   cut: "Cắt thẳng (cut)",
+};
+
+const INTERACTION_LABEL: Record<(typeof INTERACTIONS)[number], string> = {
+  hug: "🤗 ôm",
+  highfive: "🙌 đập tay",
+  pat: "🫶 vỗ vai",
+  leave: "🚶 cùng rời đi",
+  play: "🏃 chạy chơi",
+  walk: "👣 đi tới cạnh",
+};
+
+const VOCAL_LABEL: Record<keyof typeof VOCALS, string> = {
+  laugh: "😆 cười",
+  gasp: "😮 thốt lên",
+  sigh: "😮‍💨 thở dài",
+  hmm: "🤔 hừm",
+  wow: "🤩 oa",
+  ouch: "🤕 ui da",
+  yay: "🥳 yeah",
+};
+
+const AFTER_LABEL: Record<(typeof AFTER_MOVES)[number], string> = {
+  return: "↩ xong về chỗ cũ",
+  stay: "📍 xong đứng lại",
+  leave: "🚪 xong rời cảnh",
+};
+
+const ENTRANCE_LABEL: Record<(typeof STORY_ENTRANCES)[number], string> = {
+  speaker: "Người nói đầu bước vào",
+  walk: "Cả nhóm bước vào",
+  none: "Đứng sẵn",
 };
 
 /** Bản nháp cũ (một bối cảnh) → dạng nhiều cảnh. */
@@ -213,6 +244,7 @@ function PromptForm({ status, onDraft }: { status: Status; onDraft: (d: Draft) =
   const [seconds, setSeconds] = useState(45);
   /** 0 = AI tự chọn số cảnh. */
   const [scenes, setScenes] = useState(0);
+  const [detail, setDetail] = useState<"short" | "normal" | "detailed">("detailed");
   /** Rỗng = AI tự chọn nhân vật. */
   const [cast, setCast] = useState<RequestedCharacter[]>([]);
   const [busy, setBusy] = useState(false);
@@ -230,7 +262,7 @@ function PromptForm({ status, onDraft }: { status: Status; onDraft: (d: Draft) =
     setBusy(true);
     setError(undefined);
     try {
-      onDraft(await call<Draft>("/api/ai/story", "POST", { prompt, languages, seconds, scenes: scenes || undefined, cast: cast.length ? cast : undefined }));
+      onDraft(await call<Draft>("/api/ai/story", "POST", { prompt, languages, seconds, scenes: scenes || undefined, detail, cast: cast.length ? cast : undefined }));
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -275,6 +307,12 @@ function PromptForm({ status, onDraft }: { status: Status; onDraft: (d: Draft) =
               {n === 1 ? "1 cảnh (một bối cảnh)" : `${n} cảnh`}
             </option>
           ))}
+        </select>
+        <span className="muted">Mức chi tiết:</span>
+        <select value={detail} onChange={(e) => setDetail(e.target.value as typeof detail)}>
+          <option value="short">Ngắn gọn</option>
+          <option value="normal">Vừa</option>
+          <option value="detailed">Chi tiết</option>
         </select>
         <span className="spacer" />
         <button className="primary" disabled={busy || !status.configured || prompt.trim().length < 5 || !languages.length} onClick={() => void submit()}>
@@ -373,6 +411,10 @@ function Review({ draft, status, job, onDraft, onJob }: { draft: Draft; status: 
   const [extraLangs, setExtraLangs] = useState<Lang[]>(draft.story.languages);
   const [renderLangs, setRenderLangs] = useState<Lang[]>([draft.story.languages[0]!]);
   const [format, setFormat] = useState<Format>("16x9");
+  const [resolution, setResolution] = useState<"720p" | "1080p">("1080p");
+  const [fps, setFps] = useState(25);
+  const [loudness, setLoudness] = useState<"web" | "tv">("web");
+  const [titles, setTitles] = useState(true);
   const [busy, setBusy] = useState<string>();
   const [msg, setMsg] = useState<string>();
   const [error, setError] = useState<string>();
@@ -389,6 +431,8 @@ function Review({ draft, status, job, onDraft, onJob }: { draft: Draft; status: 
     const who = a.by ? `${charName(a.by)}: ` : "";
     if (a.type === "pickup") return `${who}🤲 nhặt ${objName(a.object)}`;
     if (a.type === "give") return `${who}🎁 trao ${objName(a.object)} → ${charName(a.to)}`;
+    if (a.type === "stow") return `${who}📦 cất ${objName(a.object)} vào hộp`;
+    if (a.type === "trip") return `${who}💥 vấp phải ${objName(a.object)}`;
     return `${who}⬇ đặt ${objName(a.object)} xuống`;
   };
   const charName = (id: string | null) => (id ? (story.characters.find((c) => c.id === id)?.name[lang] ?? id) : "🎙 Người dẫn chuyện");
@@ -433,7 +477,7 @@ function Review({ draft, status, job, onDraft, onJob }: { draft: Draft; status: 
         await call<Draft>(`/api/ai/drafts/${draft.id}`, "PUT", { story });
         setDirty(false);
       }
-      await call<{ id: string }>("/api/ai/approve", "POST", { draftId: draft.id, story, languages: renderLangs, format });
+      await call<{ id: string }>("/api/ai/approve", "POST", { draftId: draft.id, story, languages: renderLangs, format, resolution, fps, loudness, titles });
       onJob(await call<AiJob>("/api/ai/job"));
     });
   };
@@ -555,6 +599,23 @@ function Review({ draft, status, job, onDraft, onJob }: { draft: Draft; status: 
                   </select>
                 </>
               )}
+              <span className="muted">Mở cảnh:</span>
+              <select
+                value={sc.entrance ?? ""}
+                onChange={(e) =>
+                  edit((s) => {
+                    s.scenes[si]!.entrance = (e.target.value || null) as (typeof STORY_ENTRANCES)[number] | null;
+                    return s;
+                  })
+                }
+              >
+                <option value="">Tự động ({si === 0 ? ENTRANCE_LABEL.speaker : ENTRANCE_LABEL.none})</option>
+                {STORY_ENTRANCES.map((t) => (
+                  <option key={t} value={t}>
+                    {ENTRANCE_LABEL[t]}
+                  </option>
+                ))}
+              </select>
               <span className="muted small">Có mặt: {sc.cast.map((id) => charName(id)).join(", ")}</span>
             </div>
             <div className="data-grid-wrap ai-lines">
@@ -566,6 +627,7 @@ function Review({ draft, status, job, onDraft, onJob }: { draft: Draft; status: 
                     <th>Cử chỉ</th>
                     <th>Cảm xúc</th>
                     {hasActions && <th>Hành động</th>}
+                    <th>Tương tác</th>
                     <th>Lời thoại ({LANGUAGES[lang].label})</th>
                   </tr>
                 </thead>
@@ -609,8 +671,89 @@ function Review({ draft, status, job, onDraft, onJob }: { draft: Draft; status: 
                             </option>
                           ))}
                         </select>
+                        {line.speaker && (
+                          <select
+                            title="Âm thanh không lời trước câu (không hiện phụ đề)"
+                            value={line.vocal ?? ""}
+                            onChange={(e) =>
+                              edit((s) => {
+                                s.scenes[si]!.lines[i]!.vocal = (e.target.value || null) as StoryLine["vocal"];
+                                return s;
+                              })
+                            }
+                          >
+                            <option value="">— không lời —</option>
+                            {(Object.keys(VOCALS) as (keyof typeof VOCALS)[]).map((v) => (
+                              <option key={v} value={v}>
+                                {VOCAL_LABEL[v]}
+                              </option>
+                            ))}
+                          </select>
+                        )}
                       </td>
                       {hasActions && <td className="small">{actionLabel(line)}</td>}
+                      <td className="small">
+                        <select
+                          value={line.interaction?.type ?? ""}
+                          disabled={!!line.action}
+                          onChange={(e) =>
+                            edit((s) => {
+                              const l = s.scenes[si]!.lines[i]!;
+                              const type = e.target.value as (typeof INTERACTIONS)[number] | "";
+                              const actor = l.interaction?.by ?? l.speaker;
+                              const other = l.interaction?.with ?? sc.cast.find((c) => c !== actor) ?? null;
+                              l.interaction = type ? { type, with: type === "leave" ? (l.interaction?.with ?? null) : other, by: l.interaction?.by ?? null } : null;
+                              if (!type || type === "leave") l.then = null;
+                              return s;
+                            })
+                          }
+                        >
+                          <option value="">—</option>
+                          {INTERACTIONS.filter((t) => t !== "leave" || i === sc.lines.length - 1).map((t) => (
+                            <option key={t} value={t}>
+                              {INTERACTION_LABEL[t]}
+                            </option>
+                          ))}
+                        </select>
+                        {line.interaction && (
+                          <select
+                            value={line.interaction.with ?? ""}
+                            onChange={(e) =>
+                              edit((s) => {
+                                s.scenes[si]!.lines[i]!.interaction!.with = e.target.value || null;
+                                return s;
+                              })
+                            }
+                          >
+                            {line.interaction.type === "leave" && <option value="">cả nhóm</option>}
+                            {sc.cast
+                              .filter((c) => c !== (line.interaction!.by ?? line.speaker))
+                              .map((c) => (
+                                <option key={c} value={c}>
+                                  với {charName(c)}
+                                </option>
+                              ))}
+                          </select>
+                        )}
+                        {(line.action || (line.interaction && line.interaction.type !== "leave" && line.interaction.type !== "play")) && (
+                          <select
+                            title="Người làm tương tác làm gì sau câu này"
+                            value={afterMove(line)}
+                            onChange={(e) =>
+                              edit((s) => {
+                                s.scenes[si]!.lines[i]!.then = e.target.value as (typeof AFTER_MOVES)[number];
+                                return s;
+                              })
+                            }
+                          >
+                            {AFTER_MOVES.map((m) => (
+                              <option key={m} value={m}>
+                                {AFTER_LABEL[m]}
+                              </option>
+                            ))}
+                          </select>
+                        )}
+                      </td>
                       <td className="ai-text">
                         <textarea
                           rows={2}
@@ -668,6 +811,22 @@ function Review({ draft, status, job, onDraft, onJob }: { draft: Draft; status: 
             <option value="16x9">16:9 (YouTube)</option>
             <option value="9x16">9:16 (Shorts/TikTok)</option>
           </select>
+          <select value={resolution} onChange={(e) => setResolution(e.target.value as typeof resolution)} title="Độ phân giải">
+            <option value="1080p">1080p (Full HD)</option>
+            <option value="720p">720p (nhanh)</option>
+          </select>
+          <select value={fps} onChange={(e) => setFps(Number(e.target.value))} title="Khung hình / giây">
+            <option value={24}>24 fps (điện ảnh)</option>
+            <option value={25}>25 fps (truyền hình)</option>
+            <option value={30}>30 fps (web)</option>
+          </select>
+          <select value={loudness} onChange={(e) => setLoudness(e.target.value as typeof loudness)} title="Chuẩn độ to">
+            <option value="web">Âm lượng web (-14 LUFS)</option>
+            <option value="tv">Âm lượng TV (-23 LUFS)</option>
+          </select>
+          <label className="muted">
+            <input type="checkbox" checked={titles} onChange={(e) => setTitles(e.target.checked)} /> Tên phim & danh sách cuối
+          </label>
           <span className="spacer" />
           <button className="primary" disabled={!!busy || running || !renderLangs.length} onClick={approve}>
             {busy === "approve" ? "Đang gửi…" : running ? "Đang dựng video khác…" : `✓ Duyệt & dựng ${renderLangs.length} video`}

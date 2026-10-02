@@ -16,6 +16,7 @@ import { ALL_EXTENSIONS } from "@gltf-transform/extensions";
 import { dedup, prune, textureCompress } from "@gltf-transform/functions";
 import sharp from "sharp";
 import { buildAliases, stripClipPrefixes } from "../../src/assets/clipAliases";
+import { computeFootprint } from "./footprint";
 import { AssetEntrySchema, COMMERCIAL_LICENSES, RegistrySchema, type AssetEntry, type Registry } from "../../src/schemas/asset.schema";
 
 export const ROOT = resolve(import.meta.dirname, "../..");
@@ -169,6 +170,7 @@ export async function importAssets(files: string[], o: ImportOptions): Promise<I
         tags: [...new Set([...guessTags(stem, o.type), ...(o.tags ?? [])])],
         pack: o.pack,
         ...(o.type === "character" ? { defaultClip: aliases.idle ?? clips[0], clips, clipAliases: aliases } : {}),
+        ...(o.type === "character" ? { footprint: computeFootprint(doc, { height: o.height, scale: o.scale, headingOffset: o.headingOffset }) } : {}),
         ...(o.type === "character" && aliases.walk
           ? { suggestedSpeed: { [aliases.walk]: 1.2, ...(aliases.run && aliases.run !== aliases.walk ? { [aliases.run]: 3.2 } : {}) } }
           : {}),

@@ -2,11 +2,12 @@ import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import { resolve } from "node:path";
 import { aiApi } from "./server/aiApi.ts";
+import { characterApi } from "./server/characterApi.ts";
 import { libraryApi } from "./server/libraryApi.ts";
 import { projectsApi } from "./server/projectsApi.ts";
 
 export default defineConfig({
-  plugins: [react(), projectsApi({ projectsDir: resolve(import.meta.dirname, "projects") }), libraryApi(), aiApi()],
+  plugins: [react(), projectsApi({ projectsDir: resolve(import.meta.dirname, "projects") }), libraryApi(), aiApi(), characterApi()],
   build: {
     rollupOptions: {
       input: {
